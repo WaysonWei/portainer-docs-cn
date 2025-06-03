@@ -8,18 +8,18 @@ From the menu select **Custom Templates** to view a list of custom templates you
 
 You can create a new template.
 
-{% content-ref url="add.md" %}
+
 [add.md](add.md)
-{% endcontent-ref %}
+
 
 You can also edit an existing template.
 
-{% content-ref url="edit.md" %}
+
 [edit.md](edit.md)
-{% endcontent-ref %}
+
 
 And, if you no longer need a custom template, you can simply remove it.
 
-{% content-ref url="remove.md" %}
+
 [remove.md](remove.md)
-{% endcontent-ref %}
+

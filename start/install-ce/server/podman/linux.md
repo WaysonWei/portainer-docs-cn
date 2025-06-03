@@ -69,6 +69,6 @@ Replace `localhost` with the relevant IP address or FQDN if needed, and adjust t
 
 You will be presented with the initial setup page for Portainer Server.
 
-{% content-ref url="../../../install/server/setup.md" %}
+
 [setup.md](../../../install-ce/server/setup.md)
-{% endcontent-ref %}
+

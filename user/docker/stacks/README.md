@@ -10,26 +10,26 @@ You can click the **Reload image indicators** button to recheck the images for y
 
 For more on how this works, have a look at [this knowledge base article](https://portal.portainer.io/knowledge/how-does-the-image-update-notification-icon-work).
 
-{% content-ref url="add.md" %}
+
 [add.md](add.md)
-{% endcontent-ref %}
 
-{% content-ref url="edit.md" %}
+
+
 [edit.md](edit.md)
-{% endcontent-ref %}
 
-{% content-ref url="template.md" %}
+
+
 [template.md](template.md)
-{% endcontent-ref %}
 
-{% content-ref url="webhooks.md" %}
+
+
 [webhooks.md](webhooks.md)
-{% endcontent-ref %}
 
-{% content-ref url="migrate.md" %}
+
+
 [migrate.md](migrate.md)
-{% endcontent-ref %}
 
-{% content-ref url="remove.md" %}
+
+
 [remove.md](remove.md)
-{% endcontent-ref %}
+

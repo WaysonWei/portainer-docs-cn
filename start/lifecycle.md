@@ -90,9 +90,9 @@ Portainer uses the [semantic versioning scheme](https://semver.org/) and while P
 
 For information on the available options and best practices for updating Portainer deployments, [refer to our update documentation](upgrade/).
 
-{% content-ref url="requirements-and-prerequisites.md" %}
+
 [requirements-and-prerequisites.md](requirements-and-prerequisites.md)
-{% endcontent-ref %}
+
 
 
 

@@ -8,6 +8,6 @@ For management of user roles in Portainer Business Edition, refer to the [Roles]
 
 <figure><img src="../../.gitbook/assets/2.20-users.png" alt=""><figcaption></figcaption></figure>
 
-{% content-ref url="add.md" %}
+
 [add.md](add.md)
-{% endcontent-ref %}
+

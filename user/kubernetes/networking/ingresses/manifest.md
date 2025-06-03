@@ -12,6 +12,6 @@ From the menu expand **Networking**, select **Ingresses** then click **Create fr
 
 From here you can follow the instructions for adding from a manifest.
 
-{% content-ref url="../../applications/manifest.md" %}
+
 [manifest.md](../../applications/manifest.md)
-{% endcontent-ref %}
+

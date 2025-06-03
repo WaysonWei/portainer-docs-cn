@@ -6,13 +6,13 @@ In Kubernetes, a volume is an abstraction of a file system that is available to 
 Volumes can also be added [using a manifest](../applications/manifest.md) by clicking **Create from manifest**.
 
 
-{% content-ref url="inspect.md" %}
-[inspect.md](inspect.md)
-{% endcontent-ref %}
 
-{% content-ref url="../../docker/volumes/remove.md" %}
+[inspect.md](inspect.md)
+
+
+
 [remove.md](../../docker/volumes/remove.md)
-{% endcontent-ref %}
+
 
 ## Volumes tab
 

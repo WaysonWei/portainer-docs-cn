@@ -6,12 +6,12 @@ An application template lets you deploy a container (or a stack of containers) t
 
 Portainer supports templates of both individual containers and stacks of containers.
 
-{% content-ref url="deploy-stack.md" %}
-[deploy-stack.md](deploy-stack.md)
-{% endcontent-ref %}
 
-{% content-ref url="deploy-container.md" %}
+[deploy-stack.md](deploy-stack.md)
+
+
+
 [deploy-container.md](deploy-container.md)
-{% endcontent-ref %}
+
 
 By default, Portainer provides a pre-built set of app templates, but you are free to modify or [replace these with your own](../../../advanced/app-templates/build.md). You can also create your own custom templates either manually or from an existing stack.

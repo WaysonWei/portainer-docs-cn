@@ -8,10 +8,10 @@ Portainer connects to your infrastructure and deploy Kubernetes and the Portaine
 
 At present, we support deploying Talos Kubernetes via Omni and MicroK8s via SSH:
 
-{% content-ref url="omni.md" %}
-[omni.md](omni.md)
-{% endcontent-ref %}
 
-{% content-ref url="microk8s/" %}
+[omni.md](omni.md)
+
+
+
 [microk8s](microk8s/)
-{% endcontent-ref %}
+

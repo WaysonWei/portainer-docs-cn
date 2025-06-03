@@ -20,9 +20,9 @@ A ConfigMap with the **external** flag was created outside of Portainer, which m
 
 To add a new ConfigMap via a form, click the **Add with form** button. To add via a manifest, click **Create from manifest**.
 
-{% content-ref url="add.md" %}
+
 [add.md](add.md)
-{% endcontent-ref %}
+
 
 To remove a ConfigMap, check the box next to the ConfigMap you want to remove and click the **Remove** button.
 
@@ -38,8 +38,8 @@ A secret with the **external** flag was created outside of Portainer, which mean
 
 To add a new secret via a form, click the **Add with form** button. To add via a manifest, click **Create from manifest**.
 
-{% content-ref url="add-1.md" %}
+
 [add-1.md](add-1.md)
-{% endcontent-ref %}
+
 
 To remove a secret, check the box next to the secret you want to remove and click the **Remove** button.

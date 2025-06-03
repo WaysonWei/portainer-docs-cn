@@ -4,13 +4,13 @@ Portainer lets you add, remove and manage networks in your environment.
 
 <figure><img src="../../../.gitbook/assets/2.20-networks-list.png" alt=""><figcaption></figcaption></figure>
 
-{% content-ref url="add.md" %}
-[add.md](add.md)
-{% endcontent-ref %}
 
-{% content-ref url="remove.md" %}
+[add.md](add.md)
+
+
+
 [remove.md](remove.md)
-{% endcontent-ref %}
+
 
 ## Supported network types
 

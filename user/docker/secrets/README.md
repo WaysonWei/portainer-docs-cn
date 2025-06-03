@@ -22,13 +22,13 @@ For less sensitive data or larger content, see [configs](../configs/).
 
 In Portainer you can add and remove secrets for use in deployments.
 
-{% content-ref url="add.md" %}
-[add.md](add.md)
-{% endcontent-ref %}
 
-{% content-ref url="remove.md" %}
+[add.md](add.md)
+
+
+
 [remove.md](remove.md)
-{% endcontent-ref %}
+
 
 
 

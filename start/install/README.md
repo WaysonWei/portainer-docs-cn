@@ -12,10 +12,10 @@ For a detailed, step-by-step guide to setting up Portainer for production, have 
 If you haven't already, please check that your environments meet [our requirements](../requirements-and-prerequisites.md) before proceeding.
 
 
-{% content-ref url="server/" %}
-[server](server/)
-{% endcontent-ref %}
 
-{% content-ref url="../agent.md" %}
+[server](server/)
+
+
+
 [agent.md](../agent.md)
-{% endcontent-ref %}
+

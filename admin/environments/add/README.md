@@ -12,7 +12,7 @@ Or alternatively set up new environments:
 
 You can also add environments via the Portainer API.
 
-{% content-ref url="api.md" %}
+
 [api.md](api.md)
-{% endcontent-ref %}
+
 

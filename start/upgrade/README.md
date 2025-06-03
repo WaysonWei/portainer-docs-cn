@@ -40,21 +40,21 @@ Remember to [back up your Portainer installation](../../admin/settings/#backup-p
 
 If you would prefer to manually update your Portainer installation, choose your platform then follow the instructions:
 
-{% content-ref url="docker.md" %}
+
 [docker.md](docker.md)
-{% endcontent-ref %}
 
-{% content-ref url="swarm.md" %}
+
+
 [swarm.md](swarm.md)
-{% endcontent-ref %}
 
-{% content-ref url="podman.md" %}
+
+
 [podman.md](podman.md)
-{% endcontent-ref %}
 
-{% content-ref url="kubernetes.md" %}
+
+
 [kubernetes.md](kubernetes.md)
-{% endcontent-ref %}
+
 
 ### Update the Portainer Agent
 
@@ -62,14 +62,14 @@ To update the standard (non-Edge) Portainer Agent, you can find instructions in 
 
 If you are using the Portainer Edge Agent, we have specific update instructions for you:
 
-{% content-ref url="edge.md" %}
+
 [edge.md](edge.md)
-{% endcontent-ref %}
+
 
 ### Upgrading to Business Edition
 
 If you are coming from Portainer CE or the 1.24.x branch, we have guides for you as well.
 
-{% content-ref url="tobe/" %}
+
 [tobe](tobe/)
-{% endcontent-ref %}
+

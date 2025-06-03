@@ -10,11 +10,11 @@ Docker 17.06 introduced swarm service configs which allow you to store non-sensi
 
 In Portainer you can add and remove custom configurations for use in deployments.
 
-{% content-ref url="add.md" %}
-[add.md](add.md)
-{% endcontent-ref %}
 
-{% content-ref url="remove.md" %}
+[add.md](add.md)
+
+
+
 [remove.md](remove.md)
-{% endcontent-ref %}
+
 

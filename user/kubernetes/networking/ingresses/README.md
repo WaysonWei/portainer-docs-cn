@@ -12,16 +12,16 @@ All the Ingresses that a user has access to are listed on this page.&#x20;
 
 New Ingress objects can be created either manually or through a manifest:
 
-{% content-ref url="add.md" %}
-[add.md](add.md)
-{% endcontent-ref %}
 
-{% content-ref url="manifest.md" %}
+[add.md](add.md)
+
+
+
 [manifest.md](manifest.md)
-{% endcontent-ref %}
+
 
 If you no longer require an Ingress, it can be removed:
 
-{% content-ref url="remove-an-ingress.md" %}
+
 [remove-an-ingress.md](remove-an-ingress.md)
-{% endcontent-ref %}
+

@@ -6,19 +6,19 @@ The **Container Instances** page allows you to interact with containers in your 
 
 You can click on a container name to view details about that container.
 
-{% content-ref url="details.md" %}
+
 [details.md](details.md)
-{% endcontent-ref %}
+
 
 From this page you can add a new container or remove existing containers:
 
-{% content-ref url="add.md" %}
-[add.md](add.md)
-{% endcontent-ref %}
 
-{% content-ref url="remove.md" %}
+[add.md](add.md)
+
+
+
 [remove.md](remove.md)
-{% endcontent-ref %}
+
 
 
 

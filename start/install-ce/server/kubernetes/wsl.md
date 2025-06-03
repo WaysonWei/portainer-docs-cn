@@ -168,6 +168,6 @@ Replace `<loadbalancer IP>` with the IP address or FQDN of the load balancer, an
 
 You will be presented with the initial setup page for Portainer Server.
 
-{% content-ref url="../setup.md" %}
+
 [setup.md](../setup.md)
-{% endcontent-ref %}
+

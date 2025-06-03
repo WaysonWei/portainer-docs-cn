@@ -4,23 +4,23 @@ A registry is a repository of container images that can be pulled and deployed o
 
 <figure><img src="../../.gitbook/assets/2.15-admin-registries.png" alt=""><figcaption></figcaption></figure>
 
-{% content-ref url="add/" %}
-[add](add/)
-{% endcontent-ref %}
 
-{% content-ref url="add/custom.md" %}
+[add](add/)
+
+
+
 [custom.md](add/custom.md)
-{% endcontent-ref %}
+
 
 With Portainer Business Edition you can also browse and manage your registries within Portainer itself.
 
-{% content-ref url="browse.md" %}
-[browse.md](browse.md)
-{% endcontent-ref %}
 
-{% content-ref url="manage.md" %}
+[browse.md](browse.md)
+
+
+
 [manage.md](manage.md)
-{% endcontent-ref %}
+
 
 ## Hiding anonymous Docker Hub
 

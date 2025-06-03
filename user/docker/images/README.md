@@ -6,21 +6,21 @@ Images are what is used to build containers. Each image defines the pieces requi
 
 You can pull images from Docker Hub or any other [registry](../../../admin/registries/add/):
 
-{% content-ref url="pull.md" %}
+
 [pull.md](pull.md)
-{% endcontent-ref %}
+
 
 You can also view a list of the images that are currently available in an environment, including their IDs, usage states, tags, sizes and creation dates. There are many other options available:
 
-{% content-ref url="build.md" %}
+
 [build.md](build.md)
-{% endcontent-ref %}
 
-{% content-ref url="import.md" %}
+
+
 [import.md](import.md)
-{% endcontent-ref %}
 
-{% content-ref url="export.md" %}
+
+
 [export.md](export.md)
-{% endcontent-ref %}
+
 

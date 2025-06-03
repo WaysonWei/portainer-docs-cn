@@ -171,10 +171,10 @@ The Portainer Edge Agent does not require any open ports.
 All ports can be changed during installation.
 
 
-{% content-ref url="install/" %}
-[install](install/)
-{% endcontent-ref %}
 
-{% content-ref url="install-ce/" %}
+[install](install/)
+
+
+
 [install-ce](install-ce/)
-{% endcontent-ref %}
+

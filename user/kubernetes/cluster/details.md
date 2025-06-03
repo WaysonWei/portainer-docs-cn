@@ -73,13 +73,13 @@ On Talos Kubernetes or MicroK8s environments provisioned with the [Create a Kube
 
 If you need to adjust elements of your Kubernetes configuration you can do so by selecting **Setup** in the left menu.
 
-{% content-ref url="setup.md" %}
+
 [setup.md](setup.md)
-{% endcontent-ref %}
+
 
 If you would like to define security constraints on the pods in your environment, select **Security constraints**.
 
-{% content-ref url="security.md" %}
+
 [security.md](security.md)
-{% endcontent-ref %}
+
 

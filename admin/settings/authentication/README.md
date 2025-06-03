@@ -10,17 +10,17 @@ When using internal authentication, an administrator can set the minimum length 
 
 <figure><img src="../../../.gitbook/assets/2.15-settings-authentication.png" alt=""><figcaption></figcaption></figure>
 
-{% content-ref url="ldap.md" %}
+
 [ldap.md](ldap.md)
-{% endcontent-ref %}
 
-{% content-ref url="active-directory.md" %}
+
+
 [active-directory.md](active-directory.md)
-{% endcontent-ref %}
 
-{% content-ref url="oauth.md" %}
+
+
 [oauth.md](oauth.md)
-{% endcontent-ref %}
+
 
 
 
