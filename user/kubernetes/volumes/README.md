@@ -2,9 +2,9 @@
 
 In Kubernetes, a volume is an abstraction of a file system that is available to applications. In Portainer you can manage the volumes that have been deployed by your applications within your cluster.
 
-{% hint style="info" %}
+
 Volumes can also be added [using a manifest](../applications/manifest.md) by clicking **Create from manifest**.
-{% endhint %}
+
 
 {% content-ref url="inspect.md" %}
 [inspect.md](inspect.md)

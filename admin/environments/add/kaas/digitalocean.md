@@ -2,9 +2,9 @@
 
 Select the **DigitalOcean** option from the list of providers. If you haven't already provided your DigitalOcean API token you'll be asked to provide credentials. Provide a **name** for your credentials and paste your DigitalOcean API token into the **API key** field and click **Add credentials**.
 
-{% hint style="info" %}
+
 You can find more details on [setting up access to your DigitalOcean account](../../../settings/credentials/digitalocean.md) in the [shared credentials documentation](../../../settings/credentials/).
-{% endhint %}
+
 
 <figure><img src="../../../../.gitbook/assets/2.21.2-kaas-create-digitalocean-creds.png" alt=""><figcaption></figcaption></figure>
 
@@ -19,9 +19,9 @@ Once you have added your credentials (or if you already had them set up) select 
 | Node count         | Enter the number of nodes to provision in your cluster.              |
 | Kubernetes version | Select the version of Kubernetes you want to deploy on your cluster. |
 
-{% hint style="info" %}
+
 You can manually refresh the options available from DigitalOcean by clicking **Reload cluster details** under the **Actions** section.
-{% endhint %}
+
 
 <figure><img src="../../../../.gitbook/assets/2.21.2-kaas-create-digitalocean-cluster.png" alt=""><figcaption></figcaption></figure>
 

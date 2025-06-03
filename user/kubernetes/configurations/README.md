@@ -2,9 +2,9 @@
 
 In Portainer you can create configurations outside of a service's image or running containers. This allows you to keep your images as generic as possible, without the need to bind-mount configuration files into the containers, or to use environment variables.
 
-{% hint style="info" %}
+
 This section was previously known as **Configurations**.
-{% endhint %}
+
 
 This page is split into two tabs - [ConfigMaps](./#configmaps) and [Secrets](./#secrets).
 

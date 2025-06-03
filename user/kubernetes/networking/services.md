@@ -12,6 +12,6 @@ All the services the user has access to are listed on this page.
 
 For each service, the list displays the **name** of the service, the **application** and **namespace** the service belongs to, the **type** of service, the exposed **ports** and **target ports**, the **cluster IP** and **external IP** (if any) and the **creation date** and **user** (if available). Services provisioned externally to Portainer are marked with the **external** label, and system services are marked with the **system** label.&#x20;
 
-{% hint style="info" %}
+
 The display of system services can be toggled under the table settings (click the three dots at the top right of the table and tick **Show system resources**.
-{% endhint %}
+

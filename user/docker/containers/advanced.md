@@ -38,9 +38,9 @@ Here you can configure volume mappings for your container. You can map to [exist
 
 In this section you can configure the network settings for the container.&#x20;
 
-{% hint style="warning" %}
+
 Note that you cannot assign a static IP address to a container that is in Docker's default `bridge` network. This is a Docker limitation rather than Portainer. If you need to specify the IP for your container then you will need to [create a custom network](../networks/add.md) and assign the container to it.
-{% endhint %}
+
 
 | Field/Option         | Overview                                                                                                                                                                        |
 | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -114,9 +114,9 @@ Here you can configure runtime options for the container.
 
 Here you can enable GPU access for the container and configure the GPU settings as required.
 
-{% hint style="info" %}
+
 GPU support is currently only available on Docker Standalone environments, and only supports NVIDIA GPUs.
-{% endhint %}
+
 
 | Field/Option | Overview                                                                                                                                                            |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

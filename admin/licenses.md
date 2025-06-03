@@ -22,9 +22,9 @@ Once you have obtained your new license key, to add it to Portainer click **Add 
 
 To remove a license (for example when you want to remove an expired license), tick the box next to the license and click **Remove**. You will be asked to confirm the removal.
 
-{% hint style="warning" %}
+
 Ensure you have enough licenses to cover the number of nodes you are using before committing to the removal. For more on how nodes are calculated, refer to [this knowledge base article](https://portal.portainer.io/knowledge/what-is-a-node-for-licensing-purposes).
-{% endhint %}
+
 
 <figure><img src="../.gitbook/assets/2.19-licenses-remove.png" alt=""><figcaption></figcaption></figure>
 

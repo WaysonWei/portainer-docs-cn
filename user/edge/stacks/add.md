@@ -10,9 +10,9 @@ Give the stack a descriptive name then select one or more [Edge Groups](../group
 
 In **Deployment type**, select the type of deployment you are performing.
 
-{% hint style="info" %}
+
 This may be auto-selected based on the environments in your choice of [Edge Groups](../groups.md).
-{% endhint %}
+
 
 <figure><img src="../../../.gitbook/assets/2.20-edge-stacks-add-deploymenttype.png" alt=""><figcaption></figcaption></figure>
 
@@ -31,9 +31,9 @@ In the **Build Method**, define how to deploy your app from one of the following
 
 Use the web editor to define the services for your deployment.
 
-{% hint style="info" %}
+
 You can search within the web editor at any time by pressing `Ctrl-F` (or `Cmd-F` on Mac).
-{% endhint %}
+
 
 <figure><img src="../../../.gitbook/assets/2.19-edge-stacks-edit-webeditor.png" alt=""><figcaption></figcaption></figure>
 
@@ -47,9 +47,9 @@ Click **Select a file** to upload a file from your computer containing your stac
 
 Enter the information about your Git repository to deploy your Edge Stack from Git.
 
-{% hint style="warning" %}
+
 Portainer's Git deployment functionality does not currently support the use of Git submodules. If your repository includes submodules, they will not be pulled as part of the deployment. We [hope to add support](https://github.com/orgs/portainer/discussions/9767) for submodules in a future release.
-{% endhint %}
+
 
 | Field/Option          | Overview                                                                                                                         |
 | --------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
@@ -59,9 +59,9 @@ Portainer's Git deployment functionality does not currently support the use of G
 | Personal Access Token | Enter your personal access token or password.                                                                                    |
 | Save credential       | Check this option to save the credentials entered above for future use under the name provided in the **credential name** field. |
 
-{% hint style="info" %}
+
 If you have 2FA configured in GitHub, your passcode is your password.
-{% endhint %}
+
 
 <figure><img src="../../../.gitbook/assets/2.19-edge-stacks-add-git-auth.png" alt=""><figcaption></figcaption></figure>
 
@@ -80,9 +80,9 @@ If you have 2FA configured in GitHub, your passcode is your password.
 
 Portainer supports automatically updating your Edge Stacks deployed from Git repositories. To enable this, toggle on **GitOps updates** and configure your settings.
 
-{% hint style="info" %}
+
 For more detail on how automatic updates function under the hood, have a look at [this knowledge base article](https://portal.portainer.io/knowledge/how-do-automatic-updates-for-stacks-applications-work).
-{% endhint %}
+
 
 | Field/Option   | Overview                                                                                                                                                                                                                                                                            |
 | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -106,51 +106,51 @@ For more detail on how automatic updates function under the hood, have a look at
 
 When you toggle **Enable relative path volumes** to on, you are able to specify relative path references in your compose files. Portainer will create the required directory structure and populate the directories with the relevant files from your Git repository. This feature is only available for Docker Standalone and Docker Swarm environments.
 
-{% hint style="info" %}
+
 If you have previously enabled [GitOps Edge configurations](add.md#gitops-edge-configurations), the filesystem path set there will be used for the relative path volumes feature as well.
-{% endhint %}
+
 
 On Docker Standalone environments, specify the path at which you want your files to be created on your host filesystem in the **Local filesystem path** field.
 
-{% hint style="warning" %}
+
 Ensure this directory exists on your local filesystem and is writable.
-{% endhint %}
+
 
 <figure><img src="../../../.gitbook/assets/2.17-stacks-add-relativepath.png" alt=""><figcaption></figcaption></figure>
 
 On Docker Swarm environments, specify the path at which you want your files to be created in the **Network filesystem path** field.
 
-{% hint style="warning" %}
+
 Ensure that this path is available on all of your Docker Swarm nodes and is writable.
-{% endhint %}
+
 
 <figure><img src="../../../.gitbook/assets/2.17-stacks-add-relativepath-swarm.png" alt=""><figcaption></figcaption></figure>
 
-{% hint style="info" %}
+
 For more detail on how this feature works, have a look at [this article](../../../advanced/relative-paths.md).
-{% endhint %}
+
 
 ### GitOps Edge configurations
 
 You can also choose to deploy device-specific configurations from your Git repository to the devices your Edge stack will be deployed to. To use this, enable the **GitOps Edge configurations** toggle, enter the **Local** or **Remote filesystem path**, **Directory** (relative to the root of your Git repository) and select the **Device** or **Group matching rule** that corresponds to your configuration.
 
-{% hint style="info" %}
+
 If you have previously enabled [Relative path volumes](add.md#relative-path-volumes), the filesystem path set there will be used for the GitOps Edge configurations feature as well.
-{% endhint %}
+
 
 <figure><img src="../../../.gitbook/assets/2.20-edge-stacks-add-git-edgeconfigs.png" alt=""><figcaption></figcaption></figure>
 
-{% hint style="info" %}
+
 If you set both a **Device matching rule** and a **Group matching rule**, the Device matching rule will take precedence. If the Device matching rule cannot be matched (in other words, if a file or folder name matching the device name is then unable to be located), Portainer will fall back to the Group matching rule instead.
-{% endhint %}
+
 
 Within your Git repository at the **Directory** you define, you should have file names or folder names (depending on your **Matching rule** selection) that correspond to the Portainer Edge IDs or Edge Group for the devices you will be deploying the stack to. You can reference this ID in your stack files with the `PORTAINER_EDGE_ID` and `PORTAINER_EDGE_GROUP` environment variables.&#x20;
 
-{% hint style="info" %}
+
 You can find the Edge IDs for your Edge environments under **Environments**, select the environment, and note the **Edge identifier** value in the **Edge information** box. It will look like the following:
 
 `73149964-56f4-473b-81b3-5ecdc397e490`
-{% endhint %}
+
 
 For example, when using folder name matching and a directory of `config` , you can use the following syntax:
 
@@ -180,9 +180,9 @@ Select an Edge Stack template to deploy from the **Template** dropdown, and make
 
 For the Web editor, Upload and Template build methods you can choose to enable an Edge Stack webhook. This webhook will allow you to trigger updates to the stack by sending a POST request to a specific URL, instructing Portainer to pull the most up to date version of the associated image and re-deploy the stack.
 
-{% hint style="info" %}
+
 For Git deployed stacks, this functionality is available via [GitOps updates](add.md#gitops-updates).
-{% endhint %}
+
 
 <figure><img src="../../../.gitbook/assets/2.19-edge-stacks-add-webhook.png" alt=""><figcaption></figcaption></figure>
 
@@ -190,9 +190,9 @@ For Git deployed stacks, this functionality is available via [GitOps updates](ad
 
 As an optional step, you can also set environment variables. You can use these to define values in your compose file that would vary between deployments (for example, hostnames, database names, etc).
 
-{% hint style="info" %}
+
 This feature is only available on Docker Standalone and Docker Swarm environments.
-{% endhint %}
+
 
 Environment variables can be set individually within Portainer or you can use **Load variables from .env file** to upload a file containing your environment variables. Environment variables you define (either individually or via a .env file) will be available to use in your compose file using an `environment` definition:
 
@@ -208,9 +208,9 @@ env_file:
   - stack.env
 ```
 
-{% hint style="info" %}
+
 Note the compose file is not changed when environment variables are used - this allows variables to be updated within Portainer without editing the compose file itself which would take it out of sync with the Git repository. You will still see the `${MY_ENVIRONMENT_VARIABLE}` style entry in the compose file.
-{% endhint %}
+
 
 <figure><img src="../../../.gitbook/assets/2.15-docker_stack_wed_editor_env_var.png" alt=""><figcaption></figcaption></figure>
 
@@ -238,9 +238,9 @@ When the time selected in **Retry for** is reached, Portainer will stop retrying
 
 This section lets you define the method in which your stack updates are deployed across your Edge devices. You can choose to deploy to **All edge devices at once**, or select **Parallel edge device(s)** to specify how many devices to update concurrently.
 
-{% hint style="warning" %}
+
 These settings do **not** apply to the _initial_ provision of your Edge Stack. These only apply to the process that will occur when your stack is updated _after_ deployment.
-{% endhint %}
+
 
 <figure><img src="../../../.gitbook/assets/2.19-edge-stacks-updateconfigs.png" alt=""><figcaption></figcaption></figure>
 

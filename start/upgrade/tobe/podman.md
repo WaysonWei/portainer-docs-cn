@@ -1,12 +1,12 @@
 # Podman
 
-{% hint style="warning" %}
-This article assumes that you used our recommended deployment scripts.
-{% endhint %}
 
-{% hint style="info" %}
+This article assumes that you used our recommended deployment scripts.
+
+
+
 Before you begin, copy the license key from the email we sent you.
-{% endhint %}
+
 
 To upgrade to Portainer Business Edition for Podman, use the following commands to stop then remove the old version. Your other applications/containers will not be removed.
 

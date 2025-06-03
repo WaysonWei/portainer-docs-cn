@@ -8,9 +8,9 @@ From the menu select **Registries** then click **Add registry** and select **AWS
 
 If your registry requires authentication to access, you must create an IAM user with access to the registry for Portainer to use. Instructions on creating an IAM user are available [from AWS](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html#id_users_create_console). When you have created the user, make note of the **Access key ID** and **Secret access key**, as you will need these below.
 
-{% hint style="info" %}
+
 At present we do not support IAM users with MFA enabled. We recommend creating a user specifically for Portainer to use with MFA disabled.
-{% endhint %}
+
 
 When creating the user you will need to attach one or more policies to provide registry access. For full registry management functionality within Portainer, we recommend the `AmazonEC2ContainerRegistryFullAccess` policy.
 

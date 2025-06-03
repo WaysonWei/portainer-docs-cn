@@ -2,9 +2,9 @@
 
 Portainer uses a BoltDB database to store the configuration, kept in the `portainer_data` volume created during installation. This database can be encrypted for additional security through the use of a secret provided when the Portainer Server is started. Encryption can be added during the initial installation or at a later date.
 
-{% hint style="warning" %}
+
 At present, encryption of the database is not reversible.
-{% endhint %}
+
 
 ## Docker Standalone
 
@@ -56,9 +56,9 @@ echo "This is a secret" | docker secret create portainer -
 
 Replace `This is a secret` with your secret. This will create a secret named `portainer`, which will be the key used to encrypt the Portainer database.
 
-{% hint style="info" %}
+
 You can also create a secret in Portainer if you are adding encryption to an existing installation.
-{% endhint %}
+
 
 ### Existing installations: Update the service
 

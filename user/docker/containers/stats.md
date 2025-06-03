@@ -16,6 +16,6 @@ The information available includes:
 
 <figure><img src="../../../.gitbook/assets/2.15-docker_containers_container-stats-proc.png" alt=""><figcaption></figcaption></figure>
 
-{% hint style="info" %}
+
 You can change the refresh rate at any time.
-{% endhint %}
+

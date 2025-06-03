@@ -2,13 +2,13 @@
 
 This article explains how to set up your local development environment so you can contribute to the Portainer codebase.
 
-{% hint style="info" %}
-Make sure you have installed the dependencies for this project on your [Mac](mac.md) or [Linux](linux.md) machine before continuing.
-{% endhint %}
 
-{% hint style="warning" %}
+Make sure you have installed the dependencies for this project on your [Mac](mac.md) or [Linux](linux.md) machine before continuing.
+
+
+
 Windows is currently not supported by the Portainer development environment.
-{% endhint %}
+
 
 ## Instructions
 
@@ -42,9 +42,9 @@ You should now be able to access Portainer at `https://localhost:9443` and UI de
 
 For additional commands, run `make help`.
 
-{% hint style="info" %}
+
 The frontend application will update and refresh when you save your changes to any of the sources.
-{% endhint %}
+
 
 ## Contribution Guidelines
 

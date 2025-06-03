@@ -39,9 +39,9 @@
 
 ## Creating an admin account and password
 
-{% hint style="info" %}
+
 The commands in this section will automatically create an administrator account called `admin` with the password you specify. This can only be used when first creating the admin user (such as during installation) and not to change the admin user's password after installation.
-{% endhint %}
+
 
 ### Method 1: Creating the account from the command line
 
@@ -179,9 +179,9 @@ docker run -d -p 9443:9443 -p 8000:8000 -v /var/run/docker.sock:/var/run/docker.
 
 ## Using your own logo
 
-{% hint style="info" %}
+
 Images must be exactly 155px by 55px in size.
-{% endhint %}
+
 
 Replace our logo with your own using the `--logo` flag to specify the location of the image file:
 
@@ -203,9 +203,9 @@ You can also update the logo in the Portainer UI (**Settings** menu).
 
 ## Defining your own app templates
 
-{% hint style="info" %}
+
 We suggest hosting template files on [GitHub](https://www.github.com/) so Portainer can access them without authentication.
-{% endhint %}
+
 
 Portainer allows you to rapidly [deploy containers using app templates](../user/docker/templates/deploy-container.md). By default, Portainer templates will be used but you can also define your own.
 

@@ -1,8 +1,8 @@
 # Services
 
-{% hint style="info" %}
+
 The **Services** menu is only available to Docker Swarm endpoints.
-{% endhint %}
+
 
 A service consists of an image definition and container configuration as well as instructions on how those containers will be deployed across a Swarm cluster.
 

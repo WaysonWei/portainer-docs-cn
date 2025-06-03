@@ -2,9 +2,9 @@
 
 Portainer exposes an HTTP API that you can use to automate everything you do via the Portainer UI. You can also use Portainer as a gateway (HTTP queries against the Portainer API) to the underlying Docker/Kubernetes API.
 
-{% hint style="info" %}
+
 The following examples use [httpie](https://httpie.org/) to execute API calls against Portainer.
-{% endhint %}
+
 
 ## Initialize the admin password
 
@@ -34,9 +34,9 @@ The value of the authorization header must be of the form `Bearer <JWT_TOKEN>`:
 Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsInJvbGUiOjEsImV4cCI6MTQ5OTM3NjE1NH0.NJ6vE8FY1WG6jsRQzfMqeatJ4vh2TWAeeYfDhP71YEE
 ```
 
-{% hint style="info" %}
+
 This token is valid for 8 hours. Once it expires, you will need to generate another token to execute authenticated queries.
-{% endhint %}
+
 
 ## Adding a new environment
 
@@ -50,9 +50,9 @@ The Portainer HTTP API endpoint acts as a reverse-proxy to the Docker HTTP API a
 
 `/api/endpoints/<ENVIRONMENT_ID>/docker`
 
-{% hint style="info" %}
+
 Read [Docker's API documentation](https://docs.docker.com/engine/api/) to learn how to query the Docker Engine.
-{% endhint %}
+
 
 ### **List all containers**
 

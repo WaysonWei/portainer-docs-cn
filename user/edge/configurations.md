@@ -30,11 +30,11 @@ Next select the **Type** of configuration to deploy. When choosing the **General
 
 Alternatively you can choose **Device specific configuration**, which will let you deploy subsets of the configuration to the devices you specify based on the Portainer Edge ID of the device.&#x20;
 
-{% hint style="info" %}
+
 You can find the Edge IDs for your Edge environments under **Environments**, select the environment, and note the **Edge identifier** value in the **Edge information** box. It will look like the following:
 
 `73149964-56f4-473b-81b3-5ecdc397e490`
-{% endhint %}
+
 
 You can specify the **Matching rule** to match either the file name or folder name within your configuration to the Portainer Edge ID.&#x20;
 
@@ -48,9 +48,9 @@ When using **folder name** matching, any folders in your configuration package w
 
 Finally, select a package to upload by clicking **Upload from package**. This package should be a ZIP file containing the configuration files you want to deploy on your Edge environments, with the contents structured based on the **Type** selected above.
 
-{% hint style="info" %}
+
 When using folder name matching, your Edge ID named folders should be in the base directory of the package file contents and not in any subdirectories.
-{% endhint %}
+
 
 <figure><img src="../../.gitbook/assets/2.19-edge-configurations-configuration.png" alt=""><figcaption></figcaption></figure>
 

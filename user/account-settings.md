@@ -44,9 +44,9 @@ For more information on access tokens, refer to our [API access documentation](.
 
 This section lets you manage your saved Git credentials for use in deployments. These credentials are available only to your user.
 
-{% hint style="info" %}
+
 This feature is only available in Portainer Business Edition.
-{% endhint %}
+
 
 <figure><img src="../.gitbook/assets/2.16-account-gitcreds.png" alt=""><figcaption></figcaption></figure>
 
@@ -70,8 +70,8 @@ By default, Portainer ships with the [Bitnami Helm chart repository](https://bit
 
 If you would like to add an additional third-party repo, click on **Add Helm repository**, enter the repository URL and click **Save Helm repository**.
 
-{% hint style="info" %}
+
 Repositories added here are only available to your user. You can configure a Helm repository that will be available to all users in [Settings](../admin/settings/general.md#helm-repository).
-{% endhint %}
+
 
 <figure><img src="../.gitbook/assets/2.20-account-helmrepos-add.png" alt=""><figcaption></figcaption></figure>

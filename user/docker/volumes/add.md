@@ -22,9 +22,9 @@ When you're finished, click **Create the volume**.
 
 ## Adding an NFS volume
 
-{% hint style="info" %}
+
 In Portainer, you can mount an NFS volume to persist the data of your containers.
-{% endhint %}
+
 
 From the menu select **Volumes** then click **Add volume**.&#x20;
 
@@ -57,9 +57,9 @@ When you're finished, click **Create the volume**.
 
 ## Adding a CIFS volume
 
-{% hint style="info" %}
+
 In Portainer, you can mount a CIFS volume to persist the data of your containers.
-{% endhint %}
+
 
 From the menu select **Volumes** then click **Add volume**.
 

@@ -42,9 +42,9 @@ Long Term Support releases are identified with an “LTS” suffix.
 
 These releases are supported and maintained until the release of the next LTS version plus a three month migration window so are more suitable for environments where adding new features on a frequent basis is less desirable.
 
-{% hint style="info" %}
+
 Portainer LTS releases focus less on new features and more on stability so Portainer recommends LTS releases for production workloads.
-{% endhint %}
+
 
 ## Current and planned releases
 

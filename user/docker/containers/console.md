@@ -6,9 +6,9 @@ From the menu select **Containers**, select the container then select **Console*
 
 Select the command and the user you want to give access to, then click **Connect**.
 
-{% hint style="info" %}
+
 For Alpine Linux containers, you must select the`/bin/ash` command.
-{% endhint %}
+
 
 <figure><img src="../../../.gitbook/assets/2.15-docker_containers_container_console_execute.png" alt=""><figcaption></figcaption></figure>
 

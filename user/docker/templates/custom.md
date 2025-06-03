@@ -2,9 +2,9 @@
 
 A custom template can be used to help streamline the deployment of a container or stack.
 
-{% hint style="info" %}
+
 You can also [create a template from an existing deployed stack](../stacks/template.md).
-{% endhint %}
+
 
 ## Viewing the list of custom templates
 
@@ -37,9 +37,9 @@ Next, choose the build method that suits your needs. You can use the web editor 
 
 Paste the contents of your docker-compose file into the box provided. Once all the details have been completed, click **Create custom template**.
 
-{% hint style="info" %}
+
 You can search within the web editor at any time by pressing `Ctrl-F` (or `Cmd-F` on Mac).
-{% endhint %}
+
 
 <figure><img src="../../../.gitbook/assets/2.20-templates-custom-add-webeditor.png" alt=""><figcaption></figcaption></figure>
 
@@ -73,9 +73,9 @@ When all the details have been entered, click **Create custom template**.
 
 Custom templates support the use of variables to provide further customization of the deployed stack. A stack can define a variable that can then be adjusted by the user at deployment.
 
-{% hint style="info" %}
+
 This feature is only available in Portainer Business Edition.
-{% endhint %}
+
 
 Variables are identified in stacks with `{{ }}`. For example, the following stack provides a `MYSQL_PASSWORD` variable:
 

@@ -16,9 +16,9 @@ Toggle on **Resource assignment** to enable quotas for this namespace, then defi
 
 With this setting you can configure the amount of external load balancers that can be created in this namespace.&#x20;
 
-{% hint style="info" %}
+
 This option only appears when **Allow users to use external load balancer** is enabled in the [cluster setup](../cluster/setup.md#allow-users-to-use-external-load-balancer).
-{% endhint %}
+
 
 <figure><img src="../../../.gitbook/assets/2.17-k8s-namespaces-manage-loadbalancer.png" alt=""><figcaption></figcaption></figure>
 
@@ -26,9 +26,9 @@ This option only appears when **Allow users to use external load balancer** is e
 
 This section lets you define which ingress controllers are allowed to be used to publish applications within this namespace. Check the boxes next to the ingresses you want to allow and click **Allow selected**, or click **Disallow selected** to disallow their use in this namespace.
 
-{% hint style="info" %}
+
 This section is only visible when **Configure ingress controller availability per namespace** is enabled in the [Cluster Setup](../cluster/setup.md#networking-ingresses).
-{% endhint %}
+
 
 <figure><img src="../../../.gitbook/assets/2.20-namespaces-add-ingress.png" alt=""><figcaption></figcaption></figure>
 

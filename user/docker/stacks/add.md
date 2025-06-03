@@ -19,9 +19,9 @@ From the menu select **Stacks**, click **Add stack**, give the stack a descripti
 
 <figure><img src="../../../.gitbook/assets/2.15-docker_add_stack_web_editor.gif" alt=""><figcaption></figcaption></figure>
 
-{% hint style="info" %}
+
 You can search within the web editor at any time by pressing `Ctrl-F` (or `Cmd-F` on Mac).
-{% endhint %}
+
 
 As part of the stack creation you can enable a stack webhook, allowing you to remotely trigger redeployments of the stack from your repository, for example. You can read more on this in our documentation on [stack webhooks](webhooks.md).
 
@@ -45,9 +45,9 @@ env_file:
 
 **Note:** Using `env_file` to define a file does not work in Docker Swarm due to the lack of `env_file` support in `docker stack deploy` (used on Swarm environments to deploy your stack). On Docker Swarm, you will need to define each environment variable manually.
 
-{% hint style="info" %}
+
 Note the compose file is not changed when environment variables are used - this allows variables to be updated within Portainer without editing the compose file itself. You will still see the `${MY_ENVIRONMENT_VARIABLE}` style entry in the compose file.
-{% endhint %}
+
 
 <figure><img src="../../../.gitbook/assets/2.15-docker_stack_wed_editor_env_var.png" alt=""><figcaption></figcaption></figure>
 
@@ -81,9 +81,9 @@ env_file:
   - stack.env
 ```
 
-{% hint style="info" %}
+
 Note the compose file is not changed when environment variables are used - this allows variables to be updated within Portainer without editing the compose file itself which would take it out of sync with your local copy. You will still see the `${MY_ENVIRONMENT_VARIABLE}` style entry in the compose file.
-{% endhint %}
+
 
 <figure><img src="../../../.gitbook/assets/2.15-docker_add_stack_upload_env_var.png" alt=""><figcaption></figcaption></figure>
 
@@ -93,21 +93,21 @@ When you're ready click **Deploy the stack**.
 
 If your Compose file is hosted in a Git repository, you can deploy from there. From the menu select **Stacks**, click **Add stack**, then give the stack a descriptive name.
 
-{% hint style="warning" %}
-When a stack is deployed from Git, Portainer will clone the entire Git repository as part of the deployment process. Ensure you have enough free space to accommodate this.
-{% endhint %}
 
-{% hint style="warning" %}
+When a stack is deployed from Git, Portainer will clone the entire Git repository as part of the deployment process. Ensure you have enough free space to accommodate this.
+
+
+
 Portainer's Git deployment functionality does not currently support the use of Git submodules. If your repository includes submodules, they will not be pulled as part of the deployment. We [hope to add support](https://github.com/orgs/portainer/discussions/9767) for submodules in a future release.
-{% endhint %}
+
 
 <figure><img src="../../../.gitbook/assets/2.15-docker_add_stack_git.gif" alt=""><figcaption></figcaption></figure>
 
 Select **Git Repository** then enter information about your Git repo.
 
-{% hint style="info" %}
+
 Any Git-compatible repository should work here. Substitute the details as required.
-{% endhint %}
+
 
 | Field/Option          | Overview                                                                                                                                                                  |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -117,9 +117,9 @@ Any Git-compatible repository should work here. Substitute the details as requir
 | Personal Access Token | Enter your personal access token or password.                                                                                                                             |
 | Save credential       | Check this option to save the credentials entered above for future use under the name provided in the **credential name** field.                                          |
 
-{% hint style="info" %}
+
 If you have 2FA configured in GitHub, your passcode is your password.
-{% endhint %}
+
 
 <figure><img src="../../../.gitbook/assets/2.16-stacks-add-gitcreds.png" alt=""><figcaption></figcaption></figure>
 
@@ -138,9 +138,9 @@ If you have 2FA configured in GitHub, your passcode is your password.
 
 Portainer supports automatically updating your stacks deployed from Git repositories. To enable this, toggle on **GitOps updates** and configure your settings.
 
-{% hint style="info" %}
+
 For more detail on how GitOps updates function under the hood, have a look at [this knowledge base article](https://portal.portainer.io/knowledge/how-do-automatic-updates-for-stacks-applications-work).
-{% endhint %}
+
 
 | Field/Option   | Overview                                                                                                                                                                                                                                                                            |
 | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -164,29 +164,29 @@ For more detail on how GitOps updates function under the hood, have a look at [t
 
 When you toggle **Enable relative path volumes** to on, you are able to specify relative path references in your compose files. Portainer will create the required directory structure and populate the directories with the relevant files from your Git repository.
 
-{% hint style="info" %}
+
 This feature is only available in Portainer Business Edition.
-{% endhint %}
+
 
 On Docker Standalone and Podman environments, specify the path at which you want your files to be created on your host filesystem in the **Local filesystem path** field.
 
-{% hint style="warning" %}
+
 Ensure this directory exists on your local filesystem and is writable.
-{% endhint %}
+
 
 <figure><img src="../../../.gitbook/assets/2.17-stacks-add-relativepath.png" alt=""><figcaption></figcaption></figure>
 
 On Docker Swarm environments, specify the path at which you want your files to be created in the Network filesystem path field.
 
-{% hint style="warning" %}
+
 Ensure that this path is available on all of your Docker Swarm nodes and is writable.
-{% endhint %}
+
 
 <figure><img src="../../../.gitbook/assets/2.17-stacks-add-relativepath-swarm.png" alt=""><figcaption></figcaption></figure>
 
-{% hint style="info" %}
+
 For more detail on how this feature works, have a look at [this article](../../../advanced/relative-paths.md).
-{% endhint %}
+
 
 ### Environment variables
 
@@ -206,9 +206,9 @@ env_file:
   - stack.env
 ```
 
-{% hint style="info" %}
+
 Note the compose file is not changed when environment variables are used - this allows variables to be updated within Portainer without editing the compose file itself which would take it out of sync with the Git repository. You will still see the `${MY_ENVIRONMENT_VARIABLE}` style entry in the compose file.
-{% endhint %}
+
 
 <figure><img src="../../../.gitbook/assets/2.15-docker_stack_wed_editor_env_var.png" alt=""><figcaption></figcaption></figure>
 

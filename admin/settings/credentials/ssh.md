@@ -38,16 +38,16 @@ If you would like to create a new key pair for your SSH credentials, you can do 
 
 Portainer will then generate a new key pair for you and display the resulting private and public keys. You can copy the values to your clipboard with the Copy buttons, or download the individual files with the Download buttons.
 
-{% hint style="warning" %}
+
 Ensure you take a copy of both the public and private keys, as you will not be able to retrieve them.
-{% endhint %}
+
 
 <figure><img src="../../../.gitbook/assets/2.18-settings-credentials-ssh-generate-2.png" alt=""><figcaption></figcaption></figure>
 
 Your newly generated public key should be added to the `authorized_keys` file for the SSH user you intend to use on your nodes for provisioning.
 
-{% hint style="info" %}
+
 Key pairs are generated with a key size of `4096` bits.
-{% endhint %}
+
 
 Once you have saved the public and private key files, click **Continue**. You will be returned to the previous screen and the SSH private key passphrase and SSH private key fields will be populated with your new key pair's passphrase and private key respectively.

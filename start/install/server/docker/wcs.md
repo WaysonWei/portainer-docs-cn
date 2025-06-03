@@ -1,8 +1,8 @@
 # Install Portainer BE with Docker on Windows Container Service
 
-{% hint style="info" %}
+
 These installation instructions are for Portainer Business Edition (BE). For Portainer Community Edition (CE) refer to the [CE install documentation](../../../install-ce/server/docker/wcs.md).
-{% endhint %}
+
 
 ## Introduction
 
@@ -54,23 +54,23 @@ Then, download and install the Portainer Server container:
 docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart always -v \\.\pipe\docker_engine:\\.\pipe\docker_engine -v portainer_data:C:\data portainer/portainer-ee:lts
 ```
 
-{% hint style="info" %}
-By default, Portainer generates and uses a self-signed SSL certificate to secure port `9443`. Alternatively you can provide your own SSL certificate [during installation](../../../../advanced/ssl.md) or [via the Portainer UI](../../../../admin/settings/#ssl-certificate) after installation is complete.
-{% endhint %}
 
-{% hint style="warning" %}
+By default, Portainer generates and uses a self-signed SSL certificate to secure port `9443`. Alternatively you can provide your own SSL certificate [during installation](../../../../advanced/ssl.md) or [via the Portainer UI](../../../../admin/settings/#ssl-certificate) after installation is complete.
+
+
+
 If you see an error message similar to:&#x20;
 
 `"\\.\pipe\dockerDesktopEngine" includes invalid characters for a local volume name`
 
 then you may not have Windows containers properly enabled. If you are using Docker Desktop, right click the icon in your tray and select **Switch to Windows Containers**.
-{% endhint %}
 
-{% hint style="info" %}
+
+
 If you require HTTP port `9000` open for legacy reasons, add the following to your `docker run` command:
 
 `-p 9000:9000`
-{% endhint %}
+
 
 ## Logging In
 

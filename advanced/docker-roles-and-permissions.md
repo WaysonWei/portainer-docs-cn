@@ -2,9 +2,9 @@
 
 This document describes the permission levels each [RBAC role](../admin/user/roles.md) has within the Portainer application for both Docker Standalone and Docker Swarm environments. Refer to the linked notes for further requirements on each operation.
 
-{% hint style="info" %}
+
 Role-Based Access Control is only available in Portainer Business Edition.
-{% endhint %}
+
 
 ## Legend
 

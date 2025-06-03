@@ -1,8 +1,8 @@
 # Host
 
-{% hint style="info" %}
+
 The **Host** menu is only available to Docker Standalone and Podman environments.
-{% endhint %}
+
 
 The **Host** section provides an overview of your environment. You can view information about your environment as well as configure environment-specific settings.
 

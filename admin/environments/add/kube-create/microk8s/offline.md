@@ -2,9 +2,9 @@
 
 To perform a MicroK8s environment creation when the target servers are offline or airgapped, some prerequisite configuration is required. This includes downloading the MicroK8s installation files for the version you wish to install, the related addon images, and the Portainer Agent image.
 
-{% hint style="warning" %}
+
 This is advanced functionality and assumes working knowledge of the Linux command line. If you do not explicitly need to perform offline or airgapped installs of MicroK8s environments we recommend following the [standard procedure](./).
-{% endhint %}
+
 
 ## Preparation
 

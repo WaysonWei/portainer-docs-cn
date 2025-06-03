@@ -2,9 +2,9 @@
 
 In Portainer terms, an _environment_ is an instance that you want to manage through Portainer. Environments can be Docker, Docker Swarm, Kubernetes, ACI or a combination. One Portainer Server instance can manage multiple environments.
 
-{% hint style="info" %}
+
 Endpoints were renamed to Environments in version 2.10.
-{% endhint %}
+
 
 {% content-ref url="environments.md" %}
 [environments.md](environments.md)

@@ -18,6 +18,6 @@ From the menu expand **Environment-related**, select **Environments** then selec
 
 From the **Tags** lookup select the tag then click **Update environment**.
 
-{% hint style="info" %}
+
 Environment tags will be visible on the Portainer home page. You can also search for environments based on their tags.
-{% endhint %}
+

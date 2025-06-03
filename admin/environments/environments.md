@@ -18,6 +18,6 @@ To see the details of an existing environment, click on the environment's name i
 
 To remove an environment, check the box next to the environment to remove and click the **Remove** button. You will be asked to confirm your action.
 
-{% hint style="danger" %}
+
 This action cannot be reversed, so proceed with caution!
-{% endhint %}
+

@@ -26,9 +26,9 @@ The **Node** tab summarizes the following information about the selected node:
 
 This section provides details about resource reservations assigned on the node as well as the node's resource usage.&#x20;
 
-{% hint style="info" %}
+
 **Memory used** and **CPU used** are only displayed if you have [enabled using the metrics API](setup.md#enable-features-using-metrics-server).
-{% endhint %}
+
 
 <figure><img src="../../../.gitbook/assets/2.15-k8s-cluster-node-resource.png" alt=""><figcaption></figcaption></figure>
 

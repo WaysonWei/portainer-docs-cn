@@ -50,9 +50,9 @@ Here you can select the expiry time for [exported kubeconfig files](../../user/k
 
 <figure><img src="../../.gitbook/assets/2.22.0-settings-kubernetes-kubeconfig.png" alt=""><figcaption></figcaption></figure>
 
-{% hint style="warning" %}
+
 Tokens used in `kubeconfig` files become invalid when Portainer restarts — irrespective of the value set for **Kubeconfig expiry**. In this case, you will need to re-download the `kubeconfig` file.
-{% endhint %}
+
 
 ### KubeShell
 
@@ -79,9 +79,9 @@ In this section you can configure various Kubernetes-specific deployment options
 
 This section lets you supply a certificate authority (CA) file for use with HTTPS connections to Helm repositories from Portainer. This is useful if the TLS certificate your Helm repository uses is signed by a custom CA, and applies to both the Helm Repository configured above and to Helm repositories configured per environment.
 
-{% hint style="info" %}
+
 This feature is only available in [Portainer Business Edition](https://www.portainer.io/business-upsell?from=ca-file).
-{% endhint %}
+
 
 <figure><img src="../../.gitbook/assets/2.18-settings-helmcafile.png" alt=""><figcaption></figcaption></figure>
 
@@ -89,9 +89,9 @@ This feature is only available in [Portainer Business Edition](https://www.porta
 
 During installation, Portainer by default creates a self-signed SSL certificate to encrypt traffic between the Portainer Server and the end user, as well as between the Portainer Server and the Portainer Agent. This certificate can be replaced with your own certificate.
 
-{% hint style="info" %}
+
 We recommend including the full chain in the certificate to ensure compatibility. If you do not have the full chain for your certificate, ask your certificate provider or use [What's My Chain Cert?](https://whatsmychaincert.com/) to generate it.
-{% endhint %}
+
 
 <figure><img src="../../.gitbook/assets/2.15-settings-settings-ssl-1.png" alt=""><figcaption></figcaption></figure>
 
@@ -99,13 +99,13 @@ We recommend including the full chain in the certificate to ensure compatibility
 
 If you have configured your Portainer Server instance to listen on `9443` (HTTPS) and `9000` (HTTP) you can toggle **Force HTTPS only** on to disable listening on port `9000`.
 
-{% hint style="danger" %}
-Make sure that your HTTPS configuration is working correctly **before** enabling this option. Failure to do so may result in you being [locked out of your Portainer installation](https://portal.portainer.io/knowledge/i-enabled-force-https-only-and-now-im-locked-out-of-portainer-how-do-i-get-back-in).
-{% endhint %}
 
-{% hint style="warning" %}
+Make sure that your HTTPS configuration is working correctly **before** enabling this option. Failure to do so may result in you being [locked out of your Portainer installation](https://portal.portainer.io/knowledge/i-enabled-force-https-only-and-now-im-locked-out-of-portainer-how-do-i-get-back-in).
+
+
+
 Ensure that any Edge agents have been correctly configured for HTTPS communication before enabling this.
-{% endhint %}
+
 
 <figure><img src="../../.gitbook/assets/2.15-settings-settings-ssl-force.png" alt=""><figcaption></figcaption></figure>
 
@@ -115,9 +115,9 @@ After making changes to this section, click **Apply Changes**.
 
 This section allows you to enable experimental Portainer features for use in your deployment. These features are in early development and have gone through a limited set of testing, and are provided to users in order to gather feedback on the feature at an earlier stage of development.
 
-{% hint style="danger" %}
+
 Enabling experimental features on production deployments should be done cautiously and at your own risk.
-{% endhint %}
+
 
 | Field/Option              | Overview                                                                                                                                                                                     |
 | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -135,9 +135,9 @@ Stops a container from appearing in the Portainer UI through the container label
 
 This setting contains all of the information that Portainer stores on the `/data` volume, archived in a `tar.gz` file, and is optionally encrypted with a password. This archive is all you need to restore Portainer.
 
-{% hint style="warning" %}
+
 This backup is **only** intended to back up the Portainer configuration. It does **not** back up what you have deployed on your environments (for example, containers, stacks, services, volumes, etc).&#x20;
-{% endhint %}
+
 
 ### Backing up to a local disk <a href="#backup-to-local-disk" id="backup-to-local-disk"></a>
 
@@ -183,9 +183,9 @@ The restore might take a few moments. When it has finished, you will be redirect
 
 ### Restoring from S3
 
-{% hint style="info" %}
+
 This feature is only available in Portainer Business Edition.
-{% endhint %}
+
 
 Restoring a configuration is only possible on a fresh instance of Portainer during the initial installation. When you need to restore Portainer, deploy a fresh instance of Portainer with an empty data volume and choose the **Restore Portainer from backup** option during setup, making sure to select **Retrieve from S3**. Complete the fields using the table below as a guide.
 

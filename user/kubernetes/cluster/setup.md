@@ -8,9 +8,9 @@ You can make changes to your environment's Kubernetes configuration by expanding
 
 ### Allow users to use external load balancer
 
-{% hint style="info" %}
+
 To use this feature, you need to ensure that your cloud provider allows you to create load balancers. Using this feature may incur costs from your cloud provider.
-{% endhint %}
+
 
 Enabling the load balancer feature will allow users to expose applications they deploy over an external IP address assigned by their cloud provider.
 
@@ -34,9 +34,9 @@ Enabling **Only allow admins to deploy ingresses** restricts the deployment of i
 
 This setting allows you to specify a window within which [GitOps updates](../applications/manifest.md#gitops-updates) to your applications can be applied.
 
-{% hint style="warning" %}
+
 If this setting is enabled and an update is made to an application outside of this window, it will not be applied.
-{% endhint %}
+
 
 <figure><img src="../../../.gitbook/assets/2.20-kubernetes-cluster-setup-changewindow.png" alt=""><figcaption></figcaption></figure>
 
@@ -44,9 +44,9 @@ If this setting is enabled and an update is made to an application outside of th
 
 This section allows you to override any global deployment options set for Kubernetes environments.
 
-{% hint style="info" %}
+
 This section only appears if the **Allow per environment override** option is enabled in [Settings](../../../admin/settings/#deployment-options).
-{% endhint %}
+
 
 | Field/Option                             | Overview                                                                                                                                                                       |
 | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -75,17 +75,17 @@ By default, users are able to view and edit Kubernetes secrets within the Portai
 
 Enabling this feature lets you allocate more resources to namespaces than are physically available in the cluster.
 
-{% hint style="warning" %}
+
 **Enable** resource over-commit if you need to assign more resources to namespaces than are physically available in the cluster. This may lead to unexpected deployment failures if there are insufficient resources to meet the demand.
 
 **Disable** resource over-commit (highly recommended) if you are only able to assign resources to namespaces that are less (in aggregate) than the cluster total, minus any system-resource reservation.
-{% endhint %}
+
 
 ### Enable features using the metrics API
 
-{% hint style="info" %}
+
 &#x20;Ensure that the Kubernetes [metrics server](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/#metrics-server) or [Prometheus](https://github.com/kubernetes-sigs/prometheus-adapter) is running inside your cluster.
-{% endhint %}
+
 
 Enabling this feature will allow users to use specific features that leverage the metrics API component, such as the memory and CPU usage graphs at the cluster and node level. If Portainer detects you are using a metrics server and is able to connect, this will default to on.
 

@@ -19,9 +19,9 @@ The installation instructions also make the following additional assumption abou
 
 To deploy Portainer Agent within a Kubernetes cluster you can use our provided YAML manifests.
 
-{% hint style="info" %}
+
 Helm charts for agent-only deployments will be available soon.
-{% endhint %}
+
 
 From the menu expand **Environment-related**, click **Environments**, then click **Add environment**.
 
@@ -29,9 +29,9 @@ From the menu expand **Environment-related**, click **Environments**, then click
 
 Select the **Kubernetes** option and click **Start Wizard**. Select the **Agent** option and choose the tab that matches your configuration (**Kubernetes via load balancer** or **Kubernetes via node port**). Copy the command, then run it on the control node of your Kubernetes cluster.
 
-{% hint style="info" %}
+
 Make sure you run this command on your Kubernetes node before continuing.
-{% endhint %}
+
 
 <figure><img src="../../../../.gitbook/assets/2.18-environments-add-k8s-agent-command.png" alt=""><figcaption></figcaption></figure>
 
@@ -61,9 +61,9 @@ portainer-agent-5988b5d966-bvm9m   1/1     Running   0          15m
 
 Regardless of the method used, once the agent is running on the Kubernetes host, you must complete the appropriate environmental details.
 
-{% hint style="warning" %}
+
 Only do this **once** for your environment, regardless of how many nodes are in the cluster. You do **not** need to add each node as an individual environment in Portainer. Adding just one node will allow Portainer to manage the entire cluster.
-{% endhint %}
+
 
 | Field/Option        | Overview                                                                                                                                                                                |
 | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

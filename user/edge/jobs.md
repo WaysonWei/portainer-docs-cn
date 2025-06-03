@@ -1,18 +1,18 @@
 # Edge Jobs
 
-{% hint style="warning" %}
+
 This is a beta feature.
-{% endhint %}
+
 
 Adding an Edge job is a great way to schedule jobs in your Edge hosts. Jobs can be used to run any scripts you need, for example running a backup in a specified period of time.
 
-{% hint style="info" %}
-This functionality requires you to [enable Edge Compute](../../admin/settings/edge.md) features, and is currently only available for Docker Standalone environments that use `/etc/cron.d` for job scheduling.
-{% endhint %}
 
-{% hint style="danger" %}
+This functionality requires you to [enable Edge Compute](../../admin/settings/edge.md) features, and is currently only available for Docker Standalone environments that use `/etc/cron.d` for job scheduling.
+
+
+
 Edge jobs run by modifying the crontab on the underlying host, not in a container. This means that Edge jobs can make changes to the host directly, which is very powerful but also very dangerous, so use with caution.
-{% endhint %}
+
 
 From the menu select **Edge Jobs** then click **Add Edge job**.
 
@@ -27,9 +27,9 @@ Give the job a descriptive name then select one of the following options:
 
 If you select **Recurring Edge job** also enter the **Edge job time**.
 
-{% hint style="info" %}
+
 The Edge job time is based on the time on the host, not the Portainer Server. Bear this in mind when scheduling jobs across time zones.
-{% endhint %}
+
 
 <figure><img src="../../.gitbook/assets/2.15-edge-jobs-config.png" alt=""><figcaption></figcaption></figure>
 

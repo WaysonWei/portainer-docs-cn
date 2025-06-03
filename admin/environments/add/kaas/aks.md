@@ -2,9 +2,9 @@
 
 Select the **Azure** option from the list of providers. If you haven't already configured credentials for Azure you'll be asked to provide them now. Enter a **name** for your credentials then enter your **Subscription ID**, **Tenant ID**, **Client ID** and **Client Secret**. Once this is done, click **Save**.
 
-{% hint style="info" %}
+
 You can find more details on [setting up access to your Azure account](../../../settings/credentials/aks.md) in the [shared credentials documentation](../../../settings/credentials/).
-{% endhint %}
+
 
 <figure><img src="../../../../.gitbook/assets/2.21.2-kaas-create-azure-creds.png" alt=""><figcaption></figcaption></figure>
 
@@ -24,9 +24,9 @@ Once you have added your credentials (or if you already had them set up) select 
 | DNS name prefix         | Enter the DNS name prefix to use with your cluster. You will use this to connect to the Kubernetes API when managing containers after creating the cluster. |
 | Kubernetes version      | Select the version of Kubernetes you want to deploy on your cluster                                                                                         |
 
-{% hint style="info" %}
+
 You can manually refresh the options available from Azure by clicking **Reload cluster details** under the **Actions** section.
-{% endhint %}
+
 
 <figure><img src="../../../../.gitbook/assets/2.21.2-kaas-create-azure-cluster.png" alt=""><figcaption></figcaption></figure>
 

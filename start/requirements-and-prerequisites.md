@@ -138,9 +138,9 @@ The following tables list all of the configurations that we have tested, validat
 | 1.24.0            | June 2, 2020       | 19.03.10                  | N/A                          | N/A            | [ARM32](https://portal.portainer.io/knowledge/which-arm-architectures-does-portainer-support), [ARM64](https://portal.portainer.io/knowledge/which-arm-architectures-does-portainer-support), x86\_64 |
 | 1.23.2            | March 25, 2020     | 19.03.6                   | N/A                          | N/A            | [ARM32](https://portal.portainer.io/knowledge/which-arm-architectures-does-portainer-support), [ARM64](https://portal.portainer.io/knowledge/which-arm-architectures-does-portainer-support), x86\_64 |
 
-{% hint style="info" %}
+
 If you find an issue with an unlisted configuration, before reporting a bug, update your environment to a valid configuration and try to replicate the issue.
-{% endhint %}
+
 
 ## Persistent storage
 
@@ -167,9 +167,9 @@ For the Portainer Agent:
 
 The Portainer Edge Agent does not require any open ports.
 
-{% hint style="info" %}
+
 All ports can be changed during installation.
-{% endhint %}
+
 
 {% content-ref url="install/" %}
 [install](install/)

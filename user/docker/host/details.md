@@ -2,9 +2,9 @@
 
 This page provides information about the Docker host for the selected environment. The page is split into the following sections: Host Details, Engine Details, and (if enabled) PCI Devices and Physical Disks.
 
-{% hint style="info" %}
+
 This page is only available on Docker Standalone environments.
-{% endhint %}
+
 
 ## Host Details
 
@@ -22,9 +22,9 @@ Learn more about the Docker or Podman engine running on your environment, includ
 
 These sections list the available PCI devices and physical disks on the host.
 
-{% hint style="info" %}
+
 These sections are only visible when [host management features](setup.md#enable-host-management-features) are enabled for the environment.
-{% endhint %}
+
 
 <figure><img src="../../../.gitbook/assets/2.15-docker-host-pci.png" alt=""><figcaption></figcaption></figure>
 

@@ -4,9 +4,9 @@ Mutual TLS (or **mTLS**) is a certificate-based system whereby the client and se
 
 This article will walk you through the process of deploying the Portainer Server and the Edge Agents with mTLS support.&#x20;
 
-{% hint style="info" %}
+
 mTLS support is only available in Portainer Business Edition.
-{% endhint %}
+
 
 ## Requirements
 
@@ -146,9 +146,9 @@ As an admin user, from the left menu select **Settings** then **Edge Compute**. 
 
 Here you can enable the use of mTLS with the **Use separate mTLS cert** toggle, and upload the CA certificate, server certificate and server key using the buttons for **TLS CA certificate**, **TLS certificate** and **TLS key** respectively.
 
-{% hint style="warning" %}
+
 If you add or change the mTLS CA certificate through this method you will need to restart the Portainer Server in order for the change to apply. You should also ensure any Edge Agents that are using mTLS are also updated to use the new CA certificate.
-{% endhint %}
+
 
 ## Deploying the Edge Agents
 
@@ -162,9 +162,9 @@ On your Docker host, upload your CA certificate (`mtlsca.crt`), client certifica
 
 Once the certificates are in place and the secrets created, you can begin to set up your Edge Agent within the Portainer UI.&#x20;
 
-{% hint style="warning" %}
+
 When doing so, remember to use the domain (or subdomain) you chose for mTLS usage (and that the server certificate was issued for) as the Portainer API server URL and tunnel address (if appropriate).
-{% endhint %}
+
 
 When you have completed the Edge Agent setup in the Portainer UI and have your deployment command, modify the command to mount the `/root/certs` directory to `/certs`, change the `EDGE_INSECURE_POLL` option to `0`, and add the `--mtlscacert`, `--mtlscert`, and `--mtlskey` options:
 
@@ -203,9 +203,9 @@ docker secret create portainer.mtlskey /root/certs/client.key
 
 Once the certificates are in place and the secrets created, you can begin to set up your Edge Agent within the Portainer UI.
 
-{% hint style="warning" %}
+
 When doing so, remember to use the domain (or subdomain) you chose for mTLS usage (and that the server certificate was issued for) as the Portainer API server URL and tunnel address (if appropriate).
-{% endhint %}
+
 
 When you have completed the Edge Agent setup in the Portainer UI and have your deployment command, modify the command to change the `EDGE_INSECURE_POLL` option to `0` and add the `--mtlscacert`, `--mtlscert` and `--mtlskey` options, using the secrets we defined above:
 

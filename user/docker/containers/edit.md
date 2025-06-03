@@ -1,8 +1,8 @@
 # Edit or duplicate a container
 
-{% hint style="warning" %}
+
 Editing a container effectively creates a new container with the updated settings and replaces the old container.
-{% endhint %}
+
 
 ## Editing a running container
 

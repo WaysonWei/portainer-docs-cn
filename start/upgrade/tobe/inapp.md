@@ -12,9 +12,9 @@ If you do not currently have a license, click **Get a license** and fill out the
 
 Your trial key will be sent to the email address you provided and you will be returned to the license entry form.
 
-{% hint style="info" %}
+
 Your license should be sent automatically within a few minutes. If you have not received it please check your spam folders, or [get in touch with our team](mailto:success@portainer.io) if you have not received it in 24 hours.
-{% endhint %}
+
 
 <figure><img src="../../../.gitbook/assets/2.17-upgrade-tobe-inapp-licensesent.png" alt=""><figcaption></figcaption></figure>
 

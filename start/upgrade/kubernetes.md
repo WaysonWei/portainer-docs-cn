@@ -1,18 +1,18 @@
 # Updating on Kubernetes
 
-{% hint style="info" %}
-Always match the agent version to the Portainer Server version. In other words, when you're installing or updating to Portainer 2.27.6 make sure all of the agents are also on version 2.27.6.
-{% endhint %}
 
-{% hint style="warning" %}
+Always match the agent version to the Portainer Server version. In other words, when you're installing or updating to Portainer 2.27.6 make sure all of the agents are also on version 2.27.6.
+
+
+
 Starting from Portainer CE 2.9 and BE 2.10, HTTPS is enabled by default on port `9443.` These instructions will configure Portainer to use both `9443` for HTTPS and `9000` for HTTP. You can choose to [completely disable HTTP](../../admin/settings/#force-https-only) after the update.&#x20;
 
 Before you make Portainer HTTPS only, make sure you have all your Agents and Edge Agents already communicating with Portainer using HTTPS.&#x20;
-{% endhint %}
 
-{% hint style="danger" %}
+
+
 Before beginning any update, we highly recommend [taking a backup](../../admin/settings/general.md#back-up-portainer) of your current Portainer configuration.
-{% endhint %}
+
 
 Select the Portainer update method which matches the original installation method used.
 
@@ -79,12 +79,12 @@ https://downloads.portainer.io/ee-lts/portainer-agent-k8s-nodeport.yaml
 https://downloads.portainer.io/ce-lts/portainer-agent-k8s-nodeport.yaml
 ```
 
-{% hint style="warning" %}
+
 If you have set a custom `AGENT_SECRET` on your Portainer Server instance (by specifying an `AGENT_SECRET` environment variable when starting the Portainer Server container) you must remember to explicitly provide the same secret to your Agent in the same way (as an environment variable) in the YAML when updating your Agent:
 
 `environment:`\
 &#x20; `- AGENT_SECRET: yoursecret`
-{% endhint %}
+
 {% endtab %}
 
 {% tab title="Load Balancer" %}
@@ -116,21 +116,21 @@ https://downloads.portainer.io/ee-lts/portainer-agent-k8s-lb.yaml
 https://downloads.portainer.io/ce-lts/portainer-agent-k8s-lb.yaml
 ```
 
-{% hint style="warning" %}
+
 If you have set a custom `AGENT_SECRET` on your Portainer Server instance you must remember to explicitly provide this in the YAML when updating your agent:
 
 `environment:`
 
 &#x20; `- AGENT_SECRET: yoursecret`
-{% endhint %}
+
 {% endtab %}
 {% endtabs %}
 
 Log into Portainer and connect to the Kubernetes environment where Portainer is installed. From the menu select **Applications** then select **Create from manifest**. Toggle **Use namespace(s) specified from manifest** to on, then enter `portainer` in the **Name** field.&#x20;
 
-{% hint style="warning" %}
+
 If you used a different name for your Portainer deployment, use that instead.
-{% endhint %}
+
 
 From the **Build method** selection choose **Web Editor** and ensure **Kubernetes** is selected as the **Deploy type**. Paste the contents of the YAML file then click **Deploy**. Portainer will process the manifest and should return you to the login page once the update is complete.
 
@@ -168,12 +168,12 @@ kubectl apply -n portainer -f https://downloads.portainer.io/ee-lts/portainer-ag
 kubectl apply -n portainer -f https://downloads.portainer.io/ce-lts/portainer-agent-k8s-nodeport.yaml
 ```
 
-{% hint style="warning" %}
+
 If you have set a custom `AGENT_SECRET` on your Portainer Server instance (by specifying an `AGENT_SECRET` environment variable when starting the Portainer Server container) you must remember to explicitly provide the same secret to your Agent in the same way (as an environment variable) in the YAML when updating your Agent:
 
 `environment:`\
 &#x20; `- AGENT_SECRET: yoursecret`
-{% endhint %}
+
 {% endtab %}
 
 {% tab title="Load Balancer" %}
@@ -205,13 +205,13 @@ kubectl apply -n portainer -f https://downloads.portainer.io/ee-lts/portainer-ag
 kubectl apply -n portainer -f https://downloads.portainer.io/ce-lts/portainer-agent-k8s-lb.yaml
 ```
 
-{% hint style="warning" %}
+
 If you have set a custom `AGENT_SECRET` on your Portainer Server instance you must remember to explicitly provide this in the YAML when updating your agent:
 
 `environment:`
 
 &#x20; `- AGENT_SECRET: yoursecret`
-{% endhint %}
+
 {% endtab %}
 {% endtabs %}
 

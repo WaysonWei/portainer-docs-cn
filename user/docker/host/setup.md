@@ -1,8 +1,8 @@
 # Setup
 
-{% hint style="info" %}
+
 The **Host Setup** section is only available to Docker Standalone environments.
-{% endhint %}
+
 
 Under **Setup**, you can make changes to your environment, enabling and disabling features and security settings.
 
@@ -10,9 +10,9 @@ Under **Setup**, you can make changes to your environment, enabling and disablin
 
 For environments running the Portainer Agent, this section is where you configure how Portainer interacts with elements of the host.
 
-{% hint style="danger" %}
+
 For security, these features are disabled by default. Be sure that you understand their impact before enabling them.
-{% endhint %}
+
 
 <figure><img src="../../../.gitbook/assets/2.22.0-host-setup-filesystem.png" alt=""><figcaption></figcaption></figure>
 
@@ -38,9 +38,9 @@ Enabling this feature allows non-administrator users to manage volumes on an env
 
 This setting allows you to specify a window within which [GitOps updates](../stacks/add.md#gitops-updates) to your applications can be applied.
 
-{% hint style="warning" %}
+
 If this setting is enabled and an update is made to an application outside of this window, it will not be applied.
-{% endhint %}
+
 
 <figure><img src="../../../.gitbook/assets/2.19-kubernetes-cluster-setup-changewindow.png" alt=""><figcaption></figcaption></figure>
 

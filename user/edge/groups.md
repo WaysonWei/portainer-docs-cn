@@ -2,9 +2,9 @@
 
 The Edge Groups feature lets you group together Edge environments either by manually selecting them or based on their [tags](../../admin/environments/tags.md). This is useful if you manage multiple Edge environments in multiple zones.
 
-{% hint style="info" %}
+
 This functionality requires you to [enable Edge Compute](../../admin/settings/edge.md) features.
-{% endhint %}
+
 
 From the menu select **Edge Groups** then click **Add Edge group**.&#x20;
 

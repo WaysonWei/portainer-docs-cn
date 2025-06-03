@@ -1,8 +1,8 @@
 # Install Portainer CE with Podman on Linux
 
-{% hint style="info" %}
+
 These installation instructions are for Portainer Community Edition (CE). For Portainer Business Edition (BE) refer to the [BE install documentation](../../../install/server/podman/linux.md).
-{% endhint %}
+
 
 ## Introduction
 
@@ -39,15 +39,15 @@ Then, download and install the Portainer Server container:
 <pre><code><strong>podman run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always --privileged -v /run/podman/podman.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:lts
 </strong></code></pre>
 
-{% hint style="info" %}
-By default, Portainer generates and uses a self-signed SSL certificate to secure port `9443`. Alternatively you can provide your own SSL certificate [during installation](../../../../advanced/ssl.md#using-your-own-ssl-certificate-on-docker-standalone) or [via the Portainer UI](../../../../admin/settings/#ssl-certificate) after installation is complete.
-{% endhint %}
 
-{% hint style="info" %}
+By default, Portainer generates and uses a self-signed SSL certificate to secure port `9443`. Alternatively you can provide your own SSL certificate [during installation](../../../../advanced/ssl.md#using-your-own-ssl-certificate-on-docker-standalone) or [via the Portainer UI](../../../../admin/settings/#ssl-certificate) after installation is complete.
+
+
+
 If you require HTTP port `9000` open for legacy reasons, add the following to your `podman run` command:
 
 `-p 9000:9000`
-{% endhint %}
+
 
 Portainer Server has now been installed. You can check to see whether the Portainer Server container has started by running `podman ps`:
 

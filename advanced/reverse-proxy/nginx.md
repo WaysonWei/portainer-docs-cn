@@ -4,9 +4,9 @@
 
 To deploy Portainer behind an nginx proxy in a Docker standalone scenario you must use a Docker Compose file. In the following docker-compose.yml you will find the configuration of the nginx proxy and the Portainer Server.
 
-{% hint style="info" %}
+
 This example uses the excellent [nginxproxy/nginx-proxy](https://hub.docker.com/r/nginxproxy/nginx-proxy) image as the proxy container, which requires no additional configuration beyond the two environment variables added to the `portainer` container's definition.
-{% endhint %}
+
 
 {% tabs %}
 {% tab title="Business Edition" %}
@@ -92,9 +92,9 @@ Once the deployment has finished you can browse `portainer.yourdomain.com`.
 
 Deploying Portainer in Docker Swarm behind nginx has similar steps to the Docker Standalone scenario. Before deploying, you need to create two elements: networks and volumes.
 
-{% hint style="warning" %}
+
 This deployment assumes you are running one manager node. If you are using multiple managers we advise [reading this knowledge base article](https://portal.portainer.io/knowledge/how-can-i-ensure-portainers-configuration-is-retained) before proceeding.
-{% endhint %}
+
 
 First, create two networks:
 

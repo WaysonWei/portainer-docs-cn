@@ -2,9 +2,9 @@
 
 **Registries** lets you manage access to each of the registries that are currently available.
 
-{% hint style="warning" %}
+
 Registry access assigned here only applies to the selected environment. It is not global.
-{% endhint %}
+
 
 ## Adding a new registry
 

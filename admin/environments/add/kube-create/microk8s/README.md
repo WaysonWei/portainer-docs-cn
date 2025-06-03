@@ -45,9 +45,9 @@ Fill in the fields based on the table below:
 | SSH private key passphrase | If your SSH private key is encrypted, provide the passphrase here.                                                   |
 | SSH private key            | Paste your SSH private key in this field.                                                                            |
 
-{% hint style="info" %}
+
 You can also choose to generate a new SSH key pair by clicking the **Generate new RSA SSH key pair** button, or upload an existing private key by clicking the **Upload SSH private key** button. You can find more detailed instructions for generating a new SSH key in our [SSH credentials documentation](../../../../settings/credentials/ssh.md#generate-a-new-key-pair).
-{% endhint %}
+
 
 <figure><img src="../../../../../.gitbook/assets/2.26-environments-add-kube-create-microk8s-creds.png" alt=""><figcaption></figcaption></figure>
 

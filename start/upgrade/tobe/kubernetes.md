@@ -1,8 +1,8 @@
 # Kubernetes
 
-{% hint style="info" %}
+
 Select the Portainer CE to Portainer Business upgrade method below which matches the original installation method used.
-{% endhint %}
+
 
 ## Method 1: Upgrade via Helm
 

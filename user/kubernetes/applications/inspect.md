@@ -36,17 +36,17 @@ Shows information about application-related events.
 
 This displays the YAML generated from the application deployment, and lets you edit the YAML for an application directly. Updates to your manifest made here are applied using the Kubernetes `patch` mechanism.&#x20;
 
-{% hint style="info" %}
+
 Editing your YAML through this section is only available in Portainer Business Edition.
-{% endhint %}
+
 
 <figure><img src="../../../.gitbook/assets/2.20-kubernetes-applications-inspect-yaml.png" alt=""><figcaption></figcaption></figure>
 
 Make your edits then click **Apply changes** to update the deployment.
 
-{% hint style="warning" %}
+
 Editing the YAML is not available for resources in namespaces marked as system.
-{% endhint %}
+
 
 ## Actions
 
@@ -58,9 +58,9 @@ Depending on how the application was deployed, a number of actions can be perfor
 * Rolling the application back to a previous configuration.
 * Creating a [template](../templates/) from the application.
 
-{% hint style="info" %}
+
 When using a Git repository, the rolling restart and redeploy options do not re-pull the manifest from the upstream repository. To do this, use the **Pull and update application** button when [editing an application](edit.md#method-1-redeploy-from-git).
-{% endhint %}
+
 
 <figure><img src="../../../.gitbook/assets/2.17-k8s-applications-inspect-actions.png" alt=""><figcaption><p>Some of the potential actions that may appear for your application</p></figcaption></figure>
 

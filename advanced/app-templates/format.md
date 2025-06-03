@@ -374,9 +374,9 @@ A stack template element must be a valid JSON object, composed of mandatory and 
 * **Valid values:** See the example below.
 * **Required/Optional:** Required
 
-{% hint style="warning" %}
+
 This value **must** reference a Git repository.
-{% endhint %}
+
 
 Object format:
 

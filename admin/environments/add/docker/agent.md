@@ -23,15 +23,15 @@ From the menu expand **Environment-related**, click **Environments**, then click
 
 Next, select **Docker Standalone** as the environment type then click **Start Wizard**. Select the **Agent** option, then your environment type. Copy the command for your environment type and run it on your Docker Standalone instance. For example, if you are deploying on a Linux machine or a Windows machine with WSL installed, use the **Linux & Windows WSL** command. If you are deploying on a Windows machine with WCS, use the **Windows WCS** command.
 
-{% hint style="info" %}
+
 If you want to use the [host management features](../../../../user/docker/host/setup.md#enable-host-management-features) of the Portainer Agent, you should add the necessary volume mount to the command that Portainer provides:
 
 ```
 -v /:/host
 ```
-{% endhint %}
 
-{% hint style="info" %}
+
+
 If Docker on the environment you're deploying the Agent to has the Docker volume path at a non-standard location (instead of `/var/lib/docker/volumes`) you will need to adjust the volume mount in the deployment command to suit.&#x20;
 
 For example, if your volume path was `/srv/data/docker`, you would change the line in the command to:
@@ -41,7 +41,7 @@ For example, if your volume path was `/srv/data/docker`, you would change the li
 ```
 
 The right side of the mount should remain as `/var/lib/docker/volumes`, as that is what the Agent expects.
-{% endhint %}
+
 
 Once the Agent has been deployed, enter the environment details using the table below as a guide:
 
@@ -54,9 +54,9 @@ Once the Agent has been deployed, enter the environment details using the table 
 
 As an optional step you can expand the **More settings** section to categorize the environment by adding it to a [group](../../groups.md) or [tagging](../../tags.md) it for better searchability.
 
-{% hint style="info" %}
+
 GPU configuration has been moved to [Host Setup](../../../../user/docker/host/setup.md#other) and can be configured once the environment has been set up.
-{% endhint %}
+
 
 <figure><img src="../../../../.gitbook/assets/2.18-environments-add-docker-moresettings.png" alt=""><figcaption></figcaption></figure>
 

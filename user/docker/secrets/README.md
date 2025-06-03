@@ -1,8 +1,8 @@
 # Secrets
 
-{% hint style="info" %}
+
 The Secrets menu is only available to Docker Swarm environments.
-{% endhint %}
+
 
 A secret is a blob of data, such as a password, SSH private key, SSL certificate, or another piece of data that should not be transmitted over a network, stored unencrypted in a Dockerfile, or stored in your application’s source code. In Docker 1.13 and later, you can use Docker Secrets to centrally manage this data and securely transmit it only to those containers that need access to it.
 

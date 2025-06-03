@@ -2,9 +2,9 @@
 
 **Registries** lets you manage access to each of the registries that are currently available.
 
-{% hint style="warning" %}
+
 Registry access assigned here only applies to the selected environment. It is not global.
-{% endhint %}
+
 
 ## Adding a new registry
 
@@ -34,9 +34,9 @@ You can see a list of the namespaces that have access to the registry or remove 
 
 The registry manager extends your container management experience by giving you the ability to browse defined registries and manipulate their content. By using this feature, container users enjoy the benefit of having a single interface to manage any Docker registry deployment, providing a consistent look and feel across any provider.
 
-{% hint style="info" %}
+
 Your registry must support Docker Registry API v2 in order to integrate with Portainer.
-{% endhint %}
+
 
 Select **Browse** next to the registry that you want to browse.
 
@@ -48,8 +48,8 @@ The **Repository information** page provides the repository name, tag and image 
 
 This page also provides an option to clean up unused legacy images by safely deleting them. You can also remove the entire repository.
 
-{% hint style="info" %}
+
 The actions you can perform on a registry may be limited by the role of your user.
-{% endhint %}
+
 
 <figure><img src="../../../.gitbook/assets/2.15-registries-browse-repo-detail.png" alt=""><figcaption></figcaption></figure>

@@ -2,9 +2,9 @@
 
 Portainer supports the provisioning of new Kubernetes environments on select cloud providers directly from within the interface, allowing you to spin up a new cloud Kubernetes environment and deploy the Portainer Agent with a few clicks.
 
-{% hint style="info" %}
+
 This feature is only available in [Portainer Business Edition](https://www.portainer.io/business-upsell?from=kaas-provisioning).
-{% endhint %}
+
 
 To get started, from the menu expand **Environment-related**, click **Environments**, then click **Add environment**.
 

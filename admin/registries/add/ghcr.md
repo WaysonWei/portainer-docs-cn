@@ -1,8 +1,8 @@
 # Add a GitHub registry
 
-{% hint style="info" %}
+
 The GitHub registry option is only available in Portainer Business Edition.
-{% endhint %}
+
 
 From the menu select **Registries** then click **Add registry** and select **GitHub** as the registry provider.
 
@@ -20,8 +20,8 @@ Complete the form, using the table below as a guide.
 
 <figure><img src="../../../.gitbook/assets/2.17-registries-add-ghcr-details.png" alt=""><figcaption></figcaption></figure>
 
-{% hint style="info" %}
+
 For more information about creating a personal access token, see [GitHub's own documentation](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
-{% endhint %}
+
 
 When the form is complete, click **Add registry**.

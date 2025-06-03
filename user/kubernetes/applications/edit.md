@@ -6,9 +6,9 @@ From the menu select **Applications**, select the application you want to edit, 
 
 Your editing options will depend on how the application was deployed initially.
 
-{% hint style="info" %}
+
 Regardless of the deployment method, you can [edit an application's YAML directly](inspect.md#yaml-tab) through the YAML tab in Portainer Business Edition.
-{% endhint %}
+
 
 ## Applications deployed from Git
 
@@ -26,9 +26,9 @@ If you want to redeploy, click **Pull and update application**. If you're simply
 
 If the application was deployed from the Web Editor, you will be given the ability to edit the manifest manually.&#x20;
 
-{% hint style="info" %}
+
 You can search within the web editor at any time by pressing `Ctrl-F` (or `Cmd-F` on Mac).
-{% endhint %}
+
 
 <figure><img src="../../../.gitbook/assets/2.20-kubernetes-applications-edit-webeditor.png" alt=""><figcaption></figcaption></figure>
 

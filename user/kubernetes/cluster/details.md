@@ -19,29 +19,29 @@ The following information is provided:
 
 ## Omni cluster management
 
-{% hint style="info" %}
+
 This section only appears when the environment is a [Talos Kubernetes cluster provisioned by Portainer through Omni](../../../admin/environments/add/kube-create/omni.md).
-{% endhint %}
+
 
 In this section you can see and update the versions of Kubernetes and Talos on your Talos Kubernetes cluster provisioned by Portainer.
 
-{% hint style="warning" %}
+
 This functionality is in beta and only tested with some configurations.
-{% endhint %}
+
 
 <figure><img src="../../../.gitbook/assets/2.26-kubernetes-cluster-details-omni.png" alt=""><figcaption></figcaption></figure>
 
 ## MicroK8s cluster management
 
-{% hint style="info" %}
+
 This section only appears when the environment is a MicroK8s cluster provisioned via the [Create a Kubernetes cluster](../../../admin/environments/add/kube-create/microk8s/) functionality.
-{% endhint %}
+
 
 In this section you can see and make changes to the configuration of your MicroK8s cluster provisioned by Portainer.
 
-{% hint style="warning" %}
+
 This functionality is in beta and only tested with some configurations. Refer to our [known issues knowledge base article](https://portal.portainer.io/knowledge/microk8s-known-issues) for caveats when using this feature.
-{% endhint %}
+
 
 | Field/Option                        | Overview                                                                                                                                                                                                                                                                                                                    |
 | ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -63,9 +63,9 @@ The **Conditions** column shows any conditions that are currently active on the 
 
 To view usage stats for a node, click the stats icon to the right of the node.
 
-{% hint style="info" %}
+
 Node stats are only available when you have [enabled using the metrics API](setup.md#enable-features-using-the-metrics-api).
-{% endhint %}
+
 
 <figure><img src="../../../.gitbook/assets/2.17-k8s-cluster-nodestats.png" alt=""><figcaption></figcaption></figure>
 

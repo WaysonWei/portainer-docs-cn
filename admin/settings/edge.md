@@ -2,9 +2,9 @@
 
 To enable and configure Edge Compute functionality in Portainer, select **Settings** from the menu then select **Edge Compute**.&#x20;
 
-{% hint style="info" %}
+
 To learn how to use our Edge Compute functionality, please refer to the [Edge Compute](../../user/edge/) section of this documentation.
-{% endhint %}
+
 
 <figure><img src="../../.gitbook/assets/2.15-settings-edgecompute.gif" alt=""><figcaption></figcaption></figure>
 
@@ -27,9 +27,9 @@ In this section you can use the following options to enable and configure Edge C
 
 When you are done, click **Save Settings**.
 
-{% hint style="warning" %}
+
 If you add or change the mTLS CA certificate you will need to restart the Portainer Server in order for the change to apply. You should also ensure any Edge Agents that are using mTLS are also updated to use the new CA certificate.
-{% endhint %}
+
 
 ## Deployment sync options
 

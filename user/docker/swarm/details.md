@@ -2,9 +2,9 @@
 
 This page provides information about the Docker Swarm cluster for the selected environment. The page is split into the following sections: Cluster status and Nodes, with clicking a node name taking you to the Node overview for that node.
 
-{% hint style="info" %}
+
 This page is only available on Docker Swarm environments.
-{% endhint %}
+
 
 ## Cluster status
 
@@ -44,9 +44,9 @@ Information such as the Docker version and the available volume and network plug
 
 These sections list the available PCI devices and physical disks on the node.&#x20;
 
-{% hint style="info" %}
+
 These sections are only visible when [host management features](setup.md#host-and-filesystem) are enabled for the cluster.
-{% endhint %}
+
 
 <figure><img src="../../../.gitbook/assets/2.15-docker-host-pci.png" alt=""><figcaption></figcaption></figure>
 

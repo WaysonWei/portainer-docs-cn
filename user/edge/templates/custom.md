@@ -10,9 +10,9 @@ To deploy a custom template as an Edge stack, click the template in the list.
 
 To create a new custom template, click the **Add Custom Template** button and fill out the resulting form and stack details.
 
-{% hint style="info" %}
+
 For more detail on custom template creation, refer to the [custom template](../../docker/templates/custom.md#creating-a-new-custom-template) documentation.
-{% endhint %}
+
 
 <figure><img src="../../../.gitbook/assets/2.20-edge-templates-custom-add.png" alt=""><figcaption></figcaption></figure>
 

@@ -1,12 +1,12 @@
 # Docker Standalone
 
-{% hint style="warning" %}
-This article assumes that you used our recommended deployment scripts.
-{% endhint %}
 
-{% hint style="info" %}
+This article assumes that you used our recommended deployment scripts.
+
+
+
 Before you begin, copy the license key from the email we sent you.
-{% endhint %}
+
 
 The process for switching to Portainer Business Edition is straightforward but does depend on which version of Portainer you are currently running. Start from the instructions for your current version and work your way down.
 

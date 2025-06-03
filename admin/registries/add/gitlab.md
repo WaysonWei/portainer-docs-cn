@@ -14,8 +14,8 @@ Complete the form, using the table below as a guide.
 
 <figure><img src="../../../.gitbook/assets/2.15-settings-registries-add-gitlab-details.png" alt=""><figcaption></figcaption></figure>
 
-{% hint style="info" %}
+
 For more information about creating a personal access token, see [Gitlab's own documentation](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html).
-{% endhint %}
+
 
 When the form is complete, click **Add registry**.

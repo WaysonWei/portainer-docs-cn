@@ -33,9 +33,9 @@ Fill in the fields based on the table below:
 | Endpoint URL        | Enter the endpoint URL of your Omni installation. This is generally the same URL you would be using to access the Omni web UI. |
 | Service account key | Paste your service account key into this field.                                                                                |
 
-{% hint style="info" %}
+
 You can create a service account through the Omni web UI or using `omnictl`. You can find more information on how to do this in our [Omni credentials documentation](../../../settings/credentials/omni.md).
-{% endhint %}
+
 
 <figure><img src="../../../../.gitbook/assets/2.26-environments-add-kube-create-omni-creds.png" alt=""><figcaption></figcaption></figure>
 

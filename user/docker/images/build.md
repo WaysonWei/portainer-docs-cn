@@ -2,13 +2,13 @@
 
 There are three ways you can build new images.
 
-{% hint style="info" %}
-On a multi-node environment, the built image will only be available on the node you select in the **Deployment** section. To make the image available to all nodes, consider [adding a registry](../../../admin/registries/add/) to Portainer.
-{% endhint %}
 
-{% hint style="warning" %}
+On a multi-node environment, the built image will only be available on the node you select in the **Deployment** section. To make the image available to all nodes, consider [adding a registry](../../../admin/registries/add/) to Portainer.
+
+
+
 When building an image with Portainer, you are unable to use `ADD` or `COPY` commands referencing files on the host. We recommend using `wget` or similar to retrieve files from a HTTP/S URL instead.
-{% endhint %}
+
 
 ## Method 1: Using the Portainer web editor
 
@@ -18,9 +18,9 @@ From the menu select **Images** then click **Build a new image**.
 
 Next, give the image a descriptive name (you can enter multiple names), select the **Web editor** option under **Build method**, then write your Dockerfile in the web editor.
 
-{% hint style="info" %}
+
 You can search within the web editor at any time by pressing `Ctrl-F` (or `Cmd-F` on Mac).
-{% endhint %}
+
 
 <figure><img src="../../../.gitbook/assets/2.15-docker_images_build_web_editor.png" alt=""><figcaption></figcaption></figure>
 

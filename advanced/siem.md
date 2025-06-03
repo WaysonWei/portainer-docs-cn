@@ -1,8 +1,8 @@
 # Stream auth and activity logs to an external provider
 
-{% hint style="warning" %}
+
 This is an experimental feature.
-{% endhint %}
+
 
 With Portainer 2.20 and later, you can configure the streaming of Portainer's authentication and activity logs to an external Security Information and Event Management (SIEM) system in Syslog format. This is done via CLI flags when starting the Portainer container.
 
@@ -24,9 +24,9 @@ With Portainer 2.20 and later, you can configure the streaming of Portainer's au
 
 The following is an example `docker run` command to start Portainer using the above options to stream logs to a SIEM provider at `syslog.mydomain.com` on UDP port `514`.
 
-{% hint style="warning" %}
+
 As the flags are Portainer options, they must be specified after the image specification.
-{% endhint %}
+
 
 ```
 docker run -d -p 8000:8000 -p 9443:9443 \

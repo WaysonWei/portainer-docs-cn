@@ -1,8 +1,8 @@
 # Install Portainer BE on your Kubernetes environment
 
-{% hint style="info" %}
+
 These installation instructions are for Portainer Business Edition (BE). For Portainer Community Edition (CE) refer to the [CE install documentation](../../../install-ce/server/kubernetes/baremetal.md).
-{% endhint %}
+
 
 ## Introduction
 
@@ -27,9 +27,9 @@ The installation instructions also make the following assumptions about your env
 
 Portainer requires data persistence, and as a result needs at least one StorageClass available to use. Portainer will attempt to use the default StorageClass during deployment. If you do not have a StorageClass tagged as `default` the deployment will likely fail.
 
-{% hint style="info" %}
+
 We recommend using block storage for Kubernetes rather than network storage for the best performance and reliability, but do pay attention to the IOPS of your block storage devices when choosing the volume to use as some options are slower than others.
-{% endhint %}
+
 
 You can check if you have a default StorageClass by running the following command on your cluster:
 
@@ -57,7 +57,7 @@ replacing `<storage-class-name>` with the name of your StorageClass. Alternative
 --set persistence.storageClass=<storage-class-name>
 ```
 
-{% hint style="info" %}
+
 In some Kubernetes clusters (for example microk8s), the default StorageClass simply creates hostPath volumes, which are not explicitly tied to a particular node. In a multi-node cluster, this can create an issue when the pod is terminated and rescheduled on a different node, "leaving" all the persistent data behind and starting the pod with an "empty" volume.
 
 While this behavior is inherently a limitation of using hostPath volumes, a suitable workaround is to use add a nodeSelector to the deployment, which effectively "pins" the Portainer pod to a particular node. You can do this by editing your own values.yaml file to set the nodeSelector value:
@@ -65,7 +65,7 @@ While this behavior is inherently a limitation of using hostPath volumes, a suit
 `nodeSelector: kubernetes.io/hostname: \<YOUR_NODE_NAME>`
 
 or alternatively follow the instructions below for each deployment method.
-{% endhint %}
+
 
 ## Deployment
 
@@ -73,9 +73,9 @@ To deploy Portainer within a Kubernetes cluster you can use our provided Helm ch
 
 ### Deploy using Helm
 
-{% hint style="info" %}
+
 Ensure you're using at least Helm v3.2, which includes support for the `--create-namespace` argument.
-{% endhint %}
+
 
 First add the Portainer Helm repository by running the following commands:
 
@@ -97,13 +97,13 @@ helm upgrade --install --create-namespace -n portainer portainer portainer/porta
     --set tls.force=true
 ```
 
-{% hint style="info" %}
-By default, Portainer generates and uses a self-signed SSL certificate to secure port `30779`. Alternatively you can provide your own SSL certificate [during installation](../../../../advanced/ssl.md#using-your-own-ssl-certificate-on-kubernetes-via-helm) or [via the Portainer UI](../../../../admin/settings/#ssl-certificate) after installation is complete.
-{% endhint %}
 
-{% hint style="info" %}
+By default, Portainer generates and uses a self-signed SSL certificate to secure port `30779`. Alternatively you can provide your own SSL certificate [during installation](../../../../advanced/ssl.md#using-your-own-ssl-certificate-on-kubernetes-via-helm) or [via the Portainer UI](../../../../admin/settings/#ssl-certificate) after installation is complete.
+
+
+
 If you need to access Portainer via HTTP on port `30777`, remove the `--set tls.force=true` option.
-{% endhint %}
+
 {% endtab %}
 
 {% tab title="Expose via Ingress" %}
@@ -122,9 +122,9 @@ helm upgrade --install --create-namespace -n portainer portainer portainer/porta
     --set ingress.hosts[0].paths[0].path="/"
 ```
 
-{% hint style="info" %}
+
 If you need to access Portainer via HTTP, remove the `--set tls.force=true` option.
-{% endhint %}
+
 {% endtab %}
 
 {% tab title="Expose via Load Balancer" %}
@@ -138,19 +138,19 @@ helm upgrade --install --create-namespace -n portainer portainer portainer/porta
     --set tls.force=true
 ```
 
-{% hint style="info" %}
-By default, Portainer generates and uses a self-signed SSL certificate to secure port `9443`. Alternatively you can provide your own SSL certificate [during installation](../../../../advanced/ssl.md#using-your-own-ssl-certificate-on-kubernetes-via-helm) or [via the Portainer UI](../../../../admin/settings/#ssl-certificate) after installation is complete.
-{% endhint %}
 
-{% hint style="info" %}
+By default, Portainer generates and uses a self-signed SSL certificate to secure port `9443`. Alternatively you can provide your own SSL certificate [during installation](../../../../advanced/ssl.md#using-your-own-ssl-certificate-on-kubernetes-via-helm) or [via the Portainer UI](../../../../admin/settings/#ssl-certificate) after installation is complete.
+
+
+
 If you need to access Portainer via HTTP on port `9000`, remove the `--set tls.force=true` option.
-{% endhint %}
+
 {% endtab %}
 {% endtabs %}
 
-{% hint style="info" %}
+
 If you want to explicitly set the target node when deploying the Helm chart on the CLI, include `--set nodeSelector.kubernetes\.io/hostname=<YOUR NODE NAME>` in your `helm install` command.
-{% endhint %}
+
 
 ### Deploy using YAML manifests
 
@@ -164,9 +164,9 @@ To expose via NodePort, you can use the following command (Portainer will be ava
 kubectl apply -n portainer -f https://downloads.portainer.io/ee-lts/portainer.yaml
 ```
 
-{% hint style="info" %}
+
 By default, Portainer generates and uses a self-signed SSL certificate to secure port `30779`. Alternatively you can provide your own SSL certificate [during installation](../../../../advanced/ssl.md#using-your-own-ssl-certificate-on-kubernetes-via-helm) or [via the Portainer UI](../../../../admin/settings/#ssl-certificate) after installation is complete.
-{% endhint %}
+
 {% endtab %}
 
 {% tab title="Expose via Load Balancer" %}
@@ -176,15 +176,15 @@ To expose via Load Balancer, use the following command to provision Portainer at
 kubectl apply -n portainer -f https://downloads.portainer.io/ee-lts/portainer-lb.yaml
 ```
 
-{% hint style="info" %}
+
 By default, Portainer generates and uses a self-signed SSL certificate to secure port `9443`. Alternatively you can provide your own SSL certificate [during installation](../../../../advanced/ssl.md#using-your-own-ssl-certificate-on-kubernetes-via-helm) or [via the Portainer UI](../../../../admin/settings/#ssl-certificate) after installation is complete.
-{% endhint %}
+
 {% endtab %}
 {% endtabs %}
 
-{% hint style="info" %}
+
 If you want to explicitly set the target node when deploying using YAML manifests, run the following one-liner to "patch" the deployment, forcing the pod to always be scheduled on the node it's currently running on:
-{% endhint %}
+
 
 ```
 kubectl patch deployments -n portainer portainer -p '{"spec": {"template": {"spec": {"nodeSelector": {"kubernetes.io/hostname": "'$(kubectl get pods -n portainer -o jsonpath='{ ..nodeName }')'"}}}}}' || (echo Failed to identify current node of portainer pod; exit 1)

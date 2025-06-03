@@ -2,9 +2,9 @@
 
 You can pull images from any registry that has been [added to Portainer](../../../admin/registries/), or using advanced mode, from a custom external registry.
 
-{% hint style="info" %}
+
 On a multi-node environment, the pulled image will only be available on the node you select in the **Deployment** section. To make the image available to all nodes, consider [adding a registry](../../../admin/registries/add/) to Portainer.
-{% endhint %}
+
 
 ## Method 1: Pulling images in simple mode
 

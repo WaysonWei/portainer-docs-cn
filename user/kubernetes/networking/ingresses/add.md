@@ -14,13 +14,13 @@ Complete the required information, using the sections below as a guide.
 
 <figure><img src="../../../../.gitbook/assets/2.18-k8s-ingresses-add-name.png" alt=""><figcaption></figcaption></figure>
 
-{% hint style="info" %}
+
 **Note for Google Cloud users**
 
 Google Cloud ingress controller (gce or GKE Ingress) continues to use the deprecated `kubernetes.io/ingress.class` annotation on ingresses, whereas most other ingress controllers use the `IngressClass` resource that was introduced in Kubernetes 1.18.
 
 Portainer targets the `IngressClass` resource means of specifying ingress classes, but you can still use the Google Cloud ingress controllers by turning on the **Allow ingress class to be set to "none"** toggle in [Cluster setup](../../cluster/setup.md#ingress-controllers) and setting them up as custom with `none` selected as their **Ingress class**. Then when adding an ingress based on this, set an annotation with the **key** `kubernetes.io/ingress.class` and **value** `gce.`
-{% endhint %}
+
 
 ### Ingress Rule
 
@@ -34,8 +34,8 @@ You can expose other services using a different path by clicking on **Add path**
 
 Add more rules by clicking on **Add new host** or a fallback rule by **Add fallback rule**.
 
-{% hint style="info" %}
+
 A fallback rule has no host specified. This rule only applies when an inbound request has a hostname that does not match with any of your other rules.
-{% endhint %}
+
 
 When you're ready, click **Create**.

@@ -4,9 +4,9 @@ If your Portainer admin forgets their password, follow these steps to reset it. 
 
 ## Method 1: Resetting the admin password if Portainer runs as a container
 
-{% hint style="info" %}
+
 You would typically use this method if you run the Portainer Server on Docker Standalone.
-{% endhint %}
+
 
 First, go to our [reset password container helper](https://github.com/portainer/helper-reset-password) in GitHub, then stop the Portainer container by running this command:
 
@@ -16,9 +16,9 @@ docker stop "id-portainer-container"
 
 Next, run the helper using the following command (you'll need to mount the Portainer data volume):
 
-{% hint style="warning" %}
+
 If your Portainer data volume has a different name than `portainer_data` or you are using a bind mount for your data volume, you will need to adjust the mount in the below `docker run` command to suit your path.
-{% endhint %}
+
 
 ```
 docker pull portainer/helper-reset-password
@@ -48,9 +48,9 @@ docker start "id-portainer-container"
 
 ## Method 2: Resetting the admin password if Portainer runs as a stack/service
 
-{% hint style="info" %}
+
 You would typically use this method if you run the Portainer Server on Docker Swarm.
-{% endhint %}
+
 
 First, scale the Portainer service to zero using this command:
 
@@ -60,9 +60,9 @@ docker service scale portainer_portainer=0
 
 Next, run the [reset password container helper](https://github.com/portainer/helper-reset-password) using the same bind-mount/volume as the data volume:
 
-{% hint style="warning" %}
+
 If your Portainer data volume has a different name than `portainer_data` or you are using a bind mount for your data volume, you will need to adjust the mount in the below `docker run` command to suit your path.
-{% endhint %}
+
 
 ```
 docker pull portainer/helper-reset-password
@@ -92,9 +92,9 @@ docker service scale portainer_portainer=1
 
 ## Method 3: Resetting the admin password if Portainer is deployed in a Kubernetes cluster
 
-{% hint style="info" %}
+
 You would typically use this method if you run the Portainer Server on a Kubernetes cluster.
-{% endhint %}
+
 
 First, scale the Portainer deployment to zero using this command:
 
@@ -104,9 +104,9 @@ kubectl scale deploy portainer --replicas=0 -n portainer
 
 Next, create a pod using the [reset password container helper](https://github.com/portainer/helper-reset-password) image and mount the Portainer data volume. Create a pod YAML file using the command below:
 
-{% hint style="info" %}
+
 You may need to change the YAML below to match your Portainer deployment (for example if using a different `claimName`).
-{% endhint %}
+
 
 ```
 cat > passreset.yml<< EOF

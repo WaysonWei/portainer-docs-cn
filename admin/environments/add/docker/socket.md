@@ -14,9 +14,9 @@ Fill out the fields based on the table below.
 
 <table><thead><tr><th width="280">Field/Option</th><th>Overview</th></tr></thead><tbody><tr><td>Name</td><td>Give the environment a descriptive name.</td></tr><tr><td>Override default socket path</td><td>Toggle this option on to override the default <code>/var/run/docker.sock</code> socket path.</td></tr><tr><td>Socket Path</td><td>If <strong>Override default socket path</strong> is enabled, enter the path to the Docker socket.</td></tr></tbody></table>
 
-{% hint style="info" %}
+
 Ensure that if you change the Socket Path, that you update the required bind mount parameter above to suit.
-{% endhint %}
+
 
 <figure><img src="../../../../.gitbook/assets/2.18-environments-add-docker-socket-details.png" alt=""><figcaption></figcaption></figure>
 

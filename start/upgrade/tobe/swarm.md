@@ -1,12 +1,12 @@
 # Docker Swarm
 
-{% hint style="warning" %}
-This article assumes that you used our recommended deployment scripts.
-{% endhint %}
 
-{% hint style="info" %}
+This article assumes that you used our recommended deployment scripts.
+
+
+
 Before you begin, copy the license key from the email we sent you.
-{% endhint %}
+
 
 To upgrade to Portainer Business Edition for Docker Swarm, use the following commands to deploy the newest version of Portainer Business on your Swarm Cluster:
 

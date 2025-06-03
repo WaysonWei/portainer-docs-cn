@@ -2,9 +2,9 @@
 
 Within the Portainer Business Edition UI you can view a log of all authentication actions. The log is read-only and cannot be edited.
 
-{% hint style="info" %}
+
 Portainer also provides the ability to view [detailed activity logs](activity.md).
-{% endhint %}
+
 
 From the menu expand **Logs** and select **Authentication**.
 

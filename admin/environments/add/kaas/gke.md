@@ -2,9 +2,9 @@
 
 Select the **Google Cloud** option from the list of providers. If you haven't already configured credentials for Google Cloud you'll be asked to provide them now. Enter a **name** for your credentials then click **Upload file** and select your JSON private key. Once this is done, click **Save**.
 
-{% hint style="info" %}
+
 You can find more details on [setting up access to your Google Cloud account ](../../../settings/credentials/gke.md)in the [shared credentials documentation](../../../settings/credentials/).
-{% endhint %}
+
 
 <figure><img src="../../../../.gitbook/assets/2.21.2-kaas-create-googlecloud-creds.png" alt=""><figcaption></figcaption></figure>
 
@@ -21,9 +21,9 @@ Once you have added your credentials (or if you already had them set up) select 
 | Subnet               | Select the subnet to attach to the cluster.                         |
 | Kubernetes version   | Select the version of Kubernetes you want to deploy on your cluster |
 
-{% hint style="info" %}
+
 You can manually refresh the options available from Google Cloud by clicking **Reload cluster details** under the **Actions** section.
-{% endhint %}
+
 
 <figure><img src="../../../../.gitbook/assets/2.21.2-kaas-create-googlecloud-cluster.png" alt=""><figcaption></figcaption></figure>
 

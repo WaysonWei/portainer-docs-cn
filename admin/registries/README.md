@@ -28,6 +28,6 @@ By default the **Docker Hub (anonymous)** registry is available to all users. If
 
 <figure><img src="../../.gitbook/assets/2.15-admin-registries-dockerhub-hide.png" alt=""><figcaption></figcaption></figure>
 
-{% hint style="info" %}
+
 As the anonymous Docker Hub access is built into Docker itself this does not fully disable access to this registry, but it does hide it from the dropdown list of registries in the Portainer UI. In addition, if no other registries are available to a user the Docker Hub (anonymous) option will be displayed regardless of this setting.
-{% endhint %}
+

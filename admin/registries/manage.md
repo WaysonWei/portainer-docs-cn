@@ -14,11 +14,11 @@ In the **Add tag** section at the top-right of the page, enter the name of your 
 
 ## Retagging
 
-{% hint style="info" %}
+
 If you host your own Docker registry, and you want the ability to retag images, you will need to add the following to your Docker registry's environment variables:
 
 `REGISTRY_STORAGE_DELETE_ENABLED=TRUE`
-{% endhint %}
+
 
 From the menu select **Registries**, choose the registry you want to manage and click **browse**. From the list of repositories, select the repository you want to manage.
 
@@ -30,11 +30,11 @@ In the **Tags** section, locate the image you want to retag then click **Retag**
 
 ## Removing a tag
 
-{% hint style="info" %}
+
 If you host your own Docker registry, and want the ability to remove tags, you will need to add the following to your Docker registry's environment variables:
 
 `REGISTRY_STORAGE_DELETE_ENABLED=TRUE`
-{% endhint %}
+
 
 From the menu select **Registries**, select the registry you want to manage then click **Browse**. From the list, select the repository you want to manage.
 

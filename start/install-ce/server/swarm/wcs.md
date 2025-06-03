@@ -1,8 +1,8 @@
 # Install Portainer CE with Docker Swarm on Windows Container Service
 
-{% hint style="info" %}
+
 These installation instructions are for Portainer Community Edition (CE). For Portainer Business Edition (BE) refer to the [BE install documentation](../../../install/server/swarm/wcs.md).
-{% endhint %}
+
 
 ## Introduction
 
@@ -48,9 +48,9 @@ Once this is complete you will need to restart your Windows server. After the re
 
 Portainer can be directly deployed as a service in your Docker cluster. Note that this method will automatically deploy a single instance of the Portainer Server, and deploy the Portainer Agent as a global service on every node in your cluster.
 
-{% hint style="danger" %}
+
 Only do this **once** for your environment, regardless of how many nodes are in the cluster. You **do not** need to add each node in your cluster as a separate environment in Portainer. Deploying the manifest to your swarm will include every node in the cluster automatically. Adding each node as a separate environment will also consume more of your licensed node count than you may expect.
-{% endhint %}
+
 
 You can use our YML manifest to run Portainer in Windows using Windows Containers. In PowerShell, run:
 
@@ -64,9 +64,9 @@ Then use the downloaded YML manifest to deploy your stack:
 docker stack deploy --compose-file=portainer-windows-stack.yml portainer
 ```
 
-{% hint style="info" %}
+
 By default, Portainer generates and uses a self-signed SSL certificate to secure port `9443`. Alternatively you can provide your own SSL certificate [during installation](../../../../advanced/ssl.md#using-your-own-ssl-certificate-on-docker-swarm) or [via the Portainer UI](../../../../admin/settings/#ssl-certificate) after installation is complete.
-{% endhint %}
+
 
 ## Logging In
 

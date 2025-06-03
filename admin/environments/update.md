@@ -2,9 +2,9 @@
 
 This feature lets you upgrade your Edge Agent deployments directly from Portainer, without the need to log into the remote environments and manually update.
 
-{% hint style="warning" %}
+
 This feature is currently in beta, and is only currently available for Edge Agents running on Docker Standalone environments.
-{% endhint %}
+
 
 To view your currently scheduled updates or schedule a new update process, from the menu expand **Environment-related** then select **Update & Rollback**.
 
@@ -16,9 +16,9 @@ Here you will see a list of your pending and completed updates and rollbacks.
 
 To add a new update schedule, click the **Add update & rollback schedule** button, then fill out the form.
 
-{% hint style="info" %}
+
 To schedule an update, Portainer must have a snapshot of all the environments you wish to upgrade.
-{% endhint %}
+
 
 | Field/Option         | Overview                                                                                                                                                                                                      |
 | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -40,9 +40,9 @@ When you're ready, click **Create Schedule** to schedule the update. You will be
 
 To schedule the rollback of an update, click the **Add update & rollback schedule** button, then fill out the form.
 
-{% hint style="info" %}
+
 To schedule a rollback, Portainer must have a snapshot of all the environments you wish to roll back.
-{% endhint %}
+
 
 | Field/Option         | Overview                                                                                                                                                                                                           |
 | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |

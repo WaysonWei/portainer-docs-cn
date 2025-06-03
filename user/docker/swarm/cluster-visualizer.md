@@ -1,8 +1,8 @@
 # Cluster visualizer
 
-{% hint style="info" %}
+
 This feature is only available to Docker Swarm environments.
-{% endhint %}
+
 
 The **Cluster visualizer** section gives you an overview of your cluster and the tasks on it.
 

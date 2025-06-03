@@ -1,20 +1,20 @@
 # Install Portainer BE with Kubernetes on WSL / Docker Desktop
 
-{% hint style="info" %}
+
 These installation instructions are for Portainer Business Edition (BE). For Portainer Community Edition (CE) refer to the [CE install documentation](../../../install-ce/server/kubernetes/wsl.md).
-{% endhint %}
+
 
 ## Introduction
 
 The following instructions will guide you in setting up _Portainer Server_ with Kubernetes running on Docker Desktop with WSL.
 
-{% hint style="info" %}
-This scenario is for testing purposes only.
-{% endhint %}
 
-{% hint style="warning" %}
+This scenario is for testing purposes only.
+
+
+
 We are aware of an issue where namespace and application access privileges are not fully implemented when running Kubernetes via Docker Desktop. We are looking into the root cause and hope to have a resolution soon.
-{% endhint %}
+
 
 ## Preparation
 
@@ -36,9 +36,9 @@ To deploy Portainer within a Kubernetes cluster you can use our provided Helm ch
 
 ### Deploy using Helm
 
-{% hint style="info" %}
+
 Ensure you're using at least Helm v3.2, which includes support for the `--create-namespace` argument.
-{% endhint %}
+
 
 First add the Portainer Helm repository by running the following commands:
 
@@ -59,9 +59,9 @@ helm upgrade --install --create-namespace -n portainer portainer portainer/porta
     --set enterpriseEdition.image.tag=lts
 ```
 
-{% hint style="info" %}
+
 By default, Portainer generates and uses a self-signed SSL certificate to secure port `9443`. Alternatively you can provide your own SSL certificate [during installation](../../../../advanced/ssl.md#using-your-own-ssl-certificate-on-kubernetes-via-helm) or [via the Portainer UI](https://app.gitbook.com/admin/settings#ssl-certificate) after installation is complete.
-{% endhint %}
+
 {% endtab %}
 
 {% tab title="Expose via Ingress" %}
@@ -91,15 +91,15 @@ helm upgrade --install --create-namespace -n portainer portainer portainer/porta
     --set enterpriseEdition.image.tag=lts
 ```
 
-{% hint style="info" %}
+
 By default, Portainer generates and uses a self-signed SSL certificate to secure port `9443`. Alternatively you can provide your own SSL certificate [during installation](../../../../advanced/ssl.md#using-your-own-ssl-certificate-on-kubernetes-via-helm) or [via the Portainer UI](https://app.gitbook.com/admin/settings#ssl-certificate) after installation is complete.
-{% endhint %}
+
 {% endtab %}
 {% endtabs %}
 
-{% hint style="info" %}
+
 To explicitly set the target node when deploying the Helm chart on the CLI, include `--set nodeSelector.kubernetes.io/hostname=<YOUR NODE NAME>` in your `helm install` command.
-{% endhint %}
+
 
 ### Deploy using YAML manifests
 
@@ -113,9 +113,9 @@ To expose via NodePort, you can use the following command (Portainer will be ava
 kubectl apply -n portainer -f https://downloads.portainer.io/ee-lts/portainer.yaml
 ```
 
-{% hint style="info" %}
+
 By default, Portainer generates and uses a self-signed SSL certificate to secure port `30779`. Alternatively you can provide your own SSL certificate [during installation](../../../../advanced/ssl.md#using-your-own-ssl-certificate-on-kubernetes-via-helm) or [via the Portainer UI](../../../../admin/settings/#ssl-certificate) after installation is complete.
-{% endhint %}
+
 {% endtab %}
 
 {% tab title="Expose via Load Balancer" %}
@@ -125,15 +125,15 @@ To expose via Load Balancer, use the following command to provision Portainer at
 kubectl apply -n portainer -f https://downloads.portainer.io/ee-lts/portainer-lb.yaml
 ```
 
-{% hint style="info" %}
+
 By default, Portainer generates and uses a self-signed SSL certificate to secure port `9443`. Alternatively you can provide your own SSL certificate [during installation](../../../../advanced/ssl.md#using-your-own-ssl-certificate-on-kubernetes-via-helm) or [via the Portainer UI](../../../../admin/settings/#ssl-certificate) after installation is complete.
-{% endhint %}
+
 {% endtab %}
 {% endtabs %}
 
-{% hint style="info" %}
+
 To explicitly set the target node when deploying using YAML manifests, run the following one-liner to "patch" the deployment, forcing the pod to always be scheduled on the node it's currently running on:
-{% endhint %}
+
 
 ```
 kubectl patch deployments -n portainer portainer -p '{"spec": {"template": {"spec": {"nodeSelector": {"kubernetes.io/hostname": "'$(kubectl get pods -n portainer -o jsonpath='{ ..nodeName }')'"}}}}}' || (echo Failed to identify current node of portainer pod; exit 1)

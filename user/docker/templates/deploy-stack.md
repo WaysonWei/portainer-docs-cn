@@ -2,9 +2,9 @@
 
 Portainer lets you deploy an entire stack from either a default template or a custom template.
 
-{% hint style="info" %}
+
 You can also [create a template from a stack](../stacks/template.md).
-{% endhint %}
+
 
 From the menu expand **Templates**, select **Application** or **Custom** (depending on the template) then select the template you want to deploy. In this example we'll create a WordPress stack.
 

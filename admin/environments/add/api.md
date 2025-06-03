@@ -6,9 +6,9 @@ Portainer's [API](../../../api/docs.md) lets you perform the same actions as via
 * A remote environment using TCP communication.
 * A remote environment using TCP communication secured via TLS.
 
-{% hint style="info" %}
+
 The examples in this article use [httpie](https://httpie.io/) to make HTTP calls from the command line to the Portainer API. Feel free to replace httpie with your preferred method.
-{% endhint %}
+
 
 ## Preparation
 
@@ -38,9 +38,9 @@ The authorization header value must take the form `Bearer JWT_TOKEN`. Using the 
 Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsInJvbGUiOjEsImV4cCI6MTQ5OTM3NjE1NH0.NJ6vE8FY1WG6jsRQzfMqeatJ4vh2TWAeeYfDhP71YEE
 ```
 
-{% hint style="info" %}
+
 The JWT token is valid for 8 hours after it is generated. Once it expires, you will need to generate a new token.
-{% endhint %}
+
 
 ## Adding an environment
 
@@ -48,9 +48,9 @@ The JWT token is valid for 8 hours after it is generated. Once it expires, you w
 
 This query will create an environment called `test-local` and will use the Docker socket to communicate with your environment.
 
-{% hint style="info" %}
+
 This example requires you to bind-mount the Docker socket when running Portainer.
-{% endhint %}
+
 
 Run the following command:
 
@@ -87,9 +87,9 @@ Make a note of the `Id` value. It will be used to execute queries against the Do
 
 This query will create an environment called `test-remote`. It will communicate with your environment over TCP using the IP address `10.0.7.10` and port `2375`. Make sure you replace the example values with your own IP address and port.
 
-{% hint style="info" %}
+
 The Docker API must be exposed on the provided IP address and port. To learn how to do this, refer to the Docker documentation.
-{% endhint %}
+
 
 Run the following command:
 
@@ -126,9 +126,9 @@ Take a note of the `Id` value. It will be used to execute queries against the Do
 
 This query will create an environment called `test-remote-tls`. It will communicate with your environment over TCP (secured with TLS) using the IP address `10.0.7.10` and port `2376`. Make sure you replace the example values with your own IP address and port.
 
-{% hint style="info" %}
+
 The Docker API must be exposed on the provided IP address and port. To learn how to do this, refer to the Docker documentation.
-{% endhint %}
+
 
 Run the following command:
 

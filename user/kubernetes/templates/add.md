@@ -25,9 +25,9 @@ Next, select the **Build method**.
 
 Define or paste the contents of your manifest file into the web editor. When deploying an application using a custom template you will be given an opportunity to edit the manifest before deployment.
 
-{% hint style="info" %}
+
 You can search within the web editor at any time by pressing `Ctrl-F` (or `Cmd-F` on Mac).
-{% endhint %}
+
 
 
 
@@ -68,9 +68,9 @@ When you're ready, click **Create custom template**.
 
 Custom templates support the use of variables to provide further customization of the deployed stack. A stack can define a variable that can then be adjusted by the user at deployment.
 
-{% hint style="info" %}
+
 This feature is only available in Portainer Business Edition.
-{% endhint %}
+
 
 Variables are identified in stacks with `{{ }}`. For example, the following stack provides a `REPLICA_COUNT` variable:
 

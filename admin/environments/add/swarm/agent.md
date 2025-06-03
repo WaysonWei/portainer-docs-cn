@@ -21,27 +21,27 @@ The Portainer Agent installation instructions also make the following additional
 
 From the menu expand **Environment-related**, click **Environments**, then click **Add environment**.
 
-{% hint style="warning" %}
+
 Only do this **once** for your environment, regardless of how many nodes are in the cluster. You do **not** need to add each node as an individual environment in Portainer. Adding just one node (we recommend the manager node) will allow Portainer to manage the entire cluster.
-{% endhint %}
+
 
 <figure><img src="../../../../.gitbook/assets/2.22-environments-add.gif" alt=""><figcaption></figcaption></figure>
 
 Next, select **Docker Swarm** as the environment type then click **Start Wizard**. Select the **Agent** option and your platform. Copy the command, then run it on the manager node of your Docker Swarm cluster. For example, if you are deploying on a Linux machine or a Windows machine with WSL installed, use the **Linux & Windows WSL** command. If you are deploying on a Windows machine with WCS, use the **Windows WCS** command.
 
-{% hint style="info" %}
-You must run the command on the Docker Swarm cluster before entering the environment details.
-{% endhint %}
 
-{% hint style="info" %}
+You must run the command on the Docker Swarm cluster before entering the environment details.
+
+
+
 If you want to use the [host management features](../../../../user/docker/swarm/setup.md#host-and-filesystem) of the Portainer Agent, you should add the necessary volume mount to the command that Portainer provides:
 
 ```
 --mount type=bind,src=//,dst=/host
 ```
-{% endhint %}
 
-{% hint style="info" %}
+
+
 If Docker on the environment you're deploying the Agent to has the Docker volume path at a non-standard location (instead of `/var/lib/docker/volumes`) you will need to adjust the volume mount in the deployment command to suit.&#x20;
 
 For example, if your volume path was `/srv/data/docker`, you would change the line in the command to:
@@ -51,7 +51,7 @@ For example, if your volume path was `/srv/data/docker`, you would change the li
 ```
 
 The `dst` value of the mount should remain as `/var/lib/docker/volumes`, as that is what the Agent expects.
-{% endhint %}
+
 
 <figure><img src="../../../../.gitbook/assets/2.16-environments-add-swarm-agent.png" alt=""><figcaption></figcaption></figure>
 
@@ -77,9 +77,9 @@ tshb6ee2710s        portainer-agent_agent   global              1/1             
 
 Once the agent is running on the Docker Swarm cluster, enter the environment details, using the table below as a guide.
 
-{% hint style="warning" %}
+
 Only do this **once** for your environment, regardless of how many nodes are in the cluster. You do **not** need to add each node as an individual environment in Portainer. Adding just one node (we recommend the manager node) will allow Portainer to manage the entire cluster.
-{% endhint %}
+
 
 <table><thead><tr><th width="238">Field</th><th>Overview</th></tr></thead><tbody><tr><td>Name</td><td>Give the environment a descriptive name.</td></tr><tr><td>Environment address</td><td>Enter the IP or DNS name at which the Portainer Server instance can reach the environment along with the port (<code>9001</code>).</td></tr></tbody></table>
 

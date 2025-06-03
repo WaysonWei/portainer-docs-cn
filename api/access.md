@@ -32,9 +32,9 @@ Scroll down to the **Access tokens** section. Here you can see any access tokens
 
 To add a new access token, click the **Add access token** button. You will be taken to a new page where you can set a **Description** for your access token. We recommend making this something recognizable for future reference.&#x20;
 
-{% hint style="info" %}
+
 For security we require you to re-enter your password when creating an access token.
-{% endhint %}
+
 
 <figure><img src="../.gitbook/assets/2.20-api-access-createtoken.png" alt=""><figcaption></figcaption></figure>
 
@@ -50,9 +50,9 @@ When you have copied the access token, click the **Done** button to return to th
 
 Now that you have created a user and access token, you are ready to access the API. The Portainer API follows the RESTful architecture, accepting `GET` / `POST` / `PUT` / `DELETE` requests and responding with JSON objects.
 
-{% hint style="info" %}
+
 The following examples use [httpie](https://httpie.org/) to execute API calls against Portainer. Feel free to replace this with your method of choice.
-{% endhint %}
+
 
 To make an API request, you will need to include your access token in the `X-API-Key` header to authenticate your request. For example, you can use the `/stacks` endpoint to list the stacks you have access to:
 

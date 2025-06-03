@@ -2,9 +2,9 @@
 
 As an open source product, we encourage users to edit our code and submit patches to it.  This article explains how to set up a local environment on Mac so you can build your own copy of Portainer and test your changes.
 
-{% hint style="info" %}
+
 We tested these instructions on macOS 10.14.3 (Mojave).
-{% endhint %}
+
 
 ## Dependencies
 
@@ -16,15 +16,15 @@ We tested these instructions on macOS 10.14.3 (Mojave).
 
 ## Part 1: Installing Docker for macOS
 
-{% hint style="warning" %}
+
 Docker for macOS requires OSX Mountain Lion or later or it will not work. Please check that you have the right version before you begin.
-{% endhint %}
+
 
 ### Step 1: Install Docker
 
-{% hint style="info" %}
+
 We always recommend installing software using the most up-to-date instructions from the official vendor. This step is based on Docker's own [installation instructions for Docker on macOS](https://runnable.com/docker/install-docker-on-macos).
-{% endhint %}
+
 
 [Download Docker](https://www.docker.com/products/docker-desktop) then navigate to the `Docker.dmg` file and double-click to open. Drag and drop Docker into your applications folder. Authorize the installation using your system password then wait for Docker to finish installing.
 
@@ -36,13 +36,13 @@ Click the Docker icon in the status bar then select **About Docker Desktop** fro
 
 ## Part 2: Installing Yarn
 
-{% hint style="info" %}
-This procedure uses the Homebrew package manager. Go [here](https://brew.sh/) to learn how install it. If you don't want to use Homebrew, Yarn provides [some alternatives](https://yarnpkg.com/en/docs/install#mac-stable).
-{% endhint %}
 
-{% hint style="info" %}
+This procedure uses the Homebrew package manager. Go [here](https://brew.sh/) to learn how install it. If you don't want to use Homebrew, Yarn provides [some alternatives](https://yarnpkg.com/en/docs/install#mac-stable).
+
+
+
 If you have issues installing or using Yarn, read their [official documentation](https://yarnpkg.com/en/docs/install#mac-stable).
-{% endhint %}
+
 
 Running `brew install yarn` in the macOS terminal will install Yarn. To confirm it installed successfully, run `yarn --version` in the macOS terminal.
 
@@ -50,13 +50,13 @@ If successful, the current version of Yarn should print out in your terminal, in
 
 ## Part 3: Installing or updating Node.JS
 
-{% hint style="info" %}
-If you used Homebrew to install Yarn, Node.JS should have automatically installed alongside it.  If not, you can install it by following the [Node.JS documentation](https://nodejs.org/en/download/).
-{% endhint %}
 
-{% hint style="info" %}
+If you used Homebrew to install Yarn, Node.JS should have automatically installed alongside it.  If not, you can install it by following the [Node.JS documentation](https://nodejs.org/en/download/).
+
+
+
 If you have issues installing or updating Node.JS using Homebrew, read [Homebrew's troubleshooting guide](https://docs.brew.sh/Common-Issues).
-{% endhint %}
+
 
 To check if Node.JS is installed on your system, run `node --version` in your terminal. The current version of Node.JS should print out. If the version is version 6 or later, updating it to the latest version is optional (but we recommend it because it's good practice to stay up to date).
 

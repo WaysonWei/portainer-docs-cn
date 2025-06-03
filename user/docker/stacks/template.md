@@ -21,9 +21,9 @@ Define some properties for the new template, using the table below as a guide.
 
 The **Web editor** will be pre-populated with the Compose file for your stack. Make any changes you need here.
 
-{% hint style="info" %}
+
 You can search within the web editor at any time by pressing `Ctrl-F` (or `Cmd-F` on Mac).
-{% endhint %}
+
 
 <figure><img src="../../../.gitbook/assets/2.20-stacks-template-webeditor.png" alt=""><figcaption></figcaption></figure>
 

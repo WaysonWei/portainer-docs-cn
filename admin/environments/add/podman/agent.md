@@ -19,15 +19,15 @@ From the menu expand **Environment-related**, click **Environments**, then click
 
 Next, select **Podman** as the environment type then click **Start Wizard**. Select the **Agent** option, then your environment type. Copy the commands and run them on your Podman instance.
 
-{% hint style="info" %}
+
 If you want to use the [host management features](../../../../user/docker/host/setup.md#enable-host-management-features) of the Portainer Agent, you should add the necessary volume mount to the command that Portainer provides:
 
 ```
 -v /:/host
 ```
-{% endhint %}
 
-{% hint style="info" %}
+
+
 If Podman on the environment you're deploying the Agent to has the Podman volume path at a non-standard location (instead of `/var/lib/containers/storage/volumes`) you will need to adjust the volume mount in the deployment command to suit.&#x20;
 
 For example, if your volume path was `/srv/data/podman`, you would change the line in the command to:
@@ -37,7 +37,7 @@ For example, if your volume path was `/srv/data/podman`, you would change the li
 ```
 
 The right side of the mount should remain as `/var/lib/docker/volumes`, as that is what the Agent expects (even when using Podman).
-{% endhint %}
+
 
 Once the Agent has been deployed, enter the environment details using the table below as a guide:
 

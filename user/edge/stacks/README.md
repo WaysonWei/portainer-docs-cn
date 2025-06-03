@@ -2,9 +2,9 @@
 
 Edge Stacks is a feature that lets you deploy applications to multiple environments from a single page, regardless of their current state.&#x20;
 
-{% hint style="info" %}
+
 This functionality requires you to [enable Edge Compute](../../../admin/settings/edge.md) features.
-{% endhint %}
+
 
 The Edge Stacks page displays a list of Edge Stacks deployed across your environments and devices and includes their name, the status of the deployment across the relevant environments (acknowledged, images pre-pulled, deployments received and failed, as well as a generic status) and the creation date. You can hover over each of the bars for more detail.
 
@@ -30,9 +30,9 @@ Give the stack a descriptive name then select one or more [Edge Groups](../group
 
 In **Deployment type**, select the type of deployment you are performing.
 
-{% hint style="info" %}
+
 This may be auto-selected by your choice of [Edge Groups](../groups.md).
-{% endhint %}
+
 
 <figure><img src="../../../.gitbook/assets/2.15-edge-stacks-add-deptype.png" alt=""><figcaption></figcaption></figure>
 
@@ -45,9 +45,9 @@ In the **Build Method**, define how to deploy your app from one of the following
 | Repository | Use a GitHub repo where the build file is stored.                               |
 | Template   | Use an Edge stack template. Only available for the **Compose** deployment type. |
 
-{% hint style="info" %}
+
 You can search within the web editor at any time by pressing `Ctrl-F` (or `Cmd-F` on Mac).
-{% endhint %}
+
 
 <figure><img src="../../../.gitbook/assets/2.15-edge-stacks-add-buildmethod.png" alt=""><figcaption></figcaption></figure>
 
@@ -79,9 +79,9 @@ When Retry deployment is enabled for an Edge Stack and the deployment of the Edg
 
 This section lets you define the method in which your stack updates are deployed across your Edge devices. You can choose to deploy to **All edge devices at once**, or select **Parallel edge device(s)** to specify how many devices to update concurrently.
 
-{% hint style="warning" %}
+
 These settings do **not** apply to the _initial_ provision of your Edge Stack. These only apply to the process that will occur when your stack is updated _after_ deployment.
-{% endhint %}
+
 
 <figure><img src="../../../.gitbook/assets/2.19-edge-stacks-updateconfigs.png" alt=""><figcaption></figcaption></figure>
 

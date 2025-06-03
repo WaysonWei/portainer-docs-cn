@@ -2,9 +2,9 @@
 
 From the menu select **ConfigMaps & Secrets**, ensure the **ConfigMaps** tab is selected, then click **Add with form**.&#x20;
 
-{% hint style="info" %}
+
 ConfigMaps can also be added [using a manifest](../applications/manifest.md) by clicking **Create from manifest**.
-{% endhint %}
+
 
 <figure><img src="../../../.gitbook/assets/2.19-kubernetes-configurations-configmaps-add.gif" alt=""><figcaption></figcaption></figure>
 

@@ -60,9 +60,9 @@ This section lets you specify a volume you want to be accessible from the contai
 
 Here you can enable GPU support for the container and specify the GPU to use.
 
-{% hint style="warning" %}
+
 GPUs are currently a preview feature for Azure Container Instances and only available in select locations. Ensure you have access to GPUs before using this feature.
-{% endhint %}
+
 
 | Field/Option | Overview                                                 |
 | ------------ | -------------------------------------------------------- |

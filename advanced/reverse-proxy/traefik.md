@@ -164,9 +164,9 @@ After the images have been downloaded and deployed you will able to access Porta
 
 To deploy Portainer behind Traefik Proxy in a Docker Swarm scenario you must use a Docker Compose file. In the following `docker-compose.yml` you will find the configuration for Portainer Traefik with SSL support and the Portainer Server.
 
-{% hint style="warning" %}
+
 This deployment assumes you are running one manager node. If you are using multiple managers we advise [reading this knowledge base article](https://portal.portainer.io/knowledge/how-can-i-ensure-portainers-configuration-is-retained) before proceeding.
-{% endhint %}
+
 
 Before deploying the Docker Compose file, you need to create two elements: networks and volumes.
 

@@ -2,12 +2,12 @@
 
 Before connecting to your Azure subscription, you need to create an Azure AD application. For more information on this please refer to the [official Microsoft documentation](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal).
 
-{% hint style="info" %}
+
 The following ACI features are not currently supported:
 
 * ACI Persistent Storage
 * Private networks
-{% endhint %}
+
 
 To add an ACI environment, from the menu expand **Environment-related**, click **Environments**, then click **Add environment**.
 

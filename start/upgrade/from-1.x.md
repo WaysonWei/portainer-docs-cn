@@ -5,9 +5,9 @@ If you are updating a Portainer install that is currently running an image from 
 * [Version 1.24.0 or older](from-1.x.md#updating-from-versions-older-than-1.24.1)
 * [Version 1.24.1 or 1.24.2](from-1.x.md#updating-from-1.24.1-and-1.24.2)
 
-{% hint style="info" %}
+
 We only provide instructions for Docker Standalone and Docker Swarm environments here, as Portainer 1.x did not support Kubernetes environments.
-{% endhint %}
+
 
 ## **Updating from versions older than 1.24.1** <a href="#updating-from-versions-older-than-1.24.1" id="updating-from-versions-older-than-1.24.1"></a>
 

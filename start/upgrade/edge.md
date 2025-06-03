@@ -2,19 +2,19 @@
 
 To update the Portainer Edge Agent to the latest version, follow the below instructions for your Edge environment.
 
-{% hint style="info" %}
-Always match the agent version to the Portainer Server version. In other words, when you're installing or updating to Portainer 2.27.6 make sure all of the agents are also on version 2.27.6.
-{% endhint %}
 
-{% hint style="danger" %}
+Always match the agent version to the Portainer Server version. In other words, when you're installing or updating to Portainer 2.27.6 make sure all of the agents are also on version 2.27.6.
+
+
+
 Before beginning any update, we highly recommend [taking a backup](../../admin/settings/general.md#back-up-portainer) of your current Portainer configuration.
-{% endhint %}
+
 
 ## Docker Standalone
 
-{% hint style="info" %}
+
 Portainer now also has the ability to update Edge Agents on Docker Standalone [directly from within the UI](../../admin/environments/update.md).
-{% endhint %}
+
 
 To upgrade the Portainer Edge Agent on a Docker Standalone platform, you will first need to note the **Edge identifier** and the **Edge key** for the Edge environment. To find these values, log into Portainer and click **Environments**, then click the name of the environment you are updating.
 

@@ -2,13 +2,13 @@
 
 A webhook is a POST request sent to a URL that you define in Docker Hub or another registry. Use webhooks to trigger an action in response to an event such as a repository push.
 
-{% hint style="info" %}
-This functionality is only available in [Portainer Business Edition](https://www.portainer.io/business-upsell?from=stack-webhook).
-{% endhint %}
 
-{% hint style="info" %}
+This functionality is only available in [Portainer Business Edition](https://www.portainer.io/business-upsell?from=stack-webhook).
+
+
+
 Webhooks are only available on non-Edge environments (environments running Portainer Server or Portainer Agent, not the Portainer Edge Agent). This is because the tunnel to the Portainer Edge Agent is only opened on-demand, and therefore would mean there is no way to expose a webhook permanently.
-{% endhint %}
+
 
 ## Enabling a stack webhook
 
@@ -40,9 +40,9 @@ This example shows how to trigger the webhook to update the stack to use a diffe
 
 In some cases you may want to override the pulling of images when using the webhook to do a redeploy. In that scenario, you can specify `pullimage=false` as a parameter on your webhook to disable pulling of images.&#x20;
 
-{% hint style="info" %}
+
 This option is only available in Portainer Business Edition.
-{% endhint %}
+
 
 ```
 <form action="https://portainer:9443/api/stacks/webhooks/638e6967-ef77-4906-8af8-236800621360?pullimage=false" method="post">

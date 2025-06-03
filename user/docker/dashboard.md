@@ -4,9 +4,9 @@ The Docker/Swarm dashboard summarizes your Docker Standalone or Docker Swarm env
 
 ## Environment info
 
-{% hint style="info" %}
+
 This section is visible only to Docker Standalone and Podman environments.
-{% endhint %}
+
 
 This section shows the environment name, its URL and port along with any [tags](../../admin/environments/tags.md#tagging-an-environment). You can also see the number of CPU cores (and their available memory), the Docker/Podman version, and whether or not the Portainer Agent is installed.&#x20;
 
@@ -14,9 +14,9 @@ This section shows the environment name, its URL and port along with any [tags](
 
 ## Cluster information
 
-{% hint style="info" %}
+
 This section is visible only to Docker Swarm environments.
-{% endhint %}
+
 
 This section shows how many nodes are in the cluster and a link to the [cluster visualizer](swarm/cluster-visualizer.md).
 

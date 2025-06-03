@@ -28,9 +28,9 @@ Here you can select a custom configuration or a preconfigured OpenLDAP template.
 
 Enter the IP address/FQDN and port number of your LDAP server. Opt to either connect anonymously (your LDAP server must support this) or enter a user account that has READ access to the directory. Click **Test connectivity** to validate that you can connect.
 
-{% hint style="info" %}
+
 For OpenLDAP, the Reader DN format should be set to `cn=user,dc=domain,dc=tld`. If your configuration differs you will need to adjust this to suit.
-{% endhint %}
+
 
 <figure><img src="../../../.gitbook/assets/2.15-settings-authentication-ldap-config.png" alt=""><figcaption></figcaption></figure>
 
@@ -70,9 +70,9 @@ For LDAP, enter `uid` unless your configuration differs.
 
 #### Filter
 
-{% hint style="info" %}
+
 These entries are case sensitive.
-{% endhint %}
+
 
 Enter filter criteria for the results returned from LDAP to Portainer. For example, to only allow users who are members of a group defined within an OU to login, set **Filter** to the following (the brackets are important, so copy the entire string):
 
@@ -136,8 +136,8 @@ To test your configuration, you can enter a username and password and click the 
 
 ## Manually creating LDAP users
 
-{% hint style="info" %}
+
 This is an optional step and is required only if you do not use automatic user provisioning.
-{% endhint %}
+
 
 Once LDAP has been enabled, from the menu select **Users**. Create a username that matches your LDAP source users with the format defined when you enabled LDAP (either `username` or `username@mydomain.com`).

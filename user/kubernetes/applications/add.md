@@ -91,9 +91,9 @@ You can also define the placement policy for the rules you have set. Options are
 
 Here you can create the necessary services to expose your application. Select the type of service (ClusterIP, NodePort, or LoadBalancer) from the tabs and click **Create service**. You can then configure each service as required, including adding annotations to the services if required.
 
-{% hint style="info" %}
+
 You can expand the **Explanation** link for more detail on how each service type works.
-{% endhint %}
+
 
 <figure><img src="../../../.gitbook/assets/2.19-kubernetes-applications-add-publishing.png" alt=""><figcaption></figcaption></figure>
 

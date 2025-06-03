@@ -1,10 +1,10 @@
 # Attach a volume to a container
 
-{% hint style="danger" %}
+
 This article explains how to attach a new [volume](../volumes/) to a running container. This operation destroys the running container and starts a new one with the volume attached.
 
 **Always back up your data before running this operation.**
-{% endhint %}
+
 
 From the menu select **Containers**, select the container that you want to attach a volume to, then click **Duplicate/Edit**.
 
