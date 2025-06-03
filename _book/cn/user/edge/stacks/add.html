@@ -1,0 +1,5006 @@
+
+<!DOCTYPE HTML>
+<html lang="cn" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Add a new Edge Stack · HonKit</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 6.0.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../../../gitbook/@honkit/honkit-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../gitbook/@honkit/honkit-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../jobs.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../../">
+            
+                <a href="../../../">
+            
+                    
+                    Welcome
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../../whats-new.md">
+            
+                <span>
+            
+                    
+                    What's new in version 2.27
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../../release-notes.md">
+            
+                <span>
+            
+                    
+                    Release Notes
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Getting Started</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../../../start/intro.html">
+            
+                <a href="../../../start/intro.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../../../start/architecture.html">
+            
+                <a href="../../../start/architecture.html">
+            
+                    
+                    Portainer architecture
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../../../start/lifecycle.html">
+            
+                <a href="../../../start/lifecycle.html">
+            
+                    
+                    Lifecycle policy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../../../start/requirements-and-prerequisites.html">
+            
+                <a href="../../../start/requirements-and-prerequisites.html">
+            
+                    
+                    Requirements and prerequisites
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="../../../start/install/">
+            
+                <a href="../../../start/install/">
+            
+                    
+                    Install Portainer BE
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.5.1" data-path="../../../start/install/server/">
+            
+                <a href="../../../start/install/server/">
+            
+                    
+                    Set up a new Portainer BE Server installation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.5.1.1" data-path="../../../start/install/server/docker/">
+            
+                <a href="../../../start/install/server/docker/">
+            
+                    
+                    Docker Standalone
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.5.1.1.1" data-path="../../../start/install/server/docker/linux.html">
+            
+                <a href="../../../start/install/server/docker/linux.html">
+            
+                    
+                    Install Portainer BE with Docker on Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.1.1.2" data-path="../../../start/install/server/docker/wsl.html">
+            
+                <a href="../../../start/install/server/docker/wsl.html">
+            
+                    
+                    Install Portainer BE with Docker on WSL / Docker Desktop
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.1.1.3" data-path="../../../start/install/server/docker/wcs.html">
+            
+                <a href="../../../start/install/server/docker/wcs.html">
+            
+                    
+                    Install Portainer BE with Docker on Windows Container Service
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.1.2" data-path="../../../start/install/server/swarm/">
+            
+                <a href="../../../start/install/server/swarm/">
+            
+                    
+                    Docker Swarm
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.5.1.2.1" data-path="../../../start/install/server/swarm/linux.html">
+            
+                <a href="../../../start/install/server/swarm/linux.html">
+            
+                    
+                    Install Portainer BE with Docker Swarm on Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.1.2.2" data-path="../../../start/install/server/swarm/wsl.html">
+            
+                <a href="../../../start/install/server/swarm/wsl.html">
+            
+                    
+                    Install Portainer BE with Docker Swarm on WSL / Docker Desktop
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.1.2.3" data-path="../../../start/install/server/swarm/wcs.html">
+            
+                <a href="../../../start/install/server/swarm/wcs.html">
+            
+                    
+                    Install Portainer BE with Docker Swarm on Windows Container Service
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.1.3" data-path="../../../start/install/server/podman/">
+            
+                <a href="../../../start/install/server/podman/">
+            
+                    
+                    Podman
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.5.1.3.1" data-path="../../../start/install/server/podman/linux.html">
+            
+                <a href="../../../start/install/server/podman/linux.html">
+            
+                    
+                    Install Portainer BE with Podman on Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.1.4" data-path="../../../start/install/server/kubernetes/">
+            
+                <a href="../../../start/install/server/kubernetes/">
+            
+                    
+                    Kubernetes
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.5.1.4.1" data-path="../../../start/install/server/kubernetes/baremetal.html">
+            
+                <a href="../../../start/install/server/kubernetes/baremetal.html">
+            
+                    
+                    Install Portainer BE on your Kubernetes environment
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.1.4.2" data-path="../../../start/install/server/kubernetes/wsl.html">
+            
+                <a href="../../../start/install/server/kubernetes/wsl.html">
+            
+                    
+                    Install Portainer BE with Kubernetes on WSL / Docker Desktop
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.1.5" data-path="../../../start/install/server/setup.html">
+            
+                <a href="../../../start/install/server/setup.html">
+            
+                    
+                    Initial setup
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="../../../start/install-ce/">
+            
+                <a href="../../../start/install-ce/">
+            
+                    
+                    Install Portainer CE
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.6.1" data-path="../../../start/install-ce/server/">
+            
+                <a href="../../../start/install-ce/server/">
+            
+                    
+                    Set up a new Portainer CE Server installation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.6.1.1" data-path="../../../start/install-ce/server/docker/">
+            
+                <a href="../../../start/install-ce/server/docker/">
+            
+                    
+                    Docker Standalone
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.6.1.1.1" data-path="../../../start/install-ce/server/docker/linux.html">
+            
+                <a href="../../../start/install-ce/server/docker/linux.html">
+            
+                    
+                    Install Portainer CE with Docker on Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6.1.1.2" data-path="../../../start/install-ce/server/docker/wsl.html">
+            
+                <a href="../../../start/install-ce/server/docker/wsl.html">
+            
+                    
+                    Install Portainer CE with Docker on WSL / Docker Desktop
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6.1.1.3" data-path="../../../start/install-ce/server/docker/wcs.html">
+            
+                <a href="../../../start/install-ce/server/docker/wcs.html">
+            
+                    
+                    Install Portainer CE with Docker on Windows Container Service
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6.1.2" data-path="../../../start/install-ce/server/swarm/">
+            
+                <a href="../../../start/install-ce/server/swarm/">
+            
+                    
+                    Docker Swarm
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.6.1.2.1" data-path="../../../start/install-ce/server/swarm/linux.html">
+            
+                <a href="../../../start/install-ce/server/swarm/linux.html">
+            
+                    
+                    Install Portainer CE with Docker Swarm on Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6.1.2.2" data-path="../../../start/install-ce/server/swarm/wsl.html">
+            
+                <a href="../../../start/install-ce/server/swarm/wsl.html">
+            
+                    
+                    Install Portainer CE with Docker Swarm on WSL / Docker Desktop
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6.1.2.3" data-path="../../../start/install-ce/server/swarm/wcs.html">
+            
+                <a href="../../../start/install-ce/server/swarm/wcs.html">
+            
+                    
+                    Install Portainer CE with Docker Swarm on Windows Container Service
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6.1.3" data-path="../../../start/install-ce/server/podman/">
+            
+                <a href="../../../start/install-ce/server/podman/">
+            
+                    
+                    Podman
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.6.1.3.1" data-path="../../../start/install-ce/server/podman/linux.html">
+            
+                <a href="../../../start/install-ce/server/podman/linux.html">
+            
+                    
+                    Install Portainer CE with Podman on Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6.1.4" data-path="../../../start/install-ce/server/kubernetes/">
+            
+                <a href="../../../start/install-ce/server/kubernetes/">
+            
+                    
+                    Kubernetes
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.6.1.4.1" data-path="../../../start/install-ce/server/kubernetes/baremetal.html">
+            
+                <a href="../../../start/install-ce/server/kubernetes/baremetal.html">
+            
+                    
+                    Install Portainer CE on your Kubernetes environment
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6.1.4.2" data-path="../../../start/install-ce/server/kubernetes/wsl.html">
+            
+                <a href="../../../start/install-ce/server/kubernetes/wsl.html">
+            
+                    
+                    Install Portainer CE with Kubernetes on WSL / Docker Desktop
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6.1.5" data-path="../../../start/install-ce/server/setup.html">
+            
+                <a href="../../../start/install-ce/server/setup.html">
+            
+                    
+                    Initial setup
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="../../../start/agent.html">
+            
+                <a href="../../../start/agent.html">
+            
+                    
+                    Add an environment to an existing installation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8" data-path="../../../start/upgrade/">
+            
+                <a href="../../../start/upgrade/">
+            
+                    
+                    Updating Portainer
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.8.1" data-path="../../../start/upgrade/docker.html">
+            
+                <a href="../../../start/upgrade/docker.html">
+            
+                    
+                    Updating on Docker Standalone
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8.2" data-path="../../../start/upgrade/swarm.html">
+            
+                <a href="../../../start/upgrade/swarm.html">
+            
+                    
+                    Updating on Docker Swarm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8.3" data-path="../../../start/upgrade/podman.html">
+            
+                <a href="../../../start/upgrade/podman.html">
+            
+                    
+                    Updating on Podman
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8.4" data-path="../../../start/upgrade/kubernetes.html">
+            
+                <a href="../../../start/upgrade/kubernetes.html">
+            
+                    
+                    Updating on Kubernetes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8.5" data-path="../../../start/upgrade/nomad.html">
+            
+                <a href="../../../start/upgrade/nomad.html">
+            
+                    
+                    Updating on Nomad
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8.6" data-path="../../../start/upgrade/edge.html">
+            
+                <a href="../../../start/upgrade/edge.html">
+            
+                    
+                    Updating the Edge Agent
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8.7" data-path="../../../start/upgrade/from-1.x.html">
+            
+                <a href="../../../start/upgrade/from-1.x.html">
+            
+                    
+                    Updating from Portainer 1.x
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8.8" data-path="../../../start/upgrade/tobe/">
+            
+                <a href="../../../start/upgrade/tobe/">
+            
+                    
+                    Switching to Portainer Business Edition
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.8.8.1" data-path="../../../start/upgrade/tobe/inapp.html">
+            
+                <a href="../../../start/upgrade/tobe/inapp.html">
+            
+                    
+                    Upgrade to Business Edition from within Portainer Community Edition
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8.8.2" data-path="../../../start/upgrade/tobe/docker.html">
+            
+                <a href="../../../start/upgrade/tobe/docker.html">
+            
+                    
+                    Docker Standalone
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8.8.3" data-path="../../../start/upgrade/tobe/swarm.html">
+            
+                <a href="../../../start/upgrade/tobe/swarm.html">
+            
+                    
+                    Docker Swarm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8.8.4" data-path="../../../start/upgrade/tobe/podman.html">
+            
+                <a href="../../../start/upgrade/tobe/podman.html">
+            
+                    
+                    Podman
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8.8.5" data-path="../../../start/upgrade/tobe/kubernetes.html">
+            
+                <a href="../../../start/upgrade/tobe/kubernetes.html">
+            
+                    
+                    Kubernetes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8.8.6" data-path="../../../start/upgrade/tobe/agent.html">
+            
+                <a href="../../../start/upgrade/tobe/agent.html">
+            
+                    
+                    Upgrading Agent-only deployments
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Using Portainer</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../../home/">
+            
+                <a href="../../home/">
+            
+                    
+                    Home
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../../home/snapshot.html">
+            
+                <a href="../../home/snapshot.html">
+            
+                    
+                    Snapshot browsing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../../home/openamt.html">
+            
+                <a href="../../home/openamt.html">
+            
+                    
+                    OpenAMT
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../../docker/">
+            
+                <a href="../../docker/">
+            
+                    
+                    Docker/Swarm/Podman
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="../../docker/dashboard.html">
+            
+                <a href="../../docker/dashboard.html">
+            
+                    
+                    Dashboard
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" data-path="../../docker/templates/">
+            
+                <a href="../../docker/templates/">
+            
+                    
+                    Templates
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.2.1" data-path="../../docker/templates/application.html">
+            
+                <a href="../../docker/templates/application.html">
+            
+                    
+                    Application
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2.2" data-path="../../docker/templates/custom.html">
+            
+                <a href="../../docker/templates/custom.html">
+            
+                    
+                    Custom templates
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2.3" data-path="../../docker/templates/deploy-stack.html">
+            
+                <a href="../../docker/templates/deploy-stack.html">
+            
+                    
+                    Deploy a stack
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2.4" data-path="../../docker/templates/deploy-container.html">
+            
+                <a href="../../docker/templates/deploy-container.html">
+            
+                    
+                    Deploy a container
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.3" data-path="../../docker/stacks/">
+            
+                <a href="../../docker/stacks/">
+            
+                    
+                    Stacks
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.3.1" data-path="../../docker/stacks/add.html">
+            
+                <a href="../../docker/stacks/add.html">
+            
+                    
+                    Add a new stack
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.3.2" data-path="../../docker/stacks/edit.html">
+            
+                <a href="../../docker/stacks/edit.html">
+            
+                    
+                    Inspect or edit a stack
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.3.3" data-path="../../docker/stacks/template.html">
+            
+                <a href="../../docker/stacks/template.html">
+            
+                    
+                    Create a template from a deployed stack
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.3.4" data-path="../../docker/stacks/webhooks.html">
+            
+                <a href="../../docker/stacks/webhooks.html">
+            
+                    
+                    Webhooks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.3.5" data-path="../../docker/stacks/migrate.html">
+            
+                <a href="../../docker/stacks/migrate.html">
+            
+                    
+                    Migrate or duplicate a stack
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.3.6" data-path="../../docker/stacks/remove.html">
+            
+                <a href="../../docker/stacks/remove.html">
+            
+                    
+                    Remove a stack
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.4" data-path="../../docker/services/">
+            
+                <a href="../../docker/services/">
+            
+                    
+                    Services
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.4.1" data-path="../../docker/services/add.html">
+            
+                <a href="../../docker/services/add.html">
+            
+                    
+                    Add a new service
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.4.2" data-path="../../docker/services/configure.html">
+            
+                <a href="../../docker/services/configure.html">
+            
+                    
+                    Configure service options
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.4.3" data-path="../../docker/services/scale.html">
+            
+                <a href="../../docker/services/scale.html">
+            
+                    
+                    Scale a service
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.4.4" data-path="../../docker/services/tasks.html">
+            
+                <a href="../../docker/services/tasks.html">
+            
+                    
+                    View the status of a service task
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.4.5" data-path="../../docker/services/logs.html">
+            
+                <a href="../../docker/services/logs.html">
+            
+                    
+                    View service logs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.4.6" data-path="../../docker/services/rollback.html">
+            
+                <a href="../../docker/services/rollback.html">
+            
+                    
+                    Roll back a service
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.4.7" data-path="../../docker/services/webhooks.html">
+            
+                <a href="../../docker/services/webhooks.html">
+            
+                    
+                    Webhooks
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.5" data-path="../../docker/containers/">
+            
+                <a href="../../docker/containers/">
+            
+                    
+                    Containers
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.5.1" data-path="../../docker/containers/add.html">
+            
+                <a href="../../docker/containers/add.html">
+            
+                    
+                    Add a new container
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.5.2" data-path="../../docker/containers/view.html">
+            
+                <a href="../../docker/containers/view.html">
+            
+                    
+                    View a container's details
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.5.3" data-path="../../docker/containers/inspect.html">
+            
+                <a href="../../docker/containers/inspect.html">
+            
+                    
+                    Inspect a container
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.5.4" data-path="../../docker/containers/edit.html">
+            
+                <a href="../../docker/containers/edit.html">
+            
+                    
+                    Edit or duplicate a container
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.5.5" data-path="../../docker/containers/advanced.html">
+            
+                <a href="../../docker/containers/advanced.html">
+            
+                    
+                    Advanced container settings
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.5.6" data-path="../../docker/containers/webhooks.html">
+            
+                <a href="../../docker/containers/webhooks.html">
+            
+                    
+                    Webhooks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.5.7" data-path="../../docker/containers/attach-volume.html">
+            
+                <a href="../../docker/containers/attach-volume.html">
+            
+                    
+                    Attach a volume to a container
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.5.8" data-path="../../docker/containers/logs.html">
+            
+                <a href="../../docker/containers/logs.html">
+            
+                    
+                    View container logs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.5.9" data-path="../../docker/containers/stats.html">
+            
+                <a href="../../docker/containers/stats.html">
+            
+                    
+                    View container statistics
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.5.10" data-path="../../docker/containers/console.html">
+            
+                <a href="../../docker/containers/console.html">
+            
+                    
+                    Access a container's console
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.5.11" data-path="../../docker/containers/ownership.html">
+            
+                <a href="../../docker/containers/ownership.html">
+            
+                    
+                    Change container ownership
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.5.12" data-path="../../docker/containers/remove.html">
+            
+                <a href="../../docker/containers/remove.html">
+            
+                    
+                    Remove a container
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.6" data-path="../../docker/images/">
+            
+                <a href="../../docker/images/">
+            
+                    
+                    Images
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.6.1" data-path="../../docker/images/pull.html">
+            
+                <a href="../../docker/images/pull.html">
+            
+                    
+                    Pull an image
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.6.2" data-path="../../docker/images/build.html">
+            
+                <a href="../../docker/images/build.html">
+            
+                    
+                    Build a new image
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.6.3" data-path="../../docker/images/import.html">
+            
+                <a href="../../docker/images/import.html">
+            
+                    
+                    Import an image
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.6.4" data-path="../../docker/images/export.html">
+            
+                <a href="../../docker/images/export.html">
+            
+                    
+                    Export an image
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.7" data-path="../../docker/networks/">
+            
+                <a href="../../docker/networks/">
+            
+                    
+                    Networks
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.7.1" data-path="../../docker/networks/add.html">
+            
+                <a href="../../docker/networks/add.html">
+            
+                    
+                    Add a new network
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.7.2" data-path="../../docker/networks/remove.html">
+            
+                <a href="../../docker/networks/remove.html">
+            
+                    
+                    Remove a network
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.8" data-path="../../docker/volumes/">
+            
+                <a href="../../docker/volumes/">
+            
+                    
+                    Volumes
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.8.1" data-path="../../docker/volumes/add.html">
+            
+                <a href="../../docker/volumes/add.html">
+            
+                    
+                    Add a new volume
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.8.2" data-path="../../docker/volumes/browse.html">
+            
+                <a href="../../docker/volumes/browse.html">
+            
+                    
+                    Browse a volume
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.8.3" data-path="../../docker/volumes/remove.html">
+            
+                <a href="../../docker/volumes/remove.html">
+            
+                    
+                    Remove a volume
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.9" data-path="../../docker/configs/">
+            
+                <a href="../../docker/configs/">
+            
+                    
+                    Configs
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.9.1" data-path="../../docker/configs/add.html">
+            
+                <a href="../../docker/configs/add.html">
+            
+                    
+                    Add a new config
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.9.2" data-path="../../docker/configs/remove.html">
+            
+                <a href="../../docker/configs/remove.html">
+            
+                    
+                    Remove a config
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.10" data-path="../../docker/secrets/">
+            
+                <a href="../../docker/secrets/">
+            
+                    
+                    Secrets
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.10.1" data-path="../../docker/secrets/add.html">
+            
+                <a href="../../docker/secrets/add.html">
+            
+                    
+                    Add a new secret
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.10.2" data-path="../../docker/secrets/remove.html">
+            
+                <a href="../../docker/secrets/remove.html">
+            
+                    
+                    Remove a secret
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.11" data-path="../../docker/events.html">
+            
+                <a href="../../docker/events.html">
+            
+                    
+                    Events
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.12" data-path="../../docker/host/">
+            
+                <a href="../../docker/host/">
+            
+                    
+                    Host
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.12.1" data-path="../../docker/host/details.html">
+            
+                <a href="../../docker/host/details.html">
+            
+                    
+                    Details
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.12.2" data-path="../../docker/host/setup.html">
+            
+                <a href="../../docker/host/setup.html">
+            
+                    
+                    Setup
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.12.3" data-path="../../docker/host/registries.html">
+            
+                <a href="../../docker/host/registries.html">
+            
+                    
+                    Registries
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.13" data-path="../../docker/swarm/">
+            
+                <a href="../../docker/swarm/">
+            
+                    
+                    Swarm
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.13.1" data-path="../../docker/swarm/details.html">
+            
+                <a href="../../docker/swarm/details.html">
+            
+                    
+                    Details
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.13.2" data-path="../../docker/swarm/cluster-visualizer.html">
+            
+                <a href="../../docker/swarm/cluster-visualizer.html">
+            
+                    
+                    Cluster visualizer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.13.3" data-path="../../docker/swarm/setup.html">
+            
+                <a href="../../docker/swarm/setup.html">
+            
+                    
+                    Setup
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.13.4" data-path="../../docker/swarm/registries.html">
+            
+                <a href="../../docker/swarm/registries.html">
+            
+                    
+                    Registries
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../../kubernetes/">
+            
+                <a href="../../kubernetes/">
+            
+                    
+                    Kubernetes
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.1" data-path="../../kubernetes/dashboard.html">
+            
+                <a href="../../kubernetes/dashboard.html">
+            
+                    
+                    Dashboard
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.2" data-path="../../kubernetes/kubectl.html">
+            
+                <a href="../../kubernetes/kubectl.html">
+            
+                    
+                    kubectl shell
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.3" data-path="../../kubernetes/kubeconfig.html">
+            
+                <a href="../../kubernetes/kubeconfig.html">
+            
+                    
+                    Kubeconfig
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.4" data-path="../../kubernetes/templates/">
+            
+                <a href="../../kubernetes/templates/">
+            
+                    
+                    Custom Templates
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.4.1" data-path="../../kubernetes/templates/add.html">
+            
+                <a href="../../kubernetes/templates/add.html">
+            
+                    
+                    Add a new custom template
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.4.2" data-path="../../kubernetes/templates/edit.html">
+            
+                <a href="../../kubernetes/templates/edit.html">
+            
+                    
+                    Edit a custom template
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.4.3" data-path="../../kubernetes/templates/remove.html">
+            
+                <a href="../../kubernetes/templates/remove.html">
+            
+                    
+                    Remove a custom template
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.5" data-path="../../kubernetes/namespaces/">
+            
+                <a href="../../kubernetes/namespaces/">
+            
+                    
+                    Namespaces
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.5.1" data-path="../../kubernetes/namespaces/add.html">
+            
+                <a href="../../kubernetes/namespaces/add.html">
+            
+                    
+                    Add a new namespace
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.5.2" data-path="../../kubernetes/namespaces/manage.html">
+            
+                <a href="../../kubernetes/namespaces/manage.html">
+            
+                    
+                    Manage a namespace
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.5.3" data-path="../../kubernetes/namespaces/access.html">
+            
+                <a href="../../kubernetes/namespaces/access.html">
+            
+                    
+                    Manage access to a namespace
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.5.4" data-path="../../kubernetes/namespaces/remove.html">
+            
+                <a href="../../kubernetes/namespaces/remove.html">
+            
+                    
+                    Remove a namespace
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.6" data-path="../../kubernetes/helm.html">
+            
+                <a href="../../kubernetes/helm.html">
+            
+                    
+                    Helm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.7" data-path="../../kubernetes/applications/">
+            
+                <a href="../../kubernetes/applications/">
+            
+                    
+                    Applications
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.7.1" data-path="../../kubernetes/applications/add.html">
+            
+                <a href="../../kubernetes/applications/add.html">
+            
+                    
+                    Add a new application using a form
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.7.2" data-path="../../kubernetes/applications/manifest.html">
+            
+                <a href="../../kubernetes/applications/manifest.html">
+            
+                    
+                    Add a new application using code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.7.3" data-path="../../kubernetes/applications/inspect.html">
+            
+                <a href="../../kubernetes/applications/inspect.html">
+            
+                    
+                    Inspect an application
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.7.4" data-path="../../kubernetes/applications/inspect-helm.html">
+            
+                <a href="../../kubernetes/applications/inspect-helm.html">
+            
+                    
+                    Inspect a Helm application
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.7.5" data-path="../../kubernetes/applications/edit.html">
+            
+                <a href="../../kubernetes/applications/edit.html">
+            
+                    
+                    Edit an application
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.7.6" data-path="../../kubernetes/applications/webhooks.html">
+            
+                <a href="../../kubernetes/applications/webhooks.html">
+            
+                    
+                    Webhooks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.7.7" data-path="../../kubernetes/applications/detach-volume.html">
+            
+                <a href="../../kubernetes/applications/detach-volume.html">
+            
+                    
+                    Detach a volume from an application
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.7.8" data-path="../../kubernetes/applications/remove.html">
+            
+                <a href="../../kubernetes/applications/remove.html">
+            
+                    
+                    Remove an application
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.8" data-path="../../kubernetes/networking/">
+            
+                <a href="../../kubernetes/networking/">
+            
+                    
+                    Networking
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.8.1" data-path="../../kubernetes/networking/services.html">
+            
+                <a href="../../kubernetes/networking/services.html">
+            
+                    
+                    Services
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.8.2" data-path="../../kubernetes/networking/ingresses/">
+            
+                <a href="../../kubernetes/networking/ingresses/">
+            
+                    
+                    Ingresses
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.8.2.1" data-path="../../kubernetes/networking/ingresses/add.html">
+            
+                <a href="../../kubernetes/networking/ingresses/add.html">
+            
+                    
+                    Add an Ingress manually
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.8.2.2" data-path="../../kubernetes/networking/ingresses/manifest.html">
+            
+                <a href="../../kubernetes/networking/ingresses/manifest.html">
+            
+                    
+                    Add an Ingress using a manifest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.8.2.3" data-path="../../kubernetes/networking/ingresses/remove-an-ingress.html">
+            
+                <a href="../../kubernetes/networking/ingresses/remove-an-ingress.html">
+            
+                    
+                    Remove an Ingress
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.9" data-path="../../kubernetes/configurations/">
+            
+                <a href="../../kubernetes/configurations/">
+            
+                    
+                    ConfigMaps & Secrets
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.9.1" data-path="../../kubernetes/configurations/add.html">
+            
+                <a href="../../kubernetes/configurations/add.html">
+            
+                    
+                    Add a ConfigMap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.9.2" data-path="../../kubernetes/configurations/add-1.html">
+            
+                <a href="../../kubernetes/configurations/add-1.html">
+            
+                    
+                    Add a Secret
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.10" data-path="../../kubernetes/volumes/">
+            
+                <a href="../../kubernetes/volumes/">
+            
+                    
+                    Volumes
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.10.1" data-path="../../kubernetes/volumes/inspect.html">
+            
+                <a href="../../kubernetes/volumes/inspect.html">
+            
+                    
+                    Inspect a volume
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.10.2" data-path="../../kubernetes/volumes/remove.html">
+            
+                <a href="../../kubernetes/volumes/remove.html">
+            
+                    
+                    Remove a volume
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.11" data-path="../../kubernetes/more-resources/">
+            
+                <a href="../../kubernetes/more-resources/">
+            
+                    
+                    More Resources
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.11.1" data-path="../../kubernetes/more-resources/jobs.html">
+            
+                <a href="../../kubernetes/more-resources/jobs.html">
+            
+                    
+                    Cron Jobs & Jobs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.11.2" data-path="../../kubernetes/more-resources/service-accounts.html">
+            
+                <a href="../../kubernetes/more-resources/service-accounts.html">
+            
+                    
+                    Service Accounts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.11.3" data-path="../../kubernetes/more-resources/cluster-roles.html">
+            
+                <a href="../../kubernetes/more-resources/cluster-roles.html">
+            
+                    
+                    Cluster Roles
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.11.4" data-path="../../kubernetes/more-resources/namespace-roles.html">
+            
+                <a href="../../kubernetes/more-resources/namespace-roles.html">
+            
+                    
+                    Roles
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.12" data-path="../../kubernetes/cluster/">
+            
+                <a href="../../kubernetes/cluster/">
+            
+                    
+                    Cluster
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.12.1" data-path="../../kubernetes/cluster/details.html">
+            
+                <a href="../../kubernetes/cluster/details.html">
+            
+                    
+                    Details
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.12.2" data-path="../../kubernetes/cluster/node.html">
+            
+                <a href="../../kubernetes/cluster/node.html">
+            
+                    
+                    Inspect a node
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.12.3" data-path="../../kubernetes/cluster/setup.html">
+            
+                <a href="../../kubernetes/cluster/setup.html">
+            
+                    
+                    Setup
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.12.4" data-path="../../kubernetes/cluster/security.html">
+            
+                <a href="../../kubernetes/cluster/security.html">
+            
+                    
+                    Security constraints
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.12.5" data-path="../../kubernetes/cluster/registries.html">
+            
+                <a href="../../kubernetes/cluster/registries.html">
+            
+                    
+                    Registries
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="../../aci/">
+            
+                <a href="../../aci/">
+            
+                    
+                    Azure ACI
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.4.1" data-path="../../aci/dashboard.html">
+            
+                <a href="../../aci/dashboard.html">
+            
+                    
+                    Dashboard
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.2" data-path="../../aci/containers/">
+            
+                <a href="../../aci/containers/">
+            
+                    
+                    Container instances
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.4.2.1" data-path="../../aci/containers/add.html">
+            
+                <a href="../../aci/containers/add.html">
+            
+                    
+                    Add a new container
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.2.2" data-path="../../aci/containers/details.html">
+            
+                <a href="../../aci/containers/details.html">
+            
+                    
+                    View container details
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.2.3" data-path="../../aci/containers/remove.html">
+            
+                <a href="../../aci/containers/remove.html">
+            
+                    
+                    Remove a container
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="../../nomad.html">
+            
+                <a href="../../nomad.html">
+            
+                    
+                    Nomad
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Edge Compute
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.6.1" data-path="../groups.html">
+            
+                <a href="../groups.html">
+            
+                    
+                    Edge Groups
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Edge Stacks
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="3.6.2.1" data-path="add.html">
+            
+                <a href="add.html">
+            
+                    
+                    Add a new Edge Stack
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6.3" data-path="../jobs.html">
+            
+                <a href="../jobs.html">
+            
+                    
+                    Edge Jobs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6.4" data-path="../configurations.html">
+            
+                <a href="../configurations.html">
+            
+                    
+                    Edge Configurations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6.5" data-path="../waiting-room.html">
+            
+                <a href="../waiting-room.html">
+            
+                    
+                    Waiting Room
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6.6" data-path="../templates/">
+            
+                <a href="../templates/">
+            
+                    
+                    Edge Templates
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.6.6.1" data-path="../templates/application.html">
+            
+                <a href="../templates/application.html">
+            
+                    
+                    Application
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6.6.2" data-path="../templates/custom.html">
+            
+                <a href="../templates/custom.html">
+            
+                    
+                    Custom
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="../../account-settings.html">
+            
+                <a href="../../account-settings.html">
+            
+                    
+                    Account settings
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Administering Portainer</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../../../admin/user/">
+            
+                <a href="../../../admin/user/">
+            
+                    
+                    User-related
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../../../admin/user/users.html">
+            
+                <a href="../../../admin/user/users.html">
+            
+                    
+                    Users
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="../../../admin/user/add.html">
+            
+                <a href="../../../admin/user/add.html">
+            
+                    
+                    Add a new user
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3" data-path="../../../admin/user/promote.html">
+            
+                <a href="../../../admin/user/promote.html">
+            
+                    
+                    Turn a user into an administrator
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.4" data-path="../../../admin/user/password.html">
+            
+                <a href="../../../admin/user/password.html">
+            
+                    
+                    Reset a user's password
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5" data-path="../../../admin/user/teams/">
+            
+                <a href="../../../admin/user/teams/">
+            
+                    
+                    Teams
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.5.1" data-path="../../../admin/user/teams/add.html">
+            
+                <a href="../../../admin/user/teams/add.html">
+            
+                    
+                    Add a new team
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5.2" data-path="../../../admin/user/teams/add-user.html">
+            
+                <a href="../../../admin/user/teams/add-user.html">
+            
+                    
+                    Add a user to a team
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6" data-path="../../../admin/user/roles.html">
+            
+                <a href="../../../admin/user/roles.html">
+            
+                    
+                    Roles
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../../../admin/environments/">
+            
+                <a href="../../../admin/environments/">
+            
+                    
+                    Environment-related
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.1" data-path="../../../admin/environments/environments.html">
+            
+                <a href="../../../admin/environments/environments.html">
+            
+                    
+                    Environments
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2" data-path="../../../admin/environments/add/">
+            
+                <a href="../../../admin/environments/add/">
+            
+                    
+                    Add a new environment
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.2.1" data-path="../../../admin/environments/add/local.html">
+            
+                <a href="../../../admin/environments/add/local.html">
+            
+                    
+                    Add a local environment
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2.2" data-path="../../../admin/environments/add/docker/">
+            
+                <a href="../../../admin/environments/add/docker/">
+            
+                    
+                    Add a Docker Standalone environment
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.2.2.1" data-path="../../../admin/environments/add/docker/agent.html">
+            
+                <a href="../../../admin/environments/add/docker/agent.html">
+            
+                    
+                    Install Portainer Agent on Docker Standalone
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2.2.2" data-path="../../../admin/environments/add/docker/api.html">
+            
+                <a href="../../../admin/environments/add/docker/api.html">
+            
+                    
+                    Connect to the Docker API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2.2.3" data-path="../../../admin/environments/add/docker/socket.html">
+            
+                <a href="../../../admin/environments/add/docker/socket.html">
+            
+                    
+                    Connect to the Docker Socket
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2.2.4" data-path="../../../admin/environments/add/docker/edge.html">
+            
+                <a href="../../../admin/environments/add/docker/edge.html">
+            
+                    
+                    Install Edge Agent Standard on Docker Standalone
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2.2.5" data-path="../../../admin/environments/add/docker/edge-async.html">
+            
+                <a href="../../../admin/environments/add/docker/edge-async.html">
+            
+                    
+                    Install Edge Agent Async on Docker Standalone
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2.3" data-path="../../../admin/environments/add/swarm/">
+            
+                <a href="../../../admin/environments/add/swarm/">
+            
+                    
+                    Add a Docker Swarm environment
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.2.3.1" data-path="../../../admin/environments/add/swarm/agent.html">
+            
+                <a href="../../../admin/environments/add/swarm/agent.html">
+            
+                    
+                    Install Portainer Agent on Docker Swarm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2.3.2" data-path="../../../admin/environments/add/swarm/api.html">
+            
+                <a href="../../../admin/environments/add/swarm/api.html">
+            
+                    
+                    Connect to the Docker API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2.3.3" data-path="../../../admin/environments/add/swarm/socket.html">
+            
+                <a href="../../../admin/environments/add/swarm/socket.html">
+            
+                    
+                    Connect to the Docker Socket
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2.3.4" data-path="../../../admin/environments/add/swarm/edge.html">
+            
+                <a href="../../../admin/environments/add/swarm/edge.html">
+            
+                    
+                    Install Edge Agent Standard on Docker Swarm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2.3.5" data-path="../../../admin/environments/add/swarm/edge-async.html">
+            
+                <a href="../../../admin/environments/add/swarm/edge-async.html">
+            
+                    
+                    Install Edge Agent Async on Docker Swarm
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2.4" data-path="../../../admin/environments/add/podman/">
+            
+                <a href="../../../admin/environments/add/podman/">
+            
+                    
+                    Add a Podman environment
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.2.4.1" data-path="../../../admin/environments/add/podman/agent.html">
+            
+                <a href="../../../admin/environments/add/podman/agent.html">
+            
+                    
+                    Install Portainer Agent on Podman
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2.4.2" data-path="../../../admin/environments/add/podman/socket.html">
+            
+                <a href="../../../admin/environments/add/podman/socket.html">
+            
+                    
+                    Connect to the Podman Socket
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2.4.3" data-path="../../../admin/environments/add/podman/edge.html">
+            
+                <a href="../../../admin/environments/add/podman/edge.html">
+            
+                    
+                    Install Edge Agent Standard on Podman
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2.4.4" data-path="../../../admin/environments/add/podman/edge-async.html">
+            
+                <a href="../../../admin/environments/add/podman/edge-async.html">
+            
+                    
+                    Install Edge Agent Async on Podman
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2.5" data-path="../../../admin/environments/add/kubernetes/">
+            
+                <a href="../../../admin/environments/add/kubernetes/">
+            
+                    
+                    Add a Kubernetes environment
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.2.5.1" data-path="../../../admin/environments/add/kubernetes/agent.html">
+            
+                <a href="../../../admin/environments/add/kubernetes/agent.html">
+            
+                    
+                    Install Portainer Agent on your Kubernetes environment
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2.5.2" data-path="../../../admin/environments/add/kubernetes/edge.html">
+            
+                <a href="../../../admin/environments/add/kubernetes/edge.html">
+            
+                    
+                    Install Edge Agent Standard on Kubernetes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2.5.3" data-path="../../../admin/environments/add/kubernetes/edge-async.html">
+            
+                <a href="../../../admin/environments/add/kubernetes/edge-async.html">
+            
+                    
+                    Install Edge Agent Async on Kubernetes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2.5.4" data-path="../../../admin/environments/add/kubernetes/import.html">
+            
+                <a href="../../../admin/environments/add/kubernetes/import.html">
+            
+                    
+                    Import an existing Kubernetes environment
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2.6" data-path="../../../admin/environments/add/aci.html">
+            
+                <a href="../../../admin/environments/add/aci.html">
+            
+                    
+                    Add an ACI environment
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2.7" data-path="../../../admin/environments/add/nomad.html">
+            
+                <a href="../../../admin/environments/add/nomad.html">
+            
+                    
+                    Add a Nomad environment
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2.8" data-path="../../../admin/environments/add/kaas/">
+            
+                <a href="../../../admin/environments/add/kaas/">
+            
+                    
+                    Provision KaaS Cluster
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.2.8.1" data-path="../../../admin/environments/add/kaas/civo.html">
+            
+                <a href="../../../admin/environments/add/kaas/civo.html">
+            
+                    
+                    Civo
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2.8.2" data-path="../../../admin/environments/add/kaas/linode.html">
+            
+                <a href="../../../admin/environments/add/kaas/linode.html">
+            
+                    
+                    Akamai Connected Cloud
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2.8.3" data-path="../../../admin/environments/add/kaas/digitalocean.html">
+            
+                <a href="../../../admin/environments/add/kaas/digitalocean.html">
+            
+                    
+                    DigitalOcean
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2.8.4" data-path="../../../admin/environments/add/kaas/gke.html">
+            
+                <a href="../../../admin/environments/add/kaas/gke.html">
+            
+                    
+                    Google Cloud
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2.8.5" data-path="../../../admin/environments/add/kaas/eks.html">
+            
+                <a href="../../../admin/environments/add/kaas/eks.html">
+            
+                    
+                    AWS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2.8.6" data-path="../../../admin/environments/add/kaas/aks.html">
+            
+                <a href="../../../admin/environments/add/kaas/aks.html">
+            
+                    
+                    Azure
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2.9" data-path="../../../admin/environments/add/kube-create/">
+            
+                <a href="../../../admin/environments/add/kube-create/">
+            
+                    
+                    Create a Kubernetes cluster
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.2.9.1" data-path="../../../admin/environments/add/kube-create/omni.html">
+            
+                <a href="../../../admin/environments/add/kube-create/omni.html">
+            
+                    
+                    Talos Kubernetes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2.9.2" data-path="../../../admin/environments/add/kube-create/microk8s/">
+            
+                <a href="../../../admin/environments/add/kube-create/microk8s/">
+            
+                    
+                    MicroK8s
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.2.9.2.1" data-path="../../../admin/environments/add/kube-create/microk8s/offline.html">
+            
+                <a href="../../../admin/environments/add/kube-create/microk8s/offline.html">
+            
+                    
+                    Offline installation
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.2.10" data-path="../../../admin/environments/add/api.html">
+            
+                <a href="../../../admin/environments/add/api.html">
+            
+                    
+                    Add an environment via the Portainer API
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.3" data-path="../../../admin/environments/aeec.html">
+            
+                <a href="../../../admin/environments/aeec.html">
+            
+                    
+                    Auto onboarding
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.4" data-path="../../../admin/environments/groups.html">
+            
+                <a href="../../../admin/environments/groups.html">
+            
+                    
+                    Groups
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.5" data-path="../../../admin/environments/tags.html">
+            
+                <a href="../../../admin/environments/tags.html">
+            
+                    
+                    Tags
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.6" data-path="../../../admin/environments/access.html">
+            
+                <a href="../../../admin/environments/access.html">
+            
+                    
+                    Manage access to environments
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.7" data-path="../../../admin/environments/access-groups.html">
+            
+                <a href="../../../admin/environments/access-groups.html">
+            
+                    
+                    Manage access to environment groups
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.8" data-path="../../../admin/environments/update.html">
+            
+                <a href="../../../admin/environments/update.html">
+            
+                    
+                    Update & Rollback
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="../../../admin/registries/">
+            
+                <a href="../../../admin/registries/">
+            
+                    
+                    Registries
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.3.1" data-path="../../../admin/registries/add/">
+            
+                <a href="../../../admin/registries/add/">
+            
+                    
+                    Add a new registry
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.3.1.1" data-path="../../../admin/registries/add/dockerhub.html">
+            
+                <a href="../../../admin/registries/add/dockerhub.html">
+            
+                    
+                    Add a DockerHub account
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3.1.2" data-path="../../../admin/registries/add/ecr.html">
+            
+                <a href="../../../admin/registries/add/ecr.html">
+            
+                    
+                    Add an AWS ECR registry
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3.1.3" data-path="../../../admin/registries/add/quay.html">
+            
+                <a href="../../../admin/registries/add/quay.html">
+            
+                    
+                    Add a Quay.io registry
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3.1.4" data-path="../../../admin/registries/add/proget.html">
+            
+                <a href="../../../admin/registries/add/proget.html">
+            
+                    
+                    Add a ProGet registry
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3.1.5" data-path="../../../admin/registries/add/azure.html">
+            
+                <a href="../../../admin/registries/add/azure.html">
+            
+                    
+                    Add an Azure registry
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3.1.6" data-path="../../../admin/registries/add/gitlab.html">
+            
+                <a href="../../../admin/registries/add/gitlab.html">
+            
+                    
+                    Add a Gitlab registry
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3.1.7" data-path="../../../admin/registries/add/ghcr.html">
+            
+                <a href="../../../admin/registries/add/ghcr.html">
+            
+                    
+                    Add a GitHub registry
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3.1.8" data-path="../../../admin/registries/add/custom.html">
+            
+                <a href="../../../admin/registries/add/custom.html">
+            
+                    
+                    Add a custom registry
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3.2" data-path="../../../admin/registries/browse.html">
+            
+                <a href="../../../admin/registries/browse.html">
+            
+                    
+                    Browse a registry
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3.3" data-path="../../../admin/registries/manage.html">
+            
+                <a href="../../../admin/registries/manage.html">
+            
+                    
+                    Manage a registry
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="../../../admin/licenses.html">
+            
+                <a href="../../../admin/licenses.html">
+            
+                    
+                    Licenses
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="../../../admin/logs/">
+            
+                <a href="../../../admin/logs/">
+            
+                    
+                    Logs
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.5.1" data-path="../../../admin/logs/authentication.html">
+            
+                <a href="../../../admin/logs/authentication.html">
+            
+                    
+                    Authentication
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5.2" data-path="../../../admin/logs/activity.html">
+            
+                <a href="../../../admin/logs/activity.html">
+            
+                    
+                    Activity
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="../../../admin/notifications.html">
+            
+                <a href="../../../admin/notifications.html">
+            
+                    
+                    Notifications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7" data-path="../../../admin/settings/">
+            
+                <a href="../../../admin/settings/">
+            
+                    
+                    Settings
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.7.1" data-path="../../../admin/settings/general.html">
+            
+                <a href="../../../admin/settings/general.html">
+            
+                    
+                    General
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7.2" data-path="../../../admin/settings/authentication/">
+            
+                <a href="../../../admin/settings/authentication/">
+            
+                    
+                    Authentication
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.7.2.1" data-path="../../../admin/settings/authentication/ldap.html">
+            
+                <a href="../../../admin/settings/authentication/ldap.html">
+            
+                    
+                    Authenticate via LDAP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7.2.2" data-path="../../../admin/settings/authentication/active-directory.html">
+            
+                <a href="../../../admin/settings/authentication/active-directory.html">
+            
+                    
+                    Authenticate via Active Directory
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7.2.3" data-path="../../../admin/settings/authentication/oauth.html">
+            
+                <a href="../../../admin/settings/authentication/oauth.html">
+            
+                    
+                    Authenticate via OAuth
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7.3" data-path="../../../admin/settings/credentials/">
+            
+                <a href="../../../admin/settings/credentials/">
+            
+                    
+                    Shared credentials
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.7.3.1" data-path="../../../admin/settings/credentials/omni.html">
+            
+                <a href="../../../admin/settings/credentials/omni.html">
+            
+                    
+                    Add Sidero Omni credentials
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7.3.2" data-path="../../../admin/settings/credentials/civo.html">
+            
+                <a href="../../../admin/settings/credentials/civo.html">
+            
+                    
+                    Add Civo credentials
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7.3.3" data-path="../../../admin/settings/credentials/linode.html">
+            
+                <a href="../../../admin/settings/credentials/linode.html">
+            
+                    
+                    Add Akamai Connected Cloud credentials
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7.3.4" data-path="../../../admin/settings/credentials/digitalocean.html">
+            
+                <a href="../../../admin/settings/credentials/digitalocean.html">
+            
+                    
+                    Add DigitalOcean credentials
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7.3.5" data-path="../../../admin/settings/credentials/gke.html">
+            
+                <a href="../../../admin/settings/credentials/gke.html">
+            
+                    
+                    Add Google Cloud credentials
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7.3.6" data-path="../../../admin/settings/credentials/eks.html">
+            
+                <a href="../../../admin/settings/credentials/eks.html">
+            
+                    
+                    Add AWS credentials
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7.3.7" data-path="../../../admin/settings/credentials/aks.html">
+            
+                <a href="../../../admin/settings/credentials/aks.html">
+            
+                    
+                    Add Azure credentials
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7.3.8" data-path="../../../admin/settings/credentials/ssh.html">
+            
+                <a href="../../../admin/settings/credentials/ssh.html">
+            
+                    
+                    Add SSH credentials
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7.4" data-path="../../../admin/settings/edge.html">
+            
+                <a href="../../../admin/settings/edge.html">
+            
+                    
+                    Edge Compute
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Frequently Asked Questions</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../../../faq/concepts.html">
+            
+                <a href="../../../faq/concepts.html">
+            
+                    
+                    Portainer Concepts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="../../../faq/installing.html">
+            
+                <a href="../../../faq/installing.html">
+            
+                    
+                    Installing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="../../../faq/upgrading.html">
+            
+                <a href="../../../faq/upgrading.html">
+            
+                    
+                    Upgrading
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="../../../faq/troubleshooting.html">
+            
+                <a href="../../../faq/troubleshooting.html">
+            
+                    
+                    Troubleshooting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5" data-path="../../../faq/contributing.html">
+            
+                <a href="../../../faq/contributing.html">
+            
+                    
+                    Contributing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Advanced Topics</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../../../advanced/cli.html">
+            
+                <a href="../../../advanced/cli.html">
+            
+                    
+                    CLI configuration options
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="../../../advanced/app-templates/">
+            
+                <a href="../../../advanced/app-templates/">
+            
+                    
+                    App templates
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.2.1" data-path="../../../advanced/app-templates/build.html">
+            
+                <a href="../../../advanced/app-templates/build.html">
+            
+                    
+                    Build and host your own app templates
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2.2" data-path="../../../advanced/app-templates/format.html">
+            
+                <a href="../../../advanced/app-templates/format.html">
+            
+                    
+                    App template JSON format
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3" data-path="../../../advanced/edge-agent.html">
+            
+                <a href="../../../advanced/edge-agent.html">
+            
+                    
+                    The Portainer Edge Agent
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.4" data-path="../../../advanced/access-control.html">
+            
+                <a href="../../../advanced/access-control.html">
+            
+                    
+                    Access control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.5" data-path="../../../advanced/reset-admin.html">
+            
+                <a href="../../../advanced/reset-admin.html">
+            
+                    
+                    Reset the admin user's password
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.6" data-path="../../../advanced/security.html">
+            
+                <a href="../../../advanced/security.html">
+            
+                    
+                    Security and compliance
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.7" data-path="../../../advanced/db-encryption.html">
+            
+                <a href="../../../advanced/db-encryption.html">
+            
+                    
+                    Encrypting the Portainer database
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.8" data-path="../../../advanced/ssl.html">
+            
+                <a href="../../../advanced/ssl.html">
+            
+                    
+                    Using your own SSL certificate with Portainer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.9" data-path="../../../advanced/mtls.html">
+            
+                <a href="../../../advanced/mtls.html">
+            
+                    
+                    Using mTLS with Portainer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.10" data-path="../../../advanced/siem.html">
+            
+                <a href="../../../advanced/siem.html">
+            
+                    
+                    Stream auth and activity logs to an external provider
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.11" data-path="../../../advanced/reverse-proxy/">
+            
+                <a href="../../../advanced/reverse-proxy/">
+            
+                    
+                    Using Portainer with reverse proxies
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.11.1" data-path="../../../advanced/reverse-proxy/traefik.html">
+            
+                <a href="../../../advanced/reverse-proxy/traefik.html">
+            
+                    
+                    Deploying Portainer behind Traefik Proxy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.11.2" data-path="../../../advanced/reverse-proxy/nginx.html">
+            
+                <a href="../../../advanced/reverse-proxy/nginx.html">
+            
+                    
+                    Deploying Portainer behind nginx reverse proxy
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6.12" data-path="../../../advanced/relative-paths.html">
+            
+                <a href="../../../advanced/relative-paths.html">
+            
+                    
+                    How Relative Path Support works in Portainer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.13" data-path="../../../advanced/helm-chart-configuration-options.html">
+            
+                <a href="../../../advanced/helm-chart-configuration-options.html">
+            
+                    
+                    Helm chart configuration options
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.14" data-path="../../../advanced/docker-roles-and-permissions.html">
+            
+                <a href="../../../advanced/docker-roles-and-permissions.html">
+            
+                    
+                    Docker roles and permissions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.15" data-path="../../../advanced/kubernetes-roles-and-bindings.html">
+            
+                <a href="../../../advanced/kubernetes-roles-and-bindings.html">
+            
+                    
+                    Kubernetes roles and bindings
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.16" data-path="../../../advanced/deprecated.html">
+            
+                <a href="../../../advanced/deprecated.html">
+            
+                    
+                    Deprecated and removed features
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">API</li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../../../api/access.html">
+            
+                <a href="../../../api/access.html">
+            
+                    
+                    Accessing the Portainer API
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" data-path="../../../api/docs.html">
+            
+                <a href="../../../api/docs.html">
+            
+                    
+                    API documentation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3" data-path="../../../api/examples.html">
+            
+                <a href="../../../api/examples.html">
+            
+                    
+                    API usage examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Get More Help</li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" >
+            
+                <a target="_blank" href="https://portal.portainer.io/knowledge">
+            
+                    
+                    Knowledge Base
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2" >
+            
+                <a target="_blank" href="https://academy.portainer.io">
+            
+                    
+                    Portainer Academy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.3" >
+            
+                <a target="_blank" href="https://www.youtube.com/channel/UC7diMJcrULjDseq5yhSUZgg/videos">
+            
+                    
+                    YouTube
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.4" >
+            
+                <a target="_blank" href="https://github.com/orgs/portainer/discussions">
+            
+                    
+                    GitHub
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.5" >
+            
+                <a target="_blank" href="https://join.slack.com/t/portainer/shared_invite/zt-21zpww5ab-mG_lA7UXbWL3HW3sPqjqEA">
+            
+                    
+                    Slack
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.6" >
+            
+                <a target="_blank" href="https://discord.com/invite/j8fVken">
+            
+                    
+                    Discord
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.7" >
+            
+                <a target="_blank" href="https://www.portainer.io/portainer-business-support">
+            
+                    
+                    Open a support request
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Contribute to Portainer</li>
+        
+        
+    
+        <li class="chapter " data-level="9.1" data-path="../../../contribute/contribute.html">
+            
+                <a href="../../../contribute/contribute.html">
+            
+                    
+                    Contribute
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9.2" data-path="../../../contribute/build/">
+            
+                <a href="../../../contribute/build/">
+            
+                    
+                    Build instructions
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="9.2.1" data-path="../../../contribute/build/mac.html">
+            
+                <a href="../../../contribute/build/mac.html">
+            
+                    
+                    Set up a macOS build environment
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9.2.2" data-path="../../../contribute/build/linux.html">
+            
+                <a href="../../../contribute/build/linux.html">
+            
+                    
+                    Set up a Linux build environment
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../.." >Add a new Edge Stack</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="add-a-new-edge-stack">Add a new Edge Stack</h1>
+<p>From the menu select <strong>Edge Stacks</strong> then click <strong>Add stack</strong>.</p>
+<figure><img src="../..//assets/2.20-edge-stacks-add.gif" alt=""></img><figcaption></figcaption></figure>
+
+<p>Give the stack a descriptive name then select one or more <a href="../groups.html">Edge Groups</a>.</p>
+<figure><img src="../..//assets/2.19-edge-stacks-add-name.png" alt=""></img><figcaption></figcaption></figure>
+
+<p>In <strong>Deployment type</strong>, select the type of deployment you are performing.</p>
+<p>This may be auto-selected based on the environments in your choice of <a href="../groups.html">Edge Groups</a>.</p>
+<figure><img src="../..//assets/2.20-edge-stacks-add-deploymenttype.png" alt=""></img><figcaption></figcaption></figure>
+
+<p>In the <strong>Build Method</strong>, define how to deploy your app from one of the following options:</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Overview</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Web editor</td>
+<td>Use the Portainer web editor to write or paste in your build file.</td>
+</tr>
+<tr>
+<td>Upload</td>
+<td>Upload a build file from your computer.</td>
+</tr>
+<tr>
+<td>Repository</td>
+<td>Use a GitHub repo where the build file is stored.</td>
+</tr>
+<tr>
+<td>Template</td>
+<td>Use an Edge stack template. Only available for the <strong>Compose</strong> deployment type.</td>
+</tr>
+</tbody>
+</table>
+<figure><img src="../..//assets/2.20-edge-stacks-add-buildmethod.png" alt=""></img><figcaption></figcaption></figure>
+
+<h2 id="web-editor">Web editor</h2>
+<p>Use the web editor to define the services for your deployment.</p>
+<p>You can search within the web editor at any time by pressing <code>Ctrl-F</code> (or <code>Cmd-F</code> on Mac).</p>
+<figure><img src="../..//assets/2.19-edge-stacks-edit-webeditor.png" alt=""></img><figcaption></figcaption></figure>
+
+<h2 id="upload">Upload</h2>
+<p>Click <strong>Select a file</strong> to upload a file from your computer containing your stack definition.</p>
+<figure><img src="../..//assets/2.19-edge-stacks-add-upload.png" alt=""></img><figcaption></figcaption></figure>
+
+<h2 id="repository">Repository</h2>
+<p>Enter the information about your Git repository to deploy your Edge Stack from Git.</p>
+<p>Portainer's Git deployment functionality does not currently support the use of Git submodules. If your repository includes submodules, they will not be pulled as part of the deployment. We <a href="https://github.com/orgs/portainer/discussions/9767" target="_blank">hope to add support</a> for submodules in a future release.</p>
+<table>
+<thead>
+<tr>
+<th>Field/Option</th>
+<th>Overview</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Authentication</td>
+<td>Toggle this on if your Git repository requires authentication.</td>
+</tr>
+<tr>
+<td>Git Credentials</td>
+<td>If the <strong>Authentication</strong> toggle is enabled and you have configured Git credentials, you can select them from this dropdown.</td>
+</tr>
+<tr>
+<td>Username</td>
+<td>Enter your Git username.</td>
+</tr>
+<tr>
+<td>Personal Access Token</td>
+<td>Enter your personal access token or password.</td>
+</tr>
+<tr>
+<td>Save credential</td>
+<td>Check this option to save the credentials entered above for future use under the name provided in the <strong>credential name</strong> field.</td>
+</tr>
+</tbody>
+</table>
+<p>If you have 2FA configured in GitHub, your passcode is your password.</p>
+<figure><img src="../..//assets/2.19-edge-stacks-add-git-auth.png" alt=""></img><figcaption></figcaption></figure>
+
+<table>
+<thead>
+<tr>
+<th>Field/Option</th>
+<th>Overview</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Repository URL</td>
+<td>Enter the repository URL. If you have enabled Authentication above the credentials will be used to access the repository. The below options will be populated by what is found in the repository.</td>
+</tr>
+<tr>
+<td>Repository reference</td>
+<td>Select the reference to use when deploying the stack (for example, the branch).</td>
+</tr>
+<tr>
+<td>Compose path / manifest path</td>
+<td>Enter the path to the Compose or manifest file from the root of the repository.</td>
+</tr>
+<tr>
+<td>Additional paths</td>
+<td>Click <strong>Add file</strong> to add additional files to be parsed by the build (for example, an environment-specific compose or manifest file).</td>
+</tr>
+<tr>
+<td>GitOps updates</td>
+<td>Toggle this on to enable GitOps updates (see below).</td>
+</tr>
+<tr>
+<td>Skip TLS verification</td>
+<td>Toggle this on to skip the verification of TLS certificates used by your repository. This is useful if your repo uses a self-signed certificate.</td>
+</tr>
+</tbody>
+</table>
+<figure><img src="../..//assets/2.19-stacks-add-git.png" alt=""></img><figcaption></figcaption></figure>
+
+<h3 id="gitops-updates">GitOps updates</h3>
+<p>Portainer supports automatically updating your Edge Stacks deployed from Git repositories. To enable this, toggle on <strong>GitOps updates</strong> and configure your settings.</p>
+<p>For more detail on how automatic updates function under the hood, have a look at <a href="https://portal.portainer.io/knowledge/how-do-automatic-updates-for-stacks-applications-work" target="_blank">this knowledge base article</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Field/Option</th>
+<th>Overview</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mechanism</td>
+<td>Select the method to use when checking for updates:</td>
+</tr>
+<tr>
+<td></td>
+<td><p><strong>Polling:</strong> Periodically poll the Git repository from Portainer to check for updates to the repository.</p><p><strong>Webhook:</strong> Generate a webhook URL to add to your Git repository to trigger the update on demand (for example via GitHub actions).</p></td>
+</tr>
+<tr>
+<td>Fetch interval</td>
+<td>If <strong>Polling</strong> is selected, how often Portainer will check the Git repository for updates.</td>
+</tr>
+<tr>
+<td>Webhook</td>
+<td>When <strong>Webhook</strong> is selected, displays the webhook URL to use in your integration. Click <strong>Copy link</strong> to copy the webhook URL to the clipboard.</td>
+</tr>
+</tbody>
+</table>
+<figure><img src="../..//assets/2.19-stacks-add-git-polling.png" alt=""></img><figcaption><p>GitOps updates when using polling</p></figcaption></figure>
+
+<figure><img src="../..//assets/2.19-stacks-add-git-webhook.png" alt=""></img><figcaption><p>GitOps updates when using webhooks</p></figcaption></figure>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Re-pull image</td>
+<td>When <strong>Webhook</strong> is selected, displays the webhook URL to use in your integration. Click <strong>Copy link</strong> to copy the webhook URL to the clipboard.</td>
+</tr>
+<tr>
+<td>Force redeployment</td>
+<td><p>Enable this setting to force the redeployment of your stack at the specified interval (or when the webhook is triggered), overwriting any changes that have been made in the local environment, even if there has been no update to the stack in Git. This is useful if you want to ensure that your Git repository is the source of truth for your stacks and are happy with the local stack being replaced.</p><p>If this option is left disabled, automatic updates will only trigger if Portainer detects a change in the remote Git repository.</p></td>
+</tr>
+</tbody>
+</table>
+<figure><img src="../..//assets/2.19-stacks-add-git-repull-force.png" alt=""></img><figcaption></figcaption></figure>
+
+<h3 id="relative-path-volumes">Relative path volumes</h3>
+<p>When you toggle <strong>Enable relative path volumes</strong> to on, you are able to specify relative path references in your compose files. Portainer will create the required directory structure and populate the directories with the relevant files from your Git repository. This feature is only available for Docker Standalone and Docker Swarm environments.</p>
+<p>If you have previously enabled <a href="add.html#gitops-edge-configurations">GitOps Edge configurations</a>, the filesystem path set there will be used for the relative path volumes feature as well.</p>
+<p>On Docker Standalone environments, specify the path at which you want your files to be created on your host filesystem in the <strong>Local filesystem path</strong> field.</p>
+<p>Ensure this directory exists on your local filesystem and is writable.</p>
+<figure><img src="../..//assets/2.17-stacks-add-relativepath.png" alt=""></img><figcaption></figcaption></figure>
+
+<p>On Docker Swarm environments, specify the path at which you want your files to be created in the <strong>Network filesystem path</strong> field.</p>
+<p>Ensure that this path is available on all of your Docker Swarm nodes and is writable.</p>
+<figure><img src="../..//assets/2.17-stacks-add-relativepath-swarm.png" alt=""></img><figcaption></figcaption></figure>
+
+
+<p>For more detail on how this feature works, have a look at <a href="../../../advanced/relative-paths.html">this article</a>.</p>
+<h3 id="gitops-edge-configurations">GitOps Edge configurations</h3>
+<p>You can also choose to deploy device-specific configurations from your Git repository to the devices your Edge stack will be deployed to. To use this, enable the <strong>GitOps Edge configurations</strong> toggle, enter the <strong>Local</strong> or <strong>Remote filesystem path</strong>, <strong>Directory</strong> (relative to the root of your Git repository) and select the <strong>Device</strong> or <strong>Group matching rule</strong> that corresponds to your configuration.</p>
+<p>If you have previously enabled <a href="add.html#relative-path-volumes">Relative path volumes</a>, the filesystem path set there will be used for the GitOps Edge configurations feature as well.</p>
+<figure><img src="../..//assets/2.20-edge-stacks-add-git-edgeconfigs.png" alt=""></img><figcaption></figcaption></figure>
+
+
+<p>If you set both a <strong>Device matching rule</strong> and a <strong>Group matching rule</strong>, the Device matching rule will take precedence. If the Device matching rule cannot be matched (in other words, if a file or folder name matching the device name is then unable to be located), Portainer will fall back to the Group matching rule instead.</p>
+<p>Within your Git repository at the <strong>Directory</strong> you define, you should have file names or folder names (depending on your <strong>Matching rule</strong> selection) that correspond to the Portainer Edge IDs or Edge Group for the devices you will be deploying the stack to. You can reference this ID in your stack files with the <code>PORTAINER_EDGE_ID</code> and <code>PORTAINER_EDGE_GROUP</code> environment variables. </p>
+<p>You can find the Edge IDs for your Edge environments under <strong>Environments</strong>, select the environment, and note the <strong>Edge identifier</strong> value in the <strong>Edge information</strong> box. It will look like the following:</p>
+<p><code>73149964-56f4-473b-81b3-5ecdc397e490</code></p>
+<p>For example, when using folder name matching and a directory of <code>config</code> , you can use the following syntax:</p>
+<pre><code>version: '3'
+
+services:
+  myservice:
+    image: myimage:latest
+    volumes:
+      - ./config/${PORTAINER_EDGE_ID}:/my-device-config
+</code></pre><p>In this example, each Edge device the stack was deployed to would mount their specific device (based on the Portainer Edge ID) folder from within the <code>config</code> directory of the Git repository to the <code>/my-device-config</code> folder in the container.</p>
+<p>If you deploy your stack to a device that does not have a file or folder with the corresponding Portainer Edge ID in the GitOps Edge configuration directory, the stack will deploy as normal but with no device specific configuration deployed.</p>
+<h2 id="template">Template</h2>
+<p>Select an Edge Stack template to deploy from the <strong>Template</strong> dropdown, and make any configuration adjustments as required.</p>
+<figure><img src="../..//assets/2.19-edge-stacks-add-template.png" alt=""></img><figcaption></figcaption></figure>
+
+<h2 id="additional-settings">Additional settings</h2>
+<h3 id="webhooks">Webhooks</h3>
+<p>For the Web editor, Upload and Template build methods you can choose to enable an Edge Stack webhook. This webhook will allow you to trigger updates to the stack by sending a POST request to a specific URL, instructing Portainer to pull the most up to date version of the associated image and re-deploy the stack.</p>
+<p>For Git deployed stacks, this functionality is available via <a href="add.html#gitops-updates">GitOps updates</a>.</p>
+<figure><img src="../..//assets/2.19-edge-stacks-add-webhook.png" alt=""></img><figcaption></figcaption></figure>
+
+<h3 id="environment-variables">Environment variables</h3>
+<p>As an optional step, you can also set environment variables. You can use these to define values in your compose file that would vary between deployments (for example, hostnames, database names, etc).</p>
+<p>This feature is only available on Docker Standalone and Docker Swarm environments.</p>
+<p>Environment variables can be set individually within Portainer or you can use <strong>Load variables from .env file</strong> to upload a file containing your environment variables. Environment variables you define (either individually or via a .env file) will be available to use in your compose file using an <code>environment</code> definition:</p>
+<pre><code>environment:
+  MY_ENVIRONMENT_VARIABLE: ${MY_ENVIRONMENT_VARIABLE}
+</code></pre><p>Alternatively, you can add <code>stack.env</code> as an <code>env_file</code> definition to add all the environment variables that you have defined individually as well as those included in an uploaded .env file:</p>
+<pre><code>env_file:
+  - stack.env
+</code></pre><p>Note the compose file is not changed when environment variables are used - this allows variables to be updated within Portainer without editing the compose file itself which would take it out of sync with the Git repository. You will still see the <code>${MY_ENVIRONMENT_VARIABLE}</code> style entry in the compose file.</p>
+<figure><img src="../..//assets/2.15-docker_stack_wed_editor_env_var.png" alt=""></img><figcaption></figcaption></figure>
+
+<h3 id="registry">Registry</h3>
+<p>If your stack requires access to images in private registries, you can specify which registry to use as part of the deployment.</p>
+<figure><img src="../..//assets/2.15-edge-stacks-add-registry.png" alt=""></img><figcaption></figcaption></figure>
+
+<h3 id="pre-pull-images">Pre-pull images</h3>
+<p>By default, Docker will start containers within the stack that it already has images for, while at the same time pulling any other images it needs from the upstream registries. In some cases you may want to wait until all of the needed images are pulled to the device before starting the stack. To do this, enable the <strong>Pre-pull images</strong> toggle. This can also help to avoid issues when some images in a stack are unable to be pulled, leading to an incomplete or partial deployment.</p>
+<figure><img src="../..//assets/2.18-edge-stacks-prepull.png" alt=""></img><figcaption></figcaption></figure>
+
+<h3 id="retry-deployment">Retry deployment</h3>
+<p>If a deployment of an Edge Stack fails (for example if the remote Edge environment is unavailable), by default Portainer will not try and redeploy the stack. If you wish to enable retrying of failed deployments, you can toggle <strong>Retry deployment</strong> to on and set <strong>Retry for</strong> to the length of time you want Portainer to retry deploying the stack.</p>
+<figure><img src="../..//assets/2.25.0-edge-stacks-retry-deployment.png" alt=""></img><figcaption></figcaption></figure>
+
+<p>When the time selected in <strong>Retry for</strong> is reached, Portainer will stop retrying and the Edge Stack will be given a "failed" status.</p>
+<h3 id="update-configurations">Update configurations</h3>
+<p>This section lets you define the method in which your stack updates are deployed across your Edge devices. You can choose to deploy to <strong>All edge devices at once</strong>, or select <strong>Parallel edge device(s)</strong> to specify how many devices to update concurrently.</p>
+<p>These settings do <strong>not</strong> apply to the <em>initial</em> provision of your Edge Stack. These only apply to the process that will occur when your stack is updated <em>after</em> deployment.</p>
+<figure><img src="../..//assets/2.19-edge-stacks-updateconfigs.png" alt=""></img><figcaption></figcaption></figure>
+
+<p>If <strong>Parallel edge device(s)</strong> is selected, you can choose to either deploy in static group sizes or in an exponential rollout strategy. For static group sizes, choose the <strong>Number of device(s)</strong> option and specify your group size.</p>
+<figure><img src="../..//assets/2.19-edge-stacks-parallel-staticgroups.png" alt=""></img><figcaption></figcaption></figure>
+
+<p>For an exponential rollout, choose the <strong>Exponential rollout</strong> option and specify how many devices to start with, then select the multiplier to apply to the initial size. For example, selecting a start size of 5 and a multiplier of 2, stack updates would be rolled out to 5 devices, then 10 (5 x 2), then 20 (10 x 2), and so forth.</p>
+<figure><img src="../..//assets/2.19-edge-stacks-parallel-exponential.png" alt=""></img><figcaption></figcaption></figure>
+
+<p>When using parallel rollouts, you can also specify the <strong>Timeout</strong> (in minutes) before Portainer considers the update to have failed, as well as the <strong>Update delay</strong> (in minutes) between each group of updates are applied. </p>
+<p>In addition, you can define the <strong>Update failure action</strong> that will be taken if the update fails: </p>
+<ul>
+<li><strong>Continue</strong> will move on to the next group of devices to update. </li>
+<li><strong>Pause</strong> will halt the update process but will keep the update applied to any devices that have already been deployed to. </li>
+<li><strong>Rollback</strong> will halt the update process and roll back the update on devices already updated.</li>
+</ul>
+<figure><img src="../..//assets/2.19-edge-stacks-parallel-failureaction.png" alt=""></img><figcaption></figcaption></figure>
+
+<p>Once the configuration is completed, click <strong>Deploy the stack</strong>.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Edge Stacks">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../jobs.html" class="navigation navigation-next " aria-label="Next page: Edge Jobs">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Add a new Edge Stack","level":"3.6.2.1","depth":3,"next":{"title":"Edge Jobs","level":"3.6.3","depth":2,"path":"user/edge/jobs.md","ref":"user/edge/jobs.md","articles":[]},"previous":{"title":"Edge Stacks","level":"3.6.2","depth":2,"path":"user/edge/stacks/README.md","ref":"user/edge/stacks/README.md","articles":[{"title":"Add a new Edge Stack","level":"3.6.2.1","depth":3,"path":"user/edge/stacks/add.md","ref":"user/edge/stacks/add.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"cn","gitbook":"*"},"file":{"path":"user/edge/stacks/add.md","mtime":"2025-06-03T21:54:55.789Z","type":"markdown"},"gitbook":{"version":"6.0.3","time":"2025-06-03T22:00:44.538Z"},"basePath":"../../..","book":{"language":"cn"}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../../../../gitbook/gitbook.js"></script>
+    <script src="../../../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../../../gitbook/@honkit/honkit-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
