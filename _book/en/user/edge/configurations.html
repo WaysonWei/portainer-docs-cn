@@ -4620,10 +4620,10 @@
                                 <h1 id="edge-configurations">Edge Configurations</h1>
 <p>Edge Configurations are sets of files that can be pre-deployed to your Edge environments in order to provide dynamic configurability on each Edge environment as well as avoid storing large amounts of config files in deployment repositories.</p>
 <p>From the menu under <strong>Edge compute</strong> select <strong>Edge Configurations</strong>.</p>
-<figure><img src="..//assets/2.19-edge-configurations.gif" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../assets/2.19-edge-configurations.gif" alt=""></img><figcaption></figcaption></figure>
 
 <p>Here you can see a list of your current configurations, the Edge groups they apply to, creation and update dates, as well as the progress in pushing the configuration to your Edge environments. </p>
-<figure><img src="..//assets/2.19-edge-configurations-list.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../assets/2.19-edge-configurations-list.png" alt=""></img><figcaption></figcaption></figure>
 
 <h2 id="add-a-new-configuration">Add a new configuration</h2>
 <p>To add a new configuration, click <strong>Add configuration</strong> and fill in the resulting form.</p>
@@ -4649,24 +4649,24 @@
 </tr>
 </tbody>
 </table>
-<figure><img src="..//assets/2.19-edge-configurations-name.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../assets/2.19-edge-configurations-name.png" alt=""></img><figcaption></figcaption></figure>
 
 <h3 id="type">Type</h3>
 <p>Next select the <strong>Type</strong> of configuration to deploy. When choosing the <strong>General configuration</strong> type, the contents of your configuration will be deployed to all devices in the selected groups in the directory specified, and the resulting configuration files will be available to all the devices in the same location.</p>
-<figure><img src="..//assets/2.19-edge-configurations-type-general.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../assets/2.19-edge-configurations-type-general.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>Alternatively you can choose <strong>Device specific configuration</strong>, which will let you deploy subsets of the configuration to the devices you specify based on the Portainer Edge ID of the device. </p>
 <p>You can find the Edge IDs for your Edge environments under <strong>Environments</strong>, select the environment, and note the <strong>Edge identifier</strong> value in the <strong>Edge information</strong> box. It will look like the following:</p>
 <p><code>73149964-56f4-473b-81b3-5ecdc397e490</code></p>
 <p>You can specify the <strong>Matching rule</strong> to match either the file name or folder name within your configuration to the Portainer Edge ID. </p>
-<figure><img src="..//assets/2.19-edge-configurations-type-device-specific.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../assets/2.19-edge-configurations-type-device-specific.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>When using <strong>file name</strong> matching, any files in your configuration package with a filename (any extension) matching an Edge ID will be deployed to the matching remote Edge environment, in the location specified in the <strong>Directory</strong> field. </p>
 <p>When using <strong>folder name</strong> matching, any folders in your configuration package with a name matching an Edge ID will have their contents deployed to the matching remote Edge environment, in the location specified in the <strong>Directory</strong> field.</p>
 <h3 id="configuration">Configuration</h3>
 <p>Finally, select a package to upload by clicking <strong>Upload from package</strong>. This package should be a ZIP file containing the configuration files you want to deploy on your Edge environments, with the contents structured based on the <strong>Type</strong> selected above.</p>
 <p>When using folder name matching, your Edge ID named folders should be in the base directory of the package file contents and not in any subdirectories.</p>
-<figure><img src="..//assets/2.19-edge-configurations-configuration.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../assets/2.19-edge-configurations-configuration.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>When you're ready, click <strong>Create configuration and push</strong>. Your configuration will be uploaded to Portainer and deployed to the relevant Edge environments based on your selections.</p>
 <h2 id="using-your-edge-configurations-in-an-edge-stack">Using your Edge Configurations in an Edge Stack</h2>
@@ -4723,7 +4723,7 @@ services:
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Edge Configurations","level":"3.6.4","depth":2,"next":{"title":"Waiting Room","level":"3.6.5","depth":2,"path":"user/edge/waiting-room.md","ref":"user/edge/waiting-room.md","articles":[]},"previous":{"title":"Edge Jobs","level":"3.6.3","depth":2,"path":"user/edge/jobs.md","ref":"user/edge/jobs.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"user/edge/configurations.md","mtime":"2025-06-03T21:32:54.403Z","type":"markdown"},"gitbook":{"version":"6.0.3","time":"2025-06-03T22:00:44.538Z"},"basePath":"../..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Edge Configurations","level":"3.6.4","depth":2,"next":{"title":"Waiting Room","level":"3.6.5","depth":2,"path":"user/edge/waiting-room.md","ref":"user/edge/waiting-room.md","articles":[]},"previous":{"title":"Edge Jobs","level":"3.6.3","depth":2,"path":"user/edge/jobs.md","ref":"user/edge/jobs.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"user/edge/configurations.md","mtime":"2025-06-03T22:05:25.716Z","type":"markdown"},"gitbook":{"version":"6.0.3","time":"2025-06-03T22:18:05.715Z"},"basePath":"../..","book":{"language":"en"}});
         });
     </script>
 </div>

@@ -4648,12 +4648,12 @@
 </table>
 <h2 id="option-1-web-editor">Option 1: Web editor</h2>
 <p>From the menu select <strong>Stacks</strong>, click <strong>Add stack</strong>, give the stack a descriptive name then select <strong>Web editor</strong>. Use the web editor to define the services.</p>
-<figure><img src="../..//assets/2.15-docker_add_stack_web_editor.gif" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.15-docker_add_stack_web_editor.gif" alt=""></img><figcaption></figcaption></figure>
 
 
 <p>You can search within the web editor at any time by pressing <code>Ctrl-F</code> (or <code>Cmd-F</code> on Mac).</p>
 <p>As part of the stack creation you can enable a stack webhook, allowing you to remotely trigger redeployments of the stack from your repository, for example. You can read more on this in our documentation on <a href="webhooks.html">stack webhooks</a>.</p>
-<figure><img src="../..//assets/2.15-docker_stack_web_editor_webhook.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.15-docker_stack_web_editor_webhook.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>As an optional step, you can also use the web editor to define environment variables. You can use these to define values in your compose file that would vary between deployments (for example, hostnames, database names, etc).</p>
 <p>Environment variables can be set individually within Portainer or you can use <strong>Load variables from .env file</strong> to upload a file containing your environment variables. Environment variables you define (either individually or via a .env file) will be available to use in your compose file using an <code>environment</code> definition:</p>
@@ -4664,16 +4664,16 @@
   - stack.env
 </code></pre><p><strong>Note:</strong> Using <code>env_file</code> to define a file does not work in Docker Swarm due to the lack of <code>env_file</code> support in <code>docker stack deploy</code> (used on Swarm environments to deploy your stack). On Docker Swarm, you will need to define each environment variable manually.</p>
 <p>Note the compose file is not changed when environment variables are used - this allows variables to be updated within Portainer without editing the compose file itself. You will still see the <code>${MY_ENVIRONMENT_VARIABLE}</code> style entry in the compose file.</p>
-<figure><img src="../..//assets/2.15-docker_stack_wed_editor_env_var.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.15-docker_stack_wed_editor_env_var.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>When you're ready, click <strong>Deploy the stack</strong>.</p>
 <h2 id="option-2-upload">Option 2: Upload</h2>
 <p>In Portainer you can create stacks from Compose YML files. To do this, from the menu select <strong>Stacks</strong>, click <strong>Add stack</strong>, then give the stack a descriptive name.</p>
-<figure><img src="../..//assets/2.15-docker_add_stack_upload.gif" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.15-docker_add_stack_upload.gif" alt=""></img><figcaption></figcaption></figure>
 
 <p>Select <strong>Upload</strong> then select the Compose file from your computer.</p>
 <p>As part of the stack creation you can enable a stack webhook, allowing you to remotely trigger redeployments of the stack from your repository, for example. You can read more on this in our documentation on <a href="webhooks.html">stack webhooks</a>.</p>
-<figure><img src="../..//assets/2.15-docker_stack_web_editor_webhook.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.15-docker_stack_web_editor_webhook.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>As an optional step, enter any environment variables. You can use these to define values in your compose file that would vary between deployments (for example, hostnames, database names, etc).</p>
 <p>Environment variables can be set individually within Portainer or you can use <strong>Load variables from .env file</strong> to upload a file containing your environment variables. Environment variables you define (either individually or via a .env file) will be available to use in your compose file using an <code>environment</code> definition:</p>
@@ -4683,14 +4683,14 @@
 <pre><code>env_file:
   - stack.env
 </code></pre><p>Note the compose file is not changed when environment variables are used - this allows variables to be updated within Portainer without editing the compose file itself which would take it out of sync with your local copy. You will still see the <code>${MY_ENVIRONMENT_VARIABLE}</code> style entry in the compose file.</p>
-<figure><img src="../..//assets/2.15-docker_add_stack_upload_env_var.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.15-docker_add_stack_upload_env_var.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>When you're ready click <strong>Deploy the stack</strong>.</p>
 <h2 id="option-3-git-repository">Option 3: Git repository</h2>
 <p>If your Compose file is hosted in a Git repository, you can deploy from there. From the menu select <strong>Stacks</strong>, click <strong>Add stack</strong>, then give the stack a descriptive name.</p>
 <p>When a stack is deployed from Git, Portainer will clone the entire Git repository as part of the deployment process. Ensure you have enough free space to accommodate this.</p>
 <p>Portainer's Git deployment functionality does not currently support the use of Git submodules. If your repository includes submodules, they will not be pulled as part of the deployment. We <a href="https://github.com/orgs/portainer/discussions/9767" target="_blank">hope to add support</a> for submodules in a future release.</p>
-<figure><img src="../..//assets/2.15-docker_add_stack_git.gif" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.15-docker_add_stack_git.gif" alt=""></img><figcaption></figcaption></figure>
 
 <p>Select <strong>Git Repository</strong> then enter information about your Git repo.</p>
 <p>Any Git-compatible repository should work here. Substitute the details as required.</p>
@@ -4725,7 +4725,7 @@
 </tbody>
 </table>
 <p>If you have 2FA configured in GitHub, your passcode is your password.</p>
-<figure><img src="../..//assets/2.16-stacks-add-gitcreds.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.16-stacks-add-gitcreds.png" alt=""></img><figcaption></figcaption></figure>
 
 <table>
 <thead>
@@ -4761,7 +4761,7 @@
 </tr>
 </tbody>
 </table>
-<figure><img src="../..//assets/2.24.0-docker-stacks-add-git.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.24.0-docker-stacks-add-git.png" alt=""></img><figcaption></figcaption></figure>
 
 <h3 id="gitops-updates">GitOps updates</h3>
 <p>Portainer supports automatically updating your stacks deployed from Git repositories. To enable this, toggle on <strong>GitOps updates</strong> and configure your settings.</p>
@@ -4792,9 +4792,9 @@
 </tr>
 </tbody>
 </table>
-<figure><img src="../..//assets/2.19-stacks-add-git-polling.png" alt=""></img><figcaption><p>Automatic updates when using polling</p></figcaption></figure>
+<figure><img src="../../assets/2.19-stacks-add-git-polling.png" alt=""></img><figcaption><p>Automatic updates when using polling</p></figcaption></figure>
 
-<figure><img src="../..//assets/2.19-stacks-add-git-webhook.png" alt=""></img><figcaption><p>Automatic updates when using webhooks</p></figcaption></figure>
+<figure><img src="../../assets/2.19-stacks-add-git-webhook.png" alt=""></img><figcaption><p>Automatic updates when using webhooks</p></figcaption></figure>
 
 <table>
 <thead>
@@ -4814,18 +4814,18 @@
 </tr>
 </tbody>
 </table>
-<figure><img src="../..//assets/2.19-stacks-add-git-repull-force.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.19-stacks-add-git-repull-force.png" alt=""></img><figcaption></figcaption></figure>
 
 <h3 id="relative-path-volumes">Relative path volumes</h3>
 <p>When you toggle <strong>Enable relative path volumes</strong> to on, you are able to specify relative path references in your compose files. Portainer will create the required directory structure and populate the directories with the relevant files from your Git repository.</p>
 <p>This feature is only available in Portainer Business Edition.</p>
 <p>On Docker Standalone and Podman environments, specify the path at which you want your files to be created on your host filesystem in the <strong>Local filesystem path</strong> field.</p>
 <p>Ensure this directory exists on your local filesystem and is writable.</p>
-<figure><img src="../..//assets/2.17-stacks-add-relativepath.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.17-stacks-add-relativepath.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>On Docker Swarm environments, specify the path at which you want your files to be created in the Network filesystem path field.</p>
 <p>Ensure that this path is available on all of your Docker Swarm nodes and is writable.</p>
-<figure><img src="../..//assets/2.17-stacks-add-relativepath-swarm.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.17-stacks-add-relativepath-swarm.png" alt=""></img><figcaption></figcaption></figure>
 
 
 <p>For more detail on how this feature works, have a look at <a href="../../../advanced/relative-paths.html">this article</a>.</p>
@@ -4838,7 +4838,7 @@
 <pre><code>env_file:
   - stack.env
 </code></pre><p>Note the compose file is not changed when environment variables are used - this allows variables to be updated within Portainer without editing the compose file itself which would take it out of sync with the Git repository. You will still see the <code>${MY_ENVIRONMENT_VARIABLE}</code> style entry in the compose file.</p>
-<figure><img src="../..//assets/2.15-docker_stack_wed_editor_env_var.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.15-docker_stack_wed_editor_env_var.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>Enter environment variables if required then click <strong>Deploy the stack</strong>.</p>
 
@@ -4884,7 +4884,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Add a new stack","level":"3.2.3.1","depth":3,"next":{"title":"Inspect or edit a stack","level":"3.2.3.2","depth":3,"path":"user/docker/stacks/edit.md","ref":"user/docker/stacks/edit.md","articles":[]},"previous":{"title":"Stacks","level":"3.2.3","depth":2,"path":"user/docker/stacks/README.md","ref":"user/docker/stacks/README.md","articles":[{"title":"Add a new stack","level":"3.2.3.1","depth":3,"path":"user/docker/stacks/add.md","ref":"user/docker/stacks/add.md","articles":[]},{"title":"Inspect or edit a stack","level":"3.2.3.2","depth":3,"path":"user/docker/stacks/edit.md","ref":"user/docker/stacks/edit.md","articles":[]},{"title":"Create a template from a deployed stack","level":"3.2.3.3","depth":3,"path":"user/docker/stacks/template.md","ref":"user/docker/stacks/template.md","articles":[]},{"title":"Webhooks","level":"3.2.3.4","depth":3,"path":"user/docker/stacks/webhooks.md","ref":"user/docker/stacks/webhooks.md","articles":[]},{"title":"Migrate or duplicate a stack","level":"3.2.3.5","depth":3,"path":"user/docker/stacks/migrate.md","ref":"user/docker/stacks/migrate.md","articles":[]},{"title":"Remove a stack","level":"3.2.3.6","depth":3,"path":"user/docker/stacks/remove.md","ref":"user/docker/stacks/remove.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"cn","gitbook":"*"},"file":{"path":"user/docker/stacks/add.md","mtime":"2025-06-03T21:54:55.782Z","type":"markdown"},"gitbook":{"version":"6.0.3","time":"2025-06-03T22:00:44.538Z"},"basePath":"../../..","book":{"language":"cn"}});
+            gitbook.page.hasChanged({"page":{"title":"Add a new stack","level":"3.2.3.1","depth":3,"next":{"title":"Inspect or edit a stack","level":"3.2.3.2","depth":3,"path":"user/docker/stacks/edit.md","ref":"user/docker/stacks/edit.md","articles":[]},"previous":{"title":"Stacks","level":"3.2.3","depth":2,"path":"user/docker/stacks/README.md","ref":"user/docker/stacks/README.md","articles":[{"title":"Add a new stack","level":"3.2.3.1","depth":3,"path":"user/docker/stacks/add.md","ref":"user/docker/stacks/add.md","articles":[]},{"title":"Inspect or edit a stack","level":"3.2.3.2","depth":3,"path":"user/docker/stacks/edit.md","ref":"user/docker/stacks/edit.md","articles":[]},{"title":"Create a template from a deployed stack","level":"3.2.3.3","depth":3,"path":"user/docker/stacks/template.md","ref":"user/docker/stacks/template.md","articles":[]},{"title":"Webhooks","level":"3.2.3.4","depth":3,"path":"user/docker/stacks/webhooks.md","ref":"user/docker/stacks/webhooks.md","articles":[]},{"title":"Migrate or duplicate a stack","level":"3.2.3.5","depth":3,"path":"user/docker/stacks/migrate.md","ref":"user/docker/stacks/migrate.md","articles":[]},{"title":"Remove a stack","level":"3.2.3.6","depth":3,"path":"user/docker/stacks/remove.md","ref":"user/docker/stacks/remove.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"cn","gitbook":"*"},"file":{"path":"user/docker/stacks/add.md","mtime":"2025-06-03T22:05:54.737Z","type":"markdown"},"gitbook":{"version":"6.0.3","time":"2025-06-03T22:18:05.715Z"},"basePath":"../../..","book":{"language":"cn"}});
         });
     </script>
 </div>

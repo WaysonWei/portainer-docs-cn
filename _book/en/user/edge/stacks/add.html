@@ -4619,14 +4619,14 @@
                                 
                                 <h1 id="add-a-new-edge-stack">Add a new Edge Stack</h1>
 <p>From the menu select <strong>Edge Stacks</strong> then click <strong>Add stack</strong>.</p>
-<figure><img src="../..//assets/2.20-edge-stacks-add.gif" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.20-edge-stacks-add.gif" alt=""></img><figcaption></figcaption></figure>
 
 <p>Give the stack a descriptive name then select one or more <a href="../groups.html">Edge Groups</a>.</p>
-<figure><img src="../..//assets/2.19-edge-stacks-add-name.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.19-edge-stacks-add-name.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>In <strong>Deployment type</strong>, select the type of deployment you are performing.</p>
 <p>This may be auto-selected based on the environments in your choice of <a href="../groups.html">Edge Groups</a>.</p>
-<figure><img src="../..//assets/2.20-edge-stacks-add-deploymenttype.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.20-edge-stacks-add-deploymenttype.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>In the <strong>Build Method</strong>, define how to deploy your app from one of the following options:</p>
 <table>
@@ -4655,16 +4655,16 @@
 </tr>
 </tbody>
 </table>
-<figure><img src="../..//assets/2.20-edge-stacks-add-buildmethod.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.20-edge-stacks-add-buildmethod.png" alt=""></img><figcaption></figcaption></figure>
 
 <h2 id="web-editor">Web editor</h2>
 <p>Use the web editor to define the services for your deployment.</p>
 <p>You can search within the web editor at any time by pressing <code>Ctrl-F</code> (or <code>Cmd-F</code> on Mac).</p>
-<figure><img src="../..//assets/2.19-edge-stacks-edit-webeditor.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.19-edge-stacks-edit-webeditor.png" alt=""></img><figcaption></figcaption></figure>
 
 <h2 id="upload">Upload</h2>
 <p>Click <strong>Select a file</strong> to upload a file from your computer containing your stack definition.</p>
-<figure><img src="../..//assets/2.19-edge-stacks-add-upload.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.19-edge-stacks-add-upload.png" alt=""></img><figcaption></figcaption></figure>
 
 <h2 id="repository">Repository</h2>
 <p>Enter the information about your Git repository to deploy your Edge Stack from Git.</p>
@@ -4700,7 +4700,7 @@
 </tbody>
 </table>
 <p>If you have 2FA configured in GitHub, your passcode is your password.</p>
-<figure><img src="../..//assets/2.19-edge-stacks-add-git-auth.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.19-edge-stacks-add-git-auth.png" alt=""></img><figcaption></figcaption></figure>
 
 <table>
 <thead>
@@ -4736,7 +4736,7 @@
 </tr>
 </tbody>
 </table>
-<figure><img src="../..//assets/2.19-stacks-add-git.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.19-stacks-add-git.png" alt=""></img><figcaption></figcaption></figure>
 
 <h3 id="gitops-updates">GitOps updates</h3>
 <p>Portainer supports automatically updating your Edge Stacks deployed from Git repositories. To enable this, toggle on <strong>GitOps updates</strong> and configure your settings.</p>
@@ -4767,9 +4767,9 @@
 </tr>
 </tbody>
 </table>
-<figure><img src="../..//assets/2.19-stacks-add-git-polling.png" alt=""></img><figcaption><p>GitOps updates when using polling</p></figcaption></figure>
+<figure><img src="../../assets/2.19-stacks-add-git-polling.png" alt=""></img><figcaption><p>GitOps updates when using polling</p></figcaption></figure>
 
-<figure><img src="../..//assets/2.19-stacks-add-git-webhook.png" alt=""></img><figcaption><p>GitOps updates when using webhooks</p></figcaption></figure>
+<figure><img src="../../assets/2.19-stacks-add-git-webhook.png" alt=""></img><figcaption><p>GitOps updates when using webhooks</p></figcaption></figure>
 
 <table>
 <thead>
@@ -4789,25 +4789,25 @@
 </tr>
 </tbody>
 </table>
-<figure><img src="../..//assets/2.19-stacks-add-git-repull-force.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.19-stacks-add-git-repull-force.png" alt=""></img><figcaption></figcaption></figure>
 
 <h3 id="relative-path-volumes">Relative path volumes</h3>
 <p>When you toggle <strong>Enable relative path volumes</strong> to on, you are able to specify relative path references in your compose files. Portainer will create the required directory structure and populate the directories with the relevant files from your Git repository. This feature is only available for Docker Standalone and Docker Swarm environments.</p>
 <p>If you have previously enabled <a href="add.html#gitops-edge-configurations">GitOps Edge configurations</a>, the filesystem path set there will be used for the relative path volumes feature as well.</p>
 <p>On Docker Standalone environments, specify the path at which you want your files to be created on your host filesystem in the <strong>Local filesystem path</strong> field.</p>
 <p>Ensure this directory exists on your local filesystem and is writable.</p>
-<figure><img src="../..//assets/2.17-stacks-add-relativepath.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.17-stacks-add-relativepath.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>On Docker Swarm environments, specify the path at which you want your files to be created in the <strong>Network filesystem path</strong> field.</p>
 <p>Ensure that this path is available on all of your Docker Swarm nodes and is writable.</p>
-<figure><img src="../..//assets/2.17-stacks-add-relativepath-swarm.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.17-stacks-add-relativepath-swarm.png" alt=""></img><figcaption></figcaption></figure>
 
 
 <p>For more detail on how this feature works, have a look at <a href="../../../advanced/relative-paths.html">this article</a>.</p>
 <h3 id="gitops-edge-configurations">GitOps Edge configurations</h3>
 <p>You can also choose to deploy device-specific configurations from your Git repository to the devices your Edge stack will be deployed to. To use this, enable the <strong>GitOps Edge configurations</strong> toggle, enter the <strong>Local</strong> or <strong>Remote filesystem path</strong>, <strong>Directory</strong> (relative to the root of your Git repository) and select the <strong>Device</strong> or <strong>Group matching rule</strong> that corresponds to your configuration.</p>
 <p>If you have previously enabled <a href="add.html#relative-path-volumes">Relative path volumes</a>, the filesystem path set there will be used for the GitOps Edge configurations feature as well.</p>
-<figure><img src="../..//assets/2.20-edge-stacks-add-git-edgeconfigs.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.20-edge-stacks-add-git-edgeconfigs.png" alt=""></img><figcaption></figcaption></figure>
 
 
 <p>If you set both a <strong>Device matching rule</strong> and a <strong>Group matching rule</strong>, the Device matching rule will take precedence. If the Device matching rule cannot be matched (in other words, if a file or folder name matching the device name is then unable to be located), Portainer will fall back to the Group matching rule instead.</p>
@@ -4826,13 +4826,13 @@ services:
 <p>If you deploy your stack to a device that does not have a file or folder with the corresponding Portainer Edge ID in the GitOps Edge configuration directory, the stack will deploy as normal but with no device specific configuration deployed.</p>
 <h2 id="template">Template</h2>
 <p>Select an Edge Stack template to deploy from the <strong>Template</strong> dropdown, and make any configuration adjustments as required.</p>
-<figure><img src="../..//assets/2.19-edge-stacks-add-template.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.19-edge-stacks-add-template.png" alt=""></img><figcaption></figcaption></figure>
 
 <h2 id="additional-settings">Additional settings</h2>
 <h3 id="webhooks">Webhooks</h3>
 <p>For the Web editor, Upload and Template build methods you can choose to enable an Edge Stack webhook. This webhook will allow you to trigger updates to the stack by sending a POST request to a specific URL, instructing Portainer to pull the most up to date version of the associated image and re-deploy the stack.</p>
 <p>For Git deployed stacks, this functionality is available via <a href="add.html#gitops-updates">GitOps updates</a>.</p>
-<figure><img src="../..//assets/2.19-edge-stacks-add-webhook.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.19-edge-stacks-add-webhook.png" alt=""></img><figcaption></figcaption></figure>
 
 <h3 id="environment-variables">Environment variables</h3>
 <p>As an optional step, you can also set environment variables. You can use these to define values in your compose file that would vary between deployments (for example, hostnames, database names, etc).</p>
@@ -4844,31 +4844,31 @@ services:
 <pre><code>env_file:
   - stack.env
 </code></pre><p>Note the compose file is not changed when environment variables are used - this allows variables to be updated within Portainer without editing the compose file itself which would take it out of sync with the Git repository. You will still see the <code>${MY_ENVIRONMENT_VARIABLE}</code> style entry in the compose file.</p>
-<figure><img src="../..//assets/2.15-docker_stack_wed_editor_env_var.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.15-docker_stack_wed_editor_env_var.png" alt=""></img><figcaption></figcaption></figure>
 
 <h3 id="registry">Registry</h3>
 <p>If your stack requires access to images in private registries, you can specify which registry to use as part of the deployment.</p>
-<figure><img src="../..//assets/2.15-edge-stacks-add-registry.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.15-edge-stacks-add-registry.png" alt=""></img><figcaption></figcaption></figure>
 
 <h3 id="pre-pull-images">Pre-pull images</h3>
 <p>By default, Docker will start containers within the stack that it already has images for, while at the same time pulling any other images it needs from the upstream registries. In some cases you may want to wait until all of the needed images are pulled to the device before starting the stack. To do this, enable the <strong>Pre-pull images</strong> toggle. This can also help to avoid issues when some images in a stack are unable to be pulled, leading to an incomplete or partial deployment.</p>
-<figure><img src="../..//assets/2.18-edge-stacks-prepull.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.18-edge-stacks-prepull.png" alt=""></img><figcaption></figcaption></figure>
 
 <h3 id="retry-deployment">Retry deployment</h3>
 <p>If a deployment of an Edge Stack fails (for example if the remote Edge environment is unavailable), by default Portainer will not try and redeploy the stack. If you wish to enable retrying of failed deployments, you can toggle <strong>Retry deployment</strong> to on and set <strong>Retry for</strong> to the length of time you want Portainer to retry deploying the stack.</p>
-<figure><img src="../..//assets/2.25.0-edge-stacks-retry-deployment.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.25.0-edge-stacks-retry-deployment.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>When the time selected in <strong>Retry for</strong> is reached, Portainer will stop retrying and the Edge Stack will be given a "failed" status.</p>
 <h3 id="update-configurations">Update configurations</h3>
 <p>This section lets you define the method in which your stack updates are deployed across your Edge devices. You can choose to deploy to <strong>All edge devices at once</strong>, or select <strong>Parallel edge device(s)</strong> to specify how many devices to update concurrently.</p>
 <p>These settings do <strong>not</strong> apply to the <em>initial</em> provision of your Edge Stack. These only apply to the process that will occur when your stack is updated <em>after</em> deployment.</p>
-<figure><img src="../..//assets/2.19-edge-stacks-updateconfigs.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.19-edge-stacks-updateconfigs.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>If <strong>Parallel edge device(s)</strong> is selected, you can choose to either deploy in static group sizes or in an exponential rollout strategy. For static group sizes, choose the <strong>Number of device(s)</strong> option and specify your group size.</p>
-<figure><img src="../..//assets/2.19-edge-stacks-parallel-staticgroups.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.19-edge-stacks-parallel-staticgroups.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>For an exponential rollout, choose the <strong>Exponential rollout</strong> option and specify how many devices to start with, then select the multiplier to apply to the initial size. For example, selecting a start size of 5 and a multiplier of 2, stack updates would be rolled out to 5 devices, then 10 (5 x 2), then 20 (10 x 2), and so forth.</p>
-<figure><img src="../..//assets/2.19-edge-stacks-parallel-exponential.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.19-edge-stacks-parallel-exponential.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>When using parallel rollouts, you can also specify the <strong>Timeout</strong> (in minutes) before Portainer considers the update to have failed, as well as the <strong>Update delay</strong> (in minutes) between each group of updates are applied. </p>
 <p>In addition, you can define the <strong>Update failure action</strong> that will be taken if the update fails: </p>
@@ -4877,7 +4877,7 @@ services:
 <li><strong>Pause</strong> will halt the update process but will keep the update applied to any devices that have already been deployed to. </li>
 <li><strong>Rollback</strong> will halt the update process and roll back the update on devices already updated.</li>
 </ul>
-<figure><img src="../..//assets/2.19-edge-stacks-parallel-failureaction.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.19-edge-stacks-parallel-failureaction.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>Once the configuration is completed, click <strong>Deploy the stack</strong>.</p>
 
@@ -4923,7 +4923,7 @@ services:
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Add a new Edge Stack","level":"3.6.2.1","depth":3,"next":{"title":"Edge Jobs","level":"3.6.3","depth":2,"path":"user/edge/jobs.md","ref":"user/edge/jobs.md","articles":[]},"previous":{"title":"Edge Stacks","level":"3.6.2","depth":2,"path":"user/edge/stacks/README.md","ref":"user/edge/stacks/README.md","articles":[{"title":"Add a new Edge Stack","level":"3.6.2.1","depth":3,"path":"user/edge/stacks/add.md","ref":"user/edge/stacks/add.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"user/edge/stacks/add.md","mtime":"2025-06-03T21:32:54.414Z","type":"markdown"},"gitbook":{"version":"6.0.3","time":"2025-06-03T22:00:44.538Z"},"basePath":"../../..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Add a new Edge Stack","level":"3.6.2.1","depth":3,"next":{"title":"Edge Jobs","level":"3.6.3","depth":2,"path":"user/edge/jobs.md","ref":"user/edge/jobs.md","articles":[]},"previous":{"title":"Edge Stacks","level":"3.6.2","depth":2,"path":"user/edge/stacks/README.md","ref":"user/edge/stacks/README.md","articles":[{"title":"Add a new Edge Stack","level":"3.6.2.1","depth":3,"path":"user/edge/stacks/add.md","ref":"user/edge/stacks/add.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"user/edge/stacks/add.md","mtime":"2025-06-03T22:05:25.716Z","type":"markdown"},"gitbook":{"version":"6.0.3","time":"2025-06-03T22:18:05.715Z"},"basePath":"../../..","book":{"language":"en"}});
         });
     </script>
 </div>

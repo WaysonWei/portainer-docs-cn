@@ -4620,7 +4620,7 @@
                                 <h1 id="authenticate-via-oauth">Authenticate via OAuth</h1>
 <h2 id="configuring-oauth-authentication-in-portainer">Configuring OAuth authentication in Portainer</h2>
 <p>From the menu select <strong>Settings</strong> then select <strong>Authentication</strong>. Under the <strong>Authentication method</strong> section click <strong>OAuth</strong>.</p>
-<figure><img src="../..//assets/2.15-settings-authentication-oauth.gif" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.15-settings-authentication-oauth.gif" alt=""></img><figcaption></figcaption></figure>
 
 <p>In the next screen, enter the credentials provided by your OAuth provider, using the table below as a guide.</p>
 <table>
@@ -4645,14 +4645,14 @@
 </tr>
 </tbody>
 </table>
-<figure><img src="../..//assets/2.15-settings-authentication-oauth-sso.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.15-settings-authentication-oauth-sso.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>If you toggle <strong>Automatic team membership</strong> on, you can choose to automatically add OAuth users to certain Portainer teams based on the <strong>Claim name</strong>. Claim names will be matched with teams or you can manually link a claim name (using regex) with Portainer teams under the <strong>Statically assigned teams</strong> option. You can also define a <strong>Default team</strong> for users who don't belong to any other team.</p>
 <p>In addition, you can enable the automatic assignment of admin rights to specified groups if desired.</p>
-<figure><img src="../..//assets/2.15-settings-authentication-oauth-team.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.15-settings-authentication-oauth-team.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>When configuring Microsoft Entra ID (Azure AD) as the OAuth provider, you will need to <a href="https://learn.microsoft.com/en-us/entra/fundamentals/how-to-manage-groups#edit-group-settings" target="_blank">use the group's Object Id value</a> for the claim value regex instead of the group name:</p>
-<figure><img src="../..//assets/2.20-settings-authentication-oauth-ad-teammembership-objectid.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.20-settings-authentication-oauth-ad-teammembership-objectid.png" alt=""></img><figcaption></figcaption></figure>
 
 <h2 id="oauth-providers">OAuth providers</h2>
 <p>Portainer provides pre-configured OAuth provider options or you can set up your own custom OAuth provider. Each of the pre-configured providers can have their configuration overridden if you need to make changes to the Portainer defaults.</p>
@@ -4715,15 +4715,15 @@
 &lt;figure&gt;&lt;img src="../..//assets/2.17-AzureOauth-NewReg-S3.png" alt=""&gt;&lt;figcaption&gt;&lt;/figcaption&gt;&lt;/figure&gt;
 </code></pre><ol>
 <li><p>Click on <strong>API Permissions</strong> and <strong>Add a permission</strong>. Select <strong>Microsoft Graph</strong> in the <strong>Request API permissions screen</strong>. Select <strong>Delegated permissions</strong> and add <code>email, openid, profile</code> permissions.</p>
-<figure><img src="../..//assets/2.17-AzureOauth-NewReg-S5.gif" alt=""></img><figcaption></figcaption></figure></li>
+<figure><img src="../../assets/2.17-AzureOauth-NewReg-S5.gif" alt=""></img><figcaption></figcaption></figure></li>
 <li><p>Make sure you Grant admin consent for Directory.</p>
-<figure><img src="../..//assets/2.20-settings-authentication-oauth-ad-directory.png" alt=""></img><figcaption></figcaption></figure></li>
+<figure><img src="../../assets/2.20-settings-authentication-oauth-ad-directory.png" alt=""></img><figcaption></figcaption></figure></li>
 <li><p>Optionally, to use <strong>Automatic Team Membership</strong> ability in Portainer, you need create groups claim. Click on <strong>Token Configuration</strong> and <strong>Add groups claim</strong>. Select <strong>Security Groups</strong> and click <strong>Add</strong>.</p>
-<figure><img src="../..//assets/2.17-AzureOauth-NewReg-S6.gif" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.17-AzureOauth-NewReg-S6.gif" alt=""></img><figcaption></figcaption></figure>
 
 </li>
 </ol>
-<figure><img src="../..//assets/2.15-settings-authentication-oauth-ms.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.15-settings-authentication-oauth-ms.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>When you're finished, click <strong>Save settings</strong>.</p>
 <h3 id="google">Google</h3>
@@ -4746,7 +4746,7 @@
 </tr>
 </tbody>
 </table>
-<figure><img src="../..//assets/2.15-settings-authentication-oauth-google.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.15-settings-authentication-oauth-google.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>When you're finished, click <strong>Save settings</strong>.</p>
 <h3 id="github">Github</h3>
@@ -4769,7 +4769,7 @@
 </tr>
 </tbody>
 </table>
-<figure><img src="../..//assets/2.15-settings-authentication-oauth-github.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.15-settings-authentication-oauth-github.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>When you're finished, click <strong>Save settings</strong>.</p>
 <h3 id="custom">Custom</h3>
@@ -4824,7 +4824,7 @@
 </tr>
 </tbody>
 </table>
-<figure><img src="../..//assets/2.21-settings-authentication-oauth-custom.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.21-settings-authentication-oauth-custom.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>When you're finished, click <strong>Save settings</strong>.</p>
 <h2 id="giving-environment-access-to-oauth-teams-and-users">Giving environment access to OAuth teams and users</h2>
@@ -4872,7 +4872,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Authenticate via OAuth","level":"4.7.2.3","depth":3,"next":{"title":"Shared credentials","level":"4.7.3","depth":2,"path":"admin/settings/credentials/README.md","ref":"admin/settings/credentials/README.md","articles":[{"title":"Add Sidero Omni credentials","level":"4.7.3.1","depth":3,"path":"admin/settings/credentials/omni.md","ref":"admin/settings/credentials/omni.md","articles":[]},{"title":"Add Civo credentials","level":"4.7.3.2","depth":3,"path":"admin/settings/credentials/civo.md","ref":"admin/settings/credentials/civo.md","articles":[]},{"title":"Add Akamai Connected Cloud credentials","level":"4.7.3.3","depth":3,"path":"admin/settings/credentials/linode.md","ref":"admin/settings/credentials/linode.md","articles":[]},{"title":"Add DigitalOcean credentials","level":"4.7.3.4","depth":3,"path":"admin/settings/credentials/digitalocean.md","ref":"admin/settings/credentials/digitalocean.md","articles":[]},{"title":"Add Google Cloud credentials","level":"4.7.3.5","depth":3,"path":"admin/settings/credentials/gke.md","ref":"admin/settings/credentials/gke.md","articles":[]},{"title":"Add AWS credentials","level":"4.7.3.6","depth":3,"path":"admin/settings/credentials/eks.md","ref":"admin/settings/credentials/eks.md","articles":[]},{"title":"Add Azure credentials","level":"4.7.3.7","depth":3,"path":"admin/settings/credentials/aks.md","ref":"admin/settings/credentials/aks.md","articles":[]},{"title":"Add SSH credentials","level":"4.7.3.8","depth":3,"path":"admin/settings/credentials/ssh.md","ref":"admin/settings/credentials/ssh.md","articles":[]}]},"previous":{"title":"Authenticate via Active Directory","level":"4.7.2.2","depth":3,"path":"admin/settings/authentication/active-directory.md","ref":"admin/settings/authentication/active-directory.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"cn","gitbook":"*"},"file":{"path":"admin/settings/authentication/oauth.md","mtime":"2025-06-03T21:54:55.656Z","type":"markdown"},"gitbook":{"version":"6.0.3","time":"2025-06-03T22:00:44.538Z"},"basePath":"../../..","book":{"language":"cn"}});
+            gitbook.page.hasChanged({"page":{"title":"Authenticate via OAuth","level":"4.7.2.3","depth":3,"next":{"title":"Shared credentials","level":"4.7.3","depth":2,"path":"admin/settings/credentials/README.md","ref":"admin/settings/credentials/README.md","articles":[{"title":"Add Sidero Omni credentials","level":"4.7.3.1","depth":3,"path":"admin/settings/credentials/omni.md","ref":"admin/settings/credentials/omni.md","articles":[]},{"title":"Add Civo credentials","level":"4.7.3.2","depth":3,"path":"admin/settings/credentials/civo.md","ref":"admin/settings/credentials/civo.md","articles":[]},{"title":"Add Akamai Connected Cloud credentials","level":"4.7.3.3","depth":3,"path":"admin/settings/credentials/linode.md","ref":"admin/settings/credentials/linode.md","articles":[]},{"title":"Add DigitalOcean credentials","level":"4.7.3.4","depth":3,"path":"admin/settings/credentials/digitalocean.md","ref":"admin/settings/credentials/digitalocean.md","articles":[]},{"title":"Add Google Cloud credentials","level":"4.7.3.5","depth":3,"path":"admin/settings/credentials/gke.md","ref":"admin/settings/credentials/gke.md","articles":[]},{"title":"Add AWS credentials","level":"4.7.3.6","depth":3,"path":"admin/settings/credentials/eks.md","ref":"admin/settings/credentials/eks.md","articles":[]},{"title":"Add Azure credentials","level":"4.7.3.7","depth":3,"path":"admin/settings/credentials/aks.md","ref":"admin/settings/credentials/aks.md","articles":[]},{"title":"Add SSH credentials","level":"4.7.3.8","depth":3,"path":"admin/settings/credentials/ssh.md","ref":"admin/settings/credentials/ssh.md","articles":[]}]},"previous":{"title":"Authenticate via Active Directory","level":"4.7.2.2","depth":3,"path":"admin/settings/authentication/active-directory.md","ref":"admin/settings/authentication/active-directory.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"cn","gitbook":"*"},"file":{"path":"admin/settings/authentication/oauth.md","mtime":"2025-06-03T22:06:02.117Z","type":"markdown"},"gitbook":{"version":"6.0.3","time":"2025-06-03T22:18:05.715Z"},"basePath":"../../..","book":{"language":"cn"}});
         });
     </script>
 </div>

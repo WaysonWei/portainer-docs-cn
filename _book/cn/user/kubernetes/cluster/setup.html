@@ -4619,18 +4619,18 @@
                                 
                                 <h1 id="setup">Setup</h1>
 <p>You can make changes to your environment's Kubernetes configuration by expanding <strong>Cluster</strong> from the menu then selecting <strong>Setup</strong>.</p>
-<figure><img src="../..//assets/2.20-kubernetes-cluster-setup.gif" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.20-kubernetes-cluster-setup.gif" alt=""></img><figcaption></figcaption></figure>
 
 <h2 id="networking---services">Networking - Services</h2>
 <h3 id="allow-users-to-use-external-load-balancer">Allow users to use external load balancer</h3>
 <p>To use this feature, you need to ensure that your cloud provider allows you to create load balancers. Using this feature may incur costs from your cloud provider.</p>
 <p>Enabling the load balancer feature will allow users to expose applications they deploy over an external IP address assigned by their cloud provider.</p>
-<figure><img src="../..//assets/2.20-kubernetes-cluster-setup-networking-services.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.20-kubernetes-cluster-setup-networking-services.png" alt=""></img><figcaption></figcaption></figure>
 
 <h2 id="networking---ingresses">Networking - Ingresses</h2>
 <p>Configuring ingress controllers will allow users to expose applications they deploy over a HTTP route.</p>
 <p>Portainer auto detects and lists any ingress controllers defined in the cluster and sets them to allowed by default. As an admin you may choose to disable ingress controllers as needed.</p>
-<figure><img src="../..//assets/2.19-kubernetes-cluster-setup-ingresses.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.19-kubernetes-cluster-setup-ingresses.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>Enabling <strong>Allow Ingress class to be set to "none"</strong> will let users create ingress objects without specifying any Ingress Class. This is useful for Kubernetes implementations where there is no <code>IngressClass</code> defined in the cluster.</p>
 <p>Enable the <strong>Configure ingress controller availability per namespace</strong> toggle to be able to control Ingress Class availability further at the namespace level.</p>
@@ -4638,7 +4638,7 @@
 <h2 id="change-window-settings">Change Window Settings</h2>
 <p>This setting allows you to specify a window within which <a href="../applications/manifest.html#gitops-updates">GitOps updates</a> to your applications can be applied.</p>
 <p>If this setting is enabled and an update is made to an application outside of this window, it will not be applied.</p>
-<figure><img src="../..//assets/2.20-kubernetes-cluster-setup-changewindow.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.20-kubernetes-cluster-setup-changewindow.png" alt=""></img><figcaption></figcaption></figure>
 
 <h2 id="deployment-options">Deployment Options</h2>
 <p>This section allows you to override any global deployment options set for Kubernetes environments.</p>
@@ -4669,14 +4669,14 @@
 </tr>
 </tbody>
 </table>
-<figure><img src="../..//assets/2.20-kubernetes-cluster-setup-deployment.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.20-kubernetes-cluster-setup-deployment.png" alt=""></img><figcaption></figcaption></figure>
 
 <h2 id="security">Security</h2>
 <h3 id="restrict-access-to-the-default-namespace">Restrict access to the default namespace</h3>
 <p>By default, a Kubernetes cluster will instantiate a default namespace when provisioning the cluster to hold the default set of pods, services, and deployments used by the cluster. If this option is enabled, the only users with the power to run applications in the default namespace are Portainer administrators.</p>
 <h3 id="restrict-secret-contents-access-for-non-admins-ui-only">Restrict secret contents access for non-admins (UI only)</h3>
 <p>By default, users are able to view and edit Kubernetes secrets within the Portainer UI. Enabling this option disallows all non-admin users from doing so. Note that due to limitations within Kubernetes itself this only applies to the Portainer UI and does not prevent users from doing so through the command line or API.</p>
-<figure><img src="../..//assets/2.20-kubernetes-cluster-setup-security.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.20-kubernetes-cluster-setup-security.png" alt=""></img><figcaption></figcaption></figure>
 
 <h2 id="resources-and-metrics">Resources and Metrics</h2>
 <h3 id="allow-resource-over-commit">Allow resource over-commit</h3>
@@ -4686,11 +4686,11 @@
 <h3 id="enable-features-using-the-metrics-api">Enable features using the metrics API</h3>
 <p> Ensure that the Kubernetes <a href="https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/#metrics-server" target="_blank">metrics server</a> or <a href="https://github.com/kubernetes-sigs/prometheus-adapter" target="_blank">Prometheus</a> is running inside your cluster.</p>
 <p>Enabling this feature will allow users to use specific features that leverage the metrics API component, such as the memory and CPU usage graphs at the cluster and node level. If Portainer detects you are using a metrics server and is able to connect, this will default to on.</p>
-<figure><img src="../..//assets/2.15-k8s-cluster-setup-resources.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.15-k8s-cluster-setup-resources.png" alt=""></img><figcaption></figcaption></figure>
 
 <h2 id="available-storage-options">Available storage options</h2>
 <p>Select which storage options will be available for use when deploying applications. Take a look at your storage driver documentation to figure out which access policy to configure, and whether or not the volume-expansion capability is supported. Any storage classes marked as default will be automatically set to on.</p>
-<figure><img src="../..//assets/2.15-k8s-cluster-setup-storage.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.15-k8s-cluster-setup-storage.png" alt=""></img><figcaption></figcaption></figure>
 
                                 
                                 </section>
@@ -4734,7 +4734,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Setup","level":"3.3.12.3","depth":3,"next":{"title":"Security constraints","level":"3.3.12.4","depth":3,"path":"user/kubernetes/cluster/security.md","ref":"user/kubernetes/cluster/security.md","articles":[]},"previous":{"title":"Inspect a node","level":"3.3.12.2","depth":3,"path":"user/kubernetes/cluster/node.md","ref":"user/kubernetes/cluster/node.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"cn","gitbook":"*"},"file":{"path":"user/kubernetes/cluster/setup.md","mtime":"2025-06-03T21:54:55.796Z","type":"markdown"},"gitbook":{"version":"6.0.3","time":"2025-06-03T22:00:44.538Z"},"basePath":"../../..","book":{"language":"cn"}});
+            gitbook.page.hasChanged({"page":{"title":"Setup","level":"3.3.12.3","depth":3,"next":{"title":"Security constraints","level":"3.3.12.4","depth":3,"path":"user/kubernetes/cluster/security.md","ref":"user/kubernetes/cluster/security.md","articles":[]},"previous":{"title":"Inspect a node","level":"3.3.12.2","depth":3,"path":"user/kubernetes/cluster/node.md","ref":"user/kubernetes/cluster/node.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"cn","gitbook":"*"},"file":{"path":"user/kubernetes/cluster/setup.md","mtime":"2025-06-03T22:05:49.557Z","type":"markdown"},"gitbook":{"version":"6.0.3","time":"2025-06-03T22:18:05.715Z"},"basePath":"../../..","book":{"language":"cn"}});
         });
     </script>
 </div>

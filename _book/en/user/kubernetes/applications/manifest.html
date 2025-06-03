@@ -4621,25 +4621,25 @@
 <p>There are two ways to add a new application: <a href="add.html">manually by using a form</a> or automatically by using code. This article explains how to add an application using code.</p>
 <p>Creating from code isn't just for applications - you can also deploy namespaces, ingresses, ConfigMaps, secrets, volumes and more using code.</p>
 <p>First, from the left hand menu select <strong>Applications</strong> then click <strong>Create from code</strong>.</p>
-<figure><img src="../..//assets/2.24.0-kubernetes-applications-manifest-add.gif" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.24.0-kubernetes-applications-manifest-add.gif" alt=""></img><figcaption></figcaption></figure>
 
 <p>Next, select your deployment method from the <strong>Deploy from</strong> section.</p>
-<figure><img src="../..//assets/2.20-kubernetes-applications-manifest-deployfrom.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.20-kubernetes-applications-manifest-deployfrom.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>Then, select the namespace to deploy to and optionally provide a stack name for your deployment in the <strong>Deploy to</strong> section.</p>
 <p>If you want to use namespaces defined in your manifest, you can leave <strong>Namespace</strong> set to <code>default</code> and toggle on the <strong>Use namespace(s) specified from manifest</strong> option. This option is not available for deployments from Helm charts.</p>
-<figure><img src="../..//assets/2.20-kubernetes-applications-manifest-namespace.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.20-kubernetes-applications-manifest-namespace.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>Your next options will depend on the deployment method you selected.</p>
 <h2 id="web-editor">Web editor</h2>
 <p>Use the Web editor to write or paste in your Kubernetes manifest. </p>
-<figure><img src="../..//assets/2.20-kubernetes-applications-manifest-webeditor.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.20-kubernetes-applications-manifest-webeditor.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>You can search within the web editor at any time by pressing <code>Ctrl-F</code> (or <code>Cmd-F</code> on Mac).</p>
 <p>When you're ready, click <strong>Deploy</strong>.  </p>
 <h2 id="url">URL</h2>
 <p>Enter the <strong>URL</strong> to your manifest file in the provided field.</p>
-<figure><img src="../..//assets/2.20-kubernetes-applications-manifest-url.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.20-kubernetes-applications-manifest-url.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>When you're ready, click <strong>Deploy</strong>.</p>
 <h2 id="repository">Repository</h2>
@@ -4676,7 +4676,7 @@
 </tr>
 </tbody>
 </table>
-<figure><img src="../..//assets/2.16-stacks-add-gitcreds.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.16-stacks-add-gitcreds.png" alt=""></img><figcaption></figcaption></figure>
 
 <table>
 <thead>
@@ -4712,7 +4712,7 @@
 </tr>
 </tbody>
 </table>
-<figure><img src="../..//assets/2.24.0-kubernetes-applications-manifest-git.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.24.0-kubernetes-applications-manifest-git.png" alt=""></img><figcaption></figcaption></figure>
 
 <h3 id="gitops-updates">GitOps updates</h3>
 <p>Enabling GitOps updates gives Portainer the ability to update your application automatically, either by polling the repository at a defined interval for changes or by using a webhook to trigger an update.</p>
@@ -4740,9 +4740,9 @@
 </tr>
 </tbody>
 </table>
-<figure><img src="../..//assets/2.19-stacks-add-git-polling.png" alt=""></img><figcaption><p>GitOps updates using the polling mechanism</p></figcaption></figure>
+<figure><img src="../../assets/2.19-stacks-add-git-polling.png" alt=""></img><figcaption><p>GitOps updates using the polling mechanism</p></figcaption></figure>
 
-<figure><img src="../..//assets/2.19-stacks-add-git-webhook.png" alt=""></img><figcaption><p>GitOps updates using the webhook mechanism</p></figcaption></figure>
+<figure><img src="../../assets/2.19-stacks-add-git-webhook.png" alt=""></img><figcaption><p>GitOps updates using the webhook mechanism</p></figcaption></figure>
 
 <table>
 <thead>
@@ -4758,20 +4758,20 @@
 </tr>
 </tbody>
 </table>
-<figure><img src="../..//assets/2.19-kubernetes-ingress-add-manifest-git-alwaysapply.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.19-kubernetes-ingress-add-manifest-git-alwaysapply.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>When you're ready, click <strong>Deploy</strong>.</p>
 <h2 id="custom-template">Custom template</h2>
 <p>From the <strong>Template</strong> dropdown, select the custom template to use. Depending on the template, you may need (or be able) to set template variables that will adjust the deployment configuration. As an optional step, you can edit the template before deploying the application. If you have no custom templates you will be given a link to the <a href="../templates">Custom Templates</a> section.</p>
-<figure><img src="../..//assets/2.20-kubernetes-applications-manifest-customtemplate.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.20-kubernetes-applications-manifest-customtemplate.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>When you're ready, click <strong>Deploy</strong>.</p>
 <h2 id="helm-chart">Helm chart</h2>
 <p>Once you have selected a namespace for your Helm deployment you will need to specify a <strong>Name</strong> for your deployment. Then select a chart to use from the list provided. You can search within the list and filter by category.</p>
-<figure><img src="../..//assets/2.20-kubernetes-applications-manifest-helm-select.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.20-kubernetes-applications-manifest-helm-select.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>Once you have selected a chart, Portainer will import the <code>values.yaml</code> file for the chart so you can configure any parameters required for the application. You can click the <strong>Show custom values</strong> option to expand the Web editor to make any changes.</p>
-<figure><img src="../..//assets/2.20-kubernetes-applications-manifest-helm-webeditor.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.20-kubernetes-applications-manifest-helm-webeditor.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>When you're ready, click <strong>Install</strong>.</p>
 
@@ -4817,7 +4817,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Add a new application using code","level":"3.3.7.2","depth":3,"next":{"title":"Inspect an application","level":"3.3.7.3","depth":3,"path":"user/kubernetes/applications/inspect.md","ref":"user/kubernetes/applications/inspect.md","articles":[]},"previous":{"title":"Add a new application using a form","level":"3.3.7.1","depth":3,"path":"user/kubernetes/applications/add.md","ref":"user/kubernetes/applications/add.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"user/kubernetes/applications/manifest.md","mtime":"2025-06-03T21:14:45.187Z","type":"markdown"},"gitbook":{"version":"6.0.3","time":"2025-06-03T22:00:44.538Z"},"basePath":"../../..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Add a new application using code","level":"3.3.7.2","depth":3,"next":{"title":"Inspect an application","level":"3.3.7.3","depth":3,"path":"user/kubernetes/applications/inspect.md","ref":"user/kubernetes/applications/inspect.md","articles":[]},"previous":{"title":"Add a new application using a form","level":"3.3.7.1","depth":3,"path":"user/kubernetes/applications/add.md","ref":"user/kubernetes/applications/add.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"user/kubernetes/applications/manifest.md","mtime":"2025-06-03T22:05:25.716Z","type":"markdown"},"gitbook":{"version":"6.0.3","time":"2025-06-03T22:18:05.715Z"},"basePath":"../../..","book":{"language":"en"}});
         });
     </script>
 </div>

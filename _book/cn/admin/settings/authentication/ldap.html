@@ -4623,20 +4623,20 @@
 <p>To configure Portainer LDAP authentication, you first need to add a user to your directory service for the purpose of authenticating from Portainer to read the LDAP. The user should be a service account that needs read-only access to LDAP.</p>
 <h2 id="enabling-ldap">Enabling LDAP</h2>
 <p>Log into Portainer as an administrator. From the menu select <strong>Settings</strong>, select <strong>Authentication</strong> then select the <strong>LDAP Authentication</strong> option. Extra fields will appear, allowing you to configure LDAP.</p>
-<figure><img src="../..//assets/2.15-settings-authentication-ldap.gif" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.15-settings-authentication-ldap.gif" alt=""></img><figcaption></figcaption></figure>
 
 <h3 id="automatic-user-provisioning">Automatic user provisioning</h3>
 <p>Enabling this setting automatically creates users within Portainer once they are successfully authenticated by LDAP. If you do not enable this, you must <a href="ldap.html#manually-creating-ldap-users">manually create users</a> with the same username as the corresponding LDAP directory.</p>
-<figure><img src="../..//assets/2.15-settings-authentication-ldap-auto.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.15-settings-authentication-ldap-auto.png" alt=""></img><figcaption></figcaption></figure>
 
 <h3 id="server-type">Server Type</h3>
 <p>Here you can select a custom configuration or a preconfigured OpenLDAP template.</p>
-<figure><img src="../..//assets/2.15-settings-authentication-ldap-type.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.15-settings-authentication-ldap-type.png" alt=""></img><figcaption></figcaption></figure>
 
 <h3 id="ldap-configuration">LDAP configuration</h3>
 <p>Enter the IP address/FQDN and port number of your LDAP server. Opt to either connect anonymously (your LDAP server must support this) or enter a user account that has READ access to the directory. Click <strong>Test connectivity</strong> to validate that you can connect.</p>
 <p>For OpenLDAP, the Reader DN format should be set to <code>cn=user,dc=domain,dc=tld</code>. If your configuration differs you will need to adjust this to suit.</p>
-<figure><img src="../..//assets/2.15-settings-authentication-ldap-config.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.15-settings-authentication-ldap-config.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>If you want to add additional LDAP servers to provide for authentication fallback, click <strong>Add additional server</strong> and fill in the server details.</p>
 <h3 id="ldap-security">LDAP security</h3>
@@ -4663,7 +4663,7 @@
 </tr>
 </tbody>
 </table>
-<figure><img src="../..//assets/2.15-settings-authentication-ldap-security.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.15-settings-authentication-ldap-security.png" alt=""></img><figcaption></figcaption></figure>
 
 <table>
 <thead>
@@ -4679,7 +4679,7 @@
 </tr>
 </tbody>
 </table>
-<figure><img src="../..//assets/2.15-settings-authentication-ldap-security-tls.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.15-settings-authentication-ldap-security-tls.png" alt=""></img><figcaption></figcaption></figure>
 
 <h3 id="user-search-configurations">User-search configurations</h3>
 <h4 id="basedn">BaseDN</h4>
@@ -4696,7 +4696,7 @@
 <p>Enter filter criteria for the results returned from LDAP to Portainer. For example, to only allow users who are members of a group defined within an OU to login, set <strong>Filter</strong> to the following (the brackets are important, so copy the entire string):</p>
 <pre><code>(&amp;(objectClass=user)(memberOf=cn=mycn,ou=myou,dc=mydomain,dc=com))
 </code></pre><p>In the example below, the domain <code>portainer.local</code> has an OU called <code>Groups</code> and within that OU is a group called <code>PortainerDevUsers</code>. This search filter will only allow users who are members of the <code>PortainerDevUsers</code> LDAP group to log into Portainer.</p>
-<figure><img src="../..//assets/2.15-settings-authentication-ldap-usersearch.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.15-settings-authentication-ldap-usersearch.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>As an optional step, click <strong>Add user search configuration</strong> to define additional user-search configurations.</p>
 <h3 id="group-search-configurations">Group-search configurations</h3>
@@ -4709,25 +4709,25 @@
 <li>Enter <code>cn=mycn,dc=mydomain,dc=com</code> if your groups are only in a container.</li>
 </ul>
 <p>If you have a large number of groups in your domain, narrow the scope Portainer searches on by using OUs.</p>
-<figure><img src="../..//assets/2.15-settings-authentication-ldap-groupsearch.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.15-settings-authentication-ldap-groupsearch.png" alt=""></img><figcaption></figcaption></figure>
 
 <h4 id="group-membership-attribute">Group Membership Attribute</h4>
 <p>Enter <code>member</code> as the attribute that determines if a user is a member of a group.</p>
 <h4 id="group-filter">Group Filter</h4>
 <p>If you want to filter the list of groups to return only those that contain the string <code>Portainer</code> (for example: <code>PortainerDev</code>, <code>PortainerProd</code>, <code>PortainerUAT</code>), set up the filter like this:</p>
 <pre><code>(&amp;(objectclass=group)(cn=*Portainer*))
-</code></pre><figure><img src="../..//assets/2.15-settings-authentication-ldap-groupsearch-filter.png" alt=""></img><figcaption></figcaption></figure>
+</code></pre><figure><img src="../../assets/2.15-settings-authentication-ldap-groupsearch-filter.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>As an optional step, click <strong>Add group search configuration</strong> to define additional group-search configurations.</p>
 <h3 id="auto-populate-team-admins">Auto-populate team admins</h3>
 <p>If desired, Portainer can configure specified LDAP groups of users to become Portainer administrators automatically. </p>
 <p>To configure this, first click <strong>add group search configuration</strong> and define the <strong>Group Base DN</strong>, <strong>Groups</strong> and <strong>Group Filter</strong> as required. Once done, click the <strong>Fetch Admin Group(s)</strong> button to retrieve the list of groups matching your search configuration.</p>
-<figure><img src="../..//assets/2.15-settings-authentication-ldap-autopop.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.15-settings-authentication-ldap-autopop.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>When you're happy with the group selection, enable this feature by toggling <strong>Assign admin rights to group(s)</strong> on.</p>
 <h3 id="test-login">Test login</h3>
 <p>To test your configuration, you can enter a username and password and click the <strong>Test</strong> button.</p>
-<figure><img src="../..//assets/2.15-settings-authentication-ldap-testlogin.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.15-settings-authentication-ldap-testlogin.png" alt=""></img><figcaption></figcaption></figure>
 
 <h2 id="manually-creating-ldap-users">Manually creating LDAP users</h2>
 <p>This is an optional step and is required only if you do not use automatic user provisioning.</p>
@@ -4775,7 +4775,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Authenticate via LDAP","level":"4.7.2.1","depth":3,"next":{"title":"Authenticate via Active Directory","level":"4.7.2.2","depth":3,"path":"admin/settings/authentication/active-directory.md","ref":"admin/settings/authentication/active-directory.md","articles":[]},"previous":{"title":"Authentication","level":"4.7.2","depth":2,"path":"admin/settings/authentication/README.md","ref":"admin/settings/authentication/README.md","articles":[{"title":"Authenticate via LDAP","level":"4.7.2.1","depth":3,"path":"admin/settings/authentication/ldap.md","ref":"admin/settings/authentication/ldap.md","articles":[]},{"title":"Authenticate via Active Directory","level":"4.7.2.2","depth":3,"path":"admin/settings/authentication/active-directory.md","ref":"admin/settings/authentication/active-directory.md","articles":[]},{"title":"Authenticate via OAuth","level":"4.7.2.3","depth":3,"path":"admin/settings/authentication/oauth.md","ref":"admin/settings/authentication/oauth.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"cn","gitbook":"*"},"file":{"path":"admin/settings/authentication/ldap.md","mtime":"2025-06-03T21:54:55.655Z","type":"markdown"},"gitbook":{"version":"6.0.3","time":"2025-06-03T22:00:44.538Z"},"basePath":"../../..","book":{"language":"cn"}});
+            gitbook.page.hasChanged({"page":{"title":"Authenticate via LDAP","level":"4.7.2.1","depth":3,"next":{"title":"Authenticate via Active Directory","level":"4.7.2.2","depth":3,"path":"admin/settings/authentication/active-directory.md","ref":"admin/settings/authentication/active-directory.md","articles":[]},"previous":{"title":"Authentication","level":"4.7.2","depth":2,"path":"admin/settings/authentication/README.md","ref":"admin/settings/authentication/README.md","articles":[{"title":"Authenticate via LDAP","level":"4.7.2.1","depth":3,"path":"admin/settings/authentication/ldap.md","ref":"admin/settings/authentication/ldap.md","articles":[]},{"title":"Authenticate via Active Directory","level":"4.7.2.2","depth":3,"path":"admin/settings/authentication/active-directory.md","ref":"admin/settings/authentication/active-directory.md","articles":[]},{"title":"Authenticate via OAuth","level":"4.7.2.3","depth":3,"path":"admin/settings/authentication/oauth.md","ref":"admin/settings/authentication/oauth.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"cn","gitbook":"*"},"file":{"path":"admin/settings/authentication/ldap.md","mtime":"2025-06-03T22:06:02.050Z","type":"markdown"},"gitbook":{"version":"6.0.3","time":"2025-06-03T22:18:05.715Z"},"basePath":"../../..","book":{"language":"cn"}});
         });
     </script>
 </div>

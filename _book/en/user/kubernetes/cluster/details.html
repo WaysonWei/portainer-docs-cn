@@ -4620,7 +4620,7 @@
                                 <h1 id="details">Details</h1>
 <p>A cluster is a collection of nodes that runs containerized workloads. Portainer lets you keep track of your cluster and its individual nodes, including resource usage and configuration.</p>
 <p>From the menu expand the <strong>Cluster</strong> section and select <strong>Details</strong>. </p>
-<figure><img src="../..//assets/2.20-kubernetes-cluster-details.gif" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.20-kubernetes-cluster-details.gif" alt=""></img><figcaption></figcaption></figure>
 
 <p>The following information is provided:</p>
 <table>
@@ -4649,13 +4649,13 @@
 </tr>
 </tbody>
 </table>
-<figure><img src="../..//assets/2.27-kubernetes-cluster-details-resource-reservation.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.27-kubernetes-cluster-details-resource-reservation.png" alt=""></img><figcaption></figcaption></figure>
 
 <h2 id="omni-cluster-management">Omni cluster management</h2>
 <p>This section only appears when the environment is a <a href="../../../admin/environments/add/kube-create/omni.html">Talos Kubernetes cluster provisioned by Portainer through Omni</a>.</p>
 <p>In this section you can see and update the versions of Kubernetes and Talos on your Talos Kubernetes cluster provisioned by Portainer.</p>
 <p>This functionality is in beta and only tested with some configurations.</p>
-<figure><img src="../..//assets/2.26-kubernetes-cluster-details-omni.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.26-kubernetes-cluster-details-omni.png" alt=""></img><figcaption></figcaption></figure>
 
 <h2 id="microk8s-cluster-management">MicroK8s cluster management</h2>
 <p>This section only appears when the environment is a MicroK8s cluster provisioned via the <a href="../../../admin/environments/add/kube-create/microk8s">Create a Kubernetes cluster</a> functionality.</p>
@@ -4683,17 +4683,17 @@
 </tr>
 </tbody>
 </table>
-<figure><img src="../..//assets/2.19-kubernetes-cluster-microk8s.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.19-kubernetes-cluster-microk8s.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>Click the <strong>Apply Changes</strong> button to apply any adjustments you have made to addon configurations, or <strong>Cancel</strong> to revert your changes.</p>
 <h2 id="nodes">Nodes</h2>
 <p>This section lists the nodes in your cluster with information about each node. To view <a href="node.html">details of a specific node</a>, click the name of the node in the list. </p>
-<figure><img src="../..//assets/2.27-kubernetes-details-nodes-list.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.27-kubernetes-details-nodes-list.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>The <strong>Conditions</strong> column shows any conditions that are currently active on the node. If no conditions are displayed, this indicates the node is healthy. Any active conditions (DiskPressure, MemoryPressure, PIDPressure, NetworkUnavailable) will be displayed for the particular node.</p>
 <p>To view usage stats for a node, click the stats icon to the right of the node.</p>
 <p>Node stats are only available when you have <a href="setup.html#enable-features-using-the-metrics-api">enabled using the metrics API</a>.</p>
-<figure><img src="../..//assets/2.17-k8s-cluster-nodestats.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.17-k8s-cluster-nodestats.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>On Talos Kubernetes or MicroK8s environments provisioned with the <a href="../../../admin/environments/add/kube-create">Create a Kubernetes cluster</a> feature, you will also see buttons to add and remove nodes as well as additional action icons on MicroK8s environments to view the MicroK8s status (for control plane nodes) and to connect to the environment via SSH console.</p>
 <p>If you need to adjust elements of your Kubernetes configuration you can do so by selecting <strong>Setup</strong> in the left menu.</p>
@@ -4743,7 +4743,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Details","level":"3.3.12.1","depth":3,"next":{"title":"Inspect a node","level":"3.3.12.2","depth":3,"path":"user/kubernetes/cluster/node.md","ref":"user/kubernetes/cluster/node.md","articles":[]},"previous":{"title":"Cluster","level":"3.3.12","depth":2,"path":"user/kubernetes/cluster/README.md","ref":"user/kubernetes/cluster/README.md","articles":[{"title":"Details","level":"3.3.12.1","depth":3,"path":"user/kubernetes/cluster/details.md","ref":"user/kubernetes/cluster/details.md","articles":[]},{"title":"Inspect a node","level":"3.3.12.2","depth":3,"path":"user/kubernetes/cluster/node.md","ref":"user/kubernetes/cluster/node.md","articles":[]},{"title":"Setup","level":"3.3.12.3","depth":3,"path":"user/kubernetes/cluster/setup.md","ref":"user/kubernetes/cluster/setup.md","articles":[]},{"title":"Security constraints","level":"3.3.12.4","depth":3,"path":"user/kubernetes/cluster/security.md","ref":"user/kubernetes/cluster/security.md","articles":[]},{"title":"Registries","level":"3.3.12.5","depth":3,"path":"user/kubernetes/cluster/registries.md","ref":"user/kubernetes/cluster/registries.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"user/kubernetes/cluster/details.md","mtime":"2025-06-03T21:34:45.384Z","type":"markdown"},"gitbook":{"version":"6.0.3","time":"2025-06-03T22:00:44.538Z"},"basePath":"../../..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Details","level":"3.3.12.1","depth":3,"next":{"title":"Inspect a node","level":"3.3.12.2","depth":3,"path":"user/kubernetes/cluster/node.md","ref":"user/kubernetes/cluster/node.md","articles":[]},"previous":{"title":"Cluster","level":"3.3.12","depth":2,"path":"user/kubernetes/cluster/README.md","ref":"user/kubernetes/cluster/README.md","articles":[{"title":"Details","level":"3.3.12.1","depth":3,"path":"user/kubernetes/cluster/details.md","ref":"user/kubernetes/cluster/details.md","articles":[]},{"title":"Inspect a node","level":"3.3.12.2","depth":3,"path":"user/kubernetes/cluster/node.md","ref":"user/kubernetes/cluster/node.md","articles":[]},{"title":"Setup","level":"3.3.12.3","depth":3,"path":"user/kubernetes/cluster/setup.md","ref":"user/kubernetes/cluster/setup.md","articles":[]},{"title":"Security constraints","level":"3.3.12.4","depth":3,"path":"user/kubernetes/cluster/security.md","ref":"user/kubernetes/cluster/security.md","articles":[]},{"title":"Registries","level":"3.3.12.5","depth":3,"path":"user/kubernetes/cluster/registries.md","ref":"user/kubernetes/cluster/registries.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"user/kubernetes/cluster/details.md","mtime":"2025-06-03T22:05:25.716Z","type":"markdown"},"gitbook":{"version":"6.0.3","time":"2025-06-03T22:18:05.715Z"},"basePath":"../../..","book":{"language":"en"}});
         });
     </script>
 </div>

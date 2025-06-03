@@ -4627,33 +4627,33 @@
 <p>Replaces our logo with your own. Toggle on and enter the URL to the logo. The recommended size is 155px by 55px.</p>
 <h3 id="allow-the-collection-of-anonymous-statistics">Allow the collection of anonymous statistics</h3>
 <p>We collect anonymized information about your Portainer installation to help with our product development. You can opt out during installation, or toggle this setting off at any time. </p>
-<figure><img src="..//assets/2.20-settings-general-application.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../assets/2.20-settings-general-application.png" alt=""></img><figcaption></figcaption></figure>
 
 <h3 id="login-screen-banner">Login screen banner</h3>
 <p>This setting allows you to specify a custom text banner that will appear on the login screen for all users. This could be used to provide informational detail, a warning message, or whatever you need. To enable this, toggle the <strong>Login screen banner</strong> option on and enter your message in the <strong>Details</strong> box.</p>
-<figure><img src="..//assets/2.16-settings-login-screen-banner.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../assets/2.16-settings-login-screen-banner.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>Your message will then be shown at the login screen.</p>
-<figure><img src="..//assets/2.16-settings-login-screen-banner-example.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../assets/2.16-settings-login-screen-banner-example.png" alt=""></img><figcaption></figcaption></figure>
 
 <h3 id="app-templates">App Templates</h3>
 <p>You can deploy containers and services using Portainer's set of built-in app templates, or <a href="../../advanced/app-templates/build.html">replace them with your own</a> set of templates. Once you have a JSON file containing the template definitions, you can provide the URL to it here.</p>
-<figure><img src="..//assets/2.15-settings-settings-2.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../assets/2.15-settings-settings-2.png" alt=""></img><figcaption></figcaption></figure>
 
 <h2 id="kubernetes-settings">Kubernetes settings</h2>
 <h3 id="helm-repository">Helm Repository</h3>
 <p>If you wish to use your own Helm repository in place of the Bitnami repository we include by default, you can enter the URL here.</p>
-<figure><img src="..//assets/2.15-settings-settings-3.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../assets/2.15-settings-settings-3.png" alt=""></img><figcaption></figcaption></figure>
 
 <h3 id="kubeconfig">Kubeconfig</h3>
 <p>Here you can select the expiry time for <a href="../../user/kubernetes/kubeconfig.html">exported kubeconfig files</a> from this dropdown. The new expiry time will only apply to configurations created after this value was changed. Administrators are also able to disable Kubeconfig download for non-admin users here.</p>
-<figure><img src="..//assets/2.22.0-settings-kubernetes-kubeconfig.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../assets/2.22.0-settings-kubernetes-kubeconfig.png" alt=""></img><figcaption></figcaption></figure>
 
 
 <p>Tokens used in <code>kubeconfig</code> files become invalid when Portainer restarts — irrespective of the value set for <strong>Kubeconfig expiry</strong>. In this case, you will need to re-download the <code>kubeconfig</code> file.</p>
 <h3 id="kubeshell">KubeShell</h3>
 <p>This option lets administrators disable KubeShell access for non-admin users.</p>
-<figure><img src="..//assets/2.22.0-settings-kubernetes-kubeshell.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../assets/2.22.0-settings-kubernetes-kubeshell.png" alt=""></img><figcaption></figcaption></figure>
 
 <h3 id="deployment-options">Deployment options</h3>
 <p>In this section you can configure various Kubernetes-specific deployment options.</p>
@@ -4691,23 +4691,23 @@
 </tr>
 </tbody>
 </table>
-<figure><img src="..//assets/2.20-settings-general-kubernetes-deployment.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../assets/2.20-settings-general-kubernetes-deployment.png" alt=""></img><figcaption></figcaption></figure>
 
 <h2 id="certificate-authority-file-for-kubernetes-helm-repositories">Certificate Authority file for Kubernetes Helm repositories</h2>
 <p>This section lets you supply a certificate authority (CA) file for use with HTTPS connections to Helm repositories from Portainer. This is useful if the TLS certificate your Helm repository uses is signed by a custom CA, and applies to both the Helm Repository configured above and to Helm repositories configured per environment.</p>
 <p>This feature is only available in <a href="https://www.portainer.io/business-upsell?from=ca-file" target="_blank">Portainer Business Edition</a>.</p>
-<figure><img src="..//assets/2.18-settings-helmcafile.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../assets/2.18-settings-helmcafile.png" alt=""></img><figcaption></figcaption></figure>
 
 <h2 id="ssl-certificate">SSL certificate</h2>
 <p>During installation, Portainer by default creates a self-signed SSL certificate to encrypt traffic between the Portainer Server and the end user, as well as between the Portainer Server and the Portainer Agent. This certificate can be replaced with your own certificate.</p>
 <p>We recommend including the full chain in the certificate to ensure compatibility. If you do not have the full chain for your certificate, ask your certificate provider or use <a href="https://whatsmychaincert.com/" target="_blank">What's My Chain Cert?</a> to generate it.</p>
-<figure><img src="..//assets/2.15-settings-settings-ssl-1.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../assets/2.15-settings-settings-ssl-1.png" alt=""></img><figcaption></figcaption></figure>
 
 <h3 id="force-https-only">Force HTTPS only</h3>
 <p>If you have configured your Portainer Server instance to listen on <code>9443</code> (HTTPS) and <code>9000</code> (HTTP) you can toggle <strong>Force HTTPS only</strong> on to disable listening on port <code>9000</code>.</p>
 <p>Make sure that your HTTPS configuration is working correctly <strong>before</strong> enabling this option. Failure to do so may result in you being <a href="https://portal.portainer.io/knowledge/i-enabled-force-https-only-and-now-im-locked-out-of-portainer-how-do-i-get-back-in" target="_blank">locked out of your Portainer installation</a>.</p>
 <p>Ensure that any Edge agents have been correctly configured for HTTPS communication before enabling this.</p>
-<figure><img src="..//assets/2.15-settings-settings-ssl-force.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../assets/2.15-settings-settings-ssl-force.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>After making changes to this section, click <strong>Apply Changes</strong>.</p>
 <h2 id="experimental-features">Experimental features</h2>
@@ -4727,24 +4727,24 @@
 </tr>
 </tbody>
 </table>
-<figure><img src="..//assets/2.18.3-settings-experimental.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../assets/2.18.3-settings-experimental.png" alt=""></img><figcaption></figcaption></figure>
 
 <h2 id="hidden-containers">Hidden containers</h2>
 <p>Stops a container from appearing in the Portainer UI through the container label. Enter the name and value of the label, then click <strong>Add filter</strong>. Containers with matching labels will be hidden.</p>
-<figure><img src="..//assets/2.15-settings-settings-hiddencontainers.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../assets/2.15-settings-settings-hiddencontainers.png" alt=""></img><figcaption></figcaption></figure>
 
 <h2 id="back-up-portainer">Back up Portainer</h2>
 <p>This setting contains all of the information that Portainer stores on the <code>/data</code> volume, archived in a <code>tar.gz</code> file, and is optionally encrypted with a password. This archive is all you need to restore Portainer.</p>
 <p>This backup is <strong>only</strong> intended to back up the Portainer configuration. It does <strong>not</strong> back up what you have deployed on your environments (for example, containers, stacks, services, volumes, etc). </p>
 <h3 id="backing-up-to-a-local-disk-">Backing up to a local disk <a href="#backup-to-local-disk" id="backup-to-local-disk"></a></h3>
 <p>Log in as an admin user. From the menu select <strong>Settings</strong>, then scroll down to the <strong>Back up Portainer</strong> section.</p>
-<figure><img src="..//assets/2.20-settings-general-backup.gif" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../assets/2.20-settings-general-backup.gif" alt=""></img><figcaption></figcaption></figure>
 
 <p><strong>Download backup file</strong> is the default option. As an optional step, toggle <strong>Password protect</strong> on and enter a password to encrypt the backup file. When you click <strong>Download backup</strong>, a <code>tar.gz</code> file will be downloaded via the browser.</p>
 <h3 id="backing-up-to-s3">Backing up to S3</h3>
 <p>With Portainer Business Edition you have the option to store a backup of your configuration in an S3 bucket, either on demand or on a defined schedule.</p>
 <p>To do this, log in as an admin user, select <strong>Settings</strong> from the menu, then scroll down to <strong>Backup Portainer</strong>.</p>
-<figure><img src="..//assets/2.20-settings-general-backup.gif" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../assets/2.20-settings-general-backup.gif" alt=""></img><figcaption></figcaption></figure>
 
 <p>Select <strong>Store in S3</strong> and fill in the options, using the below as a guide.</p>
 <table>
@@ -4793,11 +4793,11 @@
 </tr>
 </tbody>
 </table>
-<figure><img src="..//assets/2.17-admin-settings-backup-s3.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../assets/2.17-admin-settings-backup-s3.png" alt=""></img><figcaption></figcaption></figure>
 
 <h3 id="restoring-from-a-local-file">Restoring from a local file</h3>
 <p>Restoring a configuration is only possible on a fresh instance of Portainer during the initial installation. When you need to restore Portainer, deploy a fresh instance of Portainer with an empty data volume and choose the <strong>Restore Portainer from backup</strong> option during setup.</p>
-<figure><img src="..//assets/2.15-backup-restore-file.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../assets/2.15-backup-restore-file.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>On the initialization page, expand <strong>Restore Portainer from backup</strong>. Click <strong>Select file</strong> then browse to and select the <code>tar.gz</code> backup file. If the backup was originally encrypted, enter the password then click <strong>Restore Portainer</strong>.</p>
 <p>The restore might take a few moments. When it has finished, you will be redirected to the login page. You can now log in with your previous credentials and your previous configuration will be restored.</p>
@@ -4842,7 +4842,7 @@
 </tr>
 </tbody>
 </table>
-<figure><img src="..//assets/2.17-admin-settings-backup-s3-restore.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../assets/2.17-admin-settings-backup-s3-restore.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>When you're ready, click <strong>Restore Portainer</strong>. The restore might take a few moments. When it has finished, you will be redirected to the login page. You can now log in with your previous credentials and your previous configuration will be restored.</p>
 <h2 id="portainer-support">Portainer support</h2>
@@ -4850,12 +4850,12 @@
 <h3 id="support-bundle">Support bundle</h3>
 <p>This functionality allows you to collect information about your Portainer installation in a bundle that can then be provided to the Portainer support team to aid in troubleshooting issues. Personal information such as passwords and other sensitive credentials are removed from this bundle before being generated.</p>
 <p>You can optionally choose to password protect the bundle by toggling on <strong>Password Protect</strong> and setting a password. If you do choose to set a password, ensure you provide the password to the Portainer support team when you supply the bundle.</p>
-<figure><img src="..//assets/2.25.0-settings-support-bundle.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../assets/2.25.0-settings-support-bundle.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>Click <strong>Download support bundle</strong> to generate and download a .tar.gz file containing the bundle.</p>
 <h3 id="debug-log">Debug log</h3>
 <p>Toggle <strong>Enable debug log</strong> on to enable debug logging in the Portainer container logs. Debug logging can help with troubleshooting issues by providing a more verbose output.</p>
-<figure><img src="..//assets/2.25.0-settings-support-debug.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../assets/2.25.0-settings-support-debug.png" alt=""></img><figcaption></figcaption></figure>
 
                                 
                                 </section>
@@ -4899,7 +4899,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"General","level":"4.7.1","depth":2,"next":{"title":"Authentication","level":"4.7.2","depth":2,"path":"admin/settings/authentication/README.md","ref":"admin/settings/authentication/README.md","articles":[{"title":"Authenticate via LDAP","level":"4.7.2.1","depth":3,"path":"admin/settings/authentication/ldap.md","ref":"admin/settings/authentication/ldap.md","articles":[]},{"title":"Authenticate via Active Directory","level":"4.7.2.2","depth":3,"path":"admin/settings/authentication/active-directory.md","ref":"admin/settings/authentication/active-directory.md","articles":[]},{"title":"Authenticate via OAuth","level":"4.7.2.3","depth":3,"path":"admin/settings/authentication/oauth.md","ref":"admin/settings/authentication/oauth.md","articles":[]}]},"previous":{"title":"Settings","level":"4.7","depth":1,"path":"admin/settings/README.md","ref":"admin/settings/README.md","articles":[{"title":"General","level":"4.7.1","depth":2,"path":"admin/settings/general.md","ref":"admin/settings/general.md","articles":[]},{"title":"Authentication","level":"4.7.2","depth":2,"path":"admin/settings/authentication/README.md","ref":"admin/settings/authentication/README.md","articles":[{"title":"Authenticate via LDAP","level":"4.7.2.1","depth":3,"path":"admin/settings/authentication/ldap.md","ref":"admin/settings/authentication/ldap.md","articles":[]},{"title":"Authenticate via Active Directory","level":"4.7.2.2","depth":3,"path":"admin/settings/authentication/active-directory.md","ref":"admin/settings/authentication/active-directory.md","articles":[]},{"title":"Authenticate via OAuth","level":"4.7.2.3","depth":3,"path":"admin/settings/authentication/oauth.md","ref":"admin/settings/authentication/oauth.md","articles":[]}]},{"title":"Shared credentials","level":"4.7.3","depth":2,"path":"admin/settings/credentials/README.md","ref":"admin/settings/credentials/README.md","articles":[{"title":"Add Sidero Omni credentials","level":"4.7.3.1","depth":3,"path":"admin/settings/credentials/omni.md","ref":"admin/settings/credentials/omni.md","articles":[]},{"title":"Add Civo credentials","level":"4.7.3.2","depth":3,"path":"admin/settings/credentials/civo.md","ref":"admin/settings/credentials/civo.md","articles":[]},{"title":"Add Akamai Connected Cloud credentials","level":"4.7.3.3","depth":3,"path":"admin/settings/credentials/linode.md","ref":"admin/settings/credentials/linode.md","articles":[]},{"title":"Add DigitalOcean credentials","level":"4.7.3.4","depth":3,"path":"admin/settings/credentials/digitalocean.md","ref":"admin/settings/credentials/digitalocean.md","articles":[]},{"title":"Add Google Cloud credentials","level":"4.7.3.5","depth":3,"path":"admin/settings/credentials/gke.md","ref":"admin/settings/credentials/gke.md","articles":[]},{"title":"Add AWS credentials","level":"4.7.3.6","depth":3,"path":"admin/settings/credentials/eks.md","ref":"admin/settings/credentials/eks.md","articles":[]},{"title":"Add Azure credentials","level":"4.7.3.7","depth":3,"path":"admin/settings/credentials/aks.md","ref":"admin/settings/credentials/aks.md","articles":[]},{"title":"Add SSH credentials","level":"4.7.3.8","depth":3,"path":"admin/settings/credentials/ssh.md","ref":"admin/settings/credentials/ssh.md","articles":[]}]},{"title":"Edge Compute","level":"4.7.4","depth":2,"path":"admin/settings/edge.md","ref":"admin/settings/edge.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"cn","gitbook":"*"},"file":{"path":"admin/settings/general.md","mtime":"2025-06-03T21:54:55.660Z","type":"markdown"},"gitbook":{"version":"6.0.3","time":"2025-06-03T22:00:44.538Z"},"basePath":"../..","book":{"language":"cn"}});
+            gitbook.page.hasChanged({"page":{"title":"General","level":"4.7.1","depth":2,"next":{"title":"Authentication","level":"4.7.2","depth":2,"path":"admin/settings/authentication/README.md","ref":"admin/settings/authentication/README.md","articles":[{"title":"Authenticate via LDAP","level":"4.7.2.1","depth":3,"path":"admin/settings/authentication/ldap.md","ref":"admin/settings/authentication/ldap.md","articles":[]},{"title":"Authenticate via Active Directory","level":"4.7.2.2","depth":3,"path":"admin/settings/authentication/active-directory.md","ref":"admin/settings/authentication/active-directory.md","articles":[]},{"title":"Authenticate via OAuth","level":"4.7.2.3","depth":3,"path":"admin/settings/authentication/oauth.md","ref":"admin/settings/authentication/oauth.md","articles":[]}]},"previous":{"title":"Settings","level":"4.7","depth":1,"path":"admin/settings/README.md","ref":"admin/settings/README.md","articles":[{"title":"General","level":"4.7.1","depth":2,"path":"admin/settings/general.md","ref":"admin/settings/general.md","articles":[]},{"title":"Authentication","level":"4.7.2","depth":2,"path":"admin/settings/authentication/README.md","ref":"admin/settings/authentication/README.md","articles":[{"title":"Authenticate via LDAP","level":"4.7.2.1","depth":3,"path":"admin/settings/authentication/ldap.md","ref":"admin/settings/authentication/ldap.md","articles":[]},{"title":"Authenticate via Active Directory","level":"4.7.2.2","depth":3,"path":"admin/settings/authentication/active-directory.md","ref":"admin/settings/authentication/active-directory.md","articles":[]},{"title":"Authenticate via OAuth","level":"4.7.2.3","depth":3,"path":"admin/settings/authentication/oauth.md","ref":"admin/settings/authentication/oauth.md","articles":[]}]},{"title":"Shared credentials","level":"4.7.3","depth":2,"path":"admin/settings/credentials/README.md","ref":"admin/settings/credentials/README.md","articles":[{"title":"Add Sidero Omni credentials","level":"4.7.3.1","depth":3,"path":"admin/settings/credentials/omni.md","ref":"admin/settings/credentials/omni.md","articles":[]},{"title":"Add Civo credentials","level":"4.7.3.2","depth":3,"path":"admin/settings/credentials/civo.md","ref":"admin/settings/credentials/civo.md","articles":[]},{"title":"Add Akamai Connected Cloud credentials","level":"4.7.3.3","depth":3,"path":"admin/settings/credentials/linode.md","ref":"admin/settings/credentials/linode.md","articles":[]},{"title":"Add DigitalOcean credentials","level":"4.7.3.4","depth":3,"path":"admin/settings/credentials/digitalocean.md","ref":"admin/settings/credentials/digitalocean.md","articles":[]},{"title":"Add Google Cloud credentials","level":"4.7.3.5","depth":3,"path":"admin/settings/credentials/gke.md","ref":"admin/settings/credentials/gke.md","articles":[]},{"title":"Add AWS credentials","level":"4.7.3.6","depth":3,"path":"admin/settings/credentials/eks.md","ref":"admin/settings/credentials/eks.md","articles":[]},{"title":"Add Azure credentials","level":"4.7.3.7","depth":3,"path":"admin/settings/credentials/aks.md","ref":"admin/settings/credentials/aks.md","articles":[]},{"title":"Add SSH credentials","level":"4.7.3.8","depth":3,"path":"admin/settings/credentials/ssh.md","ref":"admin/settings/credentials/ssh.md","articles":[]}]},{"title":"Edge Compute","level":"4.7.4","depth":2,"path":"admin/settings/edge.md","ref":"admin/settings/edge.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"cn","gitbook":"*"},"file":{"path":"admin/settings/general.md","mtime":"2025-06-03T22:06:01.247Z","type":"markdown"},"gitbook":{"version":"6.0.3","time":"2025-06-03T22:18:05.715Z"},"basePath":"../..","book":{"language":"cn"}});
         });
     </script>
 </div>

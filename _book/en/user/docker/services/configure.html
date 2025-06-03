@@ -4619,7 +4619,7 @@
                                 
                                 <h1 id="configure-service-options">Configure service options</h1>
 <p>From the menu select <strong>Services</strong> then select the service you want to configure. </p>
-<figure><img src="../..//assets/2.15-docker_services_configure.gif" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.15-docker_services_configure.gif" alt=""></img><figcaption></figcaption></figure>
 
 <h2 id="service-details">Service details</h2>
 <p>In this section you can:</p>
@@ -4630,56 +4630,56 @@
 <li>View the <a href="logs.html">service logs</a>.</li>
 <li>Update, <a href="rollback.html">roll back</a> or delete the service.</li>
 </ul>
-<figure><img src="../..//assets/2.15-docker_services_service_details (1).png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.15-docker_services_service_details (1).png" alt=""></img><figcaption></figcaption></figure>
 
 <h2 id="container-specification-configuration-options">Container specification configuration options</h2>
 <h3 id="change-container-image">Change container image</h3>
 <p>Here you can replace the container image with a different image. Select the registry, enter the image name, then click <strong>Apply changes</strong>.</p>
-<figure><img src="../..//assets/2.15-docker_services_change_container_image.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.15-docker_services_change_container_image.png" alt=""></img><figcaption></figcaption></figure>
 
 <h3 id="environment-variables">Environment variables</h3>
 <p>It's best to set environment variables when you <a href="../containers/add.html">create a container</a> and before deployment. You can still set or edit these variables after deployment if you wish.</p>
-<figure><img src="../..//assets/2.15-docker_services_service_env_var.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.15-docker_services_service_env_var.png" alt=""></img><figcaption></figcaption></figure>
 
 <h3 id="container-labels">Container labels</h3>
 <p>Labels give you a way to record information about a container, such as the way it's configured. Labels can also be used by Portainer to <a href="../../../admin/settings#hidden-containers">hide containers from the interface</a>.</p>
-<figure><img src="../..//assets/2.15-docker_services_service_container_labels.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.15-docker_services_service_container_labels.png" alt=""></img><figcaption></figcaption></figure>
 
 <h3 id="mounts">Mounts</h3>
 <p>You have the option to either mount or bind volumes in Portainer, and you can also make them read only. To add a mount, first select either <strong>Volume</strong> or <strong>Bind</strong> from the <strong>Type</strong> dropdown.</p>
 <h4 id="for-volume-mounts">For volume mounts:</h4>
 <p>Select the volume from the <strong>Source</strong> dropdown, enter the container path in the <strong>Target</strong> field tick <strong>Read only</strong> if required then click <strong>Apply changes</strong>.</p>
-<figure><img src="../..//assets/2.15-docker_services_service_mounts_volume.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.15-docker_services_service_mounts_volume.png" alt=""></img><figcaption></figcaption></figure>
 
 <h4 id="for-bind-mounts">For bind mounts:</h4>
 <p>Enter the source path in the <strong>Source</strong> field, enter the container path in the <strong>Target</strong> field, tick <strong>Read only</strong> if required then click <strong>Apply changes</strong>.</p>
-<figure><img src="../..//assets/2.15-docker_services_service_mounts_bind.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.15-docker_services_service_mounts_bind.png" alt=""></img><figcaption></figcaption></figure>
 
 <h2 id="networks--ports-configuration-options">Networks &amp; ports configuration options</h2>
 <h3 id="networks">Networks</h3>
 <p>You can define one or more networks for a service either before or after deployment. Simply select the network from the dropdown then click <strong>Apply changes</strong>.</p>
-<figure><img src="../..//assets/2.15-docker_services_service_networks.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.15-docker_services_service_networks.png" alt=""></img><figcaption></figcaption></figure>
 
 <h3 id="published-ports">Published ports</h3>
 <p>Use this setting to publish ports so they can access a container from outside of the host. You can either add new ports or update existing ports.</p>
-<figure><img src="../..//assets/2.15-docker_services_service_published_ports.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.15-docker_services_service_published_ports.png" alt=""></img><figcaption></figcaption></figure>
 
 <h3 id="hosts-file-entries">Hosts file entries</h3>
 <p>Lets you manually specify a hostname or URL and associate the URL to an internal or external IP address.</p>
-<figure><img src="../..//assets/2.15-docker_services_service_host_entries.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.15-docker_services_service_host_entries.png" alt=""></img><figcaption></figcaption></figure>
 
 <h2 id="service-specification-settings">Service specification settings</h2>
 <h3 id="resource-limits-and-reservations">Resource limits and reservations</h3>
 <p>Sets limits on resource utilization, such as memory, CPU reservation and CPU limit.</p>
-<figure><img src="../..//assets/2.15-docker_services_service_resource_limits.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.15-docker_services_service_resource_limits.png" alt=""></img><figcaption></figcaption></figure>
 
 <h3 id="placement-constraints">Placement constraints</h3>
 <p>Use placement constraints to control which nodes a service can be assigned to.</p>
-<figure><img src="../..//assets/2.15-docker_services_service_placement_constraint.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.15-docker_services_service_placement_constraint.png" alt=""></img><figcaption></figcaption></figure>
 
 <h3 id="placement-preferences">Placement preferences</h3>
 <p>While placement constraints limit the nodes a service can run on, placement preferences attempt to place tasks on appropriate nodes in an algorithmic way (by default they are spread evenly).</p>
-<figure><img src="../..//assets/2.15-docker_services_service_placement_pref.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.15-docker_services_service_placement_pref.png" alt=""></img><figcaption></figcaption></figure>
 
 <h3 id="restart-policy">Restart policy</h3>
 <p>Docker's restart policies ensure that linked containers are restarted in the correct order, and control the conditions under which they are restarted:</p>
@@ -4689,28 +4689,28 @@
 <li><strong>None</strong>: Do not automatically restart the container.</li>
 </ul>
 <p>You can also adjust the restart delay, maximum attempts and restart window.</p>
-<figure><img src="../..//assets/2.15-docker_services_service_restart_policy.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.15-docker_services_service_restart_policy.png" alt=""></img><figcaption></figcaption></figure>
 
 <h3 id="update-configuration">Update configuration</h3>
 <p>Updates a service according to the parameters you specify. The parameters specified here are the same as <code>docker service create</code> (see <a href="https://docs.docker.com/engine/reference/commandline/service_create/" target="_blank">Docker's own documentation</a> for more information).</p>
 <p>Normally, updating a service will only cause the service’s tasks to be replaced with new ones if a change to the service requires recreating the tasks for it to take effect.</p>
-<figure><img src="../..//assets/2.15-docker_services_service_update_config.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.15-docker_services_service_update_config.png" alt=""></img><figcaption></figcaption></figure>
 
 <h3 id="logging-driver">Logging driver</h3>
 <p>Docker includes logging mechanisms called <em>logging drivers</em> that get information from the containers and services you're running. Each Docker daemon has a default logging driver which each container will use, unless you configure them to use a different logging driver.</p>
-<figure><img src="../..//assets/2.15-docker_services_service_logging_driver.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.15-docker_services_service_logging_driver.png" alt=""></img><figcaption></figcaption></figure>
 
 <h3 id="service-labels">Service labels</h3>
 <p>Lets you add metadata to containers using Docker labels either via an array or a dictionary. We recommend that you use reverse-DNS notation to stop labels from conflicting with those used by other software.</p>
-<figure><img src="../..//assets/2.15-docker_services_service_labels.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.15-docker_services_service_labels.png" alt=""></img><figcaption></figcaption></figure>
 
 <h3 id="configs">Configs</h3>
 <p>Docker 17.06 introduced Swarm service configs. These allow you to store non-sensitive information such as configuration files outside a service’s image or running containers. This keeps images as generic as possible and removes the need to bind-mount configuration files into containers or use environment variables.</p>
-<figure><img src="../..//assets/2.15-docker_services_service_configs.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.15-docker_services_service_configs.png" alt=""></img><figcaption></figcaption></figure>
 
 <h3 id="secrets">Secrets</h3>
 <p>In the context of Docker Swarm services, a secret is a blob of data such as a password, SSH private key, SSL certificate, or another piece of data that should not be transmitted over a network or stored unencrypted in a Dockerfile or in your application’s source code.</p>
-<figure><img src="../..//assets/2.15-docker_services_service_secrets.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.15-docker_services_service_secrets.png" alt=""></img><figcaption></figcaption></figure>
 
                                 
                                 </section>
@@ -4754,7 +4754,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Configure service options","level":"3.2.4.2","depth":3,"next":{"title":"Scale a service","level":"3.2.4.3","depth":3,"path":"user/docker/services/scale.md","ref":"user/docker/services/scale.md","articles":[]},"previous":{"title":"Add a new service","level":"3.2.4.1","depth":3,"path":"user/docker/services/add.md","ref":"user/docker/services/add.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"user/docker/services/configure.md","mtime":"2025-06-03T21:04:48.415Z","type":"markdown"},"gitbook":{"version":"6.0.3","time":"2025-06-03T22:00:44.538Z"},"basePath":"../../..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Configure service options","level":"3.2.4.2","depth":3,"next":{"title":"Scale a service","level":"3.2.4.3","depth":3,"path":"user/docker/services/scale.md","ref":"user/docker/services/scale.md","articles":[]},"previous":{"title":"Add a new service","level":"3.2.4.1","depth":3,"path":"user/docker/services/add.md","ref":"user/docker/services/add.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"user/docker/services/configure.md","mtime":"2025-06-03T22:05:25.716Z","type":"markdown"},"gitbook":{"version":"6.0.3","time":"2025-06-03T22:18:05.715Z"},"basePath":"../../..","book":{"language":"en"}});
         });
     </script>
 </div>

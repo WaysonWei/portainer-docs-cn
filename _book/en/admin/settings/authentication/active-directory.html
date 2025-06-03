@@ -4620,12 +4620,12 @@
                                 <h1 id="authenticate-via-active-directory">Authenticate via Active Directory</h1>
 <p>Portainer Business Edition lets you connect to an existing Microsoft Active Directory service to manage your authentication settings in Portainer.</p>
 <p>To set up Active Directory authentication, from the menu select <strong>Settings</strong> then select <strong>Authentication</strong>. Under the <strong>Authentication method</strong> section select <strong>Microsoft Active Directory</strong>.</p>
-<figure><img src="../..//assets/2.15-settings-authentication-ad.gif" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.15-settings-authentication-ad.gif" alt=""></img><figcaption></figcaption></figure>
 
 <p>A guide to all of the Active Directory configuration settings follows.</p>
 <h2 id="automatic-user-provisioning">Automatic user provisioning</h2>
 <p>Enabling this setting automatically creates users within Portainer once they are successfully authenticated by Active Directory (AD). If you do not enable this, you must <a href="ldap.html#manually-creating-ldap-users">manually create users</a> with the same username as the corresponding AD user.</p>
-<figure><img src="../..//assets/2.15-settings-authentication-ldap-auto.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.15-settings-authentication-ldap-auto.png" alt=""></img><figcaption></figcaption></figure>
 
 <h2 id="ad-configuration">AD configuration</h2>
 <p>Configure your Active Directory details using the table below as a guide.</p>
@@ -4655,7 +4655,7 @@
 </tr>
 </tbody>
 </table>
-<figure><img src="../..//assets/2.15-settings-authentication-ad-config.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.15-settings-authentication-ad-config.png" alt=""></img><figcaption></figcaption></figure>
 
 <h2 id="ad-connectivity-security">AD Connectivity Security</h2>
 <p>Configure the security settings using the table below as a guide.</p>
@@ -4685,7 +4685,7 @@
 </tr>
 </tbody>
 </table>
-<figure><img src="../..//assets/2.15-settings-authentication-ad-security.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.15-settings-authentication-ad-security.png" alt=""></img><figcaption></figcaption></figure>
 
 <h2 id="user-search-configurations">User search configurations</h2>
 <p>Configure the user search configurations using the table below as a guide. Click <strong>add user search configuration</strong> to set up multiple configurations.</p>
@@ -4723,7 +4723,7 @@
 </tr>
 </tbody>
 </table>
-<figure><img src="../..//assets/2.15-settings-authentication-ad-usersearch.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.15-settings-authentication-ad-usersearch.png" alt=""></img><figcaption></figcaption></figure>
 
 <h2 id="group-search-configurations">Group search configurations</h2>
 <p>Configure the group search configurations using the table below as a guide. Click <strong>add group search configuration</strong> to set up multiple configurations.</p>
@@ -4757,17 +4757,17 @@
 </tr>
 </tbody>
 </table>
-<figure><img src="../..//assets/2.15-settings-authentication-ad-groupsearch.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.15-settings-authentication-ad-groupsearch.png" alt=""></img><figcaption></figcaption></figure>
 
 <h2 id="auto-populate-team-admins">Auto-populate team admins</h2>
 <p>If desired, Portainer can configure specified AD groups of users to become Portainer administrators automatically. </p>
 <p>To configure this, first click <strong>add group search configuration</strong> and define the <strong>Group Base DN</strong>, <strong>Groups</strong> and <strong>Group Filter</strong> as required. Once done, click the <strong>Fetch Admin Group(s)</strong> button to retrieve the list of groups matching your search configuration.</p>
-<figure><img src="../..//assets/2.15-settings-authentication-ad-autopop.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.15-settings-authentication-ad-autopop.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>When you're happy with the group selection, enable this feature by toggling <strong>Assign admin rights to group(s)</strong> on.</p>
 <h2 id="test-login">Test login</h2>
 <p>To test your settings are correct and that the right users and groups are configured for access, scroll down to <strong>Test login</strong>, enter a valid user and password then click <strong>Test</strong>. If everything is working as expected, a green tick will appear next to the button.</p>
-<figure><img src="../..//assets/2.15-settings-authentication-ad-testlogin.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.15-settings-authentication-ad-testlogin.png" alt=""></img><figcaption></figcaption></figure>
 
                                 
                                 </section>
@@ -4811,7 +4811,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Authenticate via Active Directory","level":"4.7.2.2","depth":3,"next":{"title":"Authenticate via OAuth","level":"4.7.2.3","depth":3,"path":"admin/settings/authentication/oauth.md","ref":"admin/settings/authentication/oauth.md","articles":[]},"previous":{"title":"Authenticate via LDAP","level":"4.7.2.1","depth":3,"path":"admin/settings/authentication/ldap.md","ref":"admin/settings/authentication/ldap.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"admin/settings/authentication/active-directory.md","mtime":"2025-06-03T21:04:41.485Z","type":"markdown"},"gitbook":{"version":"6.0.3","time":"2025-06-03T22:00:44.538Z"},"basePath":"../../..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Authenticate via Active Directory","level":"4.7.2.2","depth":3,"next":{"title":"Authenticate via OAuth","level":"4.7.2.3","depth":3,"path":"admin/settings/authentication/oauth.md","ref":"admin/settings/authentication/oauth.md","articles":[]},"previous":{"title":"Authenticate via LDAP","level":"4.7.2.1","depth":3,"path":"admin/settings/authentication/ldap.md","ref":"admin/settings/authentication/ldap.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"admin/settings/authentication/active-directory.md","mtime":"2025-06-03T22:05:25.722Z","type":"markdown"},"gitbook":{"version":"6.0.3","time":"2025-06-03T22:18:05.715Z"},"basePath":"../../..","book":{"language":"en"}});
         });
     </script>
 </div>

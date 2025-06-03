@@ -4620,17 +4620,17 @@
                                 <h1 id="inspect-or-edit-a-stack">Inspect or edit a stack</h1>
 <h2 id="inspecting-a-stack">Inspecting a stack</h2>
 <p>From the menu select <strong>Stacks</strong> then select the stack you want to inspect.</p>
-<figure><img src="../..//assets/2.20-stacks-edit.gif" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.20-stacks-edit.gif" alt=""></img><figcaption></figcaption></figure>
 
 <p>From here you can stop, delete or <a href="template.html">create a template from the stack</a>, and if deployed from Git you can <a href="edit.html#detach-from-git">detach the stack from the Git repository</a>.</p>
-<figure><img src="../..//assets/2.20-stacks-edit-options.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.20-stacks-edit-options.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>If the stack was deployed from a Git repository, you can:</p>
 <ul>
 <li>Configure <a href="add.html#gitops-updates">GitOps updates</a> or manually pull and redeploy the stack.</li>
 <li>View and edit the stack's environment variables.</li>
 </ul>
-<figure><img src="../..//assets/2.20-stacks-edit-git.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.20-stacks-edit-git.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>If the stack was deployed using the <a href="add.html#option-1-web-editor">Web Editor</a> or <a href="add.html#option-2-upload">uploaded</a>, you will have the option to <a href="edit.html#editing-a-stack">edit your compose file manually</a>.</p>
 <p>Regardless of the deployment method used, you can also <a href="migrate.html">migrate or duplicate</a> the stack.</p>
@@ -4645,7 +4645,7 @@
 <li>Get access to the container's console.</li>
 </ul>
 <p>You can also see the image update indicator for each container in the stack. To recheck the image update status for all containers in the stack you can click the reload button next to the search box, or to recheck a single container's image, click the image update indicator icon for that container. </p>
-<figure><img src="../..//assets/2.20-stacks-edit-containers.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.20-stacks-edit-containers.png" alt=""></img><figcaption></figcaption></figure>
 
 <h3 id="docker-swarm">Docker Swarm</h3>
 <p>When using Docker Swarm, you can:</p>
@@ -4659,23 +4659,23 @@
 <li>Get access to the service's console.</li>
 </ul>
 <p>You can also see the image update indicator for each service in the stack. To recheck the image update status for all services in the stack you can click the Reload image indicators button, or to recheck a single service's image, click the image update indicator icon for that service. </p>
-<figure><img src="../..//assets/2.20-stacks-edit-services.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.20-stacks-edit-services.png" alt=""></img><figcaption></figcaption></figure>
 
 <h2 id="editing-a-stack">Editing a stack</h2>
 <p>Editing a stack allows you to make changes to the configuration and redeploy those changes. To edit a stack, from the menu select <strong>Stacks</strong>, select the stack you want to edit, then select the <strong>Editor</strong> tab.</p>
 <p>The Editor tab is only available for stacks that were deployed using the <a href="add.html#option-1-web-editor">Web Editor</a>. For stacks deployed from a Git repository, the compose file must be edited in the repository itself.</p>
-<figure><img src="../..//assets/2.19-stacks-edit-webeditor.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.19-stacks-edit-webeditor.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>Here, you can edit the Compose file for the stack to suit your needs. Using the <strong>Version</strong> dropdown you can also select a previous version of your stack file (if one exists) to switch back to if required. Selecting a different version from the dropdown will replace the contents of the editor with that of the selected version. </p>
 <p>You can search within the web editor at any time by pressing <code>Ctrl-F</code> (or <code>Cmd-F</code> on Mac).</p>
 <p>In this section you can expand the Environment variables section to view and make changes to the stack's environment variables.</p>
-<figure><img src="../..//assets/2.20-stacks-edit-envvars.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.20-stacks-edit-envvars.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>You can also toggle the stack <a href="webhooks.html">webhook</a> and retrieve the webhook URL: </p>
-<figure><img src="../..//assets/2.20-stacks-edit-webhook.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.20-stacks-edit-webhook.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>You can choose to <strong>Prune services</strong> if you have made changes that remove some services from the stack.</p>
-<figure><img src="../..//assets/2.20-stacks-edit-swarm-prune.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../assets/2.20-stacks-edit-swarm-prune.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>When you have finished making changes, click <strong>Update the stack</strong>.</p>
 <h2 id="detach-from-git">Detach from Git</h2>
@@ -4725,7 +4725,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Inspect or edit a stack","level":"3.2.3.2","depth":3,"next":{"title":"Create a template from a deployed stack","level":"3.2.3.3","depth":3,"path":"user/docker/stacks/template.md","ref":"user/docker/stacks/template.md","articles":[]},"previous":{"title":"Add a new stack","level":"3.2.3.1","depth":3,"path":"user/docker/stacks/add.md","ref":"user/docker/stacks/add.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"cn","gitbook":"*"},"file":{"path":"user/docker/stacks/edit.md","mtime":"2025-06-03T21:54:55.783Z","type":"markdown"},"gitbook":{"version":"6.0.3","time":"2025-06-03T22:00:44.538Z"},"basePath":"../../..","book":{"language":"cn"}});
+            gitbook.page.hasChanged({"page":{"title":"Inspect or edit a stack","level":"3.2.3.2","depth":3,"next":{"title":"Create a template from a deployed stack","level":"3.2.3.3","depth":3,"path":"user/docker/stacks/template.md","ref":"user/docker/stacks/template.md","articles":[]},"previous":{"title":"Add a new stack","level":"3.2.3.1","depth":3,"path":"user/docker/stacks/add.md","ref":"user/docker/stacks/add.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"cn","gitbook":"*"},"file":{"path":"user/docker/stacks/edit.md","mtime":"2025-06-03T22:05:54.977Z","type":"markdown"},"gitbook":{"version":"6.0.3","time":"2025-06-03T22:18:05.715Z"},"basePath":"../../..","book":{"language":"cn"}});
         });
     </script>
 </div>

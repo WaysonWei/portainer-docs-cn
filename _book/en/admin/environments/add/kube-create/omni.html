@@ -4630,7 +4630,7 @@
 </ul>
 <h2 id="deployment">Deployment</h2>
 <p>To create your Talos Kubernetes cluster and deploy the Portainer Edge Agent to your machines, from the menu expand <strong>Environment-related</strong>, click <strong>Environments</strong>, then click <strong>Add environment</strong>.</p>
-<figure><img src="../../..//assets/2.22-environments-add.gif" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../../assets/2.22-environments-add.gif" alt=""></img><figcaption></figcaption></figure>
 
 <p>Select <strong>Create a Kubernetes cluster</strong> and click <strong>Start wizard</strong>, then ensure <strong>Talos Kubernetes</strong> is selected.</p>
 <p>If you have not yet <a href="../../../settings/credentials/omni.html">configured a set of credentials for your Omni installation</a>, you will be asked to provide them now. If you already have a credential set configured, you can skip to <a href="omni.html#configure-your-cluster">cluster configuration</a>.</p>
@@ -4659,7 +4659,7 @@
 </tbody>
 </table>
 <p>You can create a service account through the Omni web UI or using <code>omnictl</code>. You can find more information on how to do this in our <a href="../../../settings/credentials/omni.html">Omni credentials documentation</a>.</p>
-<figure><img src="../../..//assets/2.26-environments-add-kube-create-omni-creds.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../../assets/2.26-environments-add-kube-create-omni-creds.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>Once you have entered your credentials click <strong>Add credentials</strong>. The credential set will be saved under the name you entered, and you will be taken to the cluster configuration.</p>
 <h3 id="configure-your-cluster">Configure your cluster</h3>
@@ -4684,7 +4684,7 @@
 </tr>
 </tbody>
 </table>
-<figure><img src="../../..//assets/2.26-environments-add-kube-create-omni-portainer.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../../assets/2.26-environments-add-kube-create-omni-portainer.png" alt=""></img><figcaption></figcaption></figure>
 
 <h4 id="omni-cluster-summary">Omni cluster summary</h4>
 <p>Here you can select the credentials to use to connect to Omni as well as the versions of Talos and Kubernetes to deploy.</p>
@@ -4710,7 +4710,7 @@
 </tr>
 </tbody>
 </table>
-<figure><img src="../../..//assets/2.26-environments-add-kube-create-omni-clustersummary.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../../assets/2.26-environments-add-kube-create-omni-clustersummary.png" alt=""></img><figcaption></figcaption></figure>
 
 <h4 id="cluster-machines">Cluster machines</h4>
 <p>Here you can specify the machines to use for your cluster. The dropdowns will display the list of available machines alongside any labels on each machine to help with identification. </p>
@@ -4732,19 +4732,19 @@
 </tr>
 </tbody>
 </table>
-<figure><img src="../../..//assets/2.26-environments-add-kube-create-omni-machines (1).png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../../assets/2.26-environments-add-kube-create-omni-machines (1).png" alt=""></img><figcaption></figcaption></figure>
 
 <p>Once you have selected machines here you can tweak the networking configuration for each machine individually if necessary by clicking the cog icon next to the individual machine.</p>
-<figure><img src="../../..//assets/2.26-environments-add-kube-create-omni-machines-customconfig-form.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../../assets/2.26-environments-add-kube-create-omni-machines-customconfig-form.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>Machines that have had their networking configuration adjusted in this way will have an orange dot on the cog icon:</p>
-<figure><img src="../../..//assets/2.26-environments-add-kube-create-omni-machines-customconfig.png" alt=""></img><figcaption><p>talos-w1e-4a0 has a modified network configuration whereas talos-y3d-vuj does not.</p></figcaption></figure>
+<figure><img src="../../../assets/2.26-environments-add-kube-create-omni-machines-customconfig.png" alt=""></img><figcaption><p>talos-w1e-4a0 has a modified network configuration whereas talos-y3d-vuj does not.</p></figcaption></figure>
 
 
 
 <h4 id="cluster-configuration-patch">Cluster Configuration patch</h4>
 <p>This section allows you to apply a custom YAML configuration to your cluster if required. You can click <strong>Cluster Configuration patch</strong> to display the section and provide your YAML in the editor.</p>
-<figure><img src="../../..//assets/2.26-environments-add-kube-create-omni-clusterpatch.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../../assets/2.26-environments-add-kube-create-omni-clusterpatch.png" alt=""></img><figcaption></figcaption></figure>
 
 
 
@@ -4784,12 +4784,12 @@
 </tr>
 </tbody>
 </table>
-<figure><img src="../../..//assets/2.26-environments-add-kube-create-omni-moresettings.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../../assets/2.26-environments-add-kube-create-omni-moresettings.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>Once you have entered your cluster configuration details, click <strong>Provision environment</strong> to begin the provision. Portainer will start provisioning your cluster with the options you selected. If you have other environments to configure click <strong>Next</strong> to proceed, otherwise click <strong>Close</strong> to return to the list of environments.</p>
 <h3 id="provision-progress">Provision progress</h3>
 <p>From the Environments page you will be able to see the progress of any running Kubernetes environment provisions. The status will be updated as the provision completes, and if the provision runs into problems an error will be displayed here. You can hover over the status or error for additional detail.</p>
-<figure><img src="../../..//assets/2.26-environments-add-kube-create-omni-progress.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../../assets/2.26-environments-add-kube-create-omni-progress.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>Once the provision completes, you will be able to access the environment as you would any other Portainer-configured environment.</p>
 
@@ -4835,7 +4835,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Talos Kubernetes","level":"4.2.2.9.1","depth":4,"next":{"title":"MicroK8s","level":"4.2.2.9.2","depth":4,"path":"admin/environments/add/kube-create/microk8s/README.md","ref":"admin/environments/add/kube-create/microk8s/README.md","articles":[{"title":"Offline installation","level":"4.2.2.9.2.1","depth":5,"path":"admin/environments/add/kube-create/microk8s/offline.md","ref":"admin/environments/add/kube-create/microk8s/offline.md","articles":[]}]},"previous":{"title":"Create a Kubernetes cluster","level":"4.2.2.9","depth":3,"path":"admin/environments/add/kube-create/README.md","ref":"admin/environments/add/kube-create/README.md","articles":[{"title":"Talos Kubernetes","level":"4.2.2.9.1","depth":4,"path":"admin/environments/add/kube-create/omni.md","ref":"admin/environments/add/kube-create/omni.md","articles":[]},{"title":"MicroK8s","level":"4.2.2.9.2","depth":4,"path":"admin/environments/add/kube-create/microk8s/README.md","ref":"admin/environments/add/kube-create/microk8s/README.md","articles":[{"title":"Offline installation","level":"4.2.2.9.2.1","depth":5,"path":"admin/environments/add/kube-create/microk8s/offline.md","ref":"admin/environments/add/kube-create/microk8s/offline.md","articles":[]}]}]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"admin/environments/add/kube-create/omni.md","mtime":"2025-06-03T21:33:03.163Z","type":"markdown"},"gitbook":{"version":"6.0.3","time":"2025-06-03T22:00:44.538Z"},"basePath":"../../../..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Talos Kubernetes","level":"4.2.2.9.1","depth":4,"next":{"title":"MicroK8s","level":"4.2.2.9.2","depth":4,"path":"admin/environments/add/kube-create/microk8s/README.md","ref":"admin/environments/add/kube-create/microk8s/README.md","articles":[{"title":"Offline installation","level":"4.2.2.9.2.1","depth":5,"path":"admin/environments/add/kube-create/microk8s/offline.md","ref":"admin/environments/add/kube-create/microk8s/offline.md","articles":[]}]},"previous":{"title":"Create a Kubernetes cluster","level":"4.2.2.9","depth":3,"path":"admin/environments/add/kube-create/README.md","ref":"admin/environments/add/kube-create/README.md","articles":[{"title":"Talos Kubernetes","level":"4.2.2.9.1","depth":4,"path":"admin/environments/add/kube-create/omni.md","ref":"admin/environments/add/kube-create/omni.md","articles":[]},{"title":"MicroK8s","level":"4.2.2.9.2","depth":4,"path":"admin/environments/add/kube-create/microk8s/README.md","ref":"admin/environments/add/kube-create/microk8s/README.md","articles":[{"title":"Offline installation","level":"4.2.2.9.2.1","depth":5,"path":"admin/environments/add/kube-create/microk8s/offline.md","ref":"admin/environments/add/kube-create/microk8s/offline.md","articles":[]}]}]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"admin/environments/add/kube-create/omni.md","mtime":"2025-06-03T22:05:25.722Z","type":"markdown"},"gitbook":{"version":"6.0.3","time":"2025-06-03T22:18:05.715Z"},"basePath":"../../../..","book":{"language":"en"}});
         });
     </script>
 </div>

@@ -4626,7 +4626,7 @@
 <p>In addition, our instructions assume your environment meets <a href="../../../../start/requirements-and-prerequisites.html">our requirements</a>. While Portainer may work with other configurations, it may require configuration changes or have limited functionality.</p>
 <h2 id="deploying">Deploying</h2>
 <p>To add a standard Edge Agent to a Podman environment, from the menu expand <strong>Environment-related</strong>, click <strong>Environments</strong>, then click <strong>Add environment</strong>.</p>
-<figure><img src="../../..//assets/2.22-environments-add.gif" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../../assets/2.22-environments-add.gif" alt=""></img><figcaption></figcaption></figure>
 
 <p>Select <strong>Podman</strong> then click <strong>Start Wizard</strong>. Then select the <strong>Edge Agent Standard</strong> option. Enter the environment details using the table below as a guide.</p>
 <table>
@@ -4651,13 +4651,13 @@
 </tr>
 </tbody>
 </table>
-<figure><img src="../../..//assets/2.17-install-agent-edge-nameurl.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../../assets/2.17-install-agent-edge-nameurl.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>As an optional step you can expand the <strong>More settings</strong> section and adjust the Poll frequency for the environment - this defines how often this Edge Agent will check the Portainer Server for new jobs. The default is every 5 seconds. You can also categorize the environment by adding it to a <a href="../../groups.html">group</a> or <a href="../../tags.html">tagging</a> it for better searchability.</p>
-<figure><img src="../../..//assets/2.15-edge_agent_more_settings.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../../assets/2.15-edge_agent_more_settings.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>When you're ready, click <strong>Create</strong>. If you are pre-staging your Edge Agent deployment, you can now retrieve the join token for use in your deployment. </p>
-<figure><img src="../../..//assets/2.18-environments-add-docker-edge-jointoken.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../../assets/2.18-environments-add-docker-edge-jointoken.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>Otherwise, complete the new fields that have appeared using the table below as a guide.</p>
 <table>
@@ -4678,7 +4678,7 @@
 </tr>
 </tbody>
 </table>
-<figure><img src="../../..//assets/2.18-environments-add-docker-edge-envvars.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../../assets/2.18-environments-add-docker-edge-envvars.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>Copy the generated command and run the command on your Edge environment to complete the installation.</p>
 <p>If you have set a custom <code>AGENT_SECRET</code> on your Portainer Server instance (by specifying an AGENT_SECRET environment variable when starting the Portainer Server container) you <strong>must</strong> remember to explicitly provide the same secret to your Edge Agent in the same way (as an environment variable) when deploying your Edge Agent, for example by adding the following to your <code>podman run</code> command: \
@@ -4687,7 +4687,7 @@
 <p>For example, if your volume path was <code>/srv/data/podman</code>, you would change the line in the command to:</p>
 <pre><code>- v /srv/data/podman:/var/lib/docker/volumes \
 </code></pre><p>The right side of the mount should remain as <code>/var/lib/docker/volumes</code>, as that is what the Edge Agent expects (even when using Podman).</p>
-<figure><img src="../../..//assets/2.22.0-environments-add-podman-edge-std-command.png" alt=""></img><figcaption></figcaption></figure>
+<figure><img src="../../../assets/2.22.0-environments-add-podman-edge-std-command.png" alt=""></img><figcaption></figcaption></figure>
 
 <p>If you have another Edge standard environment of the same type to deploy you can click <strong>Add another environment</strong> to do so. Otherwise if you have any other environments to configure click <strong>Next</strong> to proceed, or click <strong>Close</strong> to return to the list of environments.</p>
 
@@ -4733,7 +4733,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Install Edge Agent Standard on Podman","level":"4.2.2.4.3","depth":4,"next":{"title":"Install Edge Agent Async on Podman","level":"4.2.2.4.4","depth":4,"path":"admin/environments/add/podman/edge-async.md","ref":"admin/environments/add/podman/edge-async.md","articles":[]},"previous":{"title":"Connect to the Podman Socket","level":"4.2.2.4.2","depth":4,"path":"admin/environments/add/podman/socket.md","ref":"admin/environments/add/podman/socket.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"admin/environments/add/podman/edge.md","mtime":"2025-06-03T21:33:04.122Z","type":"markdown"},"gitbook":{"version":"6.0.3","time":"2025-06-03T22:00:44.538Z"},"basePath":"../../../..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Install Edge Agent Standard on Podman","level":"4.2.2.4.3","depth":4,"next":{"title":"Install Edge Agent Async on Podman","level":"4.2.2.4.4","depth":4,"path":"admin/environments/add/podman/edge-async.md","ref":"admin/environments/add/podman/edge-async.md","articles":[]},"previous":{"title":"Connect to the Podman Socket","level":"4.2.2.4.2","depth":4,"path":"admin/environments/add/podman/socket.md","ref":"admin/environments/add/podman/socket.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"admin/environments/add/podman/edge.md","mtime":"2025-06-03T22:05:25.721Z","type":"markdown"},"gitbook":{"version":"6.0.3","time":"2025-06-03T22:18:05.715Z"},"basePath":"../../../..","book":{"language":"en"}});
         });
     </script>
 </div>
