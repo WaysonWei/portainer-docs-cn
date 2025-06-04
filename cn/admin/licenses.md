@@ -1,31 +1,31 @@
-# Licenses
+# 许可证
 
-Licensing in Portainer Business Edition is based on the [number of nodes](https://portal.portainer.io/knowledge/what-is-a-node-for-licensing-purposes) you are managing.
+Portainer Business Edition的许可是基于您管理的[节点数量](https://portal.portainer.io/knowledge/what-is-a-node-for-licensing-purposes)。
 
 <figure><img src="/assets/2.25.0-licenses-info.png" alt=""><figcaption></figcaption></figure>
 
-If you wish to renew your existing license you can do so by clicking the **Renew license** button.
+如果您想续订现有许可证，可以点击**Renew license**按钮。
 
-You can also view a list of each license applied to your Portainer installation.
+您还可以查看应用于Portainer安装的每个许可证列表。
 
 <figure><img src="/assets/2.25.0-licenses-list.png" alt=""><figcaption></figcaption></figure>
 
-If you want to add more nodes to your environment than your license allows, you can [buy more nodes](https://portal.portainer.io/knowledge/how-do-i-add-more-nodes-to-my-license).
+如果您想添加比许可证允许更多的节点到您的环境，可以[购买更多节点](https://portal.portainer.io/knowledge/how-do-i-add-more-nodes-to-my-license)。
 
-## Add a new license
+## 添加新许可证
 
-Once you have obtained your new license key, to add it to Portainer click **Add license**, enter your license key then click **Submit**.
+获得新许可证密钥后，要将其添加到Portainer，请点击**Add license**，输入您的许可证密钥，然后点击**Submit**。
 
 <figure><img src="/assets/2.20-licenses-add.png" alt=""><figcaption></figcaption></figure>
 
-## Remove a license
+## 移除许可证
 
-To remove a license (for example when you want to remove an expired license), tick the box next to the license and click **Remove**. You will be asked to confirm the removal.
+要移除许可证(例如当您想移除过期的许可证时)，勾选许可证旁边的框并点击**Remove**。系统会要求您确认移除操作。
 
 
-Ensure you have enough licenses to cover the number of nodes you are using before committing to the removal. For more on how nodes are calculated, refer to [this knowledge base article](https://portal.portainer.io/knowledge/what-is-a-node-for-licensing-purposes).
+在确认移除前，请确保您有足够的许可证来覆盖您正在使用的节点数量。有关如何计算节点的更多信息，请参阅[此知识库文章](https://portal.portainer.io/knowledge/what-is-a-node-for-licensing-purposes)。
 
 
 <figure><img src="/assets/2.19-licenses-remove.png" alt=""><figcaption></figcaption></figure>
 
-To confirm, click **Remove**.
+要确认，请点击**Remove**。
