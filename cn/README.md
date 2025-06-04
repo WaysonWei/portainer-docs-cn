@@ -1,43 +1,39 @@
-# Welcome
+# 欢迎
 
-Welcome to Portainer's official documentation site.
+欢迎来到 Portainer 官方文档站点。
 
-## About Portainer
+## 关于 Portainer
 
-**Portainer Community Edition (CE)** is our foundation. With over half a million regular users, CE is a powerful, open source toolset that allows you to easily build and manage containers in Docker, Docker Swarm, Kubernetes and Azure ACI.
+**Portainer Community Edition (CE)** 是我们的基础版本。拥有超过50万常规用户，CE是一个强大的开源工具集，可让您轻松构建和管理 Docker、Docker Swarm、Kubernetes 和 Azure ACI 中的容器。
 
-**Portainer Business Edition (BE)** is our commercial offering. With features geared towards businesses and larger organizations such as [Role-Based Access Control](admin/user/roles.md), [registry management](admin/registries/browse.md), and [dedicated support](./#getting-support), Portainer BE is a powerful toolset that allows you to easily build and manage containers in Docker, Docker Swarm, Kubernetes, Podman and Azure ACI.
+**Portainer Business Edition (BE)** 是我们的商业版本。包含面向企业和大型组织的功能，如[基于角色的访问控制](admin/user/roles.md)、[注册表管理](admin/registries/browse.md)和[专属支持](./#getting-support)，Portainer BE 是一个强大的工具集，可让您轻松构建和管理 Docker、Docker Swarm、Kubernetes、Podman 和 Azure ACI 中的容器。
 
+Portainer Business Edition 需要许可证密钥才能安装和使用。如果您目前没有许可证密钥，可以[申请三个节点的免费版本](https://www.portainer.io/get-a-license)或[购买许可证](https://www.portainer.io/pricing)。
 
-Portainer Business Edition requires a license key to install and use. If you don't currently have a license key, you can [request three nodes free](https://www.portainer.io/get-a-license) of Portainer Business Edition or [purchase a license](https://www.portainer.io/pricing).
+Portainer 通过简单易用的 UI 隐藏了管理容器的复杂性。通过消除使用 CLI、编写 YAML 或理解清单的需求，Portainer 使部署应用程序和故障排除变得如此简单，任何人都可以做到。
 
+我们的团队随时为您提供帮助。社区版和五/三个节点免费用户可以通过我们的[社区支持渠道](./#community-edition)获得帮助，付费商业客户则可以通过我们的[商业支持渠道](./#business-edition)获得支持。
 
-Portainer hides the complexity of managing containers behind an easy-to-use UI. By removing the need to use the CLI, write YAML or understand manifests, Portainer makes deploying apps and troubleshooting problems so easy that anyone can do it.
+## 文档
 
-Our team is here to help you on your journey. Community and five/three nodes free users can get assistance through our [community support channels](./#community-edition), and paid Business customers through our [business support channels](./#business-edition).
+我们正在努力确保我们的文档跟上不断增长的 Portainer 社区。如果您有问题，我们建议您先从文档开始（就在这里！）。如果找不到所需内容，请访问我们的[知识库](https://portal.portainer.io/knowledge)或我们的支持渠道之一。
 
-## Documentation
+对于更详细的 Portainer 分步指南，我们正在建设[Portainer Academy](https://academy.portainer.io)，会定期添加更多课程。
 
-We're working hard to ensure that our documentation keeps up with our ever-growing Portainer community. If you have a question we encourage you to start with the documentation (right here!). If you can't find what you're looking for, please visit our [Knowledge Base](https://portal.portainer.io/knowledge) or one of our support channels.&#x20;
+作为一个开源产品，我们依赖社区用户通过提问、参与讨论和分享知识来相互支持。结合本网站的文档和我们的[YouTube频道](https://www.youtube.com/channel/UC7diMJcrULjDseq5yhSUZgg)，我们涵盖了很多内容，但可能仍有不足。
 
-For more detailed step-by-step guides to Portainer, we're building out the [Portainer Academy](https://academy.portainer.io) with more courses regularly.
+## 获取支持
 
+### 社区版、五/三个节点免费版和家庭及学生用户
 
-As an open source product we rely on users in our community to support one another by asking questions, engaging in discussions and sharing knowledge. Together with the documentation found on this site and our [YouTube channel](https://www.youtube.com/channel/UC7diMJcrULjDseq5yhSUZgg), we cover a lot of ground but there may be gaps.
+社区版、五/三个节点免费版和家庭及学生用户可以通过以下渠道获得支持：
 
+* **询问我们的AI机器人**：点击本文档站点右下角的**Ask AI**按钮。我们的AI聊天机器人从多个来源获取信息，是寻求帮助的好地方。
+* **提问**：可以在我们的[GitHub Discussions](https://github.com/orgs/portainer/discussions/categories/help)论坛或[社区Slack频道](https://join.slack.com/t/portainer/shared_invite/zt-21zpww5ab-mG_lA7UXbWL3HW3sPqjqEA)提问。其他平台（如Reddit、Discord、Stack Overflow）也存在，但我们在这些平台上不太活跃。
+* **报告错误**：在[GitHub Issues](https://github.com/portainer/portainer/issues)中记录错误以便妥善管理。
+* **报告漏洞**：发送邮件至[security@portainer.io](mailto:security@portainer.io)以便我们立即处理。
+* **报告文档问题**：通过我们的[GitHub文档频道](https://github.com/portainer/portainer-docs/issues)（或开始[贡献](contribute/contribute.md)让我们的文档变得更好！）。
 
-## Getting support
+### 商业版客户
 
-### Community Edition, Five/Three Node Free and Home & Student Users
-
-Community Edition, five/three nodes free and Home & Student users can get support through the following channels:
-
-* **Ask our AI bot** by clicking the **Ask AI** button in the bottom right of this documentation site. Our AI chatbot pulls from a number of sources and is a great place to start when looking for help.
-* **Ask questions** either in our [GitHub Discussions](https://github.com/orgs/portainer/discussions/categories/help) forum or the [community Slack channel](https://join.slack.com/t/portainer/shared_invite/zt-21zpww5ab-mG_lA7UXbWL3HW3sPqjqEA). Other platforms exist (Reddit, Discord, Stack Overflow) but we are less active in those spaces.
-* **Log bugs** in [GitHub Issues](https://github.com/portainer/portainer/issues) so they can be properly managed.
-* **Flag vulnerabilities** by emailing [security@portainer.io](mailto:security@portainer.io) so we can deal with them immediately.
-* **Flag documentation issues** via our [GitHub documentation channel](https://github.com/portainer/portainer-docs/issues) (or start [contributing](contribute/contribute.md) and make our documentation better!).
-
-### Business Edition Customers
-
-If you are a Professional or Enterprise tier Portainer Business Edition customer, you can log tickets directly with our team via [email](mailto:businesssupport@portainer.io) or filling out the [Request Support form](https://www.portainer.io/portainer-business-support). You can report a bug, ask a question, tell us about an issue with documentation, or request a feature. Tickets are checked and resolved by Portainer staff within the SLA.
+如果您是 Professional 或 Enterprise 级别的 Portainer Business Edition 客户，可以直接通过[邮件](mailto:businesssupport@portainer.io)或填写[请求支持表单](https://www.portainer.io/portainer-business-support)向我们的团队提交工单。您可以报告错误、提问、告诉我们文档问题或请求功能。Portainer 员工将在 SLA 内检查并解决工单。

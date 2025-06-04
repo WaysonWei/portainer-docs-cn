@@ -1,11 +1,24 @@
-# Add an environment to an existing installation
+# 添加环境到现有安装
 
-&#x20;you want to add another environment to your existing Portainer installation, first select the type of environment you would like to add.&#x20;
+Portainer Agent 是一个轻量级的 Docker 容器，可以在现有的 Docker 或 Kubernetes 环境中运行，使 Portainer Server 能够管理该环境。
 
-You can choose to connect to existing environments:
+## 为什么使用 Portainer Agent?
 
-<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><strong>Docker Standalone</strong></td><td>Connect to Docker Standalone via URL/IP, API or Socket</td><td></td><td><a href="../admin/environments/add/docker/">docker</a></td><td><a href="/assets/card-docker.png">card-docker.png</a></td></tr><tr><td><strong>Docker Swarm</strong></td><td>Connect to Docker Swarm via URL/IP, API or Socket</td><td></td><td><a href="../admin/environments/add/swarm/">swarm</a></td><td><a href="/assets/card-docker.png">card-docker.png</a></td></tr><tr><td><strong>Kubernetes</strong></td><td>Connect to a Kubernetes environment via URL/IP or via kubeconfig import</td><td></td><td><a href="../admin/environments/add/kubernetes/">kubernetes</a></td><td><a href="/assets/card-kubernetes.png">card-kubernetes.png</a></td></tr><tr><td><strong>Podman</strong></td><td>Connect to a Podman environment via URL/IP or Socket</td><td></td><td><a href="../admin/environments/add/podman/">podman</a></td><td><a href="/assets/podman-logo-tile.png">podman-logo-tile.png</a></td></tr><tr><td><strong>Azure ACI</strong></td><td>Connect to an Azure ACI environment via API</td><td></td><td><a href="../admin/environments/add/aci.md">aci.md</a></td><td><a href="/assets/card-aci.png">card-aci.png</a></td></tr></tbody></table>
+Portainer Agent 提供了几个关键优势：
 
-Or alternatively set up new environments:
+1. **更安全的通信** - Agent 使用 TLS 加密与 Portainer Server 的所有通信
+2. **减少防火墙配置** - 只需要从 Agent 到 Server 的出站连接
+3. **更好的性能** - Agent 在本地处理操作，减少网络延迟
+4. **集群支持** - 在 Swarm 或 Kubernetes 集群中的每个节点上部署 Agent 以实现完整管理
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><strong>Provision KaaS Cluster</strong></td><td>Provision a Kubernetes cluster via a cloud provider's Kubernetes as a Service</td><td></td><td><a href="../admin/environments/add/kaas/">kaas</a></td><td><a href="/assets/card-kaas-large.png">card-kaas-large.png</a></td></tr><tr><td><strong>Create a Kubernetes cluster</strong></td><td>Create a Kubernetes cluster on existing infrastructure</td><td></td><td><a href="../admin/environments/add/kube-create/">kube-create</a></td><td><a href="/assets/card-kube-create-large.png">card-kube-create-large.png</a></td></tr></tbody></table>
+## 部署 Portainer Agent
+
+要在现有环境中部署 Portainer Agent：
+
+1. 在 Portainer UI 中导航到 **Environments** 页面
+2. 点击 **Add environment**
+3. 选择环境类型 (Docker, Kubernetes 等)
+4. 按照显示的说明在目标环境中部署 Agent
+5. 完成后，新环境将出现在您的环境列表中
+
+[了解更多关于 Portainer Agent 架构的信息](../advanced/edge-agent.md)

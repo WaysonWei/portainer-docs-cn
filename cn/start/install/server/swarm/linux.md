@@ -1,58 +1,50 @@
-# Install Portainer BE with Docker Swarm on Linux
+# 在 Linux 上使用 Docker Swarm 安装 Portainer BE
 
+这些安装说明适用于 Portainer 商业版(BE)。如需安装 Portainer 社区版(CE)，请参考[CE安装文档](../../../install-ce/server/swarm/linux.md)。
 
-These installation instructions are for Portainer Business Edition (BE). For Portainer Community Edition (CE) refer to the [CE install documentation](../../../install-ce/server/swarm/linux.md).
+## 简介 <a href="#introduction" id="introduction"></a>
 
+Portainer 由两个组件组成：_Portainer Server_ 和 _Portainer Agent_。这两个组件都作为轻量级 Docker 容器运行在 Docker 引擎上。本文档将帮助您在 Linux 环境上部署 Portainer Server 和 Agent 容器。要向现有 Portainer Server 安装添加新的 Linux Swarm 环境，请参考[Portainer Agent 安装指南](../../../../admin/environments/add/swarm/agent.md)。
 
-## Introduction <a href="#introduction" id="introduction"></a>
+开始之前，您需要：
 
-Portainer consists of two elements, the _Portainer Server_ and the _Portainer Agent_. Both elements run as lightweight Docker containers on a Docker engine. This document will help you deploy the Portainer Server and Agent containers on your Linux environment. To add a new Linux Swarm environment to an existing Portainer Server installation, please refer to the [Portainer Agent installation instructions](../../../../admin/environments/add/swarm/agent.md).
+* 已安装并运行最新版本的 Docker。我们建议按照 Docker 的[官方安装说明](https://docs.docker.com/engine/install/)进行操作 - 特别建议不要通过 snap 在 Ubuntu 发行版上安装 Docker，因为可能会遇到兼容性问题
+* 已[启用](https://docs.docker.com/engine/swarm/swarm-mode/)并运行 Swarm 模式，包括用于 swarm 服务通信的 overlay 网络
+* 在 swarm 集群的管理节点上拥有 `sudo` 权限
+* 默认情况下，Portainer 将通过端口 `9443` 暴露 UI，并通过端口 `8000` 暴露 TCP 隧道服务器。后者是可选的，仅当您计划将 Edge 计算功能与 Edge agent 一起使用时才需要
+* 管理节点和工作节点必须能够通过端口 `9001` 相互通信
+* Portainer 商业版的许可证密钥
 
-To get started, you will need:
+安装说明还假设您的环境满足以下条件：
 
-* The latest version of Docker installed and working. We recommend following the [official installation instructions](https://docs.docker.com/engine/install/) for Docker - in particular, we advise _against_ installing Docker via snap on Ubuntu distributions as you may run into compatibility issues.
-* Swarm mode [enabled](https://docs.docker.com/engine/swarm/swarm-mode/) and working, including the overlay network for the swarm service communication
-* `sudo` access on the manager node of your swarm cluster
-* By default, Portainer will expose the UI over port `9443` and expose a TCP tunnel server over port `8000`. The latter is optional and is only required if you plan to use the Edge compute features with Edge agents.
-* The manager and worker nodes must be able to communicate with each other over port `9001`.
-* A license key for Portainer Business Edition.
+* 您的环境符合[我们的系统要求](../../../requirements-and-prerequisites.md)。虽然 Portainer 可能适用于其他配置，但可能需要更改配置或功能受限
+* 您通过 Unix 套接字访问 Docker。不支持通过 TCP 连接 Docker Swarm
+* 运行 Docker 的机器上禁用了 SELinux
+* Docker 以 root 身份运行。无 root 的 Docker 运行 Portainer 有一些限制，并且需要额外的配置
+* 您在 swarm 中运行单个管理节点。如果有多个管理节点，请先[阅读此知识库文章](https://portal.portainer.io/knowledge/how-can-i-ensure-portainers-configuration-is-retained)
+* 如果您的节点使用 DNS 记录进行通信，请确保所有记录在集群中都可解析
 
-The installation instructions also make the following assumptions about your environment:
+## 部署 <a href="#deployment" id="deployment"></a>
 
-* Your environment meets [our requirements](../../../requirements-and-prerequisites.md). While Portainer may work with other configurations, it may require configuration changes or have limited functionality.
-* You are accessing Docker via Unix sockets. Connecting via TCP is not supported in Docker Swarm.
-* SELinux is disabled on the machine running Docker.
-* Docker is running as root. Portainer with rootless Docker has some limitations, and requires additional configuration.
-* You are running a single manager node in your swarm. If you have more than one, please [read this knowledge base article](https://portal.portainer.io/knowledge/how-can-i-ensure-portainers-configuration-is-retained) before proceeding.
-* If your nodes are using DNS records to communicate, that all records are resolvable across the cluster.
+Portainer 可以直接作为服务部署在您的 Docker 集群中。请注意，此方法将自动部署单个 Portainer Server 实例，并在集群中的每个节点上全局部署 Portainer Agent 服务。
 
-## Deployment <a href="#deployment" id="deployment"></a>
+**无论集群中有多少节点，只需为您的环境执行此操作一次**。您**不需要**将集群中的每个节点作为单独的环境添加到 Portainer 中。将清单部署到您的 swarm 将自动包含每个节点。将每个节点添加为单独的环境也会消耗比预期更多的许可节点数。
 
-
-
-Portainer can be directly deployed as a service in your Docker cluster. Note that this method will automatically deploy a single instance of the Portainer Server, and deploy the Portainer Agent as a global service on every node in your cluster.
-
-
-Only do this **once** for your environment, regardless of how many nodes are in the cluster. You **do not** need to add each node in your cluster as a separate environment in Portainer. Deploying the manifest to your swarm will include every node in the cluster automatically. Adding each node as a separate environment will also consume more of your licensed node count than you may expect.
-
-
-First, retrieve the stack YML manifest:
+首先，获取 stack YML 清单：
 
 ```
 curl -L https://downloads.portainer.io/ee-lts/portainer-agent-stack.yml -o portainer-agent-stack.yml
 ```
 
-Then use the downloaded YML manifest to deploy your stack:
+然后使用下载的 YML 清单部署您的 stack：
 
 ```
 docker stack deploy -c portainer-agent-stack.yml portainer
 ```
 
+默认情况下，Portainer 生成并使用自签名 SSL 证书来保护端口 `9443`。或者，您可以在安装期间[提供自己的 SSL 证书](../../../../advanced/ssl.md#using-your-own-ssl-certificate-on-docker-swarm)，或在安装完成后[通过 Portainer UI](../../../../admin/settings/#ssl-certificate) 提供。
 
-By default, Portainer generates and uses a self-signed SSL certificate to secure port `9443`. Alternatively you can provide your own SSL certificate [during installation](../../../../advanced/ssl.md#using-your-own-ssl-certificate-on-docker-swarm) or [via the Portainer UI](../../../../admin/settings/#ssl-certificate) after installation is complete.
-
-
-Portainer Server and the Agents have now been installed. You can check to see whether the Portainer Server and Agent containers have started by running `docker ps`:
+Portainer Server 和 Agent 现已安装完毕。您可以通过运行 `docker ps` 来检查 Portainer Server 和 Agent 容器是否已启动：
 
 ```
 root@manager01:~# docker ps
@@ -61,18 +53,16 @@ CONTAINER ID   IMAGE                           COMMAND                  CREATED 
 2db7dd4bfba0   portainer/portainer-ee:lts      "/portainer -H tcp:/…"   About a minute ago   Up About a minute   8000/tcp, 9443/tcp   portainer_portainer.1.gpuvu3pqmt1m19zxfo44v7izx
 ```
 
-## Logging In <a href="#logging-in" id="logging-in"></a>
+## 登录 <a href="#logging-in" id="logging-in"></a>
 
-Now that the installation is complete, you can log into your Portainer Server instance by opening a web browser and going to:
+安装完成后，您可以通过打开网页浏览器并访问以下地址来登录您的 Portainer Server 实例：
 
 ```
 https://localhost:9443
 ```
 
-Replace `localhost` with the relevant IP address or FQDN if needed, and adjust the port if you changed it earlier.
+如果需要，将 `localhost` 替换为相关 IP 地址或 FQDN，如果之前更改过端口，也请相应调整。
 
-You will be presented with the initial setup page for Portainer Server.
-
+您将看到 Portainer Server 的初始设置页面。
 
 [setup.md](../setup.md)
-

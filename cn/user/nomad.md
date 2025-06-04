@@ -1,3 +1,3 @@
 # Nomad
 
-In our ongoing efforts to refine and optimize Portainer, we have made the decision to discontinue support for HashiCorp Nomad as an environment type from Portainer version 2.20.0. This decision is based on limited user adoption and the considerable development resources required to maintain Nomad support.
+在我们不断改进和优化Portainer的过程中，我们决定从Portainer 2.20.0版本开始停止对HashiCorp Nomad作为环境类型的支持。这一决定是基于有限的用户采用率以及维护Nomad支持所需的大量开发资源。

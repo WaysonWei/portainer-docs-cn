@@ -1,21 +1,13 @@
-# Install Portainer BE
+# 安装 Portainer 商业版(BE)
 
+这些安装说明适用于 Portainer 商业版(BE)。如需安装 Portainer 社区版(CE)，请参考[CE安装文档](../install-ce/)。
 
-These installation instructions are for Portainer Business Edition (BE). For Portainer Community Edition (CE) refer to the [CE install documentation](../install-ce/).
+Portainer 商业版安装过程简单直接。您有两种选择：全新安装或在现有安装中添加环境。
 
+如需详细的生产环境设置分步指南，请查看 Portainer Academy 中的[最佳实践安装指南](https://academy.portainer.io/install/)。
 
-Portainer Business Edition is straightforward to install. There are two options: installing new or adding an environment to an existing installation.
+在继续之前，请确保您的环境符合[我们的系统要求](../requirements-and-prerequisites.md)。
 
-For a detailed, step-by-step guide to setting up Portainer for production, have a look at our [Best Practice Install Guide](https://academy.portainer.io/install/) in the Portainer Academy.
+[服务器安装](server/)
 
-
-If you haven't already, please check that your environments meet [our requirements](../requirements-and-prerequisites.md) before proceeding.
-
-
-
-[server](server/)
-
-
-
-[agent.md](../agent.md)
-
+[Agent 安装](../agent.md)

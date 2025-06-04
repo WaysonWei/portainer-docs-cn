@@ -1,94 +1,93 @@
-# Lifecycle policy
+# 生命周期政策
 
-Portainer makes this policy public so customers and partners can effectively plan, deploy, and support their container management infrastructure effectively using Portainer. It is published in an effort to provide as much transparency as possible but Portainer has the discretion to make exceptions from this policy should that be in Portainer’s or our customer’s best interests.
+Portainer公开此政策，以便客户和合作伙伴能够有效地规划、部署和支持他们使用Portainer的容器管理基础设施。发布此政策是为了尽可能提供透明度，但Portainer有权根据Portainer或客户的最佳利益对此政策做出例外处理。
 
-Any release dates are provided for guidance only and the exact dates may change.
+任何发布日期仅供参考，具体日期可能会有所变化。
 
-## The Portainer lifecycle
+## Portainer生命周期
 
-Portainer releases approximately follow a monthly cadence for minor releases (X.Y) which can introduce feature enhancements and new features but endeavor to maintain backward compatibility.
+Portainer的次要版本(X.Y)大约每月发布一次，可能引入功能增强和新功能，但会努力保持向后兼容性。
 
-Micro or patch releases (X.Y.z) are released as needed and are limited to backward compatible bug fixes only.
+微版本或补丁版本(X.Y.z)根据需要发布，仅限于向后兼容的错误修复。
 
-Major versions (X) will be much less frequent, will include potential breaking changes, and may require an upgrade or migration process from previous versions.
+主要版本(X)发布频率低得多，可能包含破坏性变更，并可能需要从先前版本进行升级或迁移过程。
 
-All releases are cumulative - all previous enhancements and fixes are included in each release.
+所有版本都是累积性的 - 每个版本都包含之前的所有增强功能和修复。
 
-## Terminology
+## 术语
 
-### Supported versus maintained
+### 支持与维护
 
-When we say “supported”, we are referring to the commercial support that is included with Portainer Business Edition subscriptions at the Scale and Enterprise level. This includes access to all STS and LTS releases and patches. Our [support terms](https://www.portainer.io/support-terms) have more detail on what is and isn’t covered by our support.
+当我们说"支持"时，指的是包含在Portainer商业版订阅(Scale和Enterprise级别)中的商业支持。这包括对所有STS和LTS版本及补丁的访问。我们的[支持条款](https://www.portainer.io/support-terms)详细说明了支持范围。
 
-For Starter, Home & Student, our free Business Edition offerings, and our Community Edition, support is provided through our [community support channels](https://www.portainer.io/get-support-for-portainer).
+对于Starter、Home & Student、我们的免费商业版产品以及社区版，支持通过我们的[社区支持渠道](https://www.portainer.io/get-support-for-portainer)提供。
 
-The term “maintained” refers to the act of releasing updated versions of our releases, for example patches to resolve bugs or security issues. All editions of Business Edition and Community Edition will be maintained according to each release’s respective lifecycle.
+"维护"一词指的是发布我们版本的更新版本的行为，例如修复错误或安全问题的补丁。所有商业版和社区版都将根据每个版本各自的生命周期进行维护。
 
-Portainer always recommends updating to the latest version in the release stream to ensure you have the latest security fixes, bug fixes, and performance improvements. It is at Portainer’s discretion to backport fixes to any version outside of the supported version window.
+Portainer始终建议更新到发布流中的最新版本，以确保您拥有最新的安全修复、错误修复和性能改进。Portainer有权决定是否将修复程序向后移植到支持版本窗口之外的任何版本。
 
-### STS versus LTS
+### STS与LTS
 
-Portainer has two release streams, STS and LTS and it’s important you know the differences so you can choose accordingly.
+Portainer有两个发布流，STS和LTS，了解它们之间的区别非常重要，以便您做出相应选择。
 
-#### **Short Term Support (STS) releases**
+#### **短期支持(STS)版本**
 
-Short Term Support releases are identified with an “STS” suffix.
+短期支持版本带有"STS"后缀。
 
-These are supported and maintained until the release of the next STS or LTS version. Use STS versions if you are interested in getting the latest features faster and don’t mind upgrading more frequently.
+这些版本在下一个STS或LTS版本发布之前都得到支持和维护。如果您希望更快获得最新功能并且不介意更频繁地升级，请使用STS版本。
 
-#### **Long Term Support (LTS) releases**
+#### **长期支持(LTS)版本**
 
-Long Term Support releases are identified with an “LTS” suffix.
+长期支持版本带有"LTS"后缀。
 
-These releases are supported and maintained until the release of the next LTS version plus a three month migration window so are more suitable for environments where adding new features on a frequent basis is less desirable.
+这些版本在下一个LTS版本发布之前都得到支持和维护，外加三个月的迁移窗口，因此更适合那些不希望频繁添加新功能的环境。
 
-
-Portainer LTS releases focus less on new features and more on stability so Portainer recommends LTS releases for production workloads.
+Portainer LTS版本更注重稳定性而非新功能，因此Portainer建议生产工作负载使用LTS版本。
 
 
 ## Current and planned releases
 
-Each stream (LTS and STS) will have a number of patch releases throughout it’s life.
+每个发布流(LTS和STS)在其生命周期内都会有多个补丁版本。
 
-### Current releases
+### 当前版本
 
-| Release      | Release Date | End of support/maintenance |
-| ------------ | ------------ | -------------------------- |
-| 2.29 STS     | Apr 2025     | May 2025                   |
-| **2.27 LTS** | **Feb 2025** | **Jan 2026**               |
+| 版本       | 发布日期   | 支持/维护结束时间 |
+| ---------- | ---------- | ----------------- |
+| 2.29 STS   | 2025年4月  | 2025年5月         |
+| **2.27 LTS** | **2025年2月** | **2026年1月**     |
 
-### Planned releases
+### 计划中的版本
 
-| Release  | Release Date | End of support/maintenance |
-| -------- | ------------ | -------------------------- |
-| 2.30 STS | May 2025     | Jun 2025                   |
+| 版本     | 发布日期   | 支持/维护结束时间 |
+| -------- | ---------- | ----------------- |
+| 2.30 STS | 2025年5月  | 2025年6月         |
 
 <figure><img src="/assets/portainer-lifecycle-releases.png" alt=""><figcaption></figcaption></figure>
 
-Sitting on an older release that is no longer maintained or supported is strongly discouraged and customers take full responsibility for doing so. Customers are strongly encouraged to ensure they are running the latest patch release for a given stream.
+强烈不建议使用不再维护或支持的旧版本，客户需自行承担相关责任。强烈建议客户确保他们运行的是给定发布流的最新补丁版本。
 
-## Older releases that are no longer supported or maintained
+## 不再支持或维护的旧版本
 
-The following releases have passed the end of support date and are no longer maintained or supported. If you are using one of these versions (or older), we recommend that you [update](upgrade/) as soon as possible.
+以下版本已过支持结束日期，不再维护或支持。如果您正在使用这些版本(或更旧版本)，我们建议您尽快[更新](upgrade/)。
 
-| Release  | Release Date | End of support/maintenance |
-| -------- | ------------ | -------------------------- |
-| 2.17     | Feb 2023     | Apr 2023                   |
-| 2.18     | Apr 2023     | Aug 2023                   |
-| 2.19     | Aug 2023     | Aug 2024                   |
-| 2.20 STS | Mar 2024     | Aug 2024                   |
-| 2.22 STS | Sep 2024     | Oct 2024                   |
-| 2.23 STS | Oct 2024     | Nov 2024                   |
-| 2.24 STS | Nov 2024     | Dec 2024                   |
-| 2.25 STS | Dec 2024     | Jan 2025                   |
-| 2.26 STS | Jan 2025     | Feb 2025                   |
-| 2.28 STS | Mar 2025     | Apr 2025                   |
+| 版本     | 发布日期   | 支持/维护结束时间 |
+| -------- | ---------- | ----------------- |
+| 2.17     | 2023年2月  | 2023年4月         |
+| 2.18     | 2023年4月  | 2023年8月         |
+| 2.19     | 2023年8月  | 2024年8月         |
+| 2.20 STS | 2024年3月  | 2024年8月         |
+| 2.22 STS | 2024年9月  | 2024年10月        |
+| 2.23 STS | 2024年10月 | 2024年11月        |
+| 2.24 STS | 2024年11月 | 2024年12月        |
+| 2.25 STS | 2024年12月 | 2025年1月         |
+| 2.26 STS | 2025年1月  | 2025年2月         |
+| 2.28 STS | 2025年3月  | 2025年4月         |
 
-## Notes
+## 注意事项
 
-Portainer uses the [semantic versioning scheme](https://semver.org/) and while Portainer endeavors to follow best practices, we reserve the right to make exceptions should that be in Portainer’s and our customer’s best interests.
+Portainer使用[语义版本控制方案](https://semver.org/)，虽然Portainer努力遵循最佳实践，但我们保留在符合Portainer和客户最佳利益时做出例外的权利。
 
-For information on the available options and best practices for updating Portainer deployments, [refer to our update documentation](upgrade/).
+有关更新Portainer部署的可用选项和最佳实践的信息，请[参考我们的更新文档](upgrade/)。
 
 
 [requirements-and-prerequisites.md](requirements-and-prerequisites.md)
