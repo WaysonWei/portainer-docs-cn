@@ -1,47 +1,43 @@
-# Manage a registry
+# 管理注册表
 
-The registry manager extends your container management experience by giving you the ability to browse defined registries and manipulate their content. By using this feature, container users enjoy the benefit of having a single interface to manage any Docker registry deployment, providing a consistent look and feel across any provider.
+注册表管理器通过让您能够浏览已定义的注册表并操作其内容，扩展了您的容器管理体验。使用此功能，容器用户可以享受单一界面管理任何Docker注册表部署的优势，提供跨任何提供商的一致外观和感觉。
 
-## Adding a tag
+## 添加标签
 
-From the menu select **Registries**, select the registry you want to manage then click **browse**. From the list, select the repository you want to manage.
+从菜单中选择**注册表**，选择要管理的注册表，然后点击**浏览**。从列表中选择要管理的存储库。
 
 <figure><img src="..//assets/2.15-registries-manage.gif" alt=""><figcaption></figcaption></figure>
 
-In the **Add tag** section at the top-right of the page, enter the name of your tag, select the image from the dropdown, then click the **Add tag** button.
+在页面右上角的**添加标签**部分，输入标签名称，从下拉菜单中选择镜像，然后点击**添加标签**按钮。
 
 <figure><img src="..//assets/2.15-registries-manage-addtag.png" alt=""><figcaption></figcaption></figure>
 
-## Retagging
+## 重新标记
 
-
-If you host your own Docker registry, and you want the ability to retag images, you will need to add the following to your Docker registry's environment variables:
+如果您托管自己的Docker注册表，并且想要重新标记镜像的能力，您需要将以下内容添加到Docker注册表的环境变量中：
 
 `REGISTRY_STORAGE_DELETE_ENABLED=TRUE`
 
-
-From the menu select **Registries**, choose the registry you want to manage and click **browse**. From the list of repositories, select the repository you want to manage.
+从菜单中选择**注册表**，选择要管理的注册表并点击**浏览**。从存储库列表中，选择要管理的存储库。
 
 <figure><img src="..//assets/2.15-registries-manage.gif" alt=""><figcaption></figcaption></figure>
 
-In the **Tags** section, locate the image you want to retag then click **Retag** to its right. Enter the new tag for the image then click the tick icon.
+在**标签**部分，找到要重新标记的镜像，然后点击其右侧的**重新标记**。输入镜像的新标签，然后点击勾选图标。
 
 <figure><img src="..//assets/2.15-registries-manage-retag.png" alt=""><figcaption></figcaption></figure>
 
-## Removing a tag
+## 移除标签
 
-
-If you host your own Docker registry, and want the ability to remove tags, you will need to add the following to your Docker registry's environment variables:
+如果您托管自己的Docker注册表，并且想要移除标签的能力，您需要将以下内容添加到Docker注册表的环境变量中：
 
 `REGISTRY_STORAGE_DELETE_ENABLED=TRUE`
 
-
-From the menu select **Registries**, select the registry you want to manage then click **Browse**. From the list, select the repository you want to manage.
+从菜单中选择**注册表**，选择要管理的注册表，然后点击**浏览**。从列表中选择要管理的存储库。
 
 <figure><img src="..//assets/2.15-registries-manage.gif" alt=""><figcaption></figcaption></figure>
 
-Tick the checkbox next to the tag you want to remove then click **Remove**.
+勾选要移除的标签旁边的复选框，然后点击**移除**。
 
 <figure><img src="..//assets/2.15-registries-manage-removetag.gif" alt=""><figcaption></figcaption></figure>
 
-When the confirmation message appears, if you're sure, click **Remove**.
+当确认消息出现时，如果确定，点击**移除**。

@@ -1,73 +1,65 @@
-# Install Edge Agent Standard on Docker Standalone
+# 在Docker Standalone上安装Edge Agent标准版
 
-When a remote environment is not directly accessible from the Portainer Server instance, we recommend deploying the Portainer _Edge Agent_ to the remote environment. This allows you to manage the remote environment from your Portainer Server instance without having to open any ports on the environment. Rather than the traditional approach of the server connecting to Agents, the Edge Agent instead polls the Portainer Server periodically to see if there are any pending jobs to perform, and acts appropriately.
+当远程环境无法直接从Portainer Server实例访问时，我们建议在远程环境上部署Portainer _Edge Agent_。这样您就可以从Portainer Server实例管理远程环境，而无需在环境中开放任何端口。与传统方式（服务器连接到Agent）不同，Edge Agent会定期轮询Portainer Server以检查是否有待处理的任务并采取相应操作。
 
+有关Edge Agent工作原理的技术概述，请参阅我们的[高级文档](../../../../advanced/edge-agent.md)。
 
-For a technical summary of how the Edge Agent works, refer to our [advanced documentation](../../../../advanced/edge-agent.md).
+## 准备工作
 
+Edge Agent需要在Portainer Server实例上开放两个端口：UI端口（通常为`9443`或Kubernetes NodePort的`30779`）和隧道端口（`8000`或使用Kubernetes NodePort时的`30776`）。隧道端口用于在Portainer Edge Agent和Portainer Server实例之间提供安全的TLS隧道。我们的安装说明默认配置Portainer Server监听这两个端口，您需要确保防火墙允许外部访问这些端口才能继续。
 
-## Preparation
+如果您的Portainer Server实例部署时启用了TLS，Agent将使用HTTPS连接回Portainer。但如果您的Portainer实例使用自签名证书，则必须使用`-e EDGE_INSECURE_POLL=1`标志部署Edge Agent。如果不使用此标志部署Edge Agent，则Agent将无法与Portainer Server实例通信。
 
-The Edge Agent requires two ports be open on the Portainer Server instance: the UI port (usually `9443` or `30779` on Kubernetes with NodePort) and the tunnel port ( `8000` or `30776` when using Kubernetes with NodePort). The tunnel port is used to provide a secure TLS tunnel between the Portainer Edge Agent and the Portainer Server instance. Our installation instructions configure Portainer Server to listen on both ports by default, and you will need to ensure your firewalling provides external access to these ports in order to proceed.
+此外，我们的说明假设您的环境满足[我们的要求](../../../../start/requirements-and-prerequisites.md)。虽然Portainer可能在其他配置下工作，但可能需要配置更改或功能受限。
 
+## 部署
 
-If your Portainer Server instance is deployed with TLS, the agent will use HTTPS for the connection it makes back to Portainer. However if your Portainer instance uses a self-signed certificate, the Edge Agent must be deployed with the `-e EDGE_INSECURE_POLL=1` flag. If you do not deploy the Edge Agent with this flag, then the agent will not be able to communicate with the Portainer Server instance.
-
-
-In addition, our instructions assume your environment meets [our requirements](../../../../start/requirements-and-prerequisites.md). While Portainer may work with other configurations, it may require configuration changes or have limited functionality.
-
-## Deploying
-
-To add a standard Edge Agent to a Docker Standalone environment, from the menu expand **Environment-related**, click **Environments**, then click **Add environment**.
+要在Docker Standalone环境上添加标准Edge Agent，从菜单展开**环境相关**，点击**环境**，然后点击**添加环境**。
 
 <figure><img src="../../..//assets/2.22-environments-add.gif" alt=""><figcaption></figcaption></figure>
 
-Select **Docker Standalone** then click **Start Wizard**. Then select the **Edge Agent Standard** option. Enter the environment details using the table below as a guide.
+选择**Docker Standalone**，然后点击**开始向导**。接着选择**Edge Agent标准版**选项。参考下表输入环境详细信息。
 
-| Field                           | Overview                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| 字段                           | 概述                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Name                            | Enter a name for your environment.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| Portainer API server URL        | Enter the URL and port of your Portainer Server instance as it will be seen from your Edge environment. If using a FQDN, ensure that DNS is properly configured to provide this.                                                                                                                                                                                                                                                                                                                                                              |
-| Portainer tunnel server address | <p>Enter the address and port of your Portainer Server instance's tunnel server as it will be seen from your Edge environment. If using a FQDN, ensure that DNS is properly configured to provide this.<br>In most cases, this will be the same address as the Portainer API server URL, but without the protocol and on port <code>8000</code>.<br>This field is only available in Portainer Business Edition. For Community Edition users, refer to <a href="https://github.com/portainer/portainer/issues/6251">this GitHub issue</a>.</p> |
+| 名称                            | 输入环境的名称。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| Portainer API服务器URL        | 输入从Edge环境看到的Portainer Server实例的URL和端口。如果使用FQDN，请确保DNS已正确配置。                                                                                                                                                                                                                                                                                                                                                              |
+| Portainer隧道服务器地址 | <p>输入从Edge环境看到的Portainer Server实例隧道服务器的地址和端口。如果使用FQDN，请确保DNS已正确配置。<br>在大多数情况下，这与Portainer API服务器URL地址相同，但没有协议且端口为<code>8000</code>。<br>此字段仅在Portainer商业版中可用。社区版用户请参考<a href="https://github.com/portainer/portainer/issues/6251">此GitHub问题</a>。</p> |
 
 <figure><img src="../../..//assets/2.17-install-agent-edge-nameurl.png" alt=""><figcaption></figcaption></figure>
 
-As an optional step you can expand the **More settings** section and adjust the Poll frequency for the environment - this defines how often this Edge Agent will check the Portainer Server for new jobs. The default is every 5 seconds. You can also categorize the environment by adding it to a [group](../../groups.md) or [tagging](../../tags.md) it for better searchability.
+作为可选步骤，您可以展开**更多设置**部分并调整环境的轮询频率 - 这定义了Edge Agent检查Portainer Server新任务的频率。默认为每5秒一次。您还可以通过将环境添加到[组](../../groups.md)或[标记](../../tags.md)来分类环境以提高可搜索性。
 
 <figure><img src="../../..//assets/2.15-edge_agent_more_settings.png" alt=""><figcaption></figcaption></figure>
 
-When you're ready, click **Create**. If you are pre-staging your Edge Agent deployment, you can now retrieve the join token for use in your deployment.&#x20;
+准备就绪后，点击**创建**。如果您正在预置Edge Agent部署，现在可以检索加入令牌以用于部署。
 
 <figure><img src="../../..//assets/2.18-environments-add-docker-edge-jointoken.png" alt=""><figcaption></figcaption></figure>
 
-Otherwise, complete the new fields that have appeared using the table below as a guide.
+否则，请参考下表完成新出现的字段。
 
-| Field/Option            | Overview                                                                                                                                        |
+| 字段/选项            | 概述                                                                                                                                        |
 | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| Environment variables   | Enter a comma separated list of environment variables that will be sourced from the host where the agent is deployed and provided to the agent. |
-| Allow self-signed certs | Toggle this on to allow self-signed certificates when the agent is connecting to Portainer via HTTPS.                                           |
+| 环境变量   | 输入逗号分隔的环境变量列表，这些变量将从部署Agent的主机获取并提供给Agent。 |
+| 允许自签名证书 | 切换此选项以允许Agent通过HTTPS连接到Portainer时使用自签名证书。                                           |
 
 <figure><img src="../../..//assets/2.18-environments-add-docker-edge-envvars.png" alt=""><figcaption></figcaption></figure>
 
-Choose your platform (**Linux** or **Windows**), copy the generated command and run the command on your Edge environment to complete the installation.
+选择您的平台（**Linux**或**Windows**），复制生成的命令并在Edge环境上运行该命令以完成安装。
 
-
-If you have set a custom `AGENT_SECRET` on your Portainer Server instance (by specifying an AGENT\_SECRET environment variable when starting the Portainer Server container) you **must** remember to explicitly provide the same secret to your Edge Agent in the same way (as an environment variable) when deploying your Edge Agent, for example by adding the following to your `docker run` command: \
+如果您在Portainer Server实例上设置了自定义`AGENT_SECRET`（通过在启动Portainer Server容器时指定AGENT_SECRET环境变量），您**必须**记得在部署Edge Agent时以相同方式（作为环境变量）显式提供相同的密钥，例如在`docker run`命令中添加：\
 `-e AGENT_SECRET=yoursecret`
 
+如果要部署Edge Agent的环境上的Docker卷路径位于非标准位置（而不是`/var/lib/docker/volumes`），则需要调整部署命令中的卷挂载以适应。
 
-
-If Docker on the environment you're deploying the Edge Agent to has the Docker volume path at a non-standard location (instead of `/var/lib/docker/volumes`) you will need to adjust the volume mount in the deployment command to suit.&#x20;
-
-For example, if your volume path was `/srv/data/docker`, you would change the line in the command to:
+例如，如果您的卷路径是`/srv/data/docker`，您需要将命令中的行更改为：
 
 ```
 - v /srv/data/docker:/var/lib/docker/volumes \
 ```
 
-The right side of the mount should remain as `/var/lib/docker/volumes`, as that is what the Edge Agent expects.
-
+挂载的右侧应保持为`/var/lib/docker/volumes`，因为这是Edge Agent期望的。
 
 <figure><img src="../../..//assets/2.18-environments-add-docker-edge-command.png" alt=""><figcaption></figcaption></figure>
 
-If you have another Edge standard environment of the same type to deploy you can click **Add another environment** to do so. Otherwise if you have any other environments to configure click **Next** to proceed, or click **Close** to return to the list of environments.
+如果您还有相同类型的其他Edge标准环境要部署，可以点击**添加另一个环境**。否则，如果您有其他环境需要配置，点击**下一步**继续，或点击**关闭**返回环境列表。

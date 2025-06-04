@@ -1,20 +1,19 @@
-# Add a DockerHub account
+# 添加DockerHub账户
 
-Portainer provides built-in support for anonymous Docker Hub access, but in some cases you may need to log into Docker Hub (for example, private images or to support pulling a large number of images).
+Portainer提供对Docker Hub匿名访问的内置支持，但在某些情况下您可能需要登录Docker Hub（例如访问私有镜像或支持拉取大量镜像）。
 
-From the menu select **Registries** then click **Add registry** and select **DockerHub** as the registry provider.
+从菜单中选择**注册表**，然后点击**添加注册表**并选择**DockerHub**作为注册表提供商。
 
 <figure><img src="../..//assets/2.15-settings-registries-add-dockerhub.gif" alt=""><figcaption></figcaption></figure>
 
-Complete the form, using the table below as a guide.
+填写表单，参考下表作为指南。
 
-| Field/Option           | Overview                                                                                                                                                                                                                                 |
-| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Name                   | Enter a name for the registry. This is how it will appear in the list of registries and when selecting a registry to pull from.                                                                                                          |
-| DockerHub username     | Enter the username you use to connect to Docker Hub.                                                                                                                                                                                     |
-| DockerHub access token | Enter a Docker Hub personal access token that corresponds to the username above. You can create an access token by logging into Docker Hub, clicking your username in the top right and going to Account Settings then the Security tab. |
+| 字段/选项           | 概述                                                                                                                                                                                                                                 |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 名称                | 输入注册表的名称。这将显示在注册表列表中以及选择拉取镜像的注册表时。                                                                                                                                                              |
+| DockerHub用户名     | 输入用于连接Docker Hub的用户名。                                                                                                                                                                                                   |
+| DockerHub访问令牌   | 输入与上述用户名对应的Docker Hub个人访问令牌。您可以通过登录Docker Hub，点击右上角的用户名，进入账户设置然后选择安全选项卡来创建访问令牌。                                                                                        |
 
 <figure><img src="../..//assets/2.15-settings-registries-add-dockerhub-details.png" alt=""><figcaption></figcaption></figure>
 
-When the form is complete, click **Add registry**.
-
+表单填写完成后，点击**添加注册表**。

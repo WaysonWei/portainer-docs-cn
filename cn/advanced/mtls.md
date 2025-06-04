@@ -1,37 +1,35 @@
-# Using mTLS with Portainer
+# 在 Portainer 中使用 mTLS
 
-Mutual TLS (or **mTLS**) is a certificate-based system whereby the client and server (in this case, the Portainer Edge Agent and the Portainer Server) authenticate each other cryptographically via a trusted source (a certificate authority). This can be used as an extra layer of security to protect the communications between the Edge Agent and Portainer. Under this setup, if a third-party system attempts to communicate with the Portainer Server and is not using a certificate signed by the certificate authority it will be rejected.
+双向 TLS（或 **mTLS**）是一种基于证书的系统，客户端和服务器（在本例中为 Portainer Edge Agent 和 Portainer Server）通过受信任的源（证书颁发机构）相互进行加密身份验证。这可以作为额外的安全层来保护 Edge Agent 和 Portainer 之间的通信。在此设置下，如果第三方系统尝试与 Portainer Server 通信但未使用由证书颁发机构签名的证书，则将被拒绝。
 
-This article will walk you through the process of deploying the Portainer Server and the Edge Agents with mTLS support.&#x20;
+本文将引导您完成部署支持 mTLS 的 Portainer Server 和 Edge Agents 的过程。
 
+mTLS 支持仅在 Portainer 商业版中可用。
 
-mTLS support is only available in Portainer Business Edition.
+## 要求
 
+要为 Portainer 配置 mTLS 支持，您需要以下内容：
 
-## Requirements
+* Portainer Server 和 Portainer Edge Agent
+* 证书颁发机构 (CA)。您可以使用自己的企业 CA 或完全控制证书颁发策略的 CA
+* CA 证书，PEM 格式 (`mtlsca.crt`)
+* 可以指向 Portainer Server 实例以专门用于 mTLS 的域（或子域）。这将是服务器证书颁发的域
+* 由您的 CA 为 Portainer Server 颁发的服务器证书 (`mtlsserver.crt`) 和相应的密钥 (`mtlsserver.key`)，PEM 格式。确保这些证书在 `extendedKeyUsage` 中选择了 `serverAuth`。此证书应将用于 mTLS 的域（或子域）作为主题备用名称 (SAN)
+* 由您的 CA 为 Edge Agent 颁发的客户端证书 (`client.crt`) 和相应的密钥 (`client.key`)，PEM 格式。确保这些证书在 `extendedKeyUsage` 中选择了 `clientAuth`
 
-In order to configure Portainer with mTLS support, you will need the following:
+## 配置 Portainer Server
 
-* A Portainer Server and a Portainer Edge Agent.
-* A certificate authority (CA). You can use your own corporate CA or a CA for which you completely control the certificate issuance policy.
-* The CA certificate for your certificate authority, in PEM format (`mtlsca.crt`).
-* A domain (or subdomain) you can point to your Portainer Server instance to be specifically used for mTLS. This will be the domain the server certificate is issued for.
-* A server certificate (`mtlsserver.crt`) and corresponding key (`mtlsserver.key`) issued by your CA for the Portainer Server, in PEM format. Ensure these are issued with `serverAuth` selected for `extendedKeyUsage`. This certificate should have the domain (or subdomain) that will be used for mTLS as the Subject Alternative Name (SAN).
-* A client certificate (`client.crt`) and corresponding key (`client.key`) issued by your CA for the Edge Agent, in PEM format. Ensure these are issued with `clientAuth` selected for `extendedKeyUsage`.
+要与 Edge Agents 一起使用 mTLS，必须为 Portainer Server 实例配置 mTLS 支持。这可以在 Portainer Server 实例的初始安装期间完成，也可以在安装后通过 [Edge Compute 设置](../admin/settings/edge.md#mtls-certificate) 完成。
 
-## Configuring the Portainer Server
+### 在安装期间配置 mTLS
 
-To use mTLS with your Edge Agents, the Portainer Server instance must be configured with mTLS support. This can either be done during the initial installation of the Portainer Server instance, or after installation through the [Edge Compute settings](../admin/settings/edge.md#mtls-certificate).
-
-### Configure mTLS during installation
-
-When deploying your Portainer Server, you will need to make the CA certificate, server certificate and server key available to Portainer. How you do this will depend on your deployment.
+部署 Portainer Server 时，您需要使 CA 证书、服务器证书和服务器密钥对 Portainer 可用。具体操作取决于您的部署方式。
 
 #### Docker Standalone
 
-On your Docker host, upload your CA certificate (`mtlsca.crt`), server certificate (`mtlsserver.crt`) and server key (`mtlsserver.key`) into a directory that will be bind mounted into the Portainer container. In this example we assume your certificates are located at `/root/certs`.
+在 Docker 主机上，将您的 CA 证书 (`mtlsca.crt`)、服务器证书 (`mtlsserver.crt`) 和服务器密钥 (`mtlsserver.key`) 上传到将绑定挂载到 Portainer 容器的目录中。在此示例中，我们假设您的证书位于 `/root/certs`。
 
-Modify your `docker run` command to mount the `/root/certs` directory to `/certs` and add the `--mtlscacert`, `--mtlscert`, and `--mtlskey` options:
+修改您的 `docker run` 命令以将 `/root/certs` 目录挂载到 `/certs` 并添加 `--mtlscacert`、`--mtlscert` 和 `--mtlskey` 选项：
 
 ```bash
 docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always \ 
@@ -42,16 +40,15 @@ docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always \
     --mtlscacert /certs/mtlsca.crt \    
     --mtlscert /certs/mtlsserver.crt \
     --mtlskey /certs/mtlsserver.key
-
 ```
 
-This will start Portainer using your provided CA and certificates.
+这将使用您提供的 CA 和证书启动 Portainer。
 
 #### Docker Swarm
 
-To add mTLS certificates to Portainer Server on Docker Swarm during installation, we recommend adding the necessary files as secrets and then referencing those secrets within the YAML used to deploy Portainer.&#x20;
+要在安装期间将 mTLS 证书添加到 Docker Swarm 上的 Portainer Server，我们建议将必要的文件添加为 secret，然后在用于部署 Portainer 的 YAML 中引用这些 secret。
 
-First, upload your CA certificate (`mtlsca.crt`), server certificate (`mtlsserver.crt`) and server key (`mtlsserver.key`) into a directory that will be referenced by the secret creation. In this example we assume your certificates are located at `/root/certs`. Once you have uploaded the files, create your secrets as follows:
+首先，将您的 CA 证书 (`mtlsca.crt`)、服务器证书 (`mtlsserver.crt`) 和服务器密钥 (`mtlsserver.key`) 上传到将由 secret 创建引用的目录中。在此示例中，我们假设您的证书位于 `/root/certs`。上传文件后，按如下方式创建您的 secret：
 
 ```
 docker secret create portainer.mtlscacert /root/certs/mtlsca.crt
@@ -59,7 +56,7 @@ docker secret create portainer.mtlscert /root/certs/mtlsserver.crt
 docker secret create portainer.mtlskey /root/certs/mtlsserver.key
 ```
 
-Modify your Portainer YAML file to attach the secrets and add the `--mtlscacert`, `--mtlscert` and `--mtlskey` options:
+修改您的 Portainer YAML 文件以附加 secret 并添加 `--mtlscacert`、`--mtlscert` 和 `--mtlskey` 选项：
 
 ```yaml
   portainer:
@@ -84,7 +81,7 @@ Modify your Portainer YAML file to attach the secrets and add the `--mtlscacert`
         - portainer.mtlskey
 ```
 
-and to add the `secrets` definitions to include the secrets we just created:
+并添加 `secrets` 定义以包含我们刚刚创建的 secret：
 
 ```yaml
 secrets:
@@ -96,15 +93,15 @@ secrets:
     external: true
 ```
 
-#### Kubernetes (via Helm)
+#### Kubernetes (通过 Helm)
 
-If it doesn't already exist, create the `portainer` namespace:
+如果尚不存在，请创建 `portainer` 命名空间：
 
 ```
 kubectl create namespace portainer
 ```
 
-Next, create a secret containing the CA, certificate and matching private key:
+接下来，创建一个包含 CA、证书和匹配私钥的 secret：
 
 ```
 kubectl create secret generic portainer-mtls-certs-secret -n portainer \
@@ -113,11 +110,9 @@ kubectl create secret generic portainer-mtls-certs-secret -n portainer \
     --from-file=mtlskey.key=server.key
 ```
 
-Replace `ca.crt`, `server.crt` and `server.key` in the above command with the paths to your CA certificate, certificate and matching key respectively.
+将上述命令中的 `ca.crt`、`server.crt` 和 `server.key` 替换为您的 CA 证书、证书和匹配密钥的路径。
 
-Install Portainer via Helm with the `mtls.existingSecret` parameter set to the name of the secret you just created:
-
-
+通过 Helm 安装 Portainer，并将 `mtls.existingSecret` 参数设置为您刚刚创建的 secret 的名称：
 
 ```
 helm install -n portainer portainer portainer/portainer \
@@ -125,48 +120,33 @@ helm install -n portainer portainer portainer/portainer \
     --set enterpriseEdition.enabled=true
 ```
 
+### 安装后配置 mTLS
 
+如果您已经部署了 Portainer Server，则可以通过 Portainer UI 配置 mTLS 支持。
 
-```
-helm install -n portainer portainer portainer/portainer \
-    --set mtls.existingSecret=portainer-mtls-secret \
-    --set service.type=LoadBalancer \
-    --set enterpriseEdition.enabled=true
-```
-
-
-
-### Configure mTLS post installation
-
-If you already have Portainer Server deployed, you can configure mTLS support through the Portainer UI.
-
-As an admin user, from the left menu select **Settings** then **Edge Compute**. Toggle on **Enable Edge Compute features** if it isn't already on and click **Save Settings**. Then scroll down to the **mTLS Certificate** section.
+作为管理员用户，从左菜单中选择 **Settings**，然后选择 **Edge Compute**。如果尚未启用，请切换 **Enable Edge Compute features** 并点击 **Save Settings**。然后向下滚动到 **mTLS Certificate** 部分。
 
 <figure><img src="/assets/2.18-settings-edge-mtls.png" alt=""><figcaption></figcaption></figure>
 
-Here you can enable the use of mTLS with the **Use separate mTLS cert** toggle, and upload the CA certificate, server certificate and server key using the buttons for **TLS CA certificate**, **TLS certificate** and **TLS key** respectively.
+在这里，您可以使用 **Use separate mTLS cert** 切换启用 mTLS，并使用 **TLS CA certificate**、**TLS certificate** 和 **TLS key** 按钮分别上传 CA 证书、服务器证书和服务器密钥。
 
+如果通过此方法添加或更改 mTLS CA 证书，则需要重新启动 Portainer Server 才能使更改生效。您还应确保使用 mTLS 的任何 Edge Agents 也更新为使用新的 CA 证书。
 
-If you add or change the mTLS CA certificate through this method you will need to restart the Portainer Server in order for the change to apply. You should also ensure any Edge Agents that are using mTLS are also updated to use the new CA certificate.
+## 部署 Edge Agents
 
+将 Portainer Server 实例配置为使用 mTLS 后，您就可以配置 Edge Agent 部署以使用它。
 
-## Deploying the Edge Agents
-
-Once you have the Portainer Server instance configured to use mTLS, you can then configure your Edge Agent deployments to use it as well.
-
-When deploying an Edge Agent you will be provided with a command to run by the Portainer UI. We will take that command and modify it for mTLS support.
+部署 Edge Agent 时，Portainer UI 将为您提供要运行的命令。我们将获取该命令并修改它以支持 mTLS。
 
 ### Docker Standalone
 
-On your Docker host, upload your CA certificate (`mtlsca.crt`), client certificate (`client.crt`) and client key (`client.key`) into a directory that will be bind mounted into the Edge Agent container. In this example we assume your certificates are located at `/root/certs`.
+在 Docker 主机上，将您的 CA 证书 (`mtlsca.crt`)、客户端证书 (`client.crt`) 和客户端密钥 (`client.key`) 上传到将绑定挂载到 Edge Agent 容器的目录中。在此示例中，我们假设您的证书位于 `/root/certs`。
 
-Once the certificates are in place and the secrets created, you can begin to set up your Edge Agent within the Portainer UI.&#x20;
+证书就位并创建 secret 后，您就可以开始在 Portainer UI 中设置 Edge Agent。
 
+执行此操作时，请记住将您为 mTLS 使用选择的域（或子域）（以及服务器证书颁发的域）用作 Portainer API 服务器 URL 和隧道地址（如果适用）。
 
-When doing so, remember to use the domain (or subdomain) you chose for mTLS usage (and that the server certificate was issued for) as the Portainer API server URL and tunnel address (if appropriate).
-
-
-When you have completed the Edge Agent setup in the Portainer UI and have your deployment command, modify the command to mount the `/root/certs` directory to `/certs`, change the `EDGE_INSECURE_POLL` option to `0`, and add the `--mtlscacert`, `--mtlscert`, and `--mtlskey` options:
+在 Portainer UI 中完成 Edge Agent 设置并获得部署命令后，修改命令以将 `/root/certs` 目录挂载到 `/certs`，将 `EDGE_INSECURE_POLL` 选项更改为 `0`，并添加 `--mtlscacert`、`--mtlscert` 和 `--mtlskey` 选项：
 
 ```bash
 docker run -d \
@@ -187,13 +167,13 @@ docker run -d \
   --mtlskey /certs/client.key
 ```
 
-Run the command to deploy your Edge Agent with mTLS support.
+运行命令以部署支持 mTLS 的 Edge Agent。
 
 ### Docker Swarm
 
-To add mTLS certificates to the Edge Agent, we recommend adding the necessary files as secrets and then referencing those secrets within the YAML used to deploy Portainer.&#x20;
+要将 mTLS 证书添加到 Edge Agent，我们建议将必要的文件添加为 secret，然后在用于部署 Portainer 的 YAML 中引用这些 secret。
 
-First, upload your CA certificate (`mtlsca.crt`), client certificate (`client.crt`) and client key (`client.key`) into a directory that will be referenced by the secret creation. In this example we assume your certificates are located at `/root/certs`. Once you have uploaded the files, create your secrets as follows:
+首先，将您的 CA 证书 (`mtlsca.crt`)、客户端证书 (`client.crt`) 和客户端密钥 (`client.key`) 上传到将由 secret 创建引用的目录中。在此示例中，我们假设您的证书位于 `/root/certs`。上传文件后，按如下方式创建您的 secret：
 
 ```
 docker secret create portainer.mtlscacert /root/certs/mtlsca.crt
@@ -201,13 +181,11 @@ docker secret create portainer.mtlscert /root/certs/client.crt
 docker secret create portainer.mtlskey /root/certs/client.key
 ```
 
-Once the certificates are in place and the secrets created, you can begin to set up your Edge Agent within the Portainer UI.
+证书就位并创建 secret 后，您就可以开始在 Portainer UI 中设置 Edge Agent。
 
+执行此操作时，请记住将您为 mTLS 使用选择的域（或子域）（以及服务器证书颁发的域）用作 Portainer API 服务器 URL 和隧道地址（如果适用）。
 
-When doing so, remember to use the domain (or subdomain) you chose for mTLS usage (and that the server certificate was issued for) as the Portainer API server URL and tunnel address (if appropriate).
-
-
-When you have completed the Edge Agent setup in the Portainer UI and have your deployment command, modify the command to change the `EDGE_INSECURE_POLL` option to `0` and add the `--mtlscacert`, `--mtlscert` and `--mtlskey` options, using the secrets we defined above:
+在 Portainer UI 中完成 Edge Agent 设置并获得部署命令后，修改命令以将 `EDGE_INSECURE_POLL` 选项更改为 `0` 并添加 `--mtlscacert`、`--mtlscert` 和 `--mtlskey` 选项，使用我们上面定义的 secret：
 
 ```bash
 docker network create \
@@ -232,11 +210,10 @@ docker service create \
   --mtlscacert /run/secrets/portainer.mtlscacert \
   --mtlscert /run/secrets/portainer.mtlscert \
   --mtlskey /run/secrets/portainer.mtlskey
-
 ```
 
-Run the commands to deploy your Edge Agent with mTLS support.
+运行命令以部署支持 mTLS 的 Edge Agent。
 
 ### Kubernetes
 
-At present, mTLS support for the Portainer Agent running on a Kubernetes environment is a work in progress. If you require instructions for deploying a Portainer Agent with mTLS on a Kubernetes environment, please [get in touch with our support team](../#getting-support).
+目前，Kubernetes 环境上运行的 Portainer Agent 的 mTLS 支持正在开发中。如果您需要在 Kubernetes 环境上部署支持 mTLS 的 Portainer Agent 的说明，请 [联系我们的支持团队](../#getting-support)。

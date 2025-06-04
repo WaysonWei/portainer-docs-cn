@@ -1,27 +1,23 @@
-# Add a GitHub registry
+# 添加GitHub注册表
 
+GitHub注册表选项仅在Portainer商业版中可用。
 
-The GitHub registry option is only available in Portainer Business Edition.
-
-
-From the menu select **Registries** then click **Add registry** and select **GitHub** as the registry provider.
+从菜单中选择**注册表**，然后点击**添加注册表**并选择**GitHub**作为注册表提供商。
 
 <figure><img src="../..//assets/2.17-registries-add-github.gif" alt=""><figcaption></figcaption></figure>
 
-Complete the form, using the table below as a guide.
+填写表单，参考下表作为指南。
 
-| Field/Option              | Overview                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Name                      | Enter the name you'd like to use in Portainer for your registry.                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| Username                  | Enter the username you use to log into your GitHub registry.                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| Personal Access Token     | <p>Enter the personal access token (classic) that corresponds to the username above. Your personal access token (classic) will need the <code>delete:packages</code>, <code>repo</code>, and <code>write:packages</code> scopes assigned.<br>GitHub <a href="https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#authenticating-to-the-container-registry">does not currently support</a> the use of fine-grained tokens for registry access.</p> |
-| Use organisation registry | Toggle this on if your registry is part of a Github organization.                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| Organisation name         | Enter the name of your GitHub organization.                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| 字段/选项              | 概述                                                                                                                                                                                                                                                                                                                                                                                         |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 名称                  | 输入您想在Portainer中用于此注册表的名称。                                                                                                                                                                                                                                                                                                                                                  |
+| 用户名                | 输入用于登录GitHub注册表的用户名。                                                                                                                                                                                                                                                                                                                                                         |
+| 个人访问令牌          | <p>输入与上述用户名对应的个人访问令牌(经典)。您的个人访问令牌(经典)需要分配<code>delete:packages</code>、<code>repo</code>和<code>write:packages</code>权限范围。<br>GitHub<a href="https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#authenticating-to-the-container-registry">目前不支持</a>使用细粒度令牌访问注册表。</p> |
+| 使用组织注册表        | 如果您的注册表属于GitHub组织，请切换此选项。                                                                                                                                                                                                                                                                                                                                               |
+| 组织名称              | 输入您的GitHub组织名称。                                                                                                                                                                                                                                                                                                                                                                   |
 
 <figure><img src="../..//assets/2.17-registries-add-ghcr-details.png" alt=""><figcaption></figcaption></figure>
 
+有关创建个人访问令牌的更多信息，请参阅[GitHub官方文档](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)。
 
-For more information about creating a personal access token, see [GitHub's own documentation](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
-
-
-When the form is complete, click **Add registry**.
+表单填写完成后，点击**添加注册表**。

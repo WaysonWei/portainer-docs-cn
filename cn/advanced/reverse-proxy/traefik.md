@@ -1,12 +1,10 @@
-# Deploying Portainer behind Traefik Proxy
+# 在 Traefik 代理后部署 Portainer
 
-[Traefik Proxy](https://traefik.io/traefik/) is a reverse proxy and load balancing solution focused on micro services.
+[Traefik Proxy](https://traefik.io/traefik/) 是一个专注于微服务的反向代理和负载均衡解决方案。
 
-## Deploying in a Docker Standalone scenario
+## 在 Docker Standalone 场景中部署
 
-To deploy Portainer behind Traefik Proxy in a Docker standalone scenario you must use a Docker Compose file. In the following `docker-compose.yml` you will find the configuration for Portainer Traefik with SSL support and the Portainer Server.
-
-
+要在 Docker standalone 场景中将 Portainer 部署在 Traefik 代理后面，您必须使用 Docker Compose 文件。在下面的 `docker-compose.yml` 中，您将找到支持 SSL 的 Portainer Traefik 配置和 Portainer Server。
 
 ```
 version: "3.3"
@@ -21,7 +19,7 @@ services:
       - --providers.docker
       - --log.level=ERROR
       - --certificatesresolvers.leresolver.acme.httpchallenge=true
-      - --certificatesresolvers.leresolver.acme.email=your-email #Set your email address here, is for the generation of SSL certificates with Let's Encrypt. 
+      - --certificatesresolvers.leresolver.acme.email=your-email #在此设置您的电子邮件地址，用于通过 Let's Encrypt 生成 SSL 证书
       - --certificatesresolvers.leresolver.acme.storage=./acme.json
       - --certificatesresolvers.leresolver.acme.httpchallenge.entrypoint=web
     ports:
@@ -44,7 +42,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - portainer_data:/data
     labels:
-      # Frontend
+      # 前端
       - "traefik.enable=true"
       - "traefik.http.routers.frontend.rule=Host(`portainer.yourdomain.com`)"
       - "traefik.http.routers.frontend.entrypoints=websecure"
@@ -64,8 +62,6 @@ volumes:
   portainer_data:
 ```
 
-
-
 ```
 version: "3.3"
 
@@ -79,7 +75,7 @@ services:
       - --providers.docker
       - --log.level=ERROR
       - --certificatesresolvers.leresolver.acme.httpchallenge=true
-      - --certificatesresolvers.leresolver.acme.email=your-email #Set your email address here, is for the generation of SSL certificates with Let's Encrypt. 
+      - --certificatesresolvers.leresolver.acme.email=your-email #在此设置您的电子邮件地址，用于通过 Let's Encrypt 生成 SSL 证书
       - --certificatesresolvers.leresolver.acme.storage=./acme.json
       - --certificatesresolvers.leresolver.acme.httpchallenge.entrypoint=web
     ports:
@@ -102,7 +98,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - portainer_data:/data
     labels:
-      # Frontend
+      # 前端
       - "traefik.enable=true"
       - "traefik.http.routers.frontend.rule=Host(`portainer.yourdomain.com`)"
       - "traefik.http.routers.frontend.entrypoints=websecure"
@@ -122,11 +118,9 @@ volumes:
   portainer_data:
 ```
 
+在 Docker 中运行此文件之前，您需要创建权限为 `600` 的 `acme.json` 文件来存储 SSL 证书。创建完成后，您可以在 Docker Compose 文件的以下部分定义文件路径：
 
-
-Before you run this file in Docker, you will need to create the `acme.json` file with permission `600` that will store the SSL certificates. Once it has been created, you can define the file path in the following sections in the Docker Compose file:
-
-In the volumes and command section of the Traefik Proxy container:
+在 Traefik 代理容器的 volumes 和 command 部分：
 
 ```
 - "./acme.json:/acme.json"
@@ -136,13 +130,13 @@ In the volumes and command section of the Traefik Proxy container:
 - --certificatesresolvers.leresolver.acme.storage=./acme.json
 ```
 
-You also need to enter your email address for Let's Encrypt registration.
+您还需要输入您的电子邮件地址以进行 Let's Encrypt 注册。
 
 ```
 - --certificatesresolvers.leresolver.acme.email=your-email
 ```
 
-Next, customize some labels in the Traefik container. The following labels need to be updated with the URL that you want use to access Portainer:
+接下来，在 Traefik 容器中自定义一些标签。以下标签需要更新为您想要用于访问 Portainer 的 URL：
 
 ```
 - "traefik.http.routers.frontend.rule=Host(`portainer.yourdomain.com`)"
@@ -152,25 +146,23 @@ Next, customize some labels in the Traefik container. The following labels need 
 - "traefik.http.routers.edge.rule=Host(`edge.yourdomain.com`)"
 ```
 
-Once this is done, you're ready to deploy Portainer:
+完成后，您就可以部署 Portainer 了：
 
 ```
 docker-compose up -d
 ```
 
-After the images have been downloaded and deployed you will able to access Portainer from the URL you defined earlier, for example: `https://portainer.yourdomain.com`.
+镜像下载并部署完成后，您将能够从之前定义的 URL 访问 Portainer，例如：`https://portainer.yourdomain.com`。
 
-## Deploying in a Docker Swarm scenario
+## 在 Docker Swarm 场景中部署
 
-To deploy Portainer behind Traefik Proxy in a Docker Swarm scenario you must use a Docker Compose file. In the following `docker-compose.yml` you will find the configuration for Portainer Traefik with SSL support and the Portainer Server.
+要在 Docker Swarm 场景中将 Portainer 部署在 Traefik 代理后面，您必须使用 Docker Compose 文件。在下面的 `docker-compose.yml` 中，您将找到支持 SSL 的 Portainer Traefik 配置和 Portainer Server。
 
+此部署假设您正在运行一个管理节点。如果您使用多个管理节点，我们建议在继续之前[阅读此知识库文章](https://portal.portainer.io/knowledge/how-can-i-ensure-portainers-configuration-is-retained)。
 
-This deployment assumes you are running one manager node. If you are using multiple managers we advise [reading this knowledge base article](https://portal.portainer.io/knowledge/how-can-i-ensure-portainers-configuration-is-retained) before proceeding.
+在部署 Docker Compose 文件之前，您需要创建两个元素：网络和卷。
 
-
-Before deploying the Docker Compose file, you need to create two elements: networks and volumes.
-
-First, create two overlay networks:
+首先，创建两个 overlay 网络：
 
 ```
  docker network create -d overlay agent_network
@@ -180,15 +172,13 @@ First, create two overlay networks:
  docker network create -d overlay public
 ```
 
-Then create the volume:
+然后创建卷：
 
 ```
  docker volume create portainer_data
 ```
 
-Save this recipe as `portainer.yml`:
-
-
+将此配置保存为 `portainer.yml`：
 
 ```
 version: '3.2'
@@ -216,8 +206,7 @@ services:
   agent:
     image: portainer/agent:lts
     environment:
-      # REQUIRED: Should be equal to the service name prefixed by "tasks." when
-      # deployed inside an overlay network
+      # 必需：在覆盖网络内部署时应等于服务名称前缀为"tasks."
       AGENT_CLUSTER_ADDR: tasks.agent
       # AGENT_PORT: 9001
       # LOG_LEVEL: debug
@@ -266,8 +255,6 @@ volumes:
    data:
 ```
 
-
-
 ```
 version: '3.2'
 
@@ -294,8 +281,7 @@ services:
   agent:
     image: portainer/agent:lts
     environment:
-      # REQUIRED: Should be equal to the service name prefixed by "tasks." when
-      # deployed inside an overlay network
+      # 必需：在覆盖网络内部署时应等于服务名称前缀为"tasks."
       AGENT_CLUSTER_ADDR: tasks.agent
       # AGENT_PORT: 9001
       # LOG_LEVEL: debug
@@ -344,9 +330,7 @@ volumes:
    data:
 ```
 
-
-
-Finally, customize these labels to match the URL that you want to use to access Portainer:
+最后，自定义这些标签以匹配您想要用于访问 Portainer 的 URL：
 
 ```
 - "traefik.http.routers.frontend.rule=Host(`portainer.yourdomain.com`)"
@@ -356,13 +340,13 @@ Finally, customize these labels to match the URL that you want to use to access 
 - "traefik.http.routers.edge.rule=Host(`edge.yourdomain.com`)"
 ```
 
-You can now deploy Portainer by executing the following:
+您现在可以通过执行以下命令部署 Portainer：
 
 ```
  docker stack deploy portainer -c portainer.yml
 ```
 
-To check the deployment, run `docker service ls`. You should see an output similar to the following:
+要检查部署情况，请运行 `docker service ls`。您应该看到类似以下的输出：
 
 ```
 ID                  NAME                  MODE                REPLICAS            IMAGE                          PORTS
@@ -371,4 +355,4 @@ m6912ynwdcd7        portainer_portainer   replicated          1/1               
 tw2nb4i640e4        portainer_traefik     replicated          1/1                 traefik:latest                 *:80->80/tcp, *:443->443/tcp
 ```
 
-Once the services are running, you will able to access Portainer from the URL you defined earlier, for example: `portainer.yourdomain.com`.
+服务运行后，您将能够从之前定义的 URL 访问 Portainer，例如：`portainer.yourdomain.com`。

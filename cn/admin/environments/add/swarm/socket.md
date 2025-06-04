@@ -1,31 +1,27 @@
-# Connect to the Docker Socket
+# 连接到Docker Socket
 
+在Swarm环境中连接到Docker socket是一个遗留选项，不建议用于新安装。我们强烈建议改用[Portainer Agent](agent.md)。
 
-Connecting to the Docker socket on a Swarm environment is a legacy option and not recommended for new installs. We highly recommend using the [Portainer Agent](agent.md) instead.
+直接连接到Docker socket只能从本地环境完成。在开始之前，请确保运行Portainer Server容器的用户具有访问Docker socket的权限。
 
-
-Connecting to the Docker socket directly can only be done from the local environment. Before you begin, ensure the user running the Portainer Server container has permissions to access the Docker socket.
-
-From the menu expand **Environment-related**, click **Environments**, then click **Add environment**.
+从菜单展开**环境相关**，点击**环境**，然后点击**添加环境**。
 
 <figure><img src="../../..//assets/2.22-environments-add.gif" alt=""><figcaption></figcaption></figure>
 
-Next, select **Docker Swarm** as the environment type then click **Start Wizard**. Select the **Socket** option and your platform. You will be shown the required parameter to pass to the Portainer container as part of your Portainer Server deployment.
+接下来，选择**Docker Swarm**作为环境类型，然后点击**开始向导**。选择**Socket**选项和您的平台。您将看到需要作为Portainer容器部署的一部分传递给Portainer Server的必要参数。
 
 <figure><img src="../../..//assets/2.18-environments-add-swarm-socket-command.png" alt=""><figcaption></figcaption></figure>
 
-Fill out the fields based on the table below.
+根据下表填写字段：
 
-<table><thead><tr><th width="280">Field/Option</th><th>Overview</th></tr></thead><tbody><tr><td>Name</td><td>Give the environment a descriptive name.</td></tr><tr><td>Override default socket path</td><td>Toggle this option on to override the default <code>/var/run/docker.sock</code> socket path.</td></tr><tr><td>Socket Path</td><td>If <strong>Override default socket path</strong> is enabled, enter the path to the Docker socket.</td></tr></tbody></table>
+<table><thead><tr><th width="280">字段/选项</th><th>概述</th></tr></thead><tbody><tr><td>名称</td><td>为环境指定一个描述性名称。</td></tr><tr><td>覆盖默认socket路径</td><td>切换此选项为开启状态以覆盖默认的<code>/var/run/docker.sock</code> socket路径。</td></tr><tr><td>Socket路径</td><td>如果<strong>覆盖默认socket路径</strong>已启用，请输入Docker socket的路径。</td></tr></tbody></table>
 
-
-Ensure that if you change the Socket Path, that you update the required bind mount parameter above to suit.
-
+确保如果您更改了Socket路径，请相应地更新上面所需的绑定挂载参数。
 
 <figure><img src="../../..//assets/2.18-environments-add-docker-socket-details.png" alt=""><figcaption></figcaption></figure>
 
-As an optional step you can expand the **More settings** section to categorize the environment by adding it to a [group](../../groups.md) or [tagging](../../tags.md) it for better searchability.
+作为可选步骤，您可以展开**更多设置**部分，通过将环境添加到[组](../../groups.md)或[标记](../../tags.md)来分类环境以提高可搜索性。
 
 <figure><img src="../../..//assets/2.18-environments-add-docker-moresettings.png" alt=""><figcaption></figcaption></figure>
 
-When you're ready, click **Connect**. If you have other environments to configure click **Next** to proceed, otherwise click **Close** to return to the list of environments.
+准备就绪后，点击**连接**。如果您有其他环境需要配置，点击**下一步**继续，否则点击**关闭**返回环境列表。

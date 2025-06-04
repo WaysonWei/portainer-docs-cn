@@ -1,32 +1,28 @@
-# Stream auth and activity logs to an external provider
+# 将认证和活动日志流式传输到外部提供商
 
+这是一个实验性功能。
 
-This is an experimental feature.
+从 Portainer 2.20 及更高版本开始，您可以配置将 Portainer 的认证和活动日志以 Syslog 格式流式传输到外部安全信息和事件管理(SIEM)系统。这是通过在启动 Portainer 容器时使用 CLI 标志完成的。
 
+## 可用的 CLI 标志
 
-With Portainer 2.20 and later, you can configure the streaming of Portainer's authentication and activity logs to an external Security Information and Event Management (SIEM) system in Syslog format. This is done via CLI flags when starting the Portainer container.
-
-## Available CLI flags
-
-| Flag                            | Description                                                                                                                          |
+| 标志                            | 描述                                                                                                                          |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| `--syslog-address`              | Syslog Address to stream authentication and activity logs. FQDN or IP Address only.                                                  |
-| `--syslog-port`                 | Syslog Port for the address above. Defaults to `514`.                                                                                |
-| `--syslog-protocol`             | Syslog Protocol to send logs to the Syslog Server. Supported values are `udp`, `tcp`, or `tcp+tls`. Defaults to `udp`.               |
-| `--syslog-format`               | Syslog Format to be used. Supported values are `rfc3164` or `rfc5424`. Defaults to `rfc5424.`                                        |
-| `--syslog-source-hostname`      | The hostname value that will be shown in the Syslog server in the messages. Defaults to `portainer`.                                 |
-| `--syslog-insecure-skip-verify` | Disable TLS server verification when using `tcp+tls` protocol. Should only be enabled for testing. Defaults to `false`.              |
-| `--syslog-ca-cert`              | The path to the trusted CA used by the Syslog server. Defaults to `/syslog/certs/ca.pem`.                                            |
-| `--syslog-cert`                 | The path to the client certificate that is used to authenticate to the Syslog server via mTLS. Defaults to `/syslog/certs/cert.pem`. |
-| `--syslog-key`                  | The path to the client key that is used to authenticate to the Syslog server via mTLS. Defaults to `/syslog/certs/key.pem`.          |
+| `--syslog-address`              | 流式传输认证和活动日志的 Syslog 地址。仅限 FQDN 或 IP 地址。                                                  |
+| `--syslog-port`                 | 上述地址的 Syslog 端口。默认为 `514`。                                                                                |
+| `--syslog-protocol`             | 用于向 Syslog 服务器发送日志的协议。支持的值是 `udp`、`tcp` 或 `tcp+tls`。默认为 `udp`。               |
+| `--syslog-format`               | 使用的 Syslog 格式。支持的值是 `rfc3164` 或 `rfc5424`。默认为 `rfc5424`。                                        |
+| `--syslog-source-hostname`      | 在 Syslog 服务器消息中显示的主机名值。默认为 `portainer`。                                 |
+| `--syslog-insecure-skip-verify` | 使用 `tcp+tls` 协议时禁用 TLS 服务器验证。仅应出于测试目的启用。默认为 `false`。              |
+| `--syslog-ca-cert`              | Syslog 服务器使用的受信任 CA 的路径。默认为 `/syslog/certs/ca.pem`。                                            |
+| `--syslog-cert`                 | 用于通过 mTLS 向 Syslog 服务器进行身份验证的客户端证书路径。默认为 `/syslog/certs/cert.pem`。 |
+| `--syslog-key`                  | 用于通过 mTLS 向 Syslog 服务器进行身份验证的客户端密钥路径。默认为 `/syslog/certs/key.pem`。          |
 
-## Example usage
+## 使用示例
 
-The following is an example `docker run` command to start Portainer using the above options to stream logs to a SIEM provider at `syslog.mydomain.com` on UDP port `514`.
+以下是一个 `docker run` 命令示例，使用上述选项将日志流式传输到 `syslog.mydomain.com` 的 UDP 端口 `514` 上的 SIEM 提供商。
 
-
-As the flags are Portainer options, they must be specified after the image specification.
-
+由于这些标志是 Portainer 选项，它们必须在镜像规范之后指定。
 
 ```
 docker run -d -p 8000:8000 -p 9443:9443 \
@@ -38,4 +34,3 @@ docker run -d -p 8000:8000 -p 9443:9443 \
     --syslog-addr=syslog.mydomain.com \
     --syslog-port=514 \
     --syslog-source-hostname="my-portainer-instance"
-```

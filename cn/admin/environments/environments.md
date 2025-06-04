@@ -1,23 +1,21 @@
-# Environments
+# 环境
 
-The Environments page lists the environments that can be managed with your Portainer installation. Here you can add new environments either [manually](add/) or through [auto onboarding](aeec.md), as well as manage which users and groups have [access](access.md) to individual environments.
+环境页面列出了可以通过您的Portainer安装管理的环境。您可以在此[手动](add/)或通过[自动加入](aeec.md)添加新环境，以及管理哪些用户和组对单个环境具有[访问权限](access.md)。
 
 <figure><img src="..//assets/2.20-environments-list.png" alt=""><figcaption></figcaption></figure>
 
-To see the details of an existing environment, click on the environment's name in the list. The below options are generic to all environment types, but some environment types will have additional information displayed as well.
+要查看现有环境的详细信息，请单击列表中环境的名称。以下选项对所有环境类型通用，但某些环境类型还会显示其他信息。
 
-| Field/Option              | Overview                                                                                                                                                                                                                                     |
-| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Name                      | The name of the environment, and how it appears in the list of environments on the dashboard.                                                                                                                                                |
-| Environment URL / Address | The URL or address of the environment that is used by Portainer to connect and manage the environment. This could be a Docker socket or API, or the address and port of a Portainer Agent. Edge Agent environments will not have this field. |
-| Public IP                 | The URL or address where exposed containers will be reachable. This is an optional field and will default to the environment URL if not set.                                                                                                 |
-| Group                     | Select a group to add the environment to. This field is optional.                                                                                                                                                                            |
-| Tags                      | Select one or more tags to associate with this environment. This field is optional.                                                                                                                                                          |
+| 字段/选项              | 概述                                                                                                                                                                                                                                     |
+| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 名称                  | 环境的名称，以及它在仪表板环境列表中的显示方式。                                                                                                                                                                                        |
+| 环境URL/地址          | Portainer用于连接和管理环境的URL或地址。这可以是Docker socket或API，或者是Portainer Agent的地址和端口。Edge Agent环境不会有此字段。                                                                                                     |
+| 公共IP                | 暴露容器可访问的URL或地址。这是一个可选字段，如果未设置将默认为环境URL。                                                                                                                                                                |
+| 组                    | 选择要将环境添加到的组。此字段是可选的。                                                                                                                                                                                                |
+| 标签                  | 选择一个或多个标签与此环境关联。此字段是可选的。                                                                                                                                                                                        |
 
 <figure><img src="..//assets/2.20-environments-details.png" alt=""><figcaption></figcaption></figure>
 
-To remove an environment, check the box next to the environment to remove and click the **Remove** button. You will be asked to confirm your action.
+要移除环境，请勾选要移除的环境旁边的框，然后单击**移除**按钮。系统会要求您确认操作。
 
-
-This action cannot be reversed, so proceed with caution!
-
+此操作无法撤销，请谨慎操作！

@@ -1,20 +1,18 @@
-# How Relative Path Support works in Portainer
+# Portainer 中相对路径支持的工作原理
 
-The relative path volumes support in Portainer Business Edition is intended to provide you with a way to reference files and directories that are supplied within the Git repository alongside your compose file without needing to know the absolute path at which they will appear when they are deployed to your environment.&#x20;
+Portainer 商业版中的相对路径卷支持旨在提供一种方式来引用 Git 仓库中与您的 compose 文件一起提供的文件和目录，而无需知道它们部署到环境时将出现的绝对路径。
 
+相对路径支持仅在 Portainer 商业版中可用，并且需要[从 Git 部署堆栈时启用](../user/docker/stacks/add.md#relative-path-volumes)才能应用本文内容。
 
-Relative path support is only present in Portainer Business Edition, and needs to be [enabled when deploying your stack from Git](../user/docker/stacks/add.md#relative-path-volumes) for this article to apply.
+其后台工作原理如下：
 
+1. 在 Portainer 中，从 Git 仓库位置启动堆栈部署，选择**启用相对路径卷**并指定**本地(或网络)文件系统路径**。
+2. Portainer 创建一个临时的解包容器，该容器绑定挂载在本地(或网络)文件系统路径字段中指定的路径。
+3. 解包容器将 Git 仓库克隆到绑定挂载路径下的子目录中。
+4. Portainer 使用提供的 compose 文件创建堆栈，将工作目录指定为 Git 仓库克隆后 compose 文件所在的位置。
+5. 堆栈部署完成后，临时解包容器被移除。
 
-In the background the way this works is as follows:
-
-1. In Portainer, a stack deployment is initiated where the stack is located in a Git repository, **Enable relative path volumes** is selected and a **Local (or Network) filesystem path** is specified.
-2. Portainer creates a temporary unpacker container that bind mounts the path specified in the Local (or Network) filesystem path field.
-3. The unpacker container clones the Git repository to a subdirectory under the bind mounted path.
-4. Portainer creates the stack using the compose file provided, specifying the working directory as where the specified compose file is located within where the Git repo was cloned.
-5. Now that the stack has been deployed, the temporary unpacker container is removed.
-
-To take advantage of this with your compose file, you can specify any references to files that are within your repository in a _relative_ manner to your compose file. For example, imagine this simple nginx deployment:
+要在您的 compose 文件中利用此功能，您可以以相对于 compose 文件的_相对_方式指定仓库内文件的引用。例如，想象这个简单的 nginx 部署：
 
 ```
 .
@@ -23,9 +21,9 @@ To take advantage of this with your compose file, you can specify any references
     └── index.html
 ```
 
-In this example, the `docker-compose.yml` file is at the base directory of the repository. Alongside it there is a directory named `static`, and within that directory is an `index.html` file.
+在此示例中，`docker-compose.yml` 文件位于仓库的根目录。旁边有一个名为 `static` 的目录，其中包含一个 `index.html` 文件。
 
-The `docker-compose.yml` file looks like this:
+`docker-compose.yml` 文件如下所示：
 
 ```
 version: '3.1'
@@ -39,9 +37,9 @@ services:
       - ./static:/usr/share/nginx/html
 ```
 
-The last line is the important one here - you'll note that we're referencing the static directory with a leading `.` and `/` - this tells compose that the path specified is _relative_ to the working directory, which Portainer specified during deployment. If we excluded the leading `.` this would be an _absolute_ path, and would refer to `/static` at the root of the host filesystem.
+最后一行是这里的重要部分 - 您会注意到我们引用 static 目录时使用了前导的 `.` 和 `/` - 这告诉 compose 指定的路径是_相对于_工作目录的，Portainer 在部署期间指定了工作目录。如果我们省略前导的 `.`，这将是一个_绝对_路径，并指向主机文件系统的 `/static`。
 
-Let's look at an example where you had your compose file in a subdirectory of your repository, and your content in a different subdirectory:
+让我们看一个示例，其中您的 compose 文件位于仓库的子目录中，而您的内容位于不同的子目录中：
 
 ```
 .
@@ -51,7 +49,7 @@ Let's look at an example where you had your compose file in a subdirectory of yo
     └── index.html
 ```
 
-In this scenario, you would specify the compose file when deploying as `nginx/docker-compose.yml`. Portainer will pull the contents of the repository to the specified location and set the working directory to the location of the compose file (ie, within the `nginx` subdirectory). As such, relative references within the compose need to be aware of this. To mount the contents of the `static` directory, your compose file would look like:
+在此场景中，您将在部署时将 compose 文件指定为 `nginx/docker-compose.yml`。Portainer 会将仓库内容拉取到指定位置，并将工作目录设置为 compose 文件的位置(即 `nginx` 子目录内)。因此，compose 中的相对引用需要意识到这一点。要挂载 `static` 目录的内容，您的 compose 文件应如下所示：
 
 ```
 version: '3.1'
@@ -65,28 +63,28 @@ services:
       - ../static:/usr/share/nginx/html
 ```
 
-The double dots (`..`) indicate that the files are at a directory level above the working directory.
+双点(`..`)表示文件位于工作目录上一级的目录中。
 
-### A note about the local (or network) filesystem path
+### 关于本地(或网络)文件系统路径的说明
 
-The path on the local (or network) filesystem that the Git repository is cloned to will be in:
+Git 仓库克隆到的本地(或网络)文件系统路径将位于：
 
 ```
 portainer-compose-unpacker/stacks/yourstackname/
 ```
 
-For example, if you deployed a stack named `nginx` and specified the local filesystem path as:
+例如，如果您部署了一个名为 `nginx` 的堆栈，并指定本地文件系统路径为：
 
 ```
 /mnt/stacks/
 ```
 
-it would result in:
+结果将是：
 
 ```
 /mnt/stacks/portainer-compose-unpacker/stacks/nginx/
 ```
 
-This is generally not relevant for relative path referencing as the definition of the working directory avoids needing to be aware of this full path, but it does mean the same local (or network) filesystem path can be used to deploy multiple stacks without worrying about collisions (as long as they don't share the same stack name).
+这对于相对路径引用通常不相关，因为工作目录的定义避免了需要了解此完整路径，但这确实意味着可以使用相同的本地(或网络)文件系统路径来部署多个堆栈，而不用担心冲突(只要它们不共享相同的堆栈名称)。
 
-This path is where your stack's mounted files will be sourced from, so you will want to ensure this path remains intact and unchanged. When a stack deployed with this method is removed, the file and directory structure for that stack are removed as well.
+此路径是您的堆栈挂载文件的来源位置，因此您需要确保此路径保持完整且不变。当使用此方法部署的堆栈被移除时，该堆栈的文件和目录结构也将被移除。

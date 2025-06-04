@@ -1,60 +1,53 @@
-# Update & Rollback
+# 更新与回滚
 
-This feature lets you upgrade your Edge Agent deployments directly from Portainer, without the need to log into the remote environments and manually update.
+此功能允许您直接从Portainer升级Edge Agent部署，无需登录远程环境手动更新。
 
+此功能目前处于测试阶段，仅适用于在Docker Standalone环境上运行的Edge Agent。
 
-This feature is currently in beta, and is only currently available for Edge Agents running on Docker Standalone environments.
-
-
-To view your currently scheduled updates or schedule a new update process, from the menu expand **Environment-related** then select **Update & Rollback**.
+要查看当前计划的更新或安排新更新流程，从菜单展开**环境相关**，然后选择**更新与回滚**。
 
 <figure><img src="..//assets/2.20-environments-update.gif" alt=""><figcaption></figcaption></figure>
 
-Here you will see a list of your pending and completed updates and rollbacks.
+在此您将看到待处理和已完成的更新和回滚列表。
 
-## Schedule an update
+## 安排更新
 
-To add a new update schedule, click the **Add update & rollback schedule** button, then fill out the form.
+要添加新的更新计划，点击**添加更新与回滚计划**按钮，然后填写表单。
 
+要安排更新，Portainer必须具有您希望升级的所有环境的快照。
 
-To schedule an update, Portainer must have a snapshot of all the environments you wish to upgrade.
-
-
-| Field/Option         | Overview                                                                                                                                                                                                      |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Name                 | Enter a name for the scheduled update.                                                                                                                                                                        |
-| Groups               | Select the Edge Group(s) containing the Edge devices you want to update. You can configure these groups under [Edge Groups](../../user/edge/groups.md).                                                       |
-| Version              | Ensure the **Update** tab is selected, then select the version you want to upgrade to from the dropdown.                                                                                                      |
-| Schedule date & time | <p>Select a date and time to schedule the update.<br>When upgrading from a version prior to 2.17, this field will be unavailable and the upgrade will take place immediately on creation of the schedule.</p> |
-| Registry             | If needed, you can select the registry to pull the updated Portainer Agent and portainer-updater images from. This functionality is useful if you are running in an airgapped environment.                    |
-| Agent Image          | If you need to use a different name for the Portainer Agent image you can specify it here.                                                                                                                    |
-| Updater Image        | If you need to use a different name for the portainer-updater image you can specify it here.                                                                                                                  |
+| 字段/选项         | 概述                                                                                                                                                                                                      |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 名称              | 输入计划更新的名称。                                                                                                                                                                                    |
+| 组                | 选择包含要更新的Edge设备的Edge组。您可以在[Edge组](../../user/edge/groups.md)下配置这些组。                                                                                                             |
+| 版本              | 确保选择**更新**选项卡，然后从下拉菜单中选择要升级到的版本。                                                                                                                                            |
+| 计划日期和时间    | <p>选择安排更新的日期和时间。<br>从2.17之前的版本升级时，此字段将不可用，升级将在创建计划后立即进行。</p>                                                                                                |
+| 注册表            | 如果需要，您可以选择从中拉取更新的Portainer Agent和portainer-updater镜像的注册表。此功能在运行于隔离环境时非常有用。                                                                                   |
+| Agent镜像         | 如果需要为Portainer Agent镜像使用不同的名称，可以在此指定。                                                                                                                                             |
+| Updater镜像       | 如果需要为portainer-updater镜像使用不同的名称，可以在此指定。                                                                                                                                           |
 
 <figure><img src="..//assets/2.25.0-environment-update-rollback-add.png" alt=""><figcaption></figcaption></figure>
 
-When you're ready, click **Create Schedule** to schedule the update. You will be returned to the Update & Rollback page where you can check the status of your scheduled update.
+准备就绪后，点击**创建计划**安排更新。您将返回到更新与回滚页面，可以在此查看计划更新的状态。
 
 <figure><img src="..//assets/2.25.0-environment-update-rollback-list.png" alt=""><figcaption></figcaption></figure>
 
-## Schedule a rollback
+## 安排回滚
 
-To schedule the rollback of an update, click the **Add update & rollback schedule** button, then fill out the form.
+要安排更新的回滚，点击**添加更新与回滚计划**按钮，然后填写表单。
 
+要安排回滚，Portainer必须具有您希望回滚的所有环境的快照。
 
-To schedule a rollback, Portainer must have a snapshot of all the environments you wish to roll back.
-
-
-| Field/Option         | Overview                                                                                                                                                                                                           |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Name                 | Enter a name for the scheduled rollback.                                                                                                                                                                           |
-| Group                | Select the Edge Group(s) containing the Edge devices you want to roll back. You can configure these groups under [Edge Groups](../../user/edge/groups.md).                                                         |
-| Version              | <p>Ensure the <strong>Rollback</strong> tab is selected, then select the version you want to roll back to from the dropdown.<br>This dropdown is only available when multiple rollback versions are available.</p> |
-| Schedule date & time | Select a date and time to schedule the rollback.                                                                                                                                                                   |
-| Registry             | If needed, you can select the registry to pull the Portainer Agent and portainer-updater images from. This functionality is useful if you are running in an airgapped environment.                                 |
-| Agent Image          | If you need to use a different name for the Portainer Agent image you can specify it here.                                                                                                                         |
-| Updater Image        | If you need to use a different name for the portainer-updater image you can specify it here.                                                                                                                       |
+| 字段/选项         | 概述                                                                                                                                                                                                           |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 名称              | 输入计划回滚的名称。                                                                                                                                                                                         |
+| 组                | 选择包含要回滚的Edge设备的Edge组。您可以在[Edge组](../../user/edge/groups.md)下配置这些组。                                                                                                                  |
+| 版本              | <p>确保选择<strong>回滚</strong>选项卡，然后从下拉菜单中选择要回滚到的版本。<br>仅当有多个回滚版本可用时，此下拉菜单才可用。</p>                                                                              |
+| 计划日期和时间    | 选择安排回滚的日期和时间。                                                                                                                                                                                   |
+| 注册表            | 如果需要，您可以选择从中拉取Portainer Agent和portainer-updater镜像的注册表。此功能在运行于隔离环境时非常有用。                                                                                               |
+| Agent镜像         | 如果需要为Portainer Agent镜像使用不同的名称，可以在此指定。                                                                                                                                                  |
+| Updater镜像       | 如果需要为portainer-updater镜像使用不同的名称，可以在此指定。                                                                                                                                                |
 
 <figure><img src="..//assets/2.25.0-environment-update-rollback-add-rollback.png" alt=""><figcaption></figcaption></figure>
 
-When you're ready, click **Create Schedule** to schedule the rollback. You will be returned to the Update & Rollback page where you can check the status of your scheduled rollback.
-
+准备就绪后，点击**创建计划**安排回滚。您将返回到更新与回滚页面，可以在此查看计划回滚的状态。

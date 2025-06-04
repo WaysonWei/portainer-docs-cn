@@ -1,30 +1,28 @@
-# Add an environment via the Portainer API
+# 通过Portainer API添加环境
 
-Portainer's [API](../../../api/docs.md) lets you perform the same actions as via the Portainer UI, including adding new environments. This article explains how to add the following types of environments via the API:
+Portainer的[API](../../../api/docs.md)允许您执行与Portainer UI相同的操作，包括添加新环境。本文介绍如何通过API添加以下类型的环境：
 
-* A local environment using Docker socket communication.
-* A remote environment using TCP communication.
-* A remote environment using TCP communication secured via TLS.
+* 使用Docker socket通信的本地环境
+* 使用TCP通信的远程环境
+* 使用TLS保护的TCP通信的远程环境
 
+本文示例使用[httpie](https://httpie.io/)从命令行向Portainer API发起HTTP调用。您可以使用您偏好的方法替换httpie。
 
-The examples in this article use [httpie](https://httpie.io/) to make HTTP calls from the command line to the Portainer API. Feel free to replace httpie with your preferred method.
+## 准备工作
 
-
-## Preparation
-
-After deploying Portainer, you'll need to initialize your admin user. First, initialize the admin password:
+部署Portainer后，您需要初始化管理员用户。首先初始化管理员密码：
 
 ```
 http POST https://my-portainer-server:9443/api/users/admin/init Username="admin" Password="adminpassword"
 ```
 
-Now, use the admin account to authenticate against the API. Generate an authorization token for your username. This token will provide you with the same permissions as the user who generated it.
+现在，使用管理员账户对API进行身份验证。为您的用户名生成授权令牌。此令牌将提供与生成它的用户相同的权限。
 
 ```
 http POST https://my-portainer-server:9443/api/auth Username="admin" Password="adminpassword"
 ```
 
-The response is a JSON object containing the JWT token inside the `jwt` field. Make a note of this token. You'll use it in the authorization header when making API calls.
+响应是一个包含JWT令牌的JSON对象，令牌位于`jwt`字段中。记下此令牌。在发起API调用时，您将在授权头中使用它。
 
 ```
 {
@@ -32,27 +30,23 @@ The response is a JSON object containing the JWT token inside the `jwt` field. M
 }
 ```
 
-The authorization header value must take the form `Bearer JWT_TOKEN`. Using the above token as an example, the value would look like this:
+授权头的值必须采用`Bearer JWT_TOKEN`的形式。使用上面的令牌作为示例，值将如下所示：
 
 ```
 Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsInJvbGUiOjEsImV4cCI6MTQ5OTM3NjE1NH0.NJ6vE8FY1WG6jsRQzfMqeatJ4vh2TWAeeYfDhP71YEE
 ```
 
+JWT令牌在生成后8小时内有效。一旦过期，您需要生成新的令牌。
 
-The JWT token is valid for 8 hours after it is generated. Once it expires, you will need to generate a new token.
+## 添加环境
 
+### 通过Docker socket添加本地环境 <a href="#local-endpoint-via-the-docker-socket" id="local-endpoint-via-the-docker-socket"></a>
 
-## Adding an environment
+此查询将创建一个名为`test-local`的环境，并将使用Docker socket与您的环境通信。
 
-### Adding a local environment via the Docker socket <a href="#local-endpoint-via-the-docker-socket" id="local-endpoint-via-the-docker-socket"></a>
+此示例要求您在运行Portainer时绑定挂载Docker socket。
 
-This query will create an environment called `test-local` and will use the Docker socket to communicate with your environment.
-
-
-This example requires you to bind-mount the Docker socket when running Portainer.
-
-
-Run the following command:
+运行以下命令：
 
 ```
 http --form POST https://my-portainer-server:9443/api/endpoints \
@@ -60,7 +54,7 @@ http --form POST https://my-portainer-server:9443/api/endpoints \
     Name="test-local" EndpointCreationType=1
 ```
 
-The response is a JSON object representing the environment:
+响应是一个表示环境的JSON对象：
 
 ```
 {
@@ -81,17 +75,15 @@ The response is a JSON object representing the environment:
 }
 ```
 
-Make a note of the `Id` value. It will be used to execute queries against the Docker Engine for the endpoint.
+记下`Id`值。它将用于针对端点的Docker Engine执行查询。
 
-### Adding a remote environment <a href="#remote-endpoint" id="remote-endpoint"></a>
+### 添加远程环境 <a href="#remote-endpoint" id="remote-endpoint"></a>
 
-This query will create an environment called `test-remote`. It will communicate with your environment over TCP using the IP address `10.0.7.10` and port `2375`. Make sure you replace the example values with your own IP address and port.
+此查询将创建一个名为`test-remote`的环境。它将通过TCP与您的环境通信，使用IP地址`10.0.7.10`和端口`2375`。请确保将示例值替换为您自己的IP地址和端口。
 
+Docker API必须在提供的IP地址和端口上公开。要了解如何执行此操作，请参阅Docker文档。
 
-The Docker API must be exposed on the provided IP address and port. To learn how to do this, refer to the Docker documentation.
-
-
-Run the following command:
+运行以下命令：
 
 ```
 http --form POST https://my-portainer-server:9443/api/endpoints \
@@ -99,7 +91,7 @@ http --form POST https://my-portainer-server:9443/api/endpoints \
     Name="test-remote" URL="tcp://10.0.7.10:2375" EndpointCreationType=1
 ```
 
-The response is a JSON object representing the environment:
+响应是一个表示环境的JSON对象：
 
 ```
 {
@@ -120,17 +112,15 @@ The response is a JSON object representing the environment:
 }
 ```
 
-Take a note of the `Id` value. It will be used to execute queries against the Docker Engine for the environment.
+记下`Id`值。它将用于针对环境的Docker Engine执行查询。
 
-### Adding a remote environment with TLS <a href="#remote-endpoint-secured-using-tls" id="remote-endpoint-secured-using-tls"></a>
+### 添加使用TLS的远程环境 <a href="#remote-endpoint-secured-using-tls" id="remote-endpoint-secured-using-tls"></a>
 
-This query will create an environment called `test-remote-tls`. It will communicate with your environment over TCP (secured with TLS) using the IP address `10.0.7.10` and port `2376`. Make sure you replace the example values with your own IP address and port.
+此查询将创建一个名为`test-remote-tls`的环境。它将通过TCP(使用TLS保护)与您的环境通信，使用IP地址`10.0.7.10`和端口`2376`。请确保将示例值替换为您自己的IP地址和端口。
 
+Docker API必须在提供的IP地址和端口上公开。要了解如何执行此操作，请参阅Docker文档。
 
-The Docker API must be exposed on the provided IP address and port. To learn how to do this, refer to the Docker documentation.
-
-
-Run the following command:
+运行以下命令：
 
 ```
 http --form POST https://my-portainer-server:9443/api/endpoints \
@@ -138,7 +128,7 @@ http --form POST https://my-portainer-server:9443/api/endpoints \
     Name="test-remote-tls" URL="tcp://10.0.7.10:2376" EndpointCreationType=1 TLS="true" TLSCACertFile@/path/to/ca.pem TLSCertFile@/path/to/cert.pem TLSKeyFile@/path/to/key.pem
 ```
 
-The response is a JSON object representing the environment:
+响应是一个表示环境的JSON对象：
 
 ```
 {
@@ -162,4 +152,4 @@ The response is a JSON object representing the environment:
 }
 ```
 
-Make a note of the `Id` value. It will be used to execute queries against the Docker Engine for the environment.
+记下`Id`值。它将用于针对环境的Docker Engine执行查询。

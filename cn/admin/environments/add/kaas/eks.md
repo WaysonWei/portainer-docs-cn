@@ -1,34 +1,30 @@
 # AWS
 
-Select the **AWS** option from the list of providers. If you haven't already configured credentials for AWS you'll be asked to provide them now. Enter a **name** for your credentials then enter your **Access key ID** and **Secret access key**. Once this is done, click **Save**.
+从提供商列表中选择**AWS**选项。如果尚未配置AWS凭据，系统会要求您现在提供。输入凭据的**名称**，然后输入您的**访问密钥ID**和**秘密访问密钥**。完成后，点击**保存**。
 
-
-You can find more details on [setting up access to your AWS account](../../../settings/credentials/eks.md) in the [shared credentials documentation](../../../settings/credentials/).
-
+您可以在[共享凭据文档](../../../settings/credentials/)中找到有关[设置AWS账户访问权限](../../../settings/credentials/eks.md)的更多详细信息。
 
 <figure><img src="../../..//assets/2.21.2-kaas-create-aws-creds.png" alt=""><figcaption></figcaption></figure>
 
-Once you have added your credentials (or if you already had them set up) select your cluster options from the fields below.
+添加凭据后（或如果已设置凭据），从以下字段中选择集群选项。
 
-| Field/Option         | Overview                                                                                                                                                                       |
+| 字段/选项         | 概述                                                                                                                                                                       |
 | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Name                 | Enter a name for your cluster.                                                                                                                                                 |
-| Credentials          | Select the set of credentials to use for the provision.                                                                                                                        |
-| Region               | Select the region to deploy your cluster in.                                                                                                                                   |
-| AMI type             | Select the AMI type to use for your nodes.                                                                                                                                     |
-| Instance type        | Select the instance type to use for your nodes. You will need to make sure that the instance type you choose is available in the region you choose or the provision will fail. |
-| Node disk size (GiB) | Enter the amount of disk space to provision on each node.                                                                                                                      |
-| Node count           | Enter the number of nodes to provision in your cluster.                                                                                                                        |
-| Kubernetes version   | Select the version of Kubernetes you want to deploy on your cluster                                                                                                            |
+| 名称                 | 输入集群的名称。                                                                                                                                                 |
+| 凭据          | 选择用于配置的凭据集。                                                                                                                        |
+| 区域               | 选择部署集群的区域。                                                                                                                                   |
+| AMI类型             | 选择用于节点的AMI类型。                                                                                                                                     |
+| 实例类型        | 选择用于节点的实例类型。您需要确保所选实例类型在所选区域中可用，否则配置将失败。 |
+| 节点磁盘大小(GiB) | 输入每个节点上要配置的磁盘空间量。                                                                                                                      |
+| 节点数量           | 输入集群中要配置的节点数。                                                                                                                        |
+| Kubernetes版本   | 选择要在集群上部署的Kubernetes版本                                                                                                            |
 
-
-You can manually refresh the options available from AWS by clicking **Reload cluster details** under the **Actions** section.
-
+您可以通过点击**操作**部分下的**重新加载集群详细信息**手动刷新AWS提供的选项。
 
 <figure><img src="../../..//assets/2.15-kaas-provision-eks.png" alt=""><figcaption></figcaption></figure>
 
-You can also expand the **More settings** section and set groups and tags for your environment now or you can do this later.
+您还可以展开**更多设置**部分，现在为环境设置组和标签，或者稍后再进行设置。
 
 <figure><img src="../../..//assets/2.15-kaas-provision-moresettings.png" alt=""><figcaption></figcaption></figure>
 
-Once you have made your selections, click **Provision environment** to begin the provision. If you have other environments to configure click **Next** to proceed, otherwise click **Close** to return to the list of environments where you will see the progress of your provision.
+完成选择后，点击**配置环境**开始配置。如果您还有其他环境需要配置，点击**下一步**继续，否则点击**关闭**返回环境列表，您将在其中看到配置进度。

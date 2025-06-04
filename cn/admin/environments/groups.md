@@ -1,34 +1,30 @@
-# Groups
+# 组
 
-Groups organize your environments in Portainer. As an example, you can create groups for development, staging and production to differentiate between environment roles. You can also use groups to define which environments are available to which users.
+组用于在Portainer中组织您的环境。例如，您可以创建开发、预发布和生产组来区分环境角色。您还可以使用组来定义哪些环境对哪些用户可用。
 
+Portainer社区版支持基本的用户和组分配。如需更复杂的组内用户角色，请使用Portainer商业版。
 
-Portainer Community Edition supports basic user and group assignments. For more complex user roles within groups, use Portainer Business Edition.
+## 添加组
 
-
-## Adding a group
-
-From the menu expand **Environment-related**, select **Groups**, then click **Add group**.&#x20;
+从菜单展开**环境相关**，选择**组**，然后单击**添加组**。
 
 <figure><img src="..//assets/2.20-environments-groups-add.gif" alt=""><figcaption></figcaption></figure>
 
-Define the properties of the group, using the table below as a guide.
+定义组的属性，参考下表作为指南。
 
-| Field/Option            | Overview                                                |
-| ----------------------- | ------------------------------------------------------- |
-| Name                    | Give the group a descriptive name.                      |
-| Description             | Optionally describe the group in more detail.           |
-| Tags                    | Apply any tags to the group.                            |
-| Associated environments | Select the environments to be categorized in the group. |
+| 字段/选项            | 概述                                                |
+| ------------------- | --------------------------------------------------- |
+| 名称                | 为组指定一个描述性名称。                            |
+| 描述                | 可选地更详细地描述该组。                            |
+| 标签                | 为组应用任何标签。                                  |
+| 关联环境            | 选择要归类到该组中的环境。                          |
 
 <figure><img src="..//assets/2.20-environments-groups-add-details.png" alt=""><figcaption></figcaption></figure>
 
-When you're finished, click **Create the group**.
+完成后，点击**创建组**。
 
-## Removing a group
+## 移除组
 
-When you no longer need a group, you can remove it by ticking the box next to the group then clicking **Remove**.
+当您不再需要某个组时，可以通过勾选组旁边的框然后单击**移除**来删除它。
 
-
-Removing a group will not delete environments and users in that group. However, it may change the environments accessible to users who have their access assigned via a group.
-
+移除组不会删除该组中的环境和用户。但是，它可能会更改通过组分配访问权限的用户可访问的环境。

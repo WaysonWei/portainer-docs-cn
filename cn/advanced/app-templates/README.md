@@ -1,12 +1,7 @@
-# App templates
+# 应用模板
 
-You can deploy containers and services using Portainer's set of built-in app templates, or replace them with your own set of templates.&#x20;
-
+您可以使用 Portainer 内置的应用模板来部署容器和服务，或者替换为您自己的一组模板。
 
 [build.md](build.md)
 
-
-
 [format.md](format.md)
-
-

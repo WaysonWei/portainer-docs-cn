@@ -1,17 +1,17 @@
-# Add a Quay.io registry
+# 添加Quay.io注册表
 
-From the menu select **Registries** then click **Add registry** and select **Quay.io** as the registry provider.
+从菜单中选择**注册表**，然后点击**添加注册表**并选择**Quay.io**作为注册表提供商。
 
 <figure><img src="../..//assets/2.15-settings-registries-add-quay.gif" alt=""><figcaption></figcaption></figure>
 
-Complete the form, using the table below as a guide.
+填写表单，参考下表作为指南。
 
-| Field/Option              | Overview                                                                                           |
-| ------------------------- | -------------------------------------------------------------------------------------------------- |
-| Username                  | Enter the username you use to connect to your Quay.io registry.                                    |
-| Password                  | Enter the password that corresponds to the username above.                                         |
-| Use organisation registry | Toggle on if you need to specify the organization to use when connecting to your Quay.io registry. |
+| 字段/选项              | 概述                                                                                           |
+| --------------------- | -------------------------------------------------------------------------------------------- |
+| 用户名                | 输入用于连接Quay.io注册表的用户名。                                                          |
+| 密码                  | 输入与上述用户名对应的密码。                                                                 |
+| 使用组织注册表        | 如果需要指定连接Quay.io注册表时使用的组织，请切换此选项。                                    |
 
 <figure><img src="../..//assets/2.15-settings-registries-add-quay-details.png" alt=""><figcaption></figcaption></figure>
 
-When the form is complete, click **Add registry**.
+表单填写完成后，点击**添加注册表**。

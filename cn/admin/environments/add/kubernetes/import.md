@@ -1,27 +1,25 @@
-# Import an existing Kubernetes environment
+# 导入现有的Kubernetes环境
 
-With Portainer you can import your existing Kubernetes environment through the use of a [kubeconfig](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/) file. Portainer will use the information in the kubeconfig file to connect to your environment then deploy and configure the Portainer Agent for you.
+通过使用[kubeconfig](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/)文件，您可以在Portainer中导入现有的Kubernetes环境。Portainer将使用kubeconfig文件中的信息连接到您的环境，然后为您部署和配置Portainer Agent。
 
+此功能仅在[Portainer商业版](https://www.portainer.io/business-upsell?from=k8s-create-from-kubeconfig)中可用。
 
-This feature is only available in [Portainer Business Edition](https://www.portainer.io/business-upsell?from=k8s-create-from-kubeconfig).
+## 要求
 
+虽然我们已尽力支持尽可能多的配置，但为了完全支持导入过程，有一些要求：
 
-## Requirements
+* 您的集群必须配置并启用了负载均衡器。
+* 您的kubeconfig文件必须指定`current-context`。
+* 您的kubeconfig文件必须是自包含的（即仅由一个文件组成，没有外部引用）。
+* 您的kubeconfig文件必须提供集群管理员级别的凭据，以便Portainer在您的集群上部署agent。
 
-While we have tried to support as many configurations as possible, there are a few requirements in order to fully support the import process:
+## 生成用于导入的kubeconfig文件
 
-* Your cluster must have a load balancer configured and enabled.
-* Your kubeconfig file must specify `current-context`.
-* Your kubeconfig file must be self-contained (i.e., consist of only the one file with no external references).
-* Your kubeconfig file must provide cluster admin level credentials, in order for Portainer to deploy the agent on your cluster.
+根据您的环境类型，可能有不同的方法来创建支持的kubeconfig文件。目前支持以下环境类型：
 
-## Generating a kubeconfig file for import
+### 本地集群
 
-Depending on your environment, there may be different methods for creating a supported kubeconfig file. The following environment types are currently supported:
-
-### On-premise clusters
-
-For an on-premise cluster, you can use the following kubectl command to generate a supported kubeconfig file:
+对于本地集群，您可以使用以下kubectl命令生成支持的kubeconfig文件：
 
 ```
 kubectl config view --flatten=true --minify=true > kubeconfig.yml
@@ -29,58 +27,56 @@ kubectl config view --flatten=true --minify=true > kubeconfig.yml
 
 ### Civo
 
-To create a kubeconfig file from a Civo cluster, log into the Civo dashboard and go to **Kubernetes**. Select the cluster to import and click on **Click to Download** next to the **Kubeconfig** label.
+要从Civo集群创建kubeconfig文件，请登录Civo仪表板并转到**Kubernetes**。选择要导入的集群，然后单击**Kubeconfig**标签旁边的**Click to Download**。
 
 ### Linode
 
-To create a kubeconfig file from a Linode cluster, log into the Linode dashboard and click on **Kubernetes** in the left hand menu. Select the cluster to import, and in the top right of the page select **Actions** then **Download Config**.
+要从Linode集群创建kubeconfig文件，请登录Linode仪表板，在左侧菜单中单击**Kubernetes**。选择要导入的集群，在页面右上角选择**Actions**，然后选择**Download Config**。
 
 ### DigitalOcean
 
-To create a kubeconfig file from a DigitalOcean cluster, log into the DigitalOcean dashboard and in the left hand menu select **Manage** then **Kubernetes**. Alternatively, go to **Projects**, select the project containing your cluster, then look in the **Clusters** panel. Select the cluster to import, then click the **Kubeconfig** option to download the kubeconfig file.
+要从DigitalOcean集群创建kubeconfig文件，请登录DigitalOcean仪表板，在左侧菜单中选择**Manage**，然后选择**Kubernetes**。或者，转到**Projects**，选择包含集群的项目，然后查看**Clusters**面板。选择要导入的集群，然后单击**Kubeconfig**选项下载kubeconfig文件。
 
 ### Microsoft Azure
 
-To create a kubeconfig file from an Azure cluster, download and install the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) from Microsoft. Start a shell session on Linux or an administrator PowerShell session on Windows, and run the following:
+要从Azure集群创建kubeconfig文件，请从Microsoft下载并安装[Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)。在Linux上启动shell会话或在Windows上启动管理员PowerShell会话，并运行以下命令：
 
 ```
 az login
 ```
 
-This command can take a couple of minutes to complete the first time it is used, and involves a browser window opening in order to authenticate you with Azure.
+此命令第一次使用时可能需要几分钟才能完成，并且会打开浏览器窗口以验证您的Azure身份。
 
-Once this completes and you are authenticated, run the following command:
+完成后，运行以下命令：
 
 ```
 az aks get-credentials --resource-group [resource-group-name] --name [cluster-name] --file ./kubeconfig-azure.yml
 ```
 
-Replace `[resource-group-name]` with the resource group containing your cluster. Replace `[cluster-name]` with your cluster.
+将`[resource-group-name]`替换为包含集群的资源组名称。将`[cluster-name]`替换为您的集群名称。
 
-## Importing your kubeconfig
+## 导入您的kubeconfig文件
 
-Once you have your kubeconfig file created, from the menu expand **Environment-related**, click **Environments**, then click **Add environment**.
+创建kubeconfig文件后，从菜单展开**环境相关**，点击**环境**，然后点击**添加环境**。
 
 <figure><img src="../../..//assets/2.22-environments-add.gif" alt=""><figcaption></figcaption></figure>
 
-&#x20;Select the **Kubernetes** option and click **Start Wizard**. Then select the **Import** option.
+选择**Kubernetes**选项并点击**开始向导**。然后选择**导入**选项。
 
+导入选项仅在[Portainer商业版](https://www.portainer.io/business-upsell?from=k8s-create-from-kubeconfig)中可用。
 
-The import option is only available in [Portainer Business Edition](https://www.portainer.io/business-upsell?from=k8s-create-from-kubeconfig).
-
-
-Enter a **name** for cluster then click **Select a file** to browse for your kubeconfig file.&#x20;
+输入集群的**名称**，然后点击**选择文件**浏览您的kubeconfig文件。
 
 <figure><img src="../../..//assets/2.18-environments-add-k8s-import-setup.png" alt=""><figcaption></figcaption></figure>
 
-As an optional step you can expand the **More settings** section to customize the deployment further.
+作为可选步骤，您可以展开**更多设置**部分以进一步自定义部署。
 
-| Field/Option    | Overview                                                                                                                                                                                                                                                                                   |
+| 字段/选项    | 概述                                                                                                                                                                                                                                                                                   |
 | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Custom Template | Select a custom template to deploy on your cluster. This is handy for pre-loading a new environment with your applications. The template will be deployed in the default namespace unless the template specifies a namespace to use. You can also set any variables the template requires. |
-| Group           | Select a [group](../../groups.md) to add the new environment to once provisioning completes.                                                                                                                                                                                               |
-| Tags            | Select any [tags](../../tags.md) to add to the environment.                                                                                                                                                                                                                                |
+| 自定义模板 | 选择要在集群上部署的自定义模板。这对于预加载新环境与您的应用程序非常有用。除非模板指定了要使用的命名空间，否则模板将部署在默认命名空间中。您还可以设置模板所需的任何变量。 |
+| 组           | 选择配置完成后要将新环境添加到的[组](../../groups.md)。                                                                                                                                                                                               |
+| 标签            | 选择要添加到环境的任何[标签](../../tags.md)。                                                                                                                                                                                                                                |
 
 <figure><img src="../../..//assets/2.19-environments-create-microk8s-moresettings.png" alt=""><figcaption></figcaption></figure>
 
-When you're ready, click the **Connect** button. If you have other environments to configure click **Next** to proceed, otherwise click **Close** to return to the list of environments where you will see the progress of your provision.
+准备就绪后，点击**连接**按钮。如果您有其他环境需要配置，点击**下一步**继续，否则点击**关闭**返回环境列表，您将在其中看到配置进度。

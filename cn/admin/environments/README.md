@@ -1,47 +1,29 @@
-# Environment-related
+# 环境相关
 
-In Portainer terms, an _environment_ is an instance that you want to manage through Portainer. Environments can be Docker, Docker Swarm, Kubernetes, ACI or a combination. One Portainer Server instance can manage multiple environments.
+在Portainer术语中，_环境_是您希望通过Portainer管理的实例。环境可以是Docker、Docker Swarm、Kubernetes、ACI或它们的组合。一个Portainer Server实例可以管理多个环境。
 
-
-Endpoints were renamed to Environments in version 2.10.
-
-
+在2.10版本中，端点(Endpoints)被重命名为环境(Environments)。
 
 [environments.md](environments.md)
 
-
-
 [add](add/)
 
-
-Environments can be organized in groups and given tags.
-
+环境可以按组组织并添加标签。
 
 [groups.md](groups.md)
 
-
-
 [tags.md](tags.md)
 
-
-Access to environments can then be managed on a per-environment or per-environment group basis.
-
+然后可以按每个环境或每个环境组管理访问权限。
 
 [access.md](access.md)
 
-
-
 [access-groups.md](access-groups.md)
 
-
-Automatic onboarding scripts can be generated for larger Edge Agent deployments.
-
+可以为大型Edge Agent部署生成自动加入脚本。
 
 [aeec.md](aeec.md)
 
-
-Edge Agent environments can be updated (and updates rolled back) directly from within Portainer.
-
+Edge Agent环境可以直接从Portainer内部更新(并回滚更新)。
 
 [update.md](update.md)
-

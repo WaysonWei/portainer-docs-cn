@@ -1,16 +1,16 @@
-# Deprecated and removed features
+# 已弃用和移除的功能
 
-This table lists deprecated and removed features and functionality that are no longer supported and should not be used. The **Deprecated** column shows the release in which the feature was tagged as deprecated. The **Remove** column shows the release in which the feature was or will be removed (TBD means 'to be decided').
+此表列出了不再支持且不应使用的已弃用和移除的功能。**弃用**列显示功能被标记为弃用的版本。**移除**列显示功能已被移除或将被移除的版本（TBD表示"待定"）。
 
-| Feature                                                                          | Deprecated | Remove |
+| 功能                                                                          | 弃用版本   | 移除版本 |
 | -------------------------------------------------------------------------------- | ---------- | ------ |
-| `PUT /kubernetes/{id}/namespaces` API endpoint                                   | 2.25.0     | TBD    |
-| Nomad support                                                                    | 2.20.0     | 2.20.0 |
-| Enabling SSL via `--ssl` (now enabled by default)                                | 2.9.0      | TBD    |
-| Disabling analytics via `--no-analytics`                                         | 2.0        | TBD    |
-| Kompose deployments                                                              | 2.15.0     | 2.17.0 |
-| Specifying external environments in JSON via `--external-endpoints`              |            | 2.0    |
-| Setting time between environment synchronization requests via `--sync-interval`  |            | 2.0    |
-| Disabling Portainer internal authentication via `--no-auth`                      |            | 2.0    |
-| Specifying a templates file to load on first run via `--templates-file`          |            | 2.0    |
-| Preventing Portainer from running a snapshot of environments via `--no-snapshot` |            | 2.0    |
+| `PUT /kubernetes/{id}/namespaces` API 端点                                   | 2.25.0     | TBD    |
+| Nomad 支持                                                                    | 2.20.0     | 2.20.0 |
+| 通过`--ssl`启用SSL（现在默认启用）                                | 2.9.0      | TBD    |
+| 通过`--no-analytics`禁用分析                                         | 2.0        | TBD    |
+| Kompose 部署                                                              | 2.15.0     | 2.17.0 |
+| 通过`--external-endpoints`在JSON中指定外部环境              |            | 2.0    |
+| 通过`--sync-interval`设置环境同步请求之间的时间间隔  |            | 2.0    |
+| 通过`--no-auth`禁用Portainer内部认证                      |            | 2.0    |
+| 通过`--templates-file`指定首次运行时加载的模板文件          |            | 2.0    |
+| 通过`--no-snapshot`阻止Portainer运行环境快照 |            | 2.0    |

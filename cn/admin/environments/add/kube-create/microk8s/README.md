@@ -1,101 +1,101 @@
 # MicroK8s
 
-## Introduction
+## 介绍
 
-Portainer consists of two elements, the _Portainer Server_ and the _Portainer Agent_. Both elements run as lightweight containers on Kubernetes. This document will outline how to connect Portainer to your existing infrastructure to deploy MicroK8s and install the Portainer Agent. If you do not have a working Portainer Server instance yet, please refer to the [Portainer Server installation guide](../../../../../start/install/server/kubernetes/baremetal.md) first.
+Portainer由两个组件组成：_Portainer Server_和_Portainer Agent_。这两个组件都作为轻量级容器运行在Kubernetes上。本文档将介绍如何将Portainer连接到您现有的基础设施以部署MicroK8s并安装Portainer Agent。如果您还没有可用的Portainer Server实例，请先参考[Portainer Server安装指南](../../../../../start/install/server/kubernetes/baremetal.md)。
 
-## Prerequisites
+## 前提条件
 
-In order to connect to and deploy MicroK8s and the Portainer Agent on your existing infrastructure, you will need:
+为了连接并在您现有的基础设施上部署MicroK8s和Portainer Agent，您需要：
 
-* One or more Linux-based machines on which MicroK8s will be deployed. We have primarily tested on Ubuntu 20.04 LTS but most comparable Linux distributions should work. These machines can be bare metal servers or virtual machines.
-* Root or passwordless sudo SSH access to the above machines on port `22`. This is needed in order to install MicroK8s. Portainer supports both password-based and key-based authentication.
-* The `snap` tool installed on the above machines. You can find installation instructions for most Linux distributions [at the Snapcraft website](https://snapcraft.io/docs/installing-snapd). The `snap` tool is used to install MicroK8s and any selected addons.
-* Communication between the Portainer Server and the above machines, as well as communication between the individual machines in the cluster. This is to ensure the Portainer Server can reach the machines both for the initial installation and for communication with the Portainer Agent once the cluster is up and running, and so that the cluster nodes can communicate with each other.
-* For the standard installation, internet access (specifically to Docker Hub and registry.k8s.io) from the machines where MicroK8s will be deployed. If internet access is not available you can perform an offline installation, though there are some [prerequisite steps](offline.md) that must be completed. In addition, operating offline may affect enabling of some addons.
+* 一台或多台基于Linux的机器用于部署MicroK8s。我们主要在Ubuntu 20.04 LTS上进行了测试，但大多数类似的Linux发行版应该都可以工作。这些机器可以是裸金属服务器或虚拟机。
+* 对上述机器具有root或无密码sudo SSH访问权限，端口为`22`。这是安装MicroK8s所必需的。Portainer支持基于密码和基于密钥的认证。
+* 在上述机器上安装`snap`工具。您可以在[Snapcraft网站](https://snapcraft.io/docs/installing-snapd)找到大多数Linux发行版的安装说明。`snap`工具用于安装MicroK8s和任何选定的插件。
+* Portainer Server与上述机器之间以及集群中各机器之间的通信。这是为了确保Portainer Server既可以在初始安装时访问这些机器，也可以在集群启动运行后与Portainer Agent通信，并且集群节点之间可以相互通信。
+* 对于标准安装，需要从部署MicroK8s的机器访问互联网（特别是Docker Hub和registry.k8s.io）。如果没有互联网访问权限，您可以执行离线安装，但需要完成一些[先决步骤](offline.md)。此外，离线操作可能会影响某些插件的启用。
 
-## What to expect
+## 预期结果
 
-By necessity, our MicroK8s deployment makes some configuration decisions for you.
+出于必要，我们的MicroK8s部署会为您做出一些配置决策。
 
-* The Portainer Agent is deployed using NodePort, on port `30778`.&#x20;
-* There may be some configuration differences between versions of MicroK8s deployed. One notable difference is from version 1.25, if the `ingress` addon is installed an additional ingress named `nginx` is configured. This does not occur on version 1.24. We recommend referring to the [MicroK8s release notes](https://microk8s.io/docs/release-notes) for further detail.
-* The deployment does not configure any storage classes on your cluster (unless the `hostpath-storage` addon is installed, though this is not recommended for multiple node clusters). Due to the vast amount of potential storage class configurations, this is not something we currently provide automatically. We recommend configuring a storage class once provision completes.
+* Portainer Agent使用NodePort部署，端口为`30778`。&#x20;
+* 不同版本的MicroK8s部署之间可能存在一些配置差异。一个显著的差异是从1.25版本开始，如果安装了`ingress`插件，会配置一个名为`nginx`的额外ingress。这在1.24版本中不会发生。我们建议参考[MicroK8s发布说明](https://microk8s.io/docs/release-notes)获取更多细节。
+* 部署不会在您的集群上配置任何存储类（除非安装了`hostpath-storage`插件，但不建议用于多节点集群）。由于存储类配置的可能性非常多，这不是我们目前自动提供的功能。我们建议在配置完成后配置一个存储类。
 
-## Deployment
+## 部署
 
-To create and deploy MicroK8s and the Portainer Agent to your machines, from the menu expand **Environment-related**, click **Environments**, then click **Add environment**.
+要创建并将MicroK8s和Portainer Agent部署到您的机器上，从菜单展开**环境相关**，点击**环境**，然后点击**添加环境**。
 
 <figure><img src="../../../..//assets/2.22-environments-add.gif" alt=""><figcaption></figcaption></figure>
 
-Select **Create a Kubernetes cluster** and click **Start wizard**, then select **MicroK8s**.
+选择**创建Kubernetes集群**并点击**开始向导**，然后选择**MicroK8s**。
 
-If you have not yet [configured a set of SSH credentials](../../../../settings/credentials/ssh.md), you will be asked to provide them now. If you already have a credential set configured, you can skip to [cluster configuration](./#configure-your-cluster).
+如果您尚未[配置一组SSH凭据](../../../../settings/credentials/ssh.md)，系统将要求您现在提供它们。如果您已经配置了凭据集，可以跳转到[集群配置](./#configure-your-cluster)。
 
-### Add SSH credentials
+### 添加SSH凭据
 
-Fill in the fields based on the table below:
+根据下表填写字段：
 
-| Field/Option               | Overview                                                                                                             |
+| 字段/选项               | 概述                                                                                                             |
 | -------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| Credentials name           | Enter a name for this credential set. This is how it will be listed in Portainer.                                    |
-| SSH username               | Enter the username for your SSH account.                                                                             |
-| SSH password               | Enter the password for your SSH account. You can leave this field blank if you intend to use SSH key authentication. |
-| Use SSH key authentication | Enable this toggle to use SSH key authentication instead of password authentication.                                 |
-| SSH private key passphrase | If your SSH private key is encrypted, provide the passphrase here.                                                   |
-| SSH private key            | Paste your SSH private key in this field.                                                                            |
+| 凭据名称           | 输入此凭据集的名称。这将决定它在Portainer中的显示方式。                                    |
+| SSH用户名               | 输入您的SSH账户的用户名。                                                                             |
+| SSH密码               | 输入您的SSH账户的密码。如果您打算使用SSH密钥认证，可以留空此字段。 |
+| 使用SSH密钥认证 | 启用此切换以使用SSH密钥认证而不是密码认证。                                 |
+| SSH私钥密码短语 | 如果您的SSH私钥已加密，请在此处提供密码短语。                                                   |
+| SSH私钥            | 在此字段中粘贴您的SSH私钥。                                                                            |
 
 
-You can also choose to generate a new SSH key pair by clicking the **Generate new RSA SSH key pair** button, or upload an existing private key by clicking the **Upload SSH private key** button. You can find more detailed instructions for generating a new SSH key in our [SSH credentials documentation](../../../../settings/credentials/ssh.md#generate-a-new-key-pair).
+您还可以点击**生成新的RSA SSH密钥对**按钮生成新的SSH密钥对，或点击**上传SSH私钥**按钮上传现有的私钥。您可以在我们的[SSH凭据文档](../../../../settings/credentials/ssh.md#generate-a-new-key-pair)中找到生成新SSH密钥的更详细说明。
 
 
 <figure><img src="../../../..//assets/2.26-environments-add-kube-create-microk8s-creds.png" alt=""><figcaption></figcaption></figure>
 
-Once you have entered your credentials click **Add credentials**. The credential set will be saved under the name you entered, and you will be taken to the [cluster configuration](./#configure-your-cluster).
+输入凭据后，点击**添加凭据**。凭据集将以您输入的名称保存，您将被带到[集群配置](./#configure-your-cluster)。
 
-### Configure your cluster
+### 配置您的集群
 
-Once you have a set of credentials configured, you can proceed to configuring your cluster. Fill out the fields based on the table below:
+配置好凭据集后，您可以继续配置集群。根据下表填写字段：
 
-| Field/Option        | Overview                                                                                                                                                                                                   |
+| 字段/选项        | 概述                                                                                                                                                                                                   |
 | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Name                | Enter a name for your environment. This is how the environment will appear in Portainer.                                                                                                                   |
-| Credentials         | Select the set of SSH credentials to use from the dropdown.                                                                                                                                                |
-| Control plane nodes | Enter a comma-separated or line-separated list of the IP addresses for the machines that will be the **control plane nodes** for your cluster. You can also specify a range of IP addresses with a hyphen. |
-| Worker nodes        | Enter a comma-separated or line-separated list of the IP addresses for the machines that will be the **worker nodes** for your cluster. You can also specify a range of IP addresses with a hyphen.        |
+| 名称                | 为您的环境输入一个名称。这将决定环境在Portainer中的显示方式。                                                                                                                   |
+| 凭据         | 从下拉列表中选择要使用的SSH凭据集。                                                                                                                                                |
+| 控制平面节点 | 输入将作为集群**控制平面节点**的机器的IP地址列表，用逗号或换行分隔。您也可以使用连字符指定IP地址范围。 |
+| 工作节点        | 输入将作为集群**工作节点**的机器的IP地址列表，用逗号或换行分隔。您也可以使用连字符指定IP地址范围。        |
 
 <figure><img src="../../../..//assets/2.19-environments-create-microk8s-nodes.png" alt=""><figcaption></figcaption></figure>
 
-Once you have selected a credential set and entered the node IPs, you can click **Test connections** to ensure the credentials work for all the IP addresses and that they are reachable from the Portainer Server instance. If there are any issues connecting to the nodes they will be displayed.
+选择凭据集并输入节点IP后，您可以点击**测试连接**以确保凭据对所有IP地址有效并且可以从Portainer Server实例访问。如果连接节点时出现任何问题，将会显示。
 
 <figure><img src="../../../..//assets/2.19-environments-create-microk8s-test.png" alt=""><figcaption></figcaption></figure>
 
-You can now proceed to configuring MicroK8s itself. Fill out the fields based on the table below:
+您现在可以继续配置MicroK8s本身。根据下表填写字段：
 
-| Field/Option       | Overview                                                                                                                                                                                                                            |
+| 字段/选项       | 概述                                                                                                                                                                                                                            |
 | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Kubernetes version | Select the version of MicroK8s to deploy on your cluster. This field is disabled if **Offline install** is enabled.                                                                                                                 |
-| Offline install    | Enable this toggle if you are performing an installation on an environment that has no internet access. You must complete [pre-configuration of your nodes](offline.md) for offline installation.                                   |
-| Addons             | Optionally click the **Add addon** button to select one or more addons to deploy alongside the MicroK8s installation. You can also specify any arguments needed for each addon. This is disabled if **Offline install** is enabled. |
+| Kubernetes版本 | 选择要在集群上部署的MicroK8s版本。如果启用了**离线安装**，此字段将被禁用。                                                                                                                 |
+| 离线安装    | 如果要在没有互联网访问权限的环境上执行安装，请启用此切换。您必须完成[节点的预配置](offline.md)才能进行离线安装。                                   |
+| 插件             | 可选点击**添加插件**按钮选择一个或多个插件与MicroK8s安装一起部署。您还可以为每个插件指定所需的任何参数。如果启用了**离线安装**，此选项将被禁用。 |
 
 <figure><img src="../../../..//assets/2.20.3-environments-add-k8s-create-version.png" alt=""><figcaption></figcaption></figure>
 
-As an optional step you can expand the **More settings** section to customize the deployment further.
+作为可选步骤，您可以展开**更多设置**部分以进一步自定义部署。
 
-| Field/Option    | Overview                                                                                                                                                                                                                                                                                                                                                    |
+| 字段/选项    | 概述                                                                                                                                                                                                                                                                                                                                                    |
 | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Custom Template | Select a custom template to deploy on your cluster once the MicroK8s and Portainer Agent installations are complete. This is handy for pre-loading a new environment with your applications. The template will be deployed in the default namespace unless the template specifies a namespace to use. You can also set any variables the template requires. |
-| Group           | Select a [group](../../../groups.md) to add the new environment to once provisioning completes.                                                                                                                                                                                                                                                             |
-| Tags            | Select any [tags](../../../tags.md) to add to the environment.                                                                                                                                                                                                                                                                                              |
+| 自定义模板 | 选择在MicroK8s和Portainer Agent安装完成后要在集群上部署的自定义模板。这对于预加载新环境与您的应用程序非常方便。除非模板指定了要使用的命名空间，否则模板将部署在默认命名空间中。您还可以设置模板所需的任何变量。 |
+| 组           | 选择在配置完成后将新环境添加到的[组](../../../groups.md)。                                                                                                                                                                                                                                                             |
+| 标签            | 选择要添加到环境的任何[标签](../../../tags.md)。                                                                                                                                                                                                                                                                                              |
 
 <figure><img src="../../../..//assets/2.19-environments-create-microk8s-moresettings.png" alt=""><figcaption></figcaption></figure>
 
-Once you have entered your cluster configuration details, click **Provision environment** to begin the provision. Portainer will start provisioning your cluster with the options you selected. If you have other environments to configure click **Next** to proceed, otherwise click **Close** to return to the list of environments.
+输入集群配置详细信息后，点击**配置环境**开始配置。Portainer将开始使用您选择的选项配置您的集群。如果您还有其他环境需要配置，点击**下一步**继续，否则点击**关闭**返回环境列表。
 
-### Provision progress
+### 配置进度
 
-From the Environments page you will be able to see the progress of any running Kubernetes environment provisions. The status will be updated as the provision completes, and if the provision runs into problems an error will be displayed here. You can hover over the status or error for additional detail.
+在环境页面上，您将能够看到任何正在运行的Kubernetes环境配置的进度。状态将随着配置完成而更新，如果配置遇到问题，将在此处显示错误。您可以悬停在状态或错误上以获取更多详细信息。
 
 <figure><img src="../../../..//assets/2.18-environments-add-k8sinstall-creating.png" alt=""><figcaption></figcaption></figure>
 
-Once the provision completes, you will be able to access the environment as you would any other Portainer-configured environment.
+配置完成后，您将能够像访问任何其他Portainer配置的环境一样访问该环境。

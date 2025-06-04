@@ -1,86 +1,76 @@
-# Install Edge Agent Async on Docker Standalone
+# 在Docker Standalone上安装Edge Agent异步版
 
-When a remote environment is not directly accessible from the Portainer Server instance, we recommend deploying the Portainer _Edge Agent_ to the remote environment. This allows you to manage the remote environment from your Portainer Server instance without having to open any ports on the environment. Rather than the traditional approach of the server connecting to Agents, the Edge Agent instead polls the Portainer Server periodically to see if there are any pending jobs to perform, and acts appropriately.
+当远程环境无法直接从Portainer Server实例访问时，我们建议在远程环境上部署Portainer _Edge Agent_。这样您就可以从Portainer Server实例管理远程环境，而无需在环境中开放任何端口。与传统方式（服务器连接到Agent）不同，Edge Agent会定期轮询Portainer Server以检查是否有待处理的任务并采取相应操作。
 
+有关Edge Agent工作原理的技术概述，请参阅我们的[高级文档](../../../../advanced/edge-agent.md)。
 
-For a technical summary of how the Edge Agent works, refer to our [advanced documentation](../../../../advanced/edge-agent.md).
+## 异步模式 vs 标准模式
 
+Portainer Edge Agent可以部署为两种不同模式 - 标准模式和异步模式。在标准模式下，我们提供通过从Edge Agent到Portainer Server按需建立的隧道连接远程Edge Agent的能力，让您可以实时直接与环境交互。
 
-## Async mode vs Standard mode
+在异步模式下，这种隧道连接不可用。相反，我们提供浏览远程环境快照的能力，让您可以根据Edge Agent最近发送到Portainer Server的状态捕获查看环境状态，并使用此快照对远程环境执行操作。
 
-The Portainer Edge Agent can be deployed in two different modes - standard mode and async mode. In standard mode, we provide the ability to connect to the remote Edge Agent through a tunnel that is established on-demand from the Edge Agent to the Portainer Server, letting you interact directly with the environment in real time.&#x20;
+异步模式专为使用极少数据量而开发，因此适用于连接有限或间歇性连接的环境，以及数据流量受限的连接，例如移动网络。
 
-In async mode, this tunnel connectivity is not available. Instead, we provide the ability to browse snapshots of the remote environment, allowing you to see the state of the Edge Agent's environment based on a recent state capture sent through to the Portainer Server, as well as use this snapshot to perform actions on the remote environment.&#x20;
+Edge Agent异步模式仅在Portainer商业版中可用。
 
-Async mode has been developed to use very small amounts of data and as such is suitable for environments that have limited or intermittent connectivity as well as connections with limited data caps, for example mobile networks.&#x20;
+## 准备工作
 
+在异步模式下，Edge Agent只需要在Portainer服务器实例上开放UI端口（通常为`9443`或Kubernetes NodePort的`30779`）。异步模式不需要隧道端口。我们的安装说明默认配置Portainer Server监听这两个端口，您需要确保防火墙允许外部访问UI端口才能继续。
 
-Edge Agent Async mode is only available in Portainer Business Edition.
+如果您的Portainer Server实例部署时启用了TLS，Agent将使用HTTPS连接回Portainer。但如果您的Portainer实例使用自签名证书，则必须使用`-e EDGE_INSECURE_POLL=1`标志部署Edge Agent。如果不使用此标志部署Edge Agent，则Agent将无法与Portainer Server实例通信。
 
+此外，我们的说明假设您的环境满足[我们的要求](../../../../start/requirements-and-prerequisites.md)。虽然Portainer可能在其他配置下工作，但可能需要配置更改或功能受限。
 
-## Preparation
+## 部署
 
-In async mode, the Edge Agent requires only the UI port (usually `9443` or `30779` on Kubernetes with NodePort) to be open on the Portainer server instance. The tunnel port is not required for async mode. Our installation instructions configure Portainer Server to listen on both ports by default, and you will need to ensure your firewalling provides external access to the UI port in order to proceed.
-
-
-If your Portainer Server instance is deployed with TLS, the agent will use HTTPS for the connection it makes back to Portainer. However if your Portainer instance uses a self-signed certificate, the Edge Agent must be deployed with the `-e EDGE_INSECURE_POLL=1` flag. If you do not deploy the Edge Agent with this flag, then the agent will not be able to communicate with the Portainer Server instance.
-
-
-In addition, our instructions assume your environment meets [our requirements](../../../../start/requirements-and-prerequisites.md). While Portainer may work with other configurations, it may require configuration changes or have limited functionality.
-
-## Deploying
-
-To add an async Edge Agent to a Docker Standalone environment, from the menu expand **Environment-related**, click **Environments**, then click **Add environment**.
+要在Docker Standalone环境上添加异步Edge Agent，从菜单展开**环境相关**，点击**环境**，然后点击**添加环境**。
 
 <figure><img src="../../..//assets/2.22-environments-add.gif" alt=""><figcaption></figcaption></figure>
 
-Select **Docker Standalone** then click **Start Wizard**. Then select the **Edge Agent Async** option. Enter the environment details using the table below as a guide.
+选择**Docker Standalone**，然后点击**开始向导**。接着选择**Edge Agent异步版**选项。参考下表输入环境详细信息。
 
-| Field                    | Overview                                                                                                                                                                         |
+| 字段                    | 概述                                                                                                                                                                         |
 | ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Name                     | Enter a name for your environment.                                                                                                                                               |
-| Portainer API server URL | Enter the URL and port of your Portainer Server instance as it will be seen from your Edge environment. If using a FQDN, ensure that DNS is properly configured to provide this. |
+| 名称                     | 输入环境的名称。                                                                                                                                               |
+| Portainer API服务器URL | 输入从Edge环境看到的Portainer Server实例的URL和端口。如果使用FQDN，请确保DNS已正确配置。 |
 
 <figure><img src="../../..//assets/2.18-environments-add-docker-edge-async-name (1).png" alt=""><figcaption></figcaption></figure>
 
-As an optional step you can expand the **More settings** section and adjust the **Ping**, **Snapshot** and **Command** intervals for the environment - this defines how often this Edge Agent will check in with the Portainer Server for status updates, snapshot updates and to see if there are new pending commands to run, respectively. The default for each is once a minute, but the defaults can be adjusted in the [Edge Compute settings](../../../settings/edge.md#async-check-in-intervals).&#x20;
+作为可选步骤，您可以展开**更多设置**部分并调整环境的**Ping**、**快照**和**命令**间隔 - 这分别定义了Edge Agent检查Portainer Server状态更新、快照更新和查看是否有新待处理命令运行的频率。每个默认值为每分钟一次，但可以在[边缘计算设置](../../../settings/edge.md#async-check-in-intervals)中调整默认值。
 
-You can also categorize the environment by adding it to a [group](../../groups.md) or [tagging](../../tags.md) it for better searchability.
+您还可以通过将环境添加到[组](../../groups.md)或[标记](../../tags.md)来分类环境以提高可搜索性。
 
 <figure><img src="../../..//assets/2.18-environments-add-docker-edge-async-settings.png" alt=""><figcaption></figcaption></figure>
 
-When you're ready, click **Create**. If you are pre-staging your Edge Agent deployment, you can now retrieve the join token for use in your deployment.&#x20;
+准备就绪后，点击**创建**。如果您正在预置Edge Agent部署，现在可以检索加入令牌以用于部署。
 
 <figure><img src="../../..//assets/2.18-environments-add-docker-edge-jointoken.png" alt=""><figcaption></figcaption></figure>
 
-Otherwise, complete the new fields that have appeared using the table below as a guide.
+否则，请参考下表完成新出现的字段。
 
-| Field/Option            | Overview                                                                                                                                        |
+| 字段/选项            | 概述                                                                                                                                        |
 | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| Environment variables   | Enter a comma separated list of environment variables that will be sourced from the host where the agent is deployed and provided to the agent. |
-| Allow self-signed certs | Toggle this on to allow self-signed certificates when the agent is connecting to Portainer via HTTPS.                                           |
+| 环境变量   | 输入逗号分隔的环境变量列表，这些变量将从部署Agent的主机获取并提供给Agent。 |
+| 允许自签名证书 | 切换此选项以允许Agent通过HTTPS连接到Portainer时使用自签名证书。                                           |
 
 <figure><img src="../../..//assets/2.18-environments-add-docker-edge-envvars.png" alt=""><figcaption></figcaption></figure>
 
-Choose your platform (**Linux** or **Windows**), copy the generated command and run the command on your Edge environment to complete the installation.
+选择您的平台（**Linux**或**Windows**），复制生成的命令并在Edge环境上运行该命令以完成安装。
 
-
-If you have set a custom `AGENT_SECRET` on your Portainer Server instance (by specifying an AGENT\_SECRET environment variable when starting the Portainer Server container) you **must** remember to explicitly provide the same secret to your Edge Agent in the same way (as an environment variable) when deploying your Edge Agent, for example by adding the following to your `docker run` command: \
+如果您在Portainer Server实例上设置了自定义`AGENT_SECRET`（通过在启动Portainer Server容器时指定AGENT_SECRET环境变量），您**必须**记得在部署Edge Agent时以相同方式（作为环境变量）显式提供相同的密钥，例如在`docker run`命令中添加：\
 `-e AGENT_SECRET=yoursecret`
 
+如果要部署Edge Agent的环境上的Docker卷路径位于非标准位置（而不是`/var/lib/docker/volumes`），则需要调整部署命令中的卷挂载以适应。
 
-
-If Docker on the environment you're deploying the Edge Agent to has the Docker volume path at a non-standard location (instead of `/var/lib/docker/volumes`) you will need to adjust the volume mount in the deployment command to suit.&#x20;
-
-For example, if your volume path was `/srv/data/docker`, you would change the line in the command to:
+例如，如果您的卷路径是`/srv/data/docker`，您需要将命令中的行更改为：
 
 ```
 - v /srv/data/docker:/var/lib/docker/volumes \
 ```
 
-The right side of the mount should remain as `/var/lib/docker/volumes`, as that is what the Edge Agent expects.
-
+挂载的右侧应保持为`/var/lib/docker/volumes`，因为这是Edge Agent期望的。
 
 <figure><img src="../../..//assets/2.18-environments-add-docker-edge-async-command.png" alt=""><figcaption></figcaption></figure>
 
-If you have another Edge async environment of the same type to deploy you can click **Add another environment** to do so. Otherwise if you have any other environments to configure click **Next** to proceed, or click **Close** to return to the list of environments.
+如果您还有相同类型的其他Edge异步环境要部署，可以点击**添加另一个环境**。否则，如果您有其他环境需要配置，点击**下一步**继续，或点击**关闭**返回环境列表。

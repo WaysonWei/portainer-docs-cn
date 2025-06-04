@@ -1,77 +1,68 @@
-# The Portainer Edge Agent
+# Portainer Edge Agent
 
-## The back story
+## 背景故事
 
+对于标准部署，我们过去假设Portainer实例和所有环境共享同一网络并能无缝通信。如果远程环境位于不同网络（例如通过互联网），我们就无法管理它们。
 
-For standard deployments, we used to assume that the Portainer instance and any environments shared the same network and could communicate seamlessly. If remote environments were on a different network (say, across the Internet) we could not manage them.
+后来我们改变了Edge Agent架构，现在只需要环境能够访问Portainer。不再需要将Portainer Agent暴露在互联网上。
 
-Then we changed the Edge agent architecture so only the environments need to access Portainer. There is now no need to expose the Portainer agents to the Internet.
+Portainer现在只需要开放`9443`和`8000` TCP端口。我们过去从`9000`端口提供UI和Portainer API，但现在扩展了API以允许远程Agent轮询指令。端口`8000`是一个TLS隧道服务器，用于在Agent和Portainer实例之间创建安全隧道。更多细节将在后面介绍。
 
-Portainer now requires that only the `9443` and `8000` TCP ports are exposed. We used to serve the UI and the Portainer API from port `9000`, but we extended the API to allow the remote agents to poll for instructions. Port `8000` is a TLS tunnel server used to create a secure tunnel between the agent and the Portainer instance. More about that soon.
+如果Portainer实例部署时启用了TLS，Agent将使用HTTPS连接回Portainer。但如果您的Portainer实例使用自签名证书，则必须使用`-e EDGE_INSECURE_POLL=1`标志部署Edge Agent。如果不使用此标志部署Edge Agent，Agent将无法与Portainer实例通信。
 
+## 在Portainer中创建Edge Agent
 
-iner instance is deployed with TLS, the agent will use HTTPS for the connection it makes back to Portainer. However, if your Portainer instance uses a self-signed certificate, the Edge Agent must be deployed with the `-e EDGE_INSECURE_POLL=1` flag. If you do not deploy the Edge Agent with this flag, the agent won't be able to communicate with the Portainer instance.
+创建Edge Agent时，首先需要为环境指定一个易于理解的名称。然后需要确认Portainer实例的FQDN:PORT。这是Agent用来连接的地址，请确保其正确且DNS可解析。
 
-
-## Creating an Edge Agent in Portainer
-
-
-When you create an Edge Agent, you are first asked for a human-friendly endpoint name. You are then asked to confirm the FQDN:PORT of your Portainer instance. This is what agents will use to connect, so make sure it’s correct and that the DNS resolves.
-
-During the creation process, an Edge ID is dynamically generated. This is a random UUID which is assigned to each environment. You can see it in the command syntax which is provided during the setup process.
+在创建过程中，会动态生成一个Edge ID。这是一个随机UUID，分配给每个环境。您可以在设置过程中提供的命令语法中看到它。
 
 <figure><img src="/assets/2.15-advanced-edgeagent-command.png" alt=""><figcaption></figcaption></figure>
 
+Edge ID和加入令牌(join token)对每个环境都是唯一的。加入令牌(`EDGE_KEY`)由以下base64编码数据组成，用竖线(`|`)分隔：
 
-The Edge ID and the join token are unique per environment. The join token (`EDGE_KEY`) is made up of the following base64 encoded data separated by the pipe (`|`) character:
+* Portainer实例API URL。这是Edge Agent知道如何"回拨"到您的Portainer实例的方式。
+* Portainer实例反向隧道服务器地址。这与API URL相同（除非在[部署过程中更改](../admin/environments/add/docker/edge.md#deploying)或在[边缘计算设置](../admin/settings/edge.md#edge-compute-settings)中修改），但使用隧道服务器端口（默认为`8000`）。
+* Portainer实例反向隧道服务器指纹（防止创建隧道时的中间人攻击）。
+* 环境标识符键（端点/环境ID）。
 
-* The Portainer instance API URL. This is how the Edge Agent knows how to ‘call home’ to your Portainer instance.
-* The Portainer instance reverse tunnel server address. This is identical to the API URL (unless [changed during deployment](../admin/environments/add/docker/edge.md#deploying) or in [Edge Compute settings](../admin/settings/edge.md#edge-compute-settings)) but with the tunnel server port (`8000` is the default).
-* The Portainer instance reverse-tunnel server fingerprint (prevents MITM when creating a tunnel).
-* The environment identifier key (endpoint / environment ID).
+使用命令语法在远程节点或远程Swarm集群上部署Edge Agent。
 
-Use the command syntax to deploy an Edge Agent across your remote node or remote swarm cluster.
+## Portainer和Edge Agent如何通信
 
-## How Portainer and the Edge Agent communicate
+### 轮询
 
-### Polling
+Agent默认每5秒轮询Portainer实例一次（这在Portainer设置中定义）。
 
+### 连接过程和检查
 
+Agent向Portainer说："嗨，我是一个Agent。我的加入令牌是`abc123`。你现在需要我吗？"。Portainer检查其数据库以确保Edge UUID和加入令牌匹配。如果没有UUID能与提供的加入令牌关联，Portainer会将Agent提供的UUID与环境加入令牌关联。
 
-Agents poll the Portainer instance every 5 seconds by default (this is defined in Portainer settings).
+如果UUID/加入令牌不匹配，连接将被拒绝。如果匹配，Portainer实例会响应："不，我不需要你。请在X秒后再检查。"（X是Agent轮询频率），或者"是的，我需要你。请使用这些隧道凭证连接。"
 
-### Connection process and checks
+Portainer使用Edge UUID作为加密密钥加密隧道凭证（设计为一次性使用凭证）。
 
-The agent says to Portainer, “Hi, I'm an agent. My join token is `abc123`. Do you need me right now?”. Portainer checks its database to ensure the Edge UUID and the join token match. If no UUID can be associated with the join token provided, Portainer will associate the UUID provided by the agent to the environment’s join token.
+### 在Agent和Portainer之间打开隧道
 
-If the UUID/join token do not match, the connection is rejected. If the UUID/join token match, the Portainer instance responds with either: "No, I don’t need you. Please check in again in X seconds." (where X is the agent polling frequency), or "Yes, I do need you. Please connect using these tunnel credentials.”.
+一旦收到确认，Edge Agent解密凭证并在端口`8000`上打开到Portainer实例的隧道。如果远程环境是Swarm集群，每个节点都将运行一个Agent实例（每个实例都会轮询Portainer）。"你需要"标志会导致集群中的第一个Agent建立隧道。一旦建立，Portainer就可以查询隧道开放的Agent。如果隧道因任何原因关闭，Agent会立即重新建立它。
 
+### 当Portainer强制Edge Agent建立隧道时
 
-Portainer encrypts the tunnel credentials using the Edge UUID as the encryption key (intended as one-time-use credentials).
-
-
-### Opening a tunnel between the agent and Portainer
-
-Once confirmation is received, the Edge Agent decrypts the credentials and opens a tunnel on port `8000` to the Portainer instance. If a remote environment is a swarm cluster, every node will run an instance of the agent (and every instance will poll Portainer). The 'you are required' flag causes the first agent in the cluster to establish the tunnel. Once in place, Portainer can then query the agent where the tunnel is open. If the tunnel closes for any reason, the agent will immediately re-establish it.
-
-### When Portainer forces the Edge Agent to establish a tunnel
-
-Sometimes Portainer will ask the agent to establish a tunnel. This happens when an admin selects an Edge environment for interactive management via the Portainer UI or the API. Once selected, the 'you are required' flag triggers the connection process. If default settings are in use, it takes about 10 seconds for the agent to poll and establish a tunnel. That’s about 5 seconds wait time until polling then a few seconds for the tunnel to open. The admin is shown this message while this happens:
+有时Portainer会要求Agent建立隧道。这发生在管理员通过Portainer UI或API选择Edge环境进行交互式管理时。一旦选择，"你需要"标志会触发连接过程。如果使用默认设置，Agent轮询并建立隧道大约需要10秒。大约5秒等待轮询，然后几秒钟打开隧道。在此过程中管理员会看到此消息：
 
 <div align="center"><img src="/assets/edge-advanced-2.png" alt=""></div>
 
-### Terminating the connection
+### 终止连接
 
-The agent keeps a record of when Portainer last communicated with it. After 5 minutes of inactivity, it sends a snapshot of the current config to Portainer for its records, closes the tunnel and revokes the credentials. When admins have an active session with an Edge environment, ‘keep alives’ are sent every minute (even if the admin is not performing a task) so they are not kicked out by mistake.
+Agent记录Portainer上次与其通信的时间。5分钟不活动后，它会将当前配置的快照发送给Portainer记录，关闭隧道并撤销凭证。当管理员与Edge环境有活动会话时，即使管理员没有执行任务，也会每分钟发送"保持活动"信号，以免被错误踢出。
 
-## Network performance
+## 网络性能
 
-### Adjusting the polling frequency to improve performance
+### 调整轮询频率以提高性能
 
-Thousands of endpoints polling Portainer every 5 seconds is a lot. That’s about 324b/second per agent, not per environment. If you don’t do a lot of environment admin, we suggest you go into Portainer settings and increase the polling frequency. Simply change it back when you need to do some admin so you are not kept waiting.
+数千个端点每5秒轮询Portainer一次是很大的负载。这大约是每个Agent 324b/秒，不是每个环境。如果您不经常进行环境管理，我们建议您进入Portainer设置并增加轮询频率。只需在需要管理时将其改回，这样您就不必等待。
 
 <figure><img src="/assets/2.15-advanced-edgeagent-pollfreq.png" alt=""><figcaption></figcaption></figure>
 
-### Ongoing improvements
+### 持续改进
 
-We load-tested Portainer with 15,000 actively connected environments with a polling frequency of 5 seconds. This generated 7Mbps of network traffic to the Portainer instance, and Portainer needed 4 CPUs to handle the encryption/tunnel load. This Edge Agent release is our first attempt at massive-scale centralized management. Our end goal is to reduce the network overhead associated with polling.
+我们使用15,000个活动连接的环境和5秒的轮询频率对Portainer进行了负载测试。这向Portainer实例生成了7Mbps的网络流量，Portainer需要4个CPU来处理加密/隧道负载。这个Edge Agent版本是我们首次尝试大规模集中管理。我们的最终目标是减少与轮询相关的网络开销。

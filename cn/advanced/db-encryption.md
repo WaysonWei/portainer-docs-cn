@@ -1,35 +1,33 @@
-# Encrypting the Portainer database
+# 加密Portainer数据库
 
-Portainer uses a BoltDB database to store the configuration, kept in the `portainer_data` volume created during installation. This database can be encrypted for additional security through the use of a secret provided when the Portainer Server is started. Encryption can be added during the initial installation or at a later date.
+Portainer使用BoltDB数据库存储配置，该数据库保存在安装期间创建的`portainer_data`卷中。可以通过在启动Portainer Server时提供密钥来加密此数据库以增强安全性。可以在初始安装期间或之后添加加密。
 
-
-At present, encryption of the database is not reversible.
-
+目前，数据库加密是不可逆的。
 
 ## Docker Standalone
 
-To enable encryption on Docker Standalone, you will first need to create a secret key, then modify your docker run command to mount the secret in the container.
+要在Docker Standalone上启用加密，首先需要创建一个密钥，然后修改docker run命令以将密钥挂载到容器中。
 
-### Create a secret
+### 创建密钥
 
-Create a text file on the system running Docker Standalone that is accessible to the Docker executable, yet somewhere secure. For this example, we'll assume the file is called `/root/secrets/portainer`. In this file enter a secret. This will be the key used to encrypt the Portainer database.
+在运行Docker Standalone的系统上创建一个文本文件，该文件对Docker可执行文件可访问但又安全。在此示例中，我们假设文件名为`/root/secrets/portainer`。在此文件中输入一个密钥。这将是用于加密Portainer数据库的密钥。
 
-### Mount the secret
+### 挂载密钥
 
-If Portainer is already running, you will need to stop and remove the Portainer container before continuing:
+如果Portainer已在运行，您需要先停止并删除Portainer容器：
 
 ```
 docker stop portainer
 docker rm portainer
 ```
 
-To encrypt the database, add a bind mount to the `docker run` command that mounts your secret in `/run/secrets/portainer`:
+要加密数据库，在`docker run`命令中添加一个绑定挂载，将您的密钥挂载到`/run/secrets/portainer`：
 
 ```
 -v /root/secrets/portainer:/run/secrets/portainer
 ```
 
-Your final `docker run` command may look like this:
+您最终的`docker run`命令可能如下所示：
 
 ```
 docker run -d -p 8000:8000 -p 9443:9443 --name portainer \
@@ -40,29 +38,27 @@ docker run -d -p 8000:8000 -p 9443:9443 --name portainer \
     portainer/portainer-ee:lts
 ```
 
-When the Portainer container starts, it will encrypt any existing database, or for a fresh install will create a new encrypted database as part of the install process.
+当Portainer容器启动时，它将加密任何现有数据库，或者对于全新安装，将在安装过程中创建一个新的加密数据库。
 
 ## Docker Swarm
 
-To enable encryption on Docker Swarm, you will first need to create a secret. You will then either update the service to incorporate the new secret (if you have an existing Portainer installation) or edit the compose file used to create the stack to include the secret (if this is a fresh installation of Portainer).
+要在Docker Swarm上启用加密，首先需要创建一个密钥。然后要么更新服务以包含新密钥（如果您有现有的Portainer安装），要么编辑用于创建堆栈的compose文件以包含密钥（如果这是Portainer的全新安装）。
 
-### Create a secret
+### 创建密钥
 
-On a manager node, you can run the following command to create a secret:
+在管理节点上，可以运行以下命令创建密钥：
 
 ```
-echo "This is a secret" | docker secret create portainer -
+echo "这是一个密钥" | docker secret create portainer -
 ```
 
-Replace `This is a secret` with your secret. This will create a secret named `portainer`, which will be the key used to encrypt the Portainer database.
+将`这是一个密钥`替换为您的密钥。这将创建一个名为`portainer`的密钥，该密钥将用于加密Portainer数据库。
 
+您也可以在Portainer中创建密钥，如果您要向现有安装添加加密。
 
-You can also create a secret in Portainer if you are adding encryption to an existing installation.
+### 现有安装：更新服务
 
-
-### Existing installations: Update the service
-
-To add encryption to an existing Portainer deployment on Docker Swarm, you can use the following command on a manager node:
+要向Docker Swarm上的现有Portainer部署添加加密，可以在管理节点上使用以下命令：
 
 ```
 docker service update \
@@ -70,20 +66,20 @@ docker service update \
     portainer
 ```
 
-The service will add the new secret and encrypt the database.
+服务将添加新密钥并加密数据库。
 
-### New installations: Edit the compose file
+### 新安装：编辑compose文件
 
-To install Portainer on Docker Swarm with encryption, you will need to edit the compose file you downloaded as part of the installation process. Add a secrets section to the `portainer` service definition:
+要在Docker Swarm上安装带加密的Portainer，需要编辑下载的compose文件作为安装过程的一部分。向`portainer`服务定义添加一个secrets部分：
 
 ```
 secrets:
   - portainer
 ```
 
-This tells the service to use the `portainer` secret created earlier.
+这告诉服务使用之前创建的`portainer`密钥。
 
-In addition, because we created it separately earlier we will need to specify it as `external` so that Docker knows not to create it when creating the stack. To do this we add a `secrets:` definition outside of the `services:` definition for the `portainer` secret:
+此外，因为我们之前单独创建了它，所以需要将其指定为`external`，以便Docker知道在创建堆栈时不要创建它。为此，我们在`services:`定义之外为`portainer`密钥添加一个`secrets:`定义：
 
 ```
 secrets:
@@ -91,7 +87,7 @@ secrets:
     external: true
 ```
 
-With the secret added, your full Portainer stack file may look like this:
+添加密钥后，您的完整Portainer堆栈文件可能如下所示：
 
 ```
 version: '3.2'
@@ -141,25 +137,25 @@ secrets:
     external: true
 ```
 
-Save your changes, then use the compose file to deploy your Portainer installation as covered in the Swarm installation instructions. The database will be deployed encrypted as part of the installation process.
+保存更改，然后使用compose文件部署Portainer安装，如Swarm安装说明中所述。数据库将在安装过程中部署为加密状态。
 
 ## Kubernetes
 
-To enable encryption on Kubernetes you will first need to create a secret. You will then mount this secret as a volume in Portainer.
+要在Kubernetes上启用加密，首先需要创建一个密钥。然后您需要将此密钥作为卷挂载到Portainer中。
 
-### Create a secret
+### 创建密钥
 
-From the command line on your Kubernetes cluster, you can run the following command to create your secret:
+在Kubernetes集群的命令行中，可以运行以下命令创建密钥：
 
 ```
-kubectl create secret generic portainer-key --from-literal=secret=IAmASecretKey --namespace portainer
+kubectl create secret generic portainer-key --from-literal=secret=我是一个密钥 --namespace portainer
 ```
 
-Replace `IAmASecretKey` with your secret. This will create a secret named `portainer-key`, which will be the key used to encrypt the Portainer database.
+将`我是一个密钥`替换为您的密钥。这将创建一个名为`portainer-key`的密钥，该密钥将用于加密Portainer数据库。
 
-### Modify the YAML file
+### 修改YAML文件
 
-Once the secret has been created, we need to modify the YAML file to mount the secret as a volume in Portainer. Download the YAML file for your particular deployment and locate the `container` definition for the `portainer` container. It should look something like this:
+创建密钥后，我们需要修改YAML文件以将密钥作为卷挂载到Portainer中。下载适用于您特定部署的YAML文件并找到`portainer`容器的`container`定义。它应该如下所示：
 
 ```
 containers:
@@ -172,7 +168,7 @@ containers:
         mountPath: /data  
 ```
 
-In the `volumeMounts` section, add a definition for the secret created earlier:
+在`volumeMounts`部分，为之前创建的密钥添加定义：
 
 ```
 volumeMounts:
@@ -183,7 +179,7 @@ volumeMounts:
     subPath: portainer
 ```
 
-We also need to add a definition to the `volumes` definition for the `spec`:
+我们还需要为`spec`的`volumes`定义添加定义：
 
 ```
 spec:
@@ -200,10 +196,10 @@ spec:
       
 ```
 
-Save the file, then apply it to your running configuration:
+保存文件，然后将其应用到正在运行的配置中：
 
 ```
 kubectl apply -f portainer.yaml
 ```
 
-Replace `portainer.yaml` with the name of your modified YAML file.
+将`portainer.yaml`替换为您修改后的YAML文件的名称。

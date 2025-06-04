@@ -1,5 +1,5 @@
-# Add a local environment
+# 添加本地环境
 
-You can only add a local environment when the Portainer Server container is being created. You cannot add a local environment after Portainer is deployed.
+您只能在创建Portainer Server容器时添加本地环境。Portainer部署后无法添加本地环境。
 
-For more information about the installation process, visit the [Getting Started](../../../start/intro.md) section (in particular, the [installation steps](../../../start/install/)).
+有关安装过程的更多信息，请访问[入门指南](../../../start/intro.md)部分（特别是[安装步骤](../../../start/install/)）。

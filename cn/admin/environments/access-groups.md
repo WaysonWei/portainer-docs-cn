@@ -1,17 +1,15 @@
-# Manage access to environment groups
+# 管理环境组访问权限
 
+环境可以按[组](groups.md)进行组织管理。如果环境和单个用户位于同一组中，用户将在**管理访问**页面上标记为`inherited`。这意味着用户从组继承其访问权限，而不是直接从环境继承。
 
-Environments can be [grouped](groups.md) for organizational purposes. If an environment and an individual user are in the same group, users will be tagged with `inherited` on the **Manage access** page. This means that the user is inheriting their access from the group, not the environment.
+如果您手动将用户分配到环境，而该用户已通过组分配，则他们将在**管理访问**页面上标记为`override`，表示在此特定环境下，他们的个人访问权限将覆盖组的权限。您可以针对此特殊情况修改他们的访问权限。
 
-If you manually assign a user to an environment, and they are already assigned to it via a group, they will be tagged with `override` on the **Manage access** page, indicating that their individual access will override that of the group for this one environment. You can then modify their access in this special case.
-
-
-From the menu expand **Environment-related** then select **Groups**. Locate the environment group you want to give users access to then select **Manage access** at the end of the row.
+从菜单展开**环境相关**，然后选择**组**。找到您要授予用户访问权限的环境组，然后选择行尾的**管理访问**。
 
 <figure><img src="..//assets/2.20-environments-access-groups.gif" alt=""><figcaption></figcaption></figure>
 
-Next, select the users or teams you want to add using the dropdown. Then use the **Role** dropdown to select the role you want this user or team to have.
+接下来，使用下拉菜单选择要添加的用户或团队。然后使用**角色**下拉菜单选择您希望此用户或团队拥有的角色。
 
 <figure><img src="..//assets/2.20-environments-access-groups-create.png" alt=""><figcaption></figcaption></figure>
 
-Once all have been selected, click **Create access**.
+选择完成后，点击**创建访问权限**。

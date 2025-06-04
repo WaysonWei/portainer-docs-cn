@@ -1,32 +1,30 @@
-# Add an AWS ECR registry
+# 添加AWS ECR注册表
 
-From the menu select **Registries** then click **Add registry** and select **AWS ECR** as the registry provider.
+从菜单中选择**注册表**，然后点击**添加注册表**并选择**AWS ECR**作为注册表提供商。
 
 <figure><img src="../..//assets/2.19-registries-add-ecr.gif" alt=""><figcaption></figcaption></figure>
 
-## Preparation
+## 准备工作
 
-If your registry requires authentication to access, you must create an IAM user with access to the registry for Portainer to use. Instructions on creating an IAM user are available [from AWS](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html#id_users_create_console). When you have created the user, make note of the **Access key ID** and **Secret access key**, as you will need these below.
+如果您的注册表需要身份验证才能访问，您必须创建一个具有注册表访问权限的IAM用户供Portainer使用。创建IAM用户的说明可从[AWS文档](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html#id_users_create_console)获取。创建用户后，请记下**访问密钥ID**和**秘密访问密钥**，因为您将在下面需要这些信息。
 
+目前我们不支持启用MFA的IAM用户。我们建议专门为Portainer创建一个禁用MFA的用户。
 
-At present we do not support IAM users with MFA enabled. We recommend creating a user specifically for Portainer to use with MFA disabled.
+创建用户时，您需要附加一个或多个策略以提供注册表访问权限。为了在Portainer中获得完整的注册表管理功能，我们推荐使用`AmazonEC2ContainerRegistryFullAccess`策略。
 
+## 添加您的注册表
 
-When creating the user you will need to attach one or more policies to provide registry access. For full registry management functionality within Portainer, we recommend the `AmazonEC2ContainerRegistryFullAccess` policy.
+填写表单，参考下表作为指南。
 
-## Add your registry
-
-Complete the form, using the table below as a guide.
-
-| Field/Option          | Overview                                                                                                                                                            |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Name                  | Enter the name you'd like to use in Portainer for your registry.                                                                                                    |
-| Registry URL          | Enter the URL of your AWS ECR registry, including the account ID and region. You can find this in the AWS console under Amazon Container Services, ECR, Registries. |
-| Authentication        | Enable this option if your registry requires authentication to access.                                                                                              |
-| AWS Access Key        | Enter the Access key ID for the IAM user that will access the AWS ECR registry.                                                                                     |
-| AWS Secret Access Key | Enter the Secret access key for the above IAM user.                                                                                                                 |
-| Region                | Enter the region your registry is in, for example `us-west-1`.                                                                                                      |
+| 字段/选项          | 概述                                                                                                                                                            |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 名称               | 输入您想在Portainer中用于此注册表的名称。                                                                                                                      |
+| 注册表URL          | 输入您的AWS ECR注册表URL，包括账户ID和区域。您可以在AWS控制台的Amazon Container Services、ECR、Registries下找到此信息。                                        |
+| 身份验证           | 如果您的注册表需要身份验证才能访问，请启用此选项。                                                                                                              |
+| AWS访问密钥        | 输入将访问AWS ECR注册表的IAM用户的访问密钥ID。                                                                                                                 |
+| AWS秘密访问密钥    | 输入上述IAM用户的秘密访问密钥。                                                                                                                                 |
+| 区域               | 输入您的注册表所在的区域，例如`us-west-1`。                                                                                                                    |
 
 <figure><img src="../..//assets/2.19-registries-add-ecr.png" alt=""><figcaption></figcaption></figure>
 
-When the form is complete, click **Add registry**.
+表单填写完成后，点击**添加注册表**。

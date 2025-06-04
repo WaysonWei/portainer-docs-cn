@@ -1,3 +1,3 @@
-# Add a Nomad environment
+# 添加Nomad环境
 
-As of Portainer version 2.20.0, Nomad is no longer a supported platform by Portainer.
+从Portainer 2.20.0版本开始，Nomad不再是Portainer支持的平台。

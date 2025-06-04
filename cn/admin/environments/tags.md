@@ -1,23 +1,21 @@
-# Tags
+# 标签
 
-Tags can be applied to environments and are useful for defining node or resource metadata. For example, you could use tags to define the physical location of nodes, departments or owners of resources, and much more.
+标签可以应用于环境，用于定义节点或资源的元数据。例如，您可以使用标签定义节点的物理位置、资源的部门或所有者等。
 
-## Creating a tag
+## 创建标签
 
-From the menu expand **Environment-related** then select **Tags**.&#x20;
+从菜单展开**环境相关**，然后选择**标签**。
 
 <figure><img src="..//assets/2.20-environments-tags.gif" alt=""><figcaption></figcaption></figure>
 
-Enter a name for the tag then click **Create tag**. The tag appears in the list and can be assigned to environments.
+输入标签名称，然后单击**创建标签**。标签将出现在列表中，可以分配给环境。
 
-## Tagging an environment
+## 为环境添加标签
 
-From the menu expand **Environment-related**, select **Environments** then select the environment you want to tag.
+从菜单展开**环境相关**，选择**环境**，然后选择要标记的环境。
 
 <figure><img src="..//assets/2.20-environments-details.gif" alt=""><figcaption></figcaption></figure>
 
-From the **Tags** lookup select the tag then click **Update environment**.
+从**标签**查找中选择标签，然后单击**更新环境**。
 
-
-Environment tags will be visible on the Portainer home page. You can also search for environments based on their tags.
-
+环境标签将在Portainer主页上可见。您还可以根据标签搜索环境。

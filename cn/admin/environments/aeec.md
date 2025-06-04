@@ -1,36 +1,34 @@
-# Auto onboarding
+# 自动加入
 
-This section allows you to create customized scripts to quickly onboard a number of Edge Agents automatically. Your selections will update the script provided at the bottom of the page which you can then run on your remote environments.
+此部分允许您创建自定义脚本来自动快速加入多个Edge Agent。您的选择将更新页面底部提供的脚本，然后您可以在远程环境上运行该脚本。
 
-First, select the type of Edge Agent deployment: **Edge Agent Standard** or **Edge Agent Async**.
+首先，选择Edge Agent部署类型：**Edge Agent标准版**或**Edge Agent异步版**。
 
+Portainer Edge Agent可以以两种不同模式部署 - **标准模式**和**异步模式**。在标准模式下，我们提供通过从Edge Agent到Portainer Server按需建立的隧道连接远程Edge Agent的能力，让您可以实时直接与环境交互。
 
-The Portainer Edge Agent can be deployed in two different modes - **standard mode** and **async mode**. In standard mode, we provide the ability to connect to the remote Edge Agent through a tunnel that is established on-demand from the Edge Agent to the Portainer Server, letting you interact directly with the environment in real time.&#x20;
+在异步模式下，此隧道连接不可用。相反，我们提供浏览远程环境快照的能力，允许您基于Edge Agent环境最近发送到Portainer Server的状态捕获查看其状态，并使用此快照对远程环境执行操作。
 
-In async mode, this tunnel connectivity is not available. Instead, we provide the ability to browse snapshots of the remote environment, allowing you to see the state of the Edge Agent's environment based on a recent state capture sent through to the Portainer Server, as well as use this snapshot to perform actions on the remote environment.&#x20;
+异步模式专为使用极少数据量而开发，因此适用于连接有限或间歇性连接以及数据上限有限的连接环境，例如移动网络。
 
-Async mode has been developed to use very small amounts of data and as such is suitable for environments that have limited or intermittent connectivity as well as connections with limited data caps, for example mobile networks.&#x20;
-
-
-Your **Edge key** will also be shown here if you need to access it directly.
+如果需要直接访问，您的**Edge密钥**也将显示在此处。
 
 <figure><img src="..//assets/2.18-environments-autoonboarding-type.png" alt=""><figcaption></figcaption></figure>
 
-Once you have made your type selection, configure the options and select the platform (Linux or Windows) to generate your Edge agent deployment scripts.
+选择类型后，配置选项并选择平台(Linux或Windows)以生成Edge agent部署脚本。
 
-| Field/Option                    | Overview                                                                                                                                                       |
-| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Portainer API server URL        | This field displays your Portainer API server URL. This can be adjusted in the Edge Compute settings.                                                          |
-| Portainer tunnel server address | This field displays your Portainer tunnel server address. This can be adjusted in the Edge Compute settings, and is not used for Edge Agent Async deployments. |
-| Group                           | Select a [group](groups.md) for your Edge Agent deployments.                                                                                                   |
-| Edge Groups                     | Select one or more [Edge Groups](../../user/edge/groups.md) for your Edge Agent deployments.                                                                   |
-| Tags                            | Select one or more [tags](tags.md) for your Edge Agent deployments.                                                                                            |
-| Edge ID Generator               | Provide a one-line script that will be used to generate a unique ID for your Edge devices. For Linux, an example would be using the `uuidgen` command.         |
-| Environment variables           | Define a comma separated list of environment variables that will be sourced from the Edge devices for use in Portainer.                                        |
-| Allow self-signed certs         | Toggle this to permit the use of self-signed certificates for the communication between the Edge Agent and the Portainer server.                               |
+| 字段/选项                     | 概述                                                                                                                                                       |
+| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Portainer API服务器URL       | 此字段显示您的Portainer API服务器URL。可以在Edge计算设置中调整此值。                                                                                     |
+| Portainer隧道服务器地址      | 此字段显示您的Portainer隧道服务器地址。可以在Edge计算设置中调整此值，不用于Edge Agent异步部署。                                                          |
+| 组                           | 为您的Edge Agent部署选择一个[组](groups.md)。                                                                                                           |
+| Edge组                       | 为您的Edge Agent部署选择一个或多个[Edge组](../../user/edge/groups.md)。                                                                                 |
+| 标签                         | 为您的Edge Agent部署选择一个或多个[标签](tags.md)。                                                                                                     |
+| Edge ID生成器                | 提供一个单行脚本，用于为您的Edge设备生成唯一ID。对于Linux，示例可以是使用`uuidgen`命令。                                                                |
+| 环境变量                     | 定义一个逗号分隔的环境变量列表，这些变量将从Edge设备获取并在Portainer中使用。                                                                           |
+| 允许自签名证书               | 切换此选项以允许在Edge Agent和Portainer服务器之间的通信中使用自签名证书。                                                                               |
 
 <figure><img src="..//assets/2.18-environments-autoonboarding-config.png" alt=""><figcaption></figcaption></figure>
 
-Select the environment of your deployment and click **Copy** to copy the script to your clipboard.
+选择部署环境并点击**复制**将脚本复制到剪贴板。
 
 <figure><img src="..//assets/2.20-environments-aeec-script.png" alt=""><figcaption></figcaption></figure>

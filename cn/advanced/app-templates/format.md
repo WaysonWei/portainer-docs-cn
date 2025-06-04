@@ -1,20 +1,20 @@
-# App template JSON format
+# 应用模板 JSON 格式
 
-App template definitions are written in JSON. Valid templates consist of an array, and every template definition consists of one element.
+应用模板定义使用 JSON 编写。有效的模板由一个数组组成，每个模板定义包含一个元素。
 
-## Container template definition format
+## 容器模板定义格式
 
-A container template element must be a valid JSON object, composed of both mandatory and optional data fields. Here's an example of the format:
+容器模板元素必须是一个有效的 JSON 对象，由必需和可选的数据字段组成。以下是格式示例：
 
 ```
 {
   "version": "2",
   "templates": [
     {
-      // template1
+      // 模板1
     },
     {
-      // template2
+      // 模板2
     },
     ...
   ]
@@ -23,40 +23,40 @@ A container template element must be a valid JSON object, composed of both manda
 
 ### type
 
-* **Description:** The template type.
-* **Format:** Integer
-* **Valid values:** `1` = container; `2` = Swarm stack; `3` = Compose stack
-* **Required/Optional:** Required
-* **Other information:** Type `3` is limited to using the version `"2"` stack format (this is a docker/libcompose limitation).
+* **描述:** 模板类型
+* **格式:** 整数
+* **有效值:** `1` = 容器; `2` = Swarm 堆栈; `3` = Compose 堆栈
+* **必需/可选:** 必需
+* **其他信息:** 类型 `3` 仅限于使用版本 `"2"` 的堆栈格式（这是 docker/libcompose 的限制）
 
 ### title
 
-* **Description:** The template title.
-* **Format:** String
-* **Valid values:** Any string value.
-* **Required/Optional:** Required
+* **描述:** 模板标题
+* **格式:** 字符串
+* **有效值:** 任何字符串值
+* **必需/可选:** 必需
 
 ### description
 
-* **Description:** The template description.
-* **Format:** String
-* **Valid values:** Any string value.
-* **Required/Optional:** Required
+* **描述:** 模板描述
+* **格式:** 字符串
+* **有效值:** 任何字符串值
+* **必需/可选:** 必需
 
 ### image
 
-* **Description:** The Docker image associated with a template.
-* **Format:** String
-* **Valid values:** Any valid URL.
-* **Required/Optional:** Required
+* **描述:** 与模板关联的 Docker 镜像
+* **格式:** 字符串
+* **有效值:** 任何有效的 URL
+* **必需/可选:** 必需
 
 ### administrator-only
 
-* **Description:** Indicates whether or not a template should be available just to admin users.
-* **Format:** Boolean
-* **Valid values:** `true` = available to admins only; `false` = available to all users
-* **Required/Optional:** Optional
-* **Example:** See below.
+* **描述:** 指示模板是否仅对管理员用户可用
+* **格式:** 布尔值
+* **有效值:** `true` = 仅管理员可用; `false` = 所有用户可用
+* **必需/可选:** 可选
+* **示例:** 见下文
 
 ```
 {
@@ -66,32 +66,32 @@ A container template element must be a valid JSON object, composed of both manda
 
 ### name
 
-* **Description:** The default name of a template (shows in the Portainer UI).
-* **Format:** String
-* **Valid values:** Any valid string.
-* **Required/Optional:** Optional
+* **描述:** 模板的默认名称（显示在 Portainer UI 中）
+* **格式:** 字符串
+* **有效值:** 任何有效字符串
+* **必需/可选:** 可选
 
 ### logo
 
-* **Description:** The template logo.
-* **Format:** String
-* **Valid values:** Any valid URL.
-* **Required/Optional:** Optional
+* **描述:** 模板徽标
+* **格式:** 字符串
+* **有效值:** 任何有效的 URL
+* **必需/可选:** 可选
 
 ### registry
 
-* **Description:** The registry where the Docker image is stored. If not specified, Portainer will use Docker Hub as the default.
-* **Format:** String
-* **Valid values:** Any string value.
-* **Required/Optional:** Optional
+* **描述:** 存储 Docker 镜像的注册表。如果未指定，Portainer 将默认使用 Docker Hub
+* **格式:** 字符串
+* **有效值:** 任何字符串值
+* **必需/可选:** 可选
 
 ### command
 
-* **Description:** The command to run in the container. If not specified, the container will use the default command in its Dockerfile.
-* **Format:** String
-* **Valid values:** Any string value.
-* **Required/Optional:** Optional
-* **Example:** See below.
+* **描述:** 在容器中运行的命令。如果未指定，容器将使用其 Dockerfile 中的默认命令
+* **格式:** 字符串
+* **有效值:** 任何字符串值
+* **必需/可选:** 可选
+* **示例:** 见下文
 
 ```
 {
@@ -101,24 +101,24 @@ A container template element must be a valid JSON object, composed of both manda
 
 ### env
 
-* **Description:** A JSON array describing the environment variables required by a template. Each element in the array must be a valid JSON object. An input will be generated in the templates view for each element in the array. Depending on the object properties, different types of inputs can be generated (text input, select).
-* **Format:** Array
-* **Required/Optional:** Optional
+* **描述:** 描述模板所需环境变量的 JSON 数组。数组中的每个元素必须是有效的 JSON 对象。将在模板视图中为数组中的每个元素生成输入。根据对象属性，可以生成不同类型的输入（文本输入、选择）
+* **格式:** 数组
+* **必需/可选:** 可选
 
-Array format:
+数组格式：
 
 ```
 {
-  "name": "the name of the environment variable, as supported in the container image (mandatory)",
-  "label": "label for the input in the UI (mandatory unless set is present)",
-  "description": "a short description for this input, will be available as a tooltip in the UI (optional)",
-  "default": "default value associated to the variable (optional)",
-  "preset": "boolean. If set to true, the UI will not generate an input (optional)",
-  "select": "an array of possible values, will generate a select input (optional)"
+  "name": "容器镜像支持的环境变量名称（必需）",
+  "label": "UI 中输入项的标签（除非存在 set，否则必需）",
+  "description": "此输入的简短描述，将在 UI 中作为工具提示显示（可选）",
+  "default": "与变量关联的默认值（可选）",
+  "preset": "布尔值。如果设置为 true，UI 将不会生成输入（可选）",
+  "select": "可能值的数组，将生成选择输入（可选）"
 }
 ```
 
-Example:
+示例：
 
 ```
 {
@@ -160,11 +160,11 @@ Example:
 
 ### network
 
-* **Description:** A string that corresponds to the name of an existing Docker network. Will auto-select the network in the templates view.
-* **Format:** String
-* **Valid values:** Any string value. If the string does not match an existing network name when the template is used it will fall back to the first available network.
-* **Required/Optional:** Optional
-* **Example:** See below.
+* **描述:** 对应现有 Docker 网络名称的字符串。将在模板视图中自动选择网络
+* **格式:** 字符串
+* **有效值:** 任何字符串值。如果使用模板时字符串与现有网络名称不匹配，将回退到第一个可用网络
+* **必需/可选:** 可选
+* **示例:** 见下文
 
 ```
 {
@@ -174,10 +174,10 @@ Example:
 
 ### volumes
 
-* **Description:** A JSON array describing the volumes associated with a template. Each element in the array must be a valid JSON object with a required container property. For each element in the array, a Docker volume will be created and associated when starting the container. If a `bind` property is defined, it will be used as the source of a bind mount. If a `readonly` property is is defined and = true, the volume will be mounted in `readonly` mode.
-* **Format:** Array
-* **Required/Optional:** Optional
-* **Example:** See below.
+* **描述:** 描述与模板关联的卷的 JSON 数组。数组中的每个元素必须是具有必需容器属性的有效 JSON 对象。对于数组中的每个元素，将在启动容器时创建并关联一个 Docker 卷。如果定义了 `bind` 属性，它将用作绑定挂载的源。如果定义了 `readonly` 属性且 = true，卷将以 `readonly` 模式挂载
+* **格式:** 数组
+* **必需/可选:** 可选
+* **示例:** 见下文
 
 ```
 {
@@ -196,10 +196,10 @@ Example:
 
 ### ports
 
-* **Description:** A JSON array describing the ports exposed by a template. Each element in the array must be a valid JSON string specifying the port number in the container, as well as the protocol. Can be optionally prefixed with a port number and colon (for example `8080:`) to define the port to be mapped on the host. If the host port is not specified, the Docker host will automatically assign it when starting the container.
-* **Format:** Array
-* **Required/Optional:** Optional
-* **Example:** See below.
+* **描述:** 描述模板暴露的端口的 JSON 数组。每个元素必须是有效的 JSON 字符串，指定容器中的端口号以及协议。可以选择性地以端口号和冒号（例如 `8080:`）为前缀来定义要映射到主机上的端口。如果未指定主机端口，Docker 主机将在启动容器时自动分配它
+* **格式:** 数组
+* **必需/可选:** 可选
+* **示例:** 见下文
 
 ```
 {
@@ -209,10 +209,10 @@ Example:
 
 ### labels
 
-* **Description:** A JSON array describing the labels associated with a template. Each element in the array must be a valid JSON object with two properties (`name:` and `"<value>"`).
-* **Format:** Array
-* **Required/Optional:** Optional
-* **Example:** See below.
+* **描述:** 描述与模板关联的标签的 JSON 数组。每个元素必须是具有两个属性（`name:` 和 `"<value>"`）的有效 JSON 对象
+* **格式:** 数组
+* **必需/可选:** 可选
+* **示例:** 见下文
 
 ```
 {
@@ -226,11 +226,11 @@ Example:
 
 ### privileged
 
-* **Description:** Indicates whether or not the container should be started in `privileged` mode. Defaults to `false` if not specified.
-* **Format:** Boolean
-* **Valid values:** `true` = start the container in privileged mode; `false` = do not start the container in privileged mode
-* **Required/Optional:** Optional
-* **Example:** See below.
+* **描述:** 指示容器是否应以 `privileged` 模式启动。如果未指定，默认为 `false`
+* **格式:** 布尔值
+* **有效值:** `true` = 以特权模式启动容器; `false` = 不以特权模式启动容器
+* **必需/可选:** 可选
+* **示例:** 见下文
 
 ```
 {
@@ -240,11 +240,11 @@ Example:
 
 ### interactive
 
-* **Description:** Indicates whether or not the container should be started in `foreground` mode. Defaults to `false` if not specified.
-* **Format:** Boolean
-* **Valid values:** `true` = start the container in foreground mode; `false` = do not start the container in foreground mode
-* **Required/Optional:** Optional
-* **Example:** See below.
+* **描述:** 指示容器是否应以 `foreground` 模式启动。如果未指定，默认为 `false`
+* **格式:** 布尔值
+* **有效值:** `true` = 以前台模式启动容器; `false` = 不以前台模式启动容器
+* **必需/可选:** 可选
+* **示例:** 见下文
 
 ```
 {
@@ -252,17 +252,17 @@ Example:
 }
 ```
 
-### restart\_policy
+### restart_policy
 
-* **Description:** The restart policy associated with the container. Will default to `"always"` if no value is specified.
-* **Format:** String
-* **Valid values:**
-  * `"always"` Always restart the container regardless of the exit status.
-  * `"no"` Never automatically restart the container.
-  * `"on-failure"` Restart the container only if it exits with a non-zero status.
-  * `"unless-stopped"` Always restart the container regardless of the exit status (unless the container was manually stopped).
-* **Required/Optional:** Optional
-* **Example:** See below.
+* **描述:** 与容器关联的重启策略。如果未指定值，将默认为 `"always"`
+* **格式:** 字符串
+* **有效值:**
+  * `"always"` 无论退出状态如何，始终重启容器
+  * `"no"` 从不自动重启容器
+  * `"on-failure"` 仅当容器以非零状态退出时才重启容器
+  * `"unless-stopped"` 无论退出状态如何，始终重启容器（除非容器被手动停止）
+* **必需/可选:** 可选
+* **示例:** 见下文
 
 ```
 {
@@ -272,11 +272,11 @@ Example:
 
 ### hostname
 
-* **Description:** The hostname of the container. Will default to Docker if not specified.
-* **Format:** String
-* **Valid values:** Any string value.
-* **Required/Optional:** Optional
-* **Example:** See below.
+* **描述:** 容器的主机名。如果未指定，将默认为 Docker
+* **格式:** 字符串
+* **有效值:** 任何字符串值
+* **必需/可选:** 可选
+* **示例:** 见下文
 
 ```
 {
@@ -286,11 +286,11 @@ Example:
 
 ### note
 
-* **Description:** Extra information about a template, for example what it is used for. Displayed inside the template-creation form in the Portainer UI. Supports HTML.
-* **Format:** String
-* **Valid values:** Any string value.
-* **Required/Optional:** Optional
-* **Example:** See below.
+* **描述:** 关于模板的额外信息，例如其用途。在 Portainer UI 的模板创建表单中显示。支持 HTML
+* **格式:** 字符串
+* **有效值:** 任何字符串值
+* **必需/可选:** 可选
+* **示例:** 见下文
 
 ```
 {
@@ -300,11 +300,11 @@ Example:
 
 ### platform
 
-* **Description:** The supported platform. Displays a small platform-related icon in the Portainer UI. Must contain a valid value.
-* **Format:** String
-* **Valid values:** `"linux"`; `"windows"`
-* **Required/Optional:** Optional
-* **Example:** See below.
+* **描述:** 支持的平台。在 Portainer UI 中显示一个小的平台相关图标。必须包含有效值
+* **格式:** 字符串
+* **有效值:** `"linux"`; `"windows"`
+* **必需/可选:** 可选
+* **示例:** 见下文
 
 ```
 {
@@ -314,10 +314,10 @@ Example:
 
 ### categories
 
-* **Description:** An array of categories associated with a template. Populates the category filter in the Portainer UI.
-* **Format:** Array
-* **Required/Optional:** Optional
-* **Example:** See below.
+* **描述:** 与模板关联的类别数组。填充 Portainer UI 中的类别过滤器
+* **格式:** 数组
+* **必需/可选:** 可选
+* **示例:** 见下文
 
 ```
 {
@@ -325,9 +325,9 @@ Example:
 }
 ```
 
-## Stack template definition format
+## 堆栈模板定义格式
 
-A stack template element must be a valid JSON object, composed of mandatory and optional data fields. Here's an example of the format:
+堆栈模板元素必须是一个有效的 JSON 对象，由必需和可选的数据字段组成。以下是格式示例：
 
 ```
 {
@@ -347,47 +347,45 @@ A stack template element must be a valid JSON object, composed of mandatory and 
 
 ### type
 
-* **Description:** The template type. A Swarm stack will be deployed using the equivalent of `docker stack deploy`. A Compose stack will be deployed using the equivalent of `docker-compose.`
-* **Format:** Integer
-* **Valid values:** `1` = container; `2` = Swarm stack; `3` = Compose stack
-* **Required/Optional:** Required
-* **Other information:** Type `3` is limited to using the version `"2"` stack format (this is a docker/libcompose limitation).
+* **描述:** 模板类型。Swarm 堆栈将使用等效于 `docker stack deploy` 的方式部署。Compose 堆栈将使用等效于 `docker-compose` 的方式部署
+* **格式:** 整数
+* **有效值:** `1` = 容器; `2` = Swarm 堆栈; `3` = Compose 堆栈
+* **必需/可选:** 必需
+* **其他信息:** 类型 `3` 仅限于使用版本 `"2"` 的堆栈格式（这是 docker/libcompose 的限制）
 
 ### title
 
-* **Description:** The template title.
-* **Format:** String
-* **Valid values:** Any string value.
-* **Required/Optional:** Required
+* **描述:** 模板标题
+* **格式:** 字符串
+* **有效值:** 任何字符串值
+* **必需/可选:** 必需
 
 ### description
 
-* **Description:** The template description.
-* **Format:** String
-* **Valid values:** Any string value.
-* **Required/Optional:** Required
+* **描述:** 模板描述
+* **格式:** 字符串
+* **有效值:** 任何字符串值
+* **必需/可选:** 必需
 
 ### repository
 
-* **Description:** A JSON object describing the public Git repository from where the stack template will be loaded. It indicates the URL of the Git repository as well as the path to the Compose file inside the repository.
-* **Format:** Object
-* **Valid values:** See the example below.
-* **Required/Optional:** Required
+* **描述:** 描述从中加载堆栈模板的公共 Git 存储库的 JSON 对象。它指示 Git 存储库的 URL 以及存储库中 Compose 文件的路径
+* **格式:** 对象
+* **有效值:** 见下面的示例
+* **必需/可选:** 必需
 
+此值**必须**引用一个 Git 存储库
 
-This value **must** reference a Git repository.
-
-
-Object format:
+对象格式：
 
 ```
 {
-  "url": "URL of the public git repository (mandatory)",
-  "stackfile": "Path to the Compose file inside the repository (mandatory)",
+  "url": "公共 git 存储库的 URL（必需）",
+  "stackfile": "存储库中 Compose 文件的路径（必需）",
 }
 ```
 
-Example:
+示例：
 
 ```
 {
@@ -396,13 +394,13 @@ Example:
 }
 ```
 
-### administrator\_only
+### administrator_only
 
-* **Description:** Indicates whether or not a template should be available just to admin users.
-* **Format:** Boolean
-* **Valid values:** `true` = available to admins only; `false` = available to all users
-* **Required/Optional:** Optional
-* **Example:** See below.
+* **描述:** 指示模板是否仅对管理员用户可用
+* **格式:** 布尔值
+* **有效值:** `true` = 仅管理员可用; `false` = 所有用户可用
+* **必需/可选:** 可选
+* **示例:** 见下文
 
 ```
 {
@@ -412,40 +410,40 @@ Example:
 
 ### name
 
-* **Description:** The default name of a template (shows in the Portainer UI).
-* **Format:** String
-* **Valid values:** Any valid string.
-* **Required/Optional:** Optional
+* **描述:** 模板的默认名称（显示在 Portainer UI 中）
+* **格式:** 字符串
+* **有效值:** 任何有效字符串
+* **必需/可选:** 可选
 
 ### logo
 
-* **Description:** The template logo.
-* **Format:** String
-* **Valid values:** Any valid URL.
-* **Required/Optional:** Optional
+* **描述:** 模板徽标
+* **格式:** 字符串
+* **有效值:** 任何有效的 URL
+* **必需/可选:** 可选
 
 ### env
 
-* **Description:** A JSON array describing the environment variables required by a template. Each element in the array must be a valid JSON object. An input will be generated in the templates view for each element in the array. Depending on the object properties, different types of inputs can be generated (text input, select).
-* **Format:** Array
-* **Required/Optional:** Optional
+* **描述:** 描述模板所需环境变量的 JSON 数组。数组中的每个元素必须是有效的 JSON 对象。将在模板视图中为数组中的每个元素生成输入。根据对象属性，可以生成不同类型的输入（文本输入、选择）
+* **格式:** 数组
+* **必需/可选:** 可选
 
-An input will be generated in the templates view for each element in the array. Depending on the object properties, different types of inputs can be generated (text input, select).
+将在模板视图中为数组中的每个元素生成输入。根据对象属性，可以生成不同类型的输入（文本输入、选择）
 
-Array format:
+数组格式：
 
 ```
 {
-  "name": "the name of the environment variable, as supported in the container image (mandatory)",
-  "label": "label for the input in the UI (mandatory unless set is present)",
-  "description": "a short description for this input, will be available as a tooltip in the UI (optional)",
-  "default": "default value associated to the variable (optional)",
-  "preset": "boolean. If set to true, the UI will not generate an input (optional)",
-  "select": "an array of possible values, will generate a select input (optional)"
+  "name": "容器镜像支持的环境变量名称（必需）",
+  "label": "UI 中输入项的标签（除非存在 set，否则必需）",
+  "description": "此输入的简短描述，将在 UI 中作为工具提示显示（可选）",
+  "default": "与变量关联的默认值（可选）",
+  "preset": "布尔值。如果设置为 true，UI 将不会生成输入（可选）",
+  "select": "可能值的数组，将生成选择输入（可选）"
 }
 ```
 
-Example:
+示例：
 
 ```
 {
@@ -487,11 +485,11 @@ Example:
 
 ### note
 
-* **Description:** Extra information about a template, for example what it is used for. Displayed inside the template-creation form in the Portainer UI. Supports HTML.
-* **Format:** String
-* **Valid values:** Any string value.
-* **Required/Optional:** Optional
-* **Example:** See below.
+* **描述:** 关于模板的额外信息，例如其用途。在 Portainer UI 的模板创建表单中显示。支持 HTML
+* **格式:** 字符串
+* **有效值:** 任何字符串值
+* **必需/可选:** 可选
+* **示例:** 见下文
 
 ```
 {
@@ -501,11 +499,11 @@ Example:
 
 ### platform
 
-* **Description:** The supported platform. Displays a small platform-related icon in the Portainer UI. Must contain a valid value.
-* **Format:** String
-* **Valid values:** `"linux"`; `"windows"`
-* **Required/Optional:** Optional
-* **Example:** See below.
+* **描述:** 支持的平台。在 Portainer UI 中显示一个小的平台相关图标。必须包含有效值
+* **格式:** 字符串
+* **有效值:** `"linux"`; `"windows"`
+* **必需/可选:** 可选
+* **示例:** 见下文
 
 ```
 { "platform": "linux" }
@@ -513,12 +511,11 @@ Example:
 
 ### categories
 
-* **Description:** An array of categories associated with a template. Populates the category filter in the Portainer UI.
-* **Format:** Array
-* **Required/Optional:** Optional
-* **Example:** See below.
+* **描述:** 与模板关联的类别数组。填充 Portainer UI 中的类别过滤器
+* **格式:** 数组
+* **必需/可选:** 可选
+* **示例:** 见下文
 
 ```
 {
   "categories": ["webserver", "open-source"]
-```

@@ -1,18 +1,18 @@
-# Add an Azure registry
+# 添加Azure注册表
 
-From the menu select **Registries** then click **Add registry** and select **Azure** as the registry provider.
+从菜单中选择**注册表**，然后点击**添加注册表**并选择**Azure**作为注册表提供商。
 
 <figure><img src="../..//assets/2.15-settings-registries-add-azure.gif" alt=""><figcaption></figcaption></figure>
 
-Complete the form, using the table below as a guide.
+填写表单，参考下表作为指南。
 
-| Field/Option | Overview                                                         |
-| ------------ | ---------------------------------------------------------------- |
-| Name         | Enter the name you'd like to use in Portainer for your registry. |
-| Registry URL | Enter the URL of your Azure registry.                            |
-| Username     | Enter the username you use to log into your Azure registry.      |
-| Password     | Enter the password that corresponds to the username above.       |
+| 字段/选项 | 概述                                                         |
+| -------- | ------------------------------------------------------------ |
+| 名称     | 输入您想在Portainer中用于此注册表的名称。                    |
+| 注册表URL | 输入您的Azure注册表URL。                                     |
+| 用户名   | 输入用于登录Azure注册表的用户名。                            |
+| 密码     | 输入与上述用户名对应的密码。                                 |
 
 <figure><img src="../..//assets/2.15-settings-registries-add-azure-details.png" alt=""><figcaption></figcaption></figure>
 
-When the form is complete, click **Add registry**.
+表单填写完成后，点击**添加注册表**。

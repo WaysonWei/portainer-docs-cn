@@ -1,9 +1,9 @@
-# Security and compliance
+# 安全与合规
 
-Portainer runs exclusively on your servers, within your network, behind your own firewalls. As a result, we do not currently hold any SOC or PCI/DSS compliance because we do not host any of your infrastructure. You can even run Portainer completely disconnected (air-gapped) without any impact on functionality.
+Portainer 完全运行在您的服务器上，位于您的网络内部，在您自己的防火墙之后。因此，我们目前不持有任何 SOC 或 PCI/DSS 合规认证，因为我们不托管您的任何基础设施。您甚至可以完全断开连接（物理隔离）运行 Portainer，而不会影响功能。
 
-We comply with GDPR in relation to the anonymous analytics we collect. Data collection can be disabled at startup (or at any time), and if you are disconnected, it silently fails.
+在收集匿名分析数据方面，我们遵守 GDPR 规定。数据收集可以在启动时（或任何时候）禁用，如果您处于断开连接状态，它会静默失败。
 
-The Portainer code itself does not undergo any formal code analysis, however we scan our published images for vulnerabilities as part of the DockerHub process.
+Portainer 代码本身不经过任何正式的代码分析，但我们作为 DockerHub 流程的一部分会扫描发布的镜像以查找漏洞。
 
-We are also the subject of regular third-party vulnerability analyses. No issues have been reported for some time, and any issues that are discovered are resolved within six weeks.
+我们还定期接受第三方漏洞分析。最近一段时间没有报告任何问题，发现的任何问题都会在六周内解决。
