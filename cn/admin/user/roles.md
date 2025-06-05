@@ -1,46 +1,46 @@
-# Roles
+# 角色
 
-Portainer Business Edition comes with Role-Based Access Control (RBAC) features that refine the access privileges available natively within Portainer. The RBAC feature allows you to create granular user access across all resources and all environments defined within Portainer.
+Portainer商业版提供基于角色的访问控制(RBAC)功能，可以细化Portainer中原生的访问权限。RBAC功能允许您为Portainer中定义的所有资源和所有环境创建精细的用户访问控制。
 
-## The basics
+## 基础概念
 
-* A _role_ is a predefined set of privileges.
-* _Privileges_ define the rights to perform actions.
-* Users are assigned roles, and each role has specific privileges.
-* To assign privileges, pair a user or team with a role then associate that pairing with an environment or environment group.
-* A single user or team can have different roles for different environments in the Portainer inventory.
+* _角色_是一组预定义的权限
+* _权限_定义了执行操作的权利
+* 用户被分配角色，每个角色有特定的权限
+* 要分配权限，将用户或团队与角色配对，然后将该配对与环境或环境组关联
+* 单个用户或团队可以在Portainer清单中对不同环境拥有不同角色
 
-## Built-in roles
+## 内置角色
 
-There are several types of roles:
+有以下几种角色类型：
 
-* **Environment administrator** has full access within a given environment, but cannot make any changes to the infrastructure that underpins an environment (i.e. no host management), nor are they able to make changes to Portainer internal settings. Environment administrators are also unable to change ownership of resources.
-* **Edge administrator** has full control over all resources in all Edge environments, and access to the Edge Compute features.
-* **Operator** has operational control over the resources deployed within a given environment. Operator can update, re-deploy, start and stop containers/services, check logs and console into containers, but cannot create or delete any resources.
-* **Helpdesk** has read-only access to the resources deployed within a given environment but cannot make changes to any resource, nor can they open a console to a container or make changes to a container’s volumes.
-* **Standard User** has complete control over the resources that a user deploys, or if the user is a member of a team, has complete control over the resources that users of that team deploy.
-* **Read-Only User** has read-only access to the resources they are entitled to see (resources created by members of their team, and public resources).
+* **环境管理员**在给定环境中拥有完全访问权限，但不能对支撑环境的基础设施进行任何更改（即不管理主机），也无法更改Portainer内部设置。环境管理员也无法更改资源所有权。
+* **Edge管理员**对所有Edge环境中的所有资源拥有完全控制权，并可访问Edge计算功能。
+* **操作员**对给定环境中部署的资源拥有操作控制权。操作员可以更新、重新部署、启动和停止容器/服务，检查日志并进入容器控制台，但不能创建或删除任何资源。
+* **帮助台**对给定环境中部署的资源拥有只读访问权限，但不能更改任何资源，也无法打开容器控制台或更改容器的卷。
+* **标准用户**对用户部署的资源拥有完全控制权，如果用户是团队成员，则对该团队用户部署的资源拥有完全控制权。
+* **只读用户**对他们有权查看的资源（团队成员创建的资源以及公共资源）拥有只读访问权限。
 
 <figure><img src="..//assets/2.20-user-roles-list.png" alt=""><figcaption></figcaption></figure>
 
-The **Administrator** role sits outside of the other roles and effectively acts as a 'Global Admin'. A user assigned to this role has complete control over Portainer settings, and all resources on every environment under Portainer's control.
+**管理员**角色独立于其他角色，实际上充当"全局管理员"。被分配此角色的用户对Portainer设置以及Portainer控制下的每个环境中的所有资源拥有完全控制权。
 
 
-The **Team Leader** role (which can be defined when [adding a new team](teams/add.md)) is designed for setups that are using internal authentication only, and in a future version the role will be disabled when external authentication is enabled.
+**团队领导**角色（可在[添加新团队](teams/add.md)时定义）专为仅使用内部认证的设置设计，在未来的版本中，当启用外部认证时此角色将被禁用。
 
 
-## Viewing user access
+## 查看用户访问权限
 
-Portainer's **Effective access viewer** lets you see what access a user has. From the menu expand **User-related** then select **Roles**.
+Portainer的**有效访问查看器**让您可以查看用户的访问权限。从菜单展开**用户相关**然后选择**角色**。
 
 <figure><img src="..//assets/2.20-users-roles.gif" alt=""><figcaption></figcaption></figure>
 
-Scroll down to the **Effective access viewer** section and select a user from the **User** dropdown. The user's roles and their access on your environments will display. Select **Manage access** on any row to be taken to the [environment's access configuration](../environments/access.md).
+向下滚动到**有效访问查看器**部分，从**用户**下拉菜单中选择一个用户。用户的角色及其在您环境中的访问权限将显示出来。选择任意行的**管理访问**将跳转到[环境访问配置](../environments/access.md)。
 
 <figure><img src="..//assets/2.15-settings-users-roles-access.png" alt=""><figcaption></figcaption></figure>
 
-## Docker vs Kubernetes
+## Docker与Kubernetes对比
 
-Because Docker does not natively provide role-based access control, we implement our own role management in order to provide this functionality. On a Kubernetes environment, we leverage the RBAC functionality built into Kubernetes alongside our own role management to provide security and flexibility to roles and access.
+由于Docker本身不提供基于角色的访问控制，我们实现了自己的角色管理来提供此功能。在Kubernetes环境中，我们利用Kubernetes内置的RBAC功能与我们自己的角色管理相结合，为角色和访问提供安全性和灵活性。
 
-For more information on the permissions that each role has for Docker and Swarm environments, see our [Docker roles and permissions documentation](../../advanced/docker-roles-and-permissions.md). For more information about how we map Portainer roles to Kubernetes roles, see our [roles and bindings documentation](../../advanced/kubernetes-roles-and-bindings.md).
+有关每个角色在Docker和Swarm环境中的权限更多信息，请参阅我们的[Docker角色和权限文档](../../advanced/docker-roles-and-permissions.md)。有关我们如何将Portainer角色映射到Kubernetes角色的更多信息，请参阅我们的[角色和绑定文档](../../advanced/kubernetes-roles-and-bindings.md)。

@@ -1,15 +1,15 @@
-# Add a new team
+# 添加新团队
 
-From the menu expand **User-related** then select **Teams**.&#x20;
+从菜单展开**用户相关**然后选择**团队**。&#x20;
 
 <figure><img src="../..//assets/2.20-users-teams.gif" alt=""><figcaption></figcaption></figure>
 
-Enter the name of the team and optionally select team leaders. Team leaders can add and remove existing users to and from their team, as well as promote existing team members to co-team leaders.
+输入团队名称并可选地选择团队领导。团队领导可以添加和移除团队成员，以及将现有团队成员提升为共同团队领导。
 
 
-If your Portainer installation uses external authentication and teams are synced from your external authentication provider, the team leader role is disabled.
+如果您的Portainer安装使用外部认证且团队从外部认证提供程序同步，则团队领导角色将被禁用。
 
 
 <figure><img src="../..//assets/2.15-settings-users-teams-add.png" alt=""><figcaption></figcaption></figure>
 
-When you're ready, click **Create team**.
+准备好后，点击**创建团队**。

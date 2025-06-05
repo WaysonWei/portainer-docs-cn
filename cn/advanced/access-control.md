@@ -1,40 +1,40 @@
-# Access control
+# 访问控制
 
-All Docker and Docker Swarm resources (except images) deployed through Portainer have access control settings. You can set these when resources are deployed or at a later time. Resources deployed through a stack or a service will inherit the same access as the parent.
+所有通过 Portainer 部署的 Docker 和 Docker Swarm 资源（除镜像外）都具有访问控制设置。您可以在部署资源时或之后设置这些控制。通过堆栈或服务部署的资源将继承父级相同的访问权限。
 
-## Resources deployed through Portainer
+## 通过 Portainer 部署的资源
 
-### Access to administrators only
+### 仅管理员访问
 
-This is an example access control section, showing access control enabled. With these settings, only Portainer administrators will have access to the resource and any other resources created by it (for example, a stack that creates containers, services, volumes, networks and secrets).
+这是一个启用访问控制的示例部分。通过这些设置，只有 Portainer 管理员才能访问该资源及其创建的任何其他资源（例如创建容器、服务、卷、网络和机密的堆栈）。
 
 <figure><img src="/assets/2.15-advanced-accesscontrol-admin.png" alt=""><figcaption></figcaption></figure>
 
-### Access to all users
+### 所有用户可访问
 
-This is an example access control section showing access control disabled. All Portainer users will have access to the resource and any resources created by it.
+这是一个禁用访问控制的示例部分。所有 Portainer 用户都可以访问该资源及其创建的任何资源。
 
 <figure><img src="/assets/2.15-advanced-accesscontrol-public.png" alt=""><figcaption></figcaption></figure>
 
-### Access restricted to specific groups or users
+### 限制特定团队或用户访问
 
-This is an example access control section showing access control enabled in **Restricted** mode. After you select the Restricted option, you can select more teams and users and give them access to the resource.
+这是一个在**限制**模式下启用访问控制的示例部分。选择限制选项后，您可以选择更多团队和用户并授予他们访问该资源的权限。
 
 <figure><img src="/assets/2.15-advanced-accesscontrol-restricted.png" alt=""><figcaption></figcaption></figure>
 
-## Resources deployed outside of Portainer
+## 在 Portainer 外部部署的资源
 
-Any resources deployed to Docker or Docker Swarm outside of Portainer will be marked as `external` and you will have limited control over these resources. By default, these resources will have administrator-only access, but you can enable access control using these labels (examples used, swap out for your own parameters):
+任何在 Portainer 外部部署到 Docker 或 Docker Swarm 的资源都将标记为`external`，您对这些资源的控制有限。默认情况下，这些资源将仅限管理员访问，但您可以使用以下标签启用访问控制（示例参数，请替换为您自己的参数）：
 
-| Label                                       | Access Granted                                                                                                          |
+| 标签                                       | 授予的访问权限                                                                                                          |
 | ------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| `io.portainer.accesscontrol.public`         | All Portainer users have access to the resource. Takes precedence over team/user assignments.                           |
-| `io.portainer.accesscontrol.teams=dev,prod` | Access restricted to teams `dev` and `prod` only. Can be used in conjunction with `io.portainer.accesscontrol.users`    |
-| `io.portainer.accesscontrol.users=bob,adam` | Access is restricted to users `bob` and `adam` only. Can be used in conjunction with `io.portainer.accesscontrol.teams` |
+| `io.portainer.accesscontrol.public`         | 所有 Portainer 用户均可访问该资源。优先于团队/用户分配。                           |
+| `io.portainer.accesscontrol.teams=dev,prod` | 仅限`dev`和`prod`团队访问。可与`io.portainer.accesscontrol.users`结合使用    |
+| `io.portainer.accesscontrol.users=bob,adam` | 仅限用户`bob`和`adam`访问。可与`io.portainer.accesscontrol.teams`结合使用 |
 
-### Example 1 <a href="#examples" id="examples"></a>
+### 示例 1 <a href="#examples" id="examples"></a>
 
-Deploy a stack using Docker Compose and restrict access to teams `dev` and `prod`:
+使用 Docker Compose 部署堆栈并限制`dev`和`prod`团队访问：
 
 ```
 version: '3.2'
@@ -46,9 +46,9 @@ services:
             io.portainer.accesscontrol.teams: dev,prod
 ```
 
-### Example 2
+### 示例 2
 
-Deploy a stack using the Docker CLI and restrict access to team `testers` and users `bob` and `adam`:
+使用 Docker CLI 部署堆栈并限制`testers`团队及用户`bob`和`adam`访问：
 
 ```
 version: '3.2'
@@ -61,18 +61,17 @@ services:
             io.portainer.accesscontrol.users: bob,adam
 ```
 
-### Example 3
+### 示例 3
 
-Deploy a container using the Docker CLI and make it accessible to all Portainer users:
+使用 Docker CLI 部署容器并允许所有 Portainer 用户访问：
 
 ```
 docker run -d --label io.portainer.accesscontrol.public nginx:latest
 ```
 
-### Example 4
+### 示例 4
 
-Deploy a container using the Docker CLI and restrict access to teams `dev` and `prod` and users `bob`:
+使用 Docker CLI 部署容器并限制`dev`和`prod`团队及用户`bob`访问：
 
 ```
 docker run -d --label io.portainer.accesscontrol.teams=dev,prod --label io.portainer.accesscontrol.users=bob nginx:latest
-```

@@ -1,6 +1,6 @@
-# Teams
+# 团队
 
-Use teams to control user access to environments, container and service enablement, and volume control.
+使用团队来控制用户对环境的访问、容器和服务的启用以及卷控制。
 
 
 [add.md](add.md)
@@ -8,5 +8,3 @@ Use teams to control user access to environments, container and service enableme
 
 
 [add-user.md](add-user.md)
-
-

@@ -1,11 +1,11 @@
-# Add a new user
+# 添加新用户
 
-From the menu expand **User-related** and select **Users**.&#x20;
+从菜单展开**用户相关**并选择**用户**。&#x20;
 
 <figure><img src="..//assets/2.20-users-users.gif" alt=""><figcaption></figcaption></figure>
 
-Enter a username and a strong password (and confirm it). You can also set whether this user is an Administrator as well as add the user to any teams you have created.&#x20;
+输入用户名和强密码（并确认）。您还可以设置此用户是否为管理员，以及将其添加到您创建的任何团队中。&#x20;
 
 <figure><img src="..//assets/2.15-settings-users-add.png" alt=""><figcaption></figcaption></figure>
 
-Once you're ready, click **Create user**.
+准备好后，点击**创建用户**。

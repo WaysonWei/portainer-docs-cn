@@ -1,26 +1,24 @@
-# API usage examples
+# API 使用示例
 
-Portainer exposes an HTTP API that you can use to automate everything you do via the Portainer UI. You can also use Portainer as a gateway (HTTP queries against the Portainer API) to the underlying Docker/Kubernetes API.
+Portainer 提供了一个 HTTP API，您可以通过它来自动化所有通过 Portainer UI 执行的操作。您还可以将 Portainer 作为底层 Docker/Kubernetes API 的网关（通过 Portainer API 发起 HTTP 查询）。
 
+以下示例使用 [httpie](https://httpie.org/) 执行针对 Portainer 的 API 调用。
 
-The following examples use [httpie](https://httpie.org/) to execute API calls against Portainer.
+## 初始化管理员密码
 
-
-## Initialize the admin password
-
-On a fresh install of Portainer, you need to create an admin account to initialize Portainer. You will be asked for this when you visit the Portainer URL for the first time. You can achieve the same outcome using this API call:
+在新安装的 Portainer 上，您需要创建一个管理员账户来初始化 Portainer。首次访问 Portainer URL 时会要求您进行此操作。您也可以通过以下 API 调用实现相同效果：
 
 ```
 http POST <portainer url>/api/users/admin/init Username="<admin username>" Password="<adminpassword>"
 ```
 
-## Authenticate against the API using the admin account
+## 使用管理员账户进行 API 认证
 
 ```
 http POST <portainer url>/api/auth Username="<admin username>" Password="<adminpassword>"
 ```
 
-The response is a JSON object containing the JWT token inside the `jwt` field. You will need to pass this token inside the authorization header when executing an authentication query against the API.
+响应是一个包含 `jwt` 字段中 JWT 令牌的 JSON 对象。执行 API 认证查询时，您需要在授权头中传递此令牌。
 
 ```
 {
@@ -28,35 +26,31 @@ The response is a JSON object containing the JWT token inside the `jwt` field. Y
 }
 ```
 
-The value of the authorization header must be of the form `Bearer <JWT_TOKEN>`:
+授权头的值必须采用 `Bearer <JWT_TOKEN>` 的形式：
 
 ```
 Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsInJvbGUiOjEsImV4cCI6MTQ5OTM3NjE1NH0.NJ6vE8FY1WG6jsRQzfMqeatJ4vh2TWAeeYfDhP71YEE
 ```
 
+此令牌有效期为 8 小时。过期后，您需要生成新令牌才能执行认证查询。
 
-This token is valid for 8 hours. Once it expires, you will need to generate another token to execute authenticated queries.
+## 添加新环境
 
+新安装的 Portainer 没有配置任何环境。您首先需要添加一个环境供 Portainer 管理。
 
-## Adding a new environment
+您可以通过 [Portainer API](../admin/environments/add/api.md) 或通过 Web 界面（在初始设置期间和设置完成后均可）添加要管理的环境。
 
-On a fresh install, Portainer has no environments configured. You will first need to add an environment for Portainer to manage.
+## 针对特定环境执行 Docker 查询
 
-You can add an environment to manage [via the Portainer API](../admin/environments/add/api.md), or via the web interface both during the initial setup and after setup is complete.
-
-## Execute Docker queries against a specific environment
-
-The Portainer HTTP API endpoint acts as a reverse-proxy to the Docker HTTP API and can be used to execute any of the Docker HTTP API requests:
+Portainer HTTP API 端点充当 Docker HTTP API 的反向代理，可用于执行任何 Docker HTTP API 请求：
 
 `/api/endpoints/<ENVIRONMENT_ID>/docker`
 
+阅读 [Docker API 文档](https://docs.docker.com/engine/api/) 了解如何查询 Docker 引擎。
 
-Read [Docker's API documentation](https://docs.docker.com/engine/api/) to learn how to query the Docker Engine.
+### **列出所有容器**
 
-
-### **List all containers**
-
-This call lists all of the containers available in a specific environment:
+此调用列出特定环境中所有可用的容器：
 
 ```
 http GET <portainer url>/api/endpoints/1/docker/containers/json \
@@ -64,11 +58,11 @@ http GET <portainer url>/api/endpoints/1/docker/containers/json \
     all==true
 ```
 
-The response is identical to that returned by the `ContainerList` operation of the Docker API. See [Docker's documentation about this operation](https://docs.docker.com/engine/api/v1.41/#operation/ContainerList).
+响应与 Docker API 的 `ContainerList` 操作返回的相同。请参阅 [Docker 关于此操作的文档](https://docs.docker.com/engine/api/v1.41/#operation/ContainerList)。
 
-### **Create a container**
+### **创建容器**
 
-You can create a container in a specific environment using the Portainer HTTP API as a gateway. The following query will create a new Docker container inside the environment using ID 1. The container will be named `web01` and will use the `nginx:latest` Docker image. It will publish container port `80` on port `8080` on the host.
+您可以使用 Portainer HTTP API 作为网关在特定环境中创建容器。以下查询将在 ID 为 1 的环境中创建一个新的 Docker 容器。容器将被命名为 `web01` 并使用 `nginx:latest` Docker 镜像。它将在主机的 8080 端口上发布容器的 80 端口。
 
 ```
 http POST <portainer url>/api/endpoints/1/docker/containers/create \
@@ -78,9 +72,9 @@ http POST <portainer url>/api/endpoints/1/docker/containers/create \
     HostConfig:='{ "PortBindings": { "80/tcp": [{ "HostPort": "8080" }] } }'
 ```
 
-The response is identical to that returned by the `ContainerCreate` operation of the Docker API. See [Docker's documentation about this operation](https://docs.docker.com/engine/api/v1.41/#operation/ContainerCreate).
+响应与 Docker API 的 `ContainerCreate` 操作返回的相同。请参阅 [Docker 关于此操作的文档](https://docs.docker.com/engine/api/v1.41/#operation/ContainerCreate)。
 
-Here is an example response:
+以下是示例响应：
 
 ```
 {
@@ -89,11 +83,11 @@ Here is an example response:
 }
 ```
 
-You will need the container ID in order to execute actions against that container.
+您需要容器 ID 才能对该容器执行操作。
 
-### **Start a container**
+### **启动容器**
 
-Using the ID you retrieved previously, you can start your new container using this endpoint:
+使用之前获取的 ID，您可以通过以下端点启动新容器：
 
 `/api/endpoints/<ENVIRONMENT_ID>/docker/containers/<CONTAINER_ID>/start`
 
@@ -102,11 +96,11 @@ http POST <portainer url>/api/endpoints/1/docker/containers/5fc2a93d7a3d426a1c39
     X-API-Key:your_access-token
 ```
 
-The response is identical to that returned by the `ContainerStart` operation of the Docker API. See [Docker's documentation about this operation](https://docs.docker.com/engine/api/v1.41/#operation/ContainerStart).
+响应与 Docker API 的 `ContainerStart` 操作返回的相同。请参阅 [Docker 关于此操作的文档](https://docs.docker.com/engine/api/v1.41/#operation/ContainerStart)。
 
-### **Delete a container**
+### **删除容器**
 
-You can create a container using the endpoint `/api/endpoints/<ENVIRONMENT_ID>/docker/containers/`:
+您可以使用端点 `/api/endpoints/<ENVIRONMENT_ID>/docker/containers/` 删除容器：
 
 ```
 http DELETE <portainer url>/api/endpoints/1/docker/containers/5fc2a93d7a3d426a1c3937436697fc5e5343cc375226f6110283200bede3b107 \
@@ -114,4 +108,4 @@ http DELETE <portainer url>/api/endpoints/1/docker/containers/5fc2a93d7a3d426a1c
     force==true
 ```
 
-The response is identical to that returned by the `ContainerDelete` operation of the Docker API. See [Docker's documentation about this operation](https://docs.docker.com/engine/api/v1.41/#operation/ContainerDelete).
+响应与 Docker API 的 `ContainerDelete` 操作返回的相同。请参阅 [Docker 关于此操作的文档](https://docs.docker.com/engine/api/v1.41/#operation/ContainerDelete)。

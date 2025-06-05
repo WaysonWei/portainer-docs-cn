@@ -1,13 +1,12 @@
-# Users
+# 用户
 
-The **Users** page lists the users configured to access Portainer and allows you to add new users and manage existing users.
+**用户**页面列出了配置为访问Portainer的用户，并允许您添加新用户和管理现有用户。
 
 
-For management of user roles in Portainer Business Edition, refer to the [Roles](roles.md) section.
+对于Portainer商业版中的用户角色管理，请参阅[角色](roles.md)部分。
 
 
 <figure><img src="..//assets/2.20-users.png" alt=""><figcaption></figcaption></figure>
 
 
 [add.md](add.md)
-

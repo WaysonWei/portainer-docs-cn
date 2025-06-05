@@ -1,66 +1,60 @@
-# Accessing the Portainer API
+# 访问 Portainer API
 
-To access the Portainer API, you will need a few things:
+要访问 Portainer API，您需要准备以下内容：
 
-* A user in Portainer
-* An access token for that user
-* The ability to make HTTPS requests to the Portainer server on port `9443` (or `9000` for legacy HTTP)
+* Portainer 中的用户账号
+* 该用户的访问令牌
+* 能够向 Portainer 服务器发送 HTTPS 请求（端口为 `9443`，旧版 HTTP 使用 `9000` 端口）
 
-## Creating a new user
+## 创建新用户
 
-API access is provided on a per-user basis, with each users' API access dependent on that user's permissions within Portainer. For example, if your user had access to only one environment, API calls for that user would also be restricted to that environment.
+API 访问是按用户授权的，每个用户的 API 访问权限取决于该用户在 Portainer 中的权限设置。例如，如果您的用户只能访问一个环境，那么该用户的 API 调用也将仅限于该环境。
 
-To create a new user within Portainer, refer to our documentation:
-
+要在 Portainer 中创建新用户，请参考我们的文档：
 
 [add.md](../admin/user/add.md)
 
+用户创建完成后，请以该用户身份登录 Portainer 以创建 API 访问令牌。
 
-Once the user has been created, log in to Portainer as that user to create an API access token.
+## 创建访问令牌
 
-## Creating an access token
+用户创建完成后，您可以为该用户添加访问令牌。访问令牌将提供与该用户通过 Portainer UI 登录相同的功能访问级别。
 
-Once the user has been created, you can add an access token to that user. The access token will provide the same level of access to Portainer functionality as would be available to that user had they logged into the Portainer UI.
-
-Once logged in as the user, click on your username in the top right and then select **My account**.
+以该用户身份登录后，点击右上角的用户名，然后选择**我的账户**。
 
 <figure><img src="/assets/2.20-api-access-myaccount.gif" alt=""><figcaption></figcaption></figure>
 
-Scroll down to the **Access tokens** section. Here you can see any access tokens that exist for the user.&#x20;
+向下滚动到**访问令牌**部分。在这里您可以看到该用户现有的所有访问令牌。
 
 <figure><img src="/assets/2.15-accountsettings-apitokens.png" alt=""><figcaption></figcaption></figure>
 
-To add a new access token, click the **Add access token** button. You will be taken to a new page where you can set a **Description** for your access token. We recommend making this something recognizable for future reference.&#x20;
+要添加新的访问令牌，请点击**添加访问令牌**按钮。您将被引导至一个新页面，可以在此为访问令牌设置**描述**。我们建议将其设置为易于识别的名称以便日后参考。
 
-
-For security we require you to re-enter your password when creating an access token.
-
+出于安全考虑，创建访问令牌时需要重新输入密码。
 
 <figure><img src="/assets/2.20-api-access-createtoken.png" alt=""><figcaption></figcaption></figure>
 
-Once you have provided a description, click the **Add access token** button to generate your access token.
+提供描述后，点击**添加访问令牌**按钮生成您的访问令牌。
 
-Your new access token will now be displayed. Please copy the access token and keep it in a safe place, as you will not be able to view the token again after creation.
+您的新访问令牌现在将显示出来。请复制访问令牌并妥善保存，因为创建后将无法再次查看该令牌。
 
 <figure><img src="/assets/2.20-api-access-createdtoken.png" alt=""><figcaption></figcaption></figure>
 
-When you have copied the access token, click the **Done** button to return to the User settings page. Your access token is ready to use.
+复制访问令牌后，点击**完成**按钮返回用户设置页面。您的访问令牌现在可以使用了。
 
-## Using your access token
+## 使用访问令牌
 
-Now that you have created a user and access token, you are ready to access the API. The Portainer API follows the RESTful architecture, accepting `GET` / `POST` / `PUT` / `DELETE` requests and responding with JSON objects.
+现在您已经创建了用户和访问令牌，可以开始访问 API 了。Portainer API 遵循 RESTful 架构，接受 `GET`/`POST`/`PUT`/`DELETE` 请求并以 JSON 对象响应。
 
+以下示例使用 [httpie](https://httpie.org/) 执行针对 Portainer 的 API 调用。您可以根据需要替换为其他方法。
 
-The following examples use [httpie](https://httpie.org/) to execute API calls against Portainer. Feel free to replace this with your method of choice.
-
-
-To make an API request, you will need to include your access token in the `X-API-Key` header to authenticate your request. For example, you can use the `/stacks` endpoint to list the stacks you have access to:
+要发起 API 请求，您需要在 `X-API-Key` 头中包含访问令牌以验证请求。例如，您可以使用 `/stacks` 端点列出您有权访问的堆栈：
 
 ```
 http GET https://portainer-url:9443/api/stacks X-API-Key:your_api_key_here
 ```
 
-This will return a JSON object listing your stacks:
+这将返回一个列出您的堆栈的 JSON 对象：
 
 ```
 [
@@ -94,13 +88,13 @@ This will return a JSON object listing your stacks:
 ]
 ```
 
-If a user tries to access an area they do not have permission to access, an error message will be returned. For example, assume that a non-administrator user attempted to access the `/settings` endpoint, which requires administrator access:
+如果用户尝试访问没有权限的区域，将返回错误信息。例如，假设一个非管理员用户尝试访问需要管理员权限的 `/settings` 端点：
 
 ```
 http GET https://portainer:9443/api/settings X-API-Key:your_api_key_here
 ```
 
-The user would be presented with the following response:
+用户将收到以下响应：
 
 ```
 {
@@ -109,4 +103,4 @@ The user would be presented with the following response:
 }
 ```
 
-Now that you have access to the Portainer API, you can learn more about how to use it from the [API documentation](docs.md) and our [usage examples](examples.md).
+现在您已经可以访问 Portainer API，可以从 [API 文档](docs.md) 和我们的 [使用示例](examples.md) 中了解更多使用方法。

@@ -1,6 +1,6 @@
-# User-related
+# 用户相关
 
-Give access to individual users then manage them as their needs change over time.
+为个人用户提供访问权限，然后随着需求变化管理他们。
 
 
 [users.md](users.md)
@@ -18,7 +18,7 @@ Give access to individual users then manage them as their needs change over time
 [password.md](password.md)
 
 
-Add users to teams then assign them to roles (Business Edition).
+将用户添加到团队然后分配角色（商业版）。
 
 
 [teams](teams/)
@@ -26,4 +26,3 @@ Add users to teams then assign them to roles (Business Edition).
 
 
 [roles.md](roles.md)
-
