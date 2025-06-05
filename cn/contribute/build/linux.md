@@ -1,38 +1,38 @@
-# Set up a Linux build environment
+# 设置 Linux 构建环境
 
-As an open source product, we encourage users to edit our code and submit patches to it. This article explains how to set up a local environment on Linux so you can build your own copy of Portainer and test your changes.
-
-
-We tested these instructions on Ubuntu 18.04.2 LTS. For instructions that relate to other systems, see the linked documentation below.
+作为开源产品，我们鼓励用户编辑我们的代码并提交补丁。本文介绍如何在 Linux 上设置本地环境，以便您可以构建自己的 Portainer 副本并测试您的更改。
 
 
-## Dependencies
-
-* [Docker CE](https://docs.docker.com/install/) is the Docker application that runs on your machine to enable the use of Docker features. The latest version is not a requirement for this development stack, however we recommend staying up to date with the latest improvements and security fixes.
-* ​[Yarn](https://yarnpkg.com/en/docs/install#mac-stable) is a package manager for installing new software packages on your system, and is used to run the Portainer development environment.
-* [Node.JS](https://nodejs.org/en/download/) is a JavaScript package used when building applications that leverage networking, such as Portainer. Version 18 or later is required.
-* [Golang](https://golang.org/dl/) is the open source language that we use to build the majority of Portainer software. Version 1.18 of Golang is required.
-* Wget is a package used to retrieve files using common internet protocols such as HTTP and FTP.
-
-## Part 1: Installing Docker
+我们已在 Ubuntu 18.04.2 LTS 上测试了这些说明。有关其他系统的说明，请参阅下面的链接文档。
 
 
-The following instructions were run on Ubuntu, for up-to-date instructions on this and other Linux distributions read the [official Docker CE documentation](https://docs.docker.com/install/).
+## 依赖项
+
+* [Docker CE](https://docs.docker.com/install/) 是在您的机器上运行的 Docker 应用程序，用于启用 Docker 功能。最新版本不是此开发堆栈的要求，但我们建议保持最新以获得改进和安全修复。
+* ​[Yarn](https://yarnpkg.com/en/docs/install#mac-stable) 是一个用于在系统上安装新软件包的包管理器，用于运行 Portainer 开发环境。
+* [Node.JS](https://nodejs.org/en/download/) 是一个 JavaScript 包，用于构建利用网络的应用程序，如 Portainer。需要版本 18 或更高。
+* [Golang](https://golang.org/dl/) 是我们用于构建大部分 Portainer 软件的开源语言。需要 Golang 版本 1.18。
+* Wget 是一个用于通过 HTTP 和 FTP 等常见互联网协议检索文件的包。
+
+## 第一部分：安装 Docker
+
+
+以下说明在 Ubuntu 上运行，有关此系统和其他 Linux 发行版的最新说明，请阅读 [官方 Docker CE 文档](https://docs.docker.com/install/)。
 
 
 
-You must configure the Docker repository before you install Docker.
+在安装 Docker 之前，您必须配置 Docker 仓库。
 
 
-### Step 1: Configure the Docker repository
+### 步骤 1：配置 Docker 仓库
 
-First, update your system's packages using this command:
+首先，使用以下命令更新系统的软件包：
 
 ```
 sudo apt-get update
 ```
 
-Next, install the required packages to use repos over HTTPS:
+接下来，安装通过 HTTPS 使用仓库所需的软件包：
 
 ```
 sudo apt-get install \
@@ -43,21 +43,22 @@ sudo apt-get install \
     software-properties-common
 ```
 
-Now install the official GPG key for Docker:
+现在安装 Docker 的官方 GPG 密钥：
 
 ```
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 ```
 
-Use this fingerprint to confirm that you have the correct key:
+使用以下指纹确认您拥有正确的密钥：
 
 `9DC8 5822 9FC7 DD38 854A E2D8 8D81 803C 0EBF CD88`
 
+运行以下命令验证密钥指纹：
 ```
 sudo apt-key fingerprint 0EBFCD88
 ```
 
-The correct output should be:
+正确的输出应该是：
 
 ```
 pub   rsa4096 2017-02-22 [SCEA]
@@ -66,7 +67,7 @@ uid           [ unknown] Docker Release (CE deb) <docker@docker.com>
 sub   rsa4096 2017-02-22 [S]
 ```
 
-And finally, use the following command to set up the stable repository:
+最后，使用以下命令设置稳定版仓库：
 
 ```
 sudo add-apt-repository \
@@ -75,117 +76,120 @@ sudo add-apt-repository \
    stable"
 ```
 
-### Step 2: Install Docker
+### 步骤 2：安装 Docker
 
 
-We always recommend installing software using the most up-to-date instructions from the official vendor. This step is based on Docker's own [installation instructions for Docker on Linux](https://docs.docker.com/install/).
+我们始终建议使用官方供应商的最新说明安装软件。此步骤基于 Docker 自己的 [Linux 上 Docker 安装说明](https://docs.docker.com/install/)。
 
 
-First, update your system's packages using this command:
+首先，使用以下命令更新系统的软件包：
 
 ```
 sudo apt-get update
 ```
 
-Next, install Docker and its associated packages:
+接下来，安装 Docker 及其相关软件包：
 
 ```
 sudo apt-get install docker-ce docker-ce-cli containerd.io
 ```
 
-Finally, verify that Docker was correctly installed and is running on your system. This command should download a test image that you can run in a container, print an informational message for then exit out of.
+最后，验证 Docker 是否正确安装并在您的系统上运行。此命令应下载一个测试镜像，在容器中运行，打印信息消息后退出。
 
 ```
 sudo docker run hello-world
 ```
 
-## Part 2: Installing Yarn
+## 第二部分：安装 Yarn
 
 
-If you are running a different Linux distribution than Ubuntu, read Yarn's own [installation instructions for Yarn on Linux](https://yarnpkg.com/en/docs/install).
+如果您运行的是 Ubuntu 以外的 Linux 发行版，请阅读 Yarn 自己的 [Linux 上 Yarn 安装说明](https://yarnpkg.com/en/docs/install)。
 
 
 
-If you have issues installing or using Yarn, read their [official documentation](https://yarnpkg.com/en/docs/install#mac-stable).
+如果您在安装或使用 Yarn 时遇到问题，请阅读其 [官方文档](https://yarnpkg.com/en/docs/install#mac-stable)。
 
 
-Run this command in the terminal to configure the Yarn repository on your system:
+在终端中运行以下命令来配置系统的 Yarn 仓库：
 
 ```
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 ```
 
-Update your system's packages and install Yarn using this command:
+使用以下命令更新系统软件包并安装 Yarn：
 
 ```
 sudo apt-get update && sudo apt-get install yarn
 ```
 
-Finally, run this command in the terminal to confirm that the Yarn installation was a success:
+最后，在终端中运行以下命令确认 Yarn 安装成功：
 
 ```
 yarn --version
 ```
 
-The current version of Yarn should print out in your terminal, indicating that that it installed successfully and is running on your system.
+当前 Yarn 版本应显示在终端中，表明它已成功安装并在您的系统上运行。
 
-## Part 3: Installing or updating Node.JS
-
-
-This procedure makes use of NVM to install Node.JS (Node.JS version 12 or later is required). NVM allows multiple different versions of Node.JS to be installed on a system and provides an easy way to switch between them.
+## 第三部分：安装或更新 Node.JS
 
 
+此过程使用 NVM 安装 Node.JS（需要 Node.JS 版本 12 或更高）。NVM 允许在系统上安装多个不同版本的 Node.JS，并提供了在它们之间切换的简便方法。
 
-If you have issues installing or updating Node.JS, read NVM's [documentation](https://github.com/creationix/nvm).
 
 
-First, install or update to the latest version of Node.JS by running this command in the terminal:
+如果您在安装或更新 Node.JS 时遇到问题，请阅读 NVM 的 [文档](https://github.com/creationix/nvm)。
+
+
+首先，在终端中运行以下命令安装或更新到最新版本的 Node.JS：
 
 ```
 nvm install node
 ```
 
-Finally, check if Node is installed on your system:
+最后，检查 Node 是否已安装在您的系统上：
 
 ```
 node --version
 ```
 
-The latest version of Node.JS should now print out.
+最新版本的 Node.JS 现在应该会显示出来。
 
-## Part 4: Installing Golang using a Linux tar file
-
-
-Go version 1.17 must be installed. If you're upgrading from an older version, you must [remove the existing version](https://golang.org/doc/install#uninstall) first before installing version 1.17. For the most up-to-date installation instructions, read [Go's own documentation](https://golang.org/doc/install#install).
+## 第四部分：使用 Linux tar 文件安装 Golang
 
 
+必须安装 Go 1.17 版本。如果您要从旧版本升级，必须先 [移除现有版本](https://golang.org/doc/install#uninstall) 再安装 1.17 版本。有关最新的安装说明，请阅读 [Go 官方文档](https://golang.org/doc/install#install)。
 
-If you have issues installing or using Go, read the _Getting help_ section in their [official documentation](https://golang.org/doc/install#help).
 
 
-First, [download](https://golang.org/dl/) the appropriate version of Go for your system. Navigate to where it was downloaded then extract it to the `/usr/local` directory using this command:
+如果您在安装或使用 Go 时遇到问题，请阅读其官方文档中的 [获取帮助](https://golang.org/doc/install#help) 部分。
+
+
+首先，[下载](https://golang.org/dl/)适合您系统的 Go 版本。导航到下载位置后，使用以下命令将其解压到 `/usr/local` 目录：
 
 ```
 sudo tar -C /usr/local -xzf go1.17.6.linux-amd64.tar.gz
 ```
 
-Next, add `/usr/local/go/bin` to the PATH environment variable inside your shell profile. Here's an example using bash:
+接下来，将 `/usr/local/go/bin` 添加到您的 shell 配置文件的 PATH 环境变量中。以下是使用 bash 的示例：
 
 ```
 echo "export PATH=$PATH:$HOME/go/bin:/usr/local/go/bin" >> ~/.bashrc
 ```
 
 
-You may need to log out and log back in for this to take effect.
+您可能需要注销并重新登录才能使此更改生效。
 
 
-And finally, follow the _Test your installation_ section in [Golang's official documentation](https://golang.org/doc/code.html#Testing) to ensure that Go installed correctly.
+最后，按照 [Golang 官方文档](https://golang.org/doc/code.html#Testing) 中的 _测试安装_ 部分确保 Go 已正确安装。
 
-## Part 5: Installing Wget
-
-
-If you have issues installing or using Wget, read their [documentation](https://www.gnu.org/software/wget/manual/).
+## 第五部分：安装 Wget
 
 
-To install Wget on Linux, simply run the `apt-get install wget` command in the terminal.
+如果您在安装或使用 Wget 时遇到问题，请阅读其 [文档](https://www.gnu.org/software/wget/manual/)。
+
+
+要在 Linux 上安装 Wget，只需在终端中运行以下命令：
+```
+apt-get install wget
+```

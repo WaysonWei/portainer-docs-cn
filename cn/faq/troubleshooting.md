@@ -1,5 +1,4 @@
-# Troubleshooting
+# 故障排除
 
 
-This content has moved to the [Portainer Knowledge Base](https://portal.portainer.io/knowledge/troubleshooting).
-
+此内容已移至 [Portainer 知识库](https://portal.portainer.io/knowledge/troubleshooting)。

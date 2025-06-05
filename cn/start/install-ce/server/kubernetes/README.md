@@ -1,16 +1,9 @@
 # Kubernetes
 
+这些安装说明适用于 Portainer 社区版(CE)。如需安装 Portainer 商业版(BE)，请参考[BE安装文档](../../../install/server/kubernetes/)。
 
-These installation instructions are for Portainer Community Edition (CE). For Portainer Business Edition (BE) refer to the [BE install documentation](../../../install/server/kubernetes/).
-
-
-Installation instructions can differ between platforms. Please choose your platform below:
-
+不同平台的安装说明可能有所不同。请选择您的平台：
 
 [baremetal.md](baremetal.md)
 
-
-
 [wsl.md](wsl.md)
-
-

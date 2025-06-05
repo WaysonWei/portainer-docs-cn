@@ -1,42 +1,38 @@
-# Install Portainer CE on your Kubernetes environment
+# 在 Kubernetes 裸机环境安装 Portainer CE
 
+这些安装说明适用于 Portainer 社区版(CE)。如需安装 Portainer 商业版(BE)，请参考[BE安装文档](../../../install/server/kubernetes/baremetal.md)。
 
-These installation instructions are for Portainer Community Edition (CE). For Portainer Business Edition (BE) refer to the [BE install documentation](../../../install/server/kubernetes/baremetal.md).
+## 简介
 
+Portainer 由两个组件组成：_Portainer Server_ 和 _Portainer Agent_。这两个组件都作为轻量级容器在 Kubernetes 上运行。
 
-## Introduction
+开始之前，您需要：
 
-Portainer consists of two elements, the _Portainer Server_ and the _Portainer Agent_. Both elements run as lightweight containers on Kubernetes.
+* 一个正常工作的最新版本 Kubernetes 集群
+* 能够在集群上运行 `helm` 或 `kubectl` 命令的权限
+* Kubernetes 集群上的 Cluster Admin 权限，以便 Portainer 可以创建必要的 `ServiceAccount` 和 `ClusterRoleBinding`
+* 配置好的 `default` StorageClass（见下文）
 
-To get started, you will need:
+安装说明还假设您的环境满足以下条件：
 
-* A working and up to date Kubernetes cluster.
-* Access to run `helm` or `kubectl` commands on your cluster.
-* Cluster Admin rights on your Kubernetes cluster. This is so Portainer can create the necessary `ServiceAccount` and `ClusterRoleBinding` for it to access the Kubernetes cluster.
-* A `default` StorageClass configured (see below).
+* 您的环境符合[我们的系统要求](../../../requirements-and-prerequisites.md)。虽然 Portainer 可能适用于其他配置，但可能需要更改配置或功能受限
+* Kubernetes RBAC 已启用并正常工作（这是 Portainer 中访问控制功能所必需的）
+* 您将使用 `portainer` 命名空间部署 Portainer。目前这是必须的 - 其他命名空间暂不支持
+* Kubernetes 的 metrics server 已安装并正常工作（如果您希望在 Portainer 中使用指标）
 
-The installation instructions also make the following assumptions about your environment:
+## 数据持久化
 
-* Your environment meets [our requirements](../../../requirements-and-prerequisites.md). While Portainer may work with other configurations, it may require configuration changes or have limited functionality.
-* Kubernetes RBAC is enabled and working (this is required for the access control functionality in Portainer).
-* You will be using the `portainer` namespace for Portainer. At present this is a requirement - other namespaces are currently unsupported.
-* Kubernetes' metrics server is installed and working (if you wish to use the metrics within Portainer).
+Portainer 需要数据持久化，因此至少需要一个可用的 StorageClass。Portainer 在部署期间会尝试使用默认的 StorageClass。如果没有标记为 `default` 的 StorageClass，部署可能会失败。
 
-## Data Persistence
+我们建议为 Kubernetes 使用块存储而不是网络存储，以获得最佳性能和可靠性，但在选择要使用的卷时请注意块存储设备的 IOPS，因为某些选项比其他选项慢。
 
-Portainer requires data persistence, and as a result needs at least one StorageClass available to use. Portainer will attempt to use the default StorageClass during deployment. If you do not have a StorageClass tagged as `default` the deployment will likely fail.
-
-
-We recommend using block storage for Kubernetes rather than network storage for the best performance and reliability, but do pay attention to the IOPS of your block storage devices when choosing the volume to use as some options are slower than others.
-
-
-You can check if you have a default StorageClass by running the following command on your cluster:
+您可以通过在集群上运行以下命令检查是否有默认的 StorageClass：
 
 ```
 kubectl get sc
 ```
 
-and looking for a StorageClass with `(default)` after its name:
+并查找名称后带有 `(default)` 的 StorageClass：
 
 ```
 root@kubemaster01:~# kubectl get sc
@@ -44,50 +40,44 @@ NAME                            PROVISIONER                                   RE
 managed-nfs-storage (default)   k8s-sigs.io/nfs-subdir-external-provisioner   Delete          Immediate           false                  11d
 ```
 
-To set a StorageClass as default, you can use the following:
+要将 StorageClass 设置为默认，可以使用以下命令：
 
 ```
 kubectl patch storageclass <storage-class-name> -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
 ```
 
-replacing `<storage-class-name>` with the name of your StorageClass. Alternatively, if you are installing using our Helm chart, you can pass the following parameter in your helm install command to specify the StorageClass to use for Portainer:
+将 `<storage-class-name>` 替换为您的 StorageClass 名称。或者，如果您使用我们的 Helm chart 安装，可以在 helm install 命令中传递以下参数来指定 Portainer 使用的 StorageClass：
 
 ```
 --set persistence.storageClass=<storage-class-name>
 ```
 
+在某些 Kubernetes 集群（例如 microk8s）中，默认的 StorageClass 只是创建 hostPath 卷，这些卷不明确绑定到特定节点。在多节点集群中，当 pod 终止并在不同节点上重新调度时，这可能会产生问题，"留下"所有持久数据并启动带有"空"卷的 pod。
 
-In some Kubernetes clusters (for example microk8s), the default StorageClass simply creates hostPath volumes, which are not explicitly tied to a particular node. In a multi-node cluster, this can create an issue when the pod is terminated and rescheduled on a different node, "leaving" all the persistent data behind and starting the pod with an "empty" volume.
-
-While this behavior is inherently a limitation of using hostPath volumes, a suitable workaround is to use add a nodeSelector to the deployment, which effectively "pins" the Portainer pod to a particular node. You can do this by editing your own values.yaml file to set the nodeSelector value:
+虽然这种行为本质上是使用 hostPath 卷的限制，但一个合适的解决方法是在部署中添加 nodeSelector，这实际上将 Portainer pod "固定"到特定节点。您可以通过编辑自己的 values.yaml 文件来设置 nodeSelector 值：
 
 `nodeSelector: kubernetes.io/hostname: \<YOUR_NODE_NAME>`
 
-or alternatively follow the instructions below for each deployment method.
+或者按照下面每种部署方法的说明进行操作。
 
+## 部署
 
-## Deployment
+要在 Kubernetes 集群中部署 Portainer，您可以使用我们提供的 Helm charts 或 YAML manifests。
 
-To deploy Portainer within a Kubernetes cluster you can use our provided Helm charts or YAML manifests.
+### 使用 Helm 部署
 
-### Deploy using Helm
+确保您至少使用 Helm v3.2，它支持 `--create-namespace` 参数。
 
-
-Ensure you're using at least Helm v3.2, which includes support for the `--create-namespace` argument.
-
-
-First add the Portainer Helm repository by running the following commands:
+首先通过运行以下命令添加 Portainer Helm 仓库：
 
 ```
 helm repo add portainer https://portainer.github.io/k8s/
 helm repo update
 ```
 
-Once the update completes, you're ready to begin the installation. Which method you choose will depend on how you wish to expose the Portainer service:
+更新完成后，您就可以开始安装了。您选择的方法取决于您希望如何暴露 Portainer 服务：
 
-
-
-Using the following command, Portainer will be available on port `30779` for HTTPS:
+使用以下命令，Portainer 将在端口 `30779` 上提供 HTTPS 访问：
 
 ```
 helm upgrade --install --create-namespace -n portainer portainer portainer/portainer \
@@ -95,17 +85,11 @@ helm upgrade --install --create-namespace -n portainer portainer portainer/porta
     --set image.tag=lts
 ```
 
+默认情况下，Portainer 生成并使用自签名 SSL 证书来保护端口 `30779`。或者，您可以在安装期间[提供自己的 SSL 证书](../../../../advanced/ssl.md#using-your-own-ssl-certificate-on-kubernetes-via-helm)，或在安装完成后[通过 Portainer UI](../../../../admin/settings/#ssl-certificate) 提供。
 
-By default, Portainer generates and uses a self-signed SSL certificate to secure port `30779`. Alternatively you can provide your own SSL certificate [during installation](../../../../advanced/ssl.md#using-your-own-ssl-certificate-on-kubernetes-via-helm) or [via the Portainer UI](../../../../admin/settings/#ssl-certificate) after installation is complete.
+如果需要通过端口 `30777` 访问 HTTP 上的 Portainer，请删除 `--set tls.force=true` 选项。
 
-
-
-If you need to access Portainer via HTTP on port `30777`, remove the `--set tls.force=true` option.
-
-
-
-
-In this example, Portainer will be deployed to your cluster and assigned a Cluster IP, with an nginx Ingress Controller at the defined hostname. For more on Ingress options, refer to the list of [Chart Configuration Options](../../../../advanced/helm-chart-configuration-options.md).
+在此示例中，Portainer 将部署到您的集群并分配一个 Cluster IP，并在定义的主机名处使用 nginx Ingress Controller。有关 Ingress 选项的更多信息，请参阅[Chart 配置选项](../../../../advanced/helm-chart-configuration-options.md)列表。
 
 ```
 helm upgrade --install --create-namespace -n portainer portainer portainer/portainer \
@@ -119,13 +103,9 @@ helm upgrade --install --create-namespace -n portainer portainer portainer/porta
     --set ingress.hosts[0].paths[0].path="/"
 ```
 
+如果需要访问 HTTP 上的 Portainer，请删除 `--set tls.force=true` 选项。
 
-If you need to access Portainer via HTTP, remove the `--set tls.force=true` option.
-
-
-
-
-Using the following command, Portainer will be available at an assigned Load Balancer IP on port `9443` for HTTPS:
+使用以下命令，Portainer 将在分配的 Load Balancer IP 上的端口 `9443` 上提供 HTTPS 访问：
 
 ```
 helm upgrade --install --create-namespace -n portainer portainer portainer/portainer \
@@ -134,90 +114,60 @@ helm upgrade --install --create-namespace -n portainer portainer portainer/porta
     --set image.tag=lts
 ```
 
+默认情况下，Portainer 生成并使用自签名 SSL 证书来保护端口 `9443`。或者，您可以在安装期间[提供自己的 SSL 证书](../../../../advanced/ssl.md#using-your-own-ssl-certificate-on-kubernetes-via-helm)，或在安装完成后[通过 Portainer UI](../../../../admin/settings/#ssl-certificate) 提供。
 
-By default, Portainer generates and uses a self-signed SSL certificate to secure port `9443`. Alternatively you can provide your own SSL certificate [during installation](../../../../advanced/ssl.md#using-your-own-ssl-certificate-on-kubernetes-via-helm) or [via the Portainer UI](../../../../admin/settings/#ssl-certificate) after installation is complete.
+如果需要通过端口 `9000` 访问 HTTP 上的 Portainer，请删除 `--set tls.force=true` 选项。
 
+如果要在 CLI 上部署 Helm chart 时明确设置目标节点，请在 `helm install` 命令中包含 `--set nodeSelector.kubernetes\.io/hostname=<YOUR NODE NAME>`。
 
+### 使用 YAML manifests 部署
 
-If you need to access Portainer via HTTP on port `9000`, remove the `--set tls.force=true` option.
+我们的 YAML manifests 支持通过 NodePort 或 Load Balancer 暴露 Portainer。
 
-
-
-
-
-If you want to explicitly set the target node when deploying the Helm chart on the CLI, include `--set nodeSelector.kubernetes\.io/hostname=<YOUR NODE NAME>` in your `helm install` command.
-
-
-### Deploy using YAML manifests
-
-Our YAML manifests support exposing Portainer via either NodePort or Load Balancer.
-
-
-
-To expose via NodePort, you can use the following command (Portainer will be available on port `30777`  for HTTP and `30779` for  HTTPS):
+要通过 NodePort 暴露，可以使用以下命令（Portainer 将在端口 `30777` 上提供 HTTP 访问，在端口 `30779` 上提供 HTTPS 访问）：
 
 ```
 kubectl apply -n portainer -f https://downloads.portainer.io/ce-lts/portainer.yaml
 ```
 
+默认情况下，Portainer 生成并使用自签名 SSL 证书来保护端口 `30779`。或者，您可以在安装期间[提供自己的 SSL 证书](../../../../advanced/ssl.md#using-your-own-ssl-certificate-on-kubernetes-via-helm)，或在安装完成后[通过 Portainer UI](../../../../admin/settings/#ssl-certificate) 提供。
 
-By default, Portainer generates and uses a self-signed SSL certificate to secure port `30779`. Alternatively you can provide your own SSL certificate [during installation](../../../../advanced/ssl.md#using-your-own-ssl-certificate-on-kubernetes-via-helm) or [via the Portainer UI](../../../../admin/settings/#ssl-certificate) after installation is complete.
-
-
-
-
-To expose via Load Balancer, use the following command to provision Portainer at an assigned Load Balancer IP on port `9000` for HTTP and `9443` for HTTPS:
+要通过 Load Balancer 暴露，使用以下命令在分配的 Load Balancer IP 上的端口 `9000` 上提供 HTTP 访问，在端口 `9443` 上提供 HTTPS 访问：
 
 ```
 kubectl apply -n portainer -f https://downloads.portainer.io/ce-lts/portainer-lb.yaml
 ```
 
+默认情况下，Portainer 生成并使用自签名 SSL 证书来保护端口 `9443`。或者，您可以在安装期间[提供自己的 SSL 证书](../../../../advanced/ssl.md#using-your-own-ssl-certificate-on-kubernetes-via-helm)，或在安装完成后[通过 Portainer UI](../../../../admin/settings/#ssl-certificate) 提供。
 
-By default, Portainer generates and uses a self-signed SSL certificate to secure port `9443`. Alternatively you can provide your own SSL certificate [during installation](../../../../advanced/ssl.md#using-your-own-ssl-certificate-on-kubernetes-via-helm) or [via the Portainer UI](../../../../admin/settings/#ssl-certificate) after installation is complete.
-
-
-
-
-
-If you want to explicitly set the target node when deploying using YAML manifests, run the following one-liner to "patch" the deployment, forcing the pod to always be scheduled on the node it's currently running on:
-
+要在使用 YAML manifests 部署时明确设置目标节点，请运行以下一行命令来"修补"部署，强制 pod 始终调度到当前运行的节点上：
 
 ```
 kubectl patch deployments -n portainer portainer -p '{"spec": {"template": {"spec": {"nodeSelector": {"kubernetes.io/hostname": "'$(kubectl get pods -n portainer -o jsonpath='{ ..nodeName }')'"}}}}}' || (echo Failed to identify current node of portainer pod; exit 1)
 ```
 
-## Logging In
+## 登录
 
-Now that the installation is complete, you can log into your Portainer Server instance. Depending on how you chose to expose your Portainer installation, open a web browser and navigate to the following URL:
-
-
+安装完成后，您可以登录到您的 Portainer Server 实例。根据您选择暴露 Portainer 安装的方式，打开网页浏览器并导航到以下 URL：
 
 ```bash
 https://localhost:30779/ or http://localhost:30777/
 ```
 
-Replace `localhost` with the relevant IP address or FQDN if needed, and adjust the port if you changed it earlier.
-
-
+如果需要，将 `localhost` 替换为相关 IP 地址或 FQDN，如果之前更改过端口，也请相应调整。
 
 ```bash
 https://<FQDN>/
 ```
 
-Replace `<FQDN>` with the FQDN of your Portainer instance.
-
-
+将 `<FQDN>` 替换为您的 Portainer 实例的 FQDN。
 
 ```bash
 https://<loadbalancer IP>:9443/ or http://<loadbalancer IP>:9000/
 ```
 
-Replace `<loadbalancer IP>` with the IP address or FQDN of the load balancer, and adjust the port if you changed it earlier.
+将 `<loadbalancer IP>` 替换为负载均衡器的 IP 地址或 FQDN，如果之前更改过端口，也请相应调整。
 
-
-
-You will be presented with the initial setup page for Portainer Server.
-
+您将看到 Portainer Server 的初始设置页面。
 
 [setup.md](../setup.md)
-

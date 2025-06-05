@@ -1,51 +1,50 @@
-# Build instructions
+# 构建说明
 
-This article explains how to set up your local development environment so you can contribute to the Portainer codebase.
+本文介绍如何设置本地开发环境以便为Portainer代码库做贡献。
 
-
-Make sure you have installed the dependencies for this project on your [Mac](mac.md) or [Linux](linux.md) machine before continuing.
-
+请确保您已在[Mac](mac.md)或[Linux](linux.md)机器上安装此项目的依赖项后再继续。
 
 
-Windows is currently not supported by the Portainer development environment.
+
+Windows目前不被Portainer开发环境支持。
 
 
-## Instructions
+## 操作指南
 
-Navigate to the folder where you will store Portainer project code. This can be anywhere such as on your desktop or in your downloads folder.
+导航到您将存储Portainer项目代码的文件夹。这可以是任何位置，例如您的桌面或下载文件夹。
 
-Now, download the Portainer project:
+现在，下载Portainer项目：
 
 ```
 git clone https://github.com/portainer/portainer.git
 ```
 
-Next, navigate into the Portainer project you downloaded:
+接下来，进入您下载的Portainer项目目录：
 
 ```
 cd portainer
 ```
 
-Install the development dependencies:
+安装开发依赖项：
 
 ```
 make deps
 ```
 
-And finally, build and run the project:
+最后，构建并运行项目：
 
 ```
 make dev
 ```
 
-You should now be able to access Portainer at `https://localhost:9443` and UI dev server runs on `http://localhost:8999`.
+您现在应该可以通过`https://localhost:9443`访问Portainer，UI开发服务器运行在`http://localhost:8999`。
 
-For additional commands, run `make help`.
-
-
-The frontend application will update and refresh when you save your changes to any of the sources.
+如需其他命令，请运行`make help`。
 
 
-## Contribution Guidelines
+前端应用程序会在您保存对任何源文件的更改时自动更新并刷新。
 
-When contributing to the Portainer codebase, please follow [our contribution guidelines](https://github.com/portainer/portainer/blob/develop/CONTRIBUTING.md).
+
+## 贡献指南
+
+当为Portainer代码库做贡献时，请遵循[我们的贡献指南](https://github.com/portainer/portainer/blob/develop/CONTRIBUTING.md)。

@@ -1,5 +1,4 @@
-# Installing
+# 安装指南
 
 
-This content has moved to the [Portainer Knowledge Base](https://portal.portainer.io/knowledge/installing).
-
+此内容已移至 [Portainer 知识库](https://portal.portainer.io/knowledge/installing)。

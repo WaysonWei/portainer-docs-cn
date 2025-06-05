@@ -1,26 +1,24 @@
-# Install Portainer BE with Docker on Windows Container Service
+# 在 Windows 容器服务上使用 Docker 安装 Portainer BE
 
+这些安装说明适用于 Portainer 商业版(BE)。如需安装 Portainer 社区版(CE)，请参考[CE安装文档](../../../install-ce/server/docker/wcs.md)。
 
-These installation instructions are for Portainer Business Edition (BE). For Portainer Community Edition (CE) refer to the [CE install documentation](../../../install-ce/server/docker/wcs.md).
+## 简介
 
+Portainer 由两个组件组成：_Portainer Server_ 和 _Portainer Agent_。这两个组件都作为轻量级 Docker 容器在 Docker 引擎上运行。本文档将帮助您在 Windows 容器服务的 Windows 服务器上安装 Portainer Server 容器。要向现有 Portainer Server 安装添加新的 WCS 环境，请参考[Portainer Agent 安装指南](../../../../admin/environments/add/docker/agent.md)。
 
-## Introduction
+开始之前，您需要：
 
-Portainer consists of two elements, the _Portainer Server_, and the _Portainer Agent_. Both elements run as lightweight Docker containers on a Docker engine. This document will help you install the Portainer Server container on your Windows server with Windows Containers. To add a new WCS environment to an existing Portainer Server installation, please refer to the [Portainer Agent installation instructions](../../../../admin/environments/add/docker/agent.md).
+* 在将托管 Portainer Server 实例的机器上拥有管理员访问权限
+* 默认情况下，Portainer Server 将通过端口 `9443` 暴露 UI，并通过端口 `8000` 暴露 TCP 隧道服务器。后者是可选的，仅当您计划将 Edge 计算功能与 Edge agent 一起使用时才需要。
+* Portainer 商业版的许可证密钥。
 
-To get started, you will need:
+安装说明还假设您的环境满足以下条件：
 
-* Administrator access on the machine that will host your Portainer Server instance
-* By default, Portainer Server will expose the UI over port `9443` and expose a TCP tunnel server over port `8000`. The latter is optional and is only required if you plan to use the Edge compute features with Edge agents.
-* A license key for Portainer Business Edition.
+* 您的环境符合[我们的系统要求](../../../requirements-and-prerequisites.md)。虽然 Portainer 可能适用于其他配置，但可能需要更改配置或功能受限。
 
-The installation instructions also make the following assumption about your environment:
+## 准备工作
 
-* Your environment meets [our requirements](../../../requirements-and-prerequisites.md). While Portainer may work with other configurations, it may require configuration changes or have limited functionality.
-
-## Preparation
-
-To run Portainer Server in a Windows Server/Desktop Environment you need to create exceptions in the firewall. These can easily be added through PowerShell by running the following commands:
+要在 Windows Server/Desktop 环境中运行 Portainer Server，您需要在防火墙中创建例外。可以通过 PowerShell 运行以下命令轻松添加这些例外：
 
 ```
 netsh advfirewall firewall add rule name="cluster_management" dir=in action=allow protocol=TCP localport=2377
@@ -31,59 +29,51 @@ netsh advfirewall firewall add rule name="swarm_dns_tcp" dir=in action=allow pro
 netsh advfirewall firewall add rule name="swarm_dns_udp" dir=in action=allow protocol=UDP localport=53
 ```
 
-You will also need to install the Windows Container Host Service and install Docker. Microsoft have [provided](https://learn.microsoft.com/en-us/virtualization/windowscontainers/quick-start/set-up-environment?tabs=dockerce#windows-server-1) a PowerShell script to perform the necessary actions. You can download the script and run it with the following commands:
+您还需要安装 Windows 容器主机服务并安装 Docker。Microsoft 提供了 [PowerShell 脚本](https://learn.microsoft.com/en-us/virtualization/windowscontainers/quick-start/set-up-environment?tabs=dockerce#windows-server-1)来执行必要的操作。您可以使用以下命令下载并运行该脚本：
 
 ```
 Invoke-WebRequest -UseBasicParsing "https://raw.githubusercontent.com/microsoft/Windows-Containers/Main/helpful_tools/Install-DockerCE/install-docker-ce.ps1" -o install-docker-ce.ps1
 .\install-docker-ce.ps1
 ```
 
-Once this is complete you will need to restart your Windows server. After the restart completes, you're ready to install Portainer itself.
+完成后，您需要重新启动 Windows 服务器。重启完成后，您就可以安装 Portainer 了。
 
-## Deployment
+## 部署
 
-First, create the volume that Portainer Server will use to store its database. Using PowerShell:
+首先，创建 Portainer Server 用于存储其数据库的卷。使用 PowerShell：
 
 ```
 docker volume create portainer_data
 ```
 
-Then, download and install the Portainer Server container:
+然后，下载并安装 Portainer Server 容器：
 
 ```
 docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart always -v \\.\pipe\docker_engine:\\.\pipe\docker_engine -v portainer_data:C:\data portainer/portainer-ee:lts
 ```
 
+默认情况下，Portainer 生成并使用自签名 SSL 证书来保护端口 `9443`。或者，您可以在安装期间[提供自己的 SSL 证书](../../../../advanced/ssl.md)，或在安装完成后[通过 Portainer UI](../../../../admin/settings/#ssl-certificate) 提供。
 
-By default, Portainer generates and uses a self-signed SSL certificate to secure port `9443`. Alternatively you can provide your own SSL certificate [during installation](../../../../advanced/ssl.md) or [via the Portainer UI](../../../../admin/settings/#ssl-certificate) after installation is complete.
-
-
-
-If you see an error message similar to:&#x20;
+如果您看到类似以下的错误消息：
 
 `"\\.\pipe\dockerDesktopEngine" includes invalid characters for a local volume name`
 
-then you may not have Windows containers properly enabled. If you are using Docker Desktop, right click the icon in your tray and select **Switch to Windows Containers**.
+那么您可能没有正确启用 Windows 容器。如果您使用的是 Docker Desktop，请右键单击托盘中的图标并选择**切换到 Windows 容器**。
 
-
-
-If you require HTTP port `9000` open for legacy reasons, add the following to your `docker run` command:
+如果出于遗留原因需要开放 HTTP 端口 `9000`，请将以下内容添加到 `docker run` 命令中：
 
 `-p 9000:9000`
 
+## 登录
 
-## Logging In
-
-Now that the installation is complete, you can log into your Portainer Server instance by opening a web browser and going to:
+安装完成后，您可以通过打开网页浏览器并访问以下地址来登录您的 Portainer Server 实例：
 
 ```bash
 https://localhost:9443
 ```
 
-Replace `localhost` with the relevant IP address or FQDN if needed, and adjust the port if you changed it earlier.
+如果需要，将 `localhost` 替换为相关 IP 地址或 FQDN，如果之前更改过端口，也请相应调整。
 
-You will be presented with the initial setup page for Portainer Server.
-
+您将看到 Portainer Server 的初始设置页面。
 
 [setup.md](../setup.md)
-

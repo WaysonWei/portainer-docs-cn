@@ -1,5 +1,4 @@
-# Upgrading
+# 升级指南
 
 
-This content has moved to the [Portainer Knowledge base](https://portal.portainer.io/knowledge/upgrading-and-downgrading).
-
+此内容已移至 [Portainer 知识库](https://portal.portainer.io/knowledge/upgrading-and-downgrading)。
