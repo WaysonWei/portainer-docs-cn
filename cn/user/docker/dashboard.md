@@ -1,30 +1,25 @@
-# Dashboard
+# 仪表盘
 
-The Docker/Swarm dashboard summarizes your Docker Standalone or Docker Swarm environment and shows the components that make up the environment.&#x20;
+Docker/Swarm仪表盘总结了您的Docker独立或Docker Swarm环境，并显示组成该环境的各个组件。
 
-## Environment info
+## 环境信息
 
+此部分仅对Docker独立和Podman环境可见。
 
-This section is visible only to Docker Standalone and Podman environments.
-
-
-This section shows the environment name, its URL and port along with any [tags](../../admin/environments/tags.md#tagging-an-environment). You can also see the number of CPU cores (and their available memory), the Docker/Podman version, and whether or not the Portainer Agent is installed.&#x20;
+此部分显示环境名称、其URL和端口以及任何[标签](../../admin/environments/tags.md#tagging-an-environment)。您还可以看到CPU核心数（及其可用内存）、Docker/Podman版本，以及是否安装了Portainer Agent。
 
 <figure><img src="..//assets/2.15-docker-standalone-dashboard.png" alt=""><figcaption></figcaption></figure>
 
-## Cluster information
+## 集群信息
 
+此部分仅对Docker Swarm环境可见。
 
-This section is visible only to Docker Swarm environments.
-
-
-This section shows how many nodes are in the cluster and a link to the [cluster visualizer](swarm/cluster-visualizer.md).
+此部分显示集群中的节点数量以及[集群可视化工具](swarm/cluster-visualizer.md)的链接。
 
 <figure><img src="..//assets/2.15-docker-dashboard-swarm.png" alt=""><figcaption></figcaption></figure>
 
-## Summary tiles
+## 摘要磁贴
 
-The remaining dashboard is made up of tiles showing the number of [stacks](stacks/), [services](services/) (for Docker Swarm), [containers](containers/) (including health and running-status metrics), [images](images/) (and how much disk space they consume), [volumes](volumes/) and [networks](networks/), and GPUs (if enabled).
+仪表盘的其余部分由显示[堆栈](stacks/)、[服务](services/)（针对Docker Swarm）、[容器](containers/)（包括健康状态和运行状态指标）、[镜像](images/)（及其占用的磁盘空间）、[卷](volumes/)和[网络](networks/)数量的磁贴组成，以及GPU（如果启用）。
 
 <figure><img src="..//assets/2.15-docker-dashboard-tiles.png" alt=""><figcaption></figcaption></figure>
-

@@ -1,9 +1,9 @@
-# Remove a container
+# 移除容器
 
-From the menu select **Container instances**, tick the checkbox next to the container you want to remove then click **Remove**.
+从菜单中选择**容器实例**，勾选要移除的容器旁边的复选框，然后点击**移除**。
 
 <figure><img src="../..//assets/2.22.0-aci-container-remove.gif" alt=""><figcaption></figcaption></figure>
 
-When the confirmation message appears, click **Remove**.
+当确认消息出现时，点击**移除**。
 
 <figure><img src="../..//assets/2.15-aci-remove-confirm.png" alt=""><figcaption></figcaption></figure>

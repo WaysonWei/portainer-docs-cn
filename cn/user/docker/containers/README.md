@@ -1,68 +1,41 @@
-# Containers
+# 容器
 
-Put simply, a container is a runnable instance of an image. Containers do not hold any persistent data and therefore can be destroyed and recreated as needed.
+简单来说，容器是镜像的可运行实例。容器不保存任何持久数据，因此可以根据需要销毁和重新创建。
 
 <figure><img src="../..//assets/2.20-containers-list.png" alt=""><figcaption></figcaption></figure>
 
-When the [new image indicator](../host/setup.md#other) feature is enabled, the **Images up to date** column indicates whether the local images in the container are up to date, with a green tick indicating they are up to date and an orange cross indicating that there is a newer version of an image available at the remote registry. A grey hyphen indicates Portainer was unable to determine whether there is an update available for the images.
+当[新镜像指示器](../host/setup.md#other)功能启用时，**镜像最新**列显示容器中的本地镜像是否是最新的，绿色勾表示它们是最新的，橙色叉表示远程仓库中有新版本的镜像可用。灰色连字符表示Portainer无法确定镜像是否有可用更新。
 
-You can click the reload button next to the search box to recheck the images for all your containers for updates, or to recheck a single container's image you can click the image indicator icon for that container.
+您可以点击搜索框旁边的重新加载按钮重新检查所有容器的镜像更新，或者点击单个容器的镜像指示器图标重新检查该容器的镜像。
 
-For more on how this works, have a look at [this knowledge base article](https://portal.portainer.io/knowledge/how-does-the-image-update-notification-icon-work).
+有关此工作原理的更多信息，请查看[此知识库文章](https://portal.portainer.io/knowledge/how-does-the-image-update-notification-icon-work)。
 
-To add a new container, click **Add container**.
-
+要添加新容器，点击**添加容器**。
 
 [add.md](add.md)
 
-
-Once a container has been created you can inspect it, edit or duplicate it, toggle a container webhook, attach volumes, view logs and statistics, edit ownership, and access its console.
-
+容器创建后，您可以检查它、编辑或复制它、切换容器webhook、附加卷、查看日志和统计信息、编辑所有权以及访问其控制台。
 
 [view.md](view.md)
 
-
-
 [inspect.md](inspect.md)
-
-
 
 [edit.md](edit.md)
 
-
-
 [advanced.md](advanced.md)
-
-
 
 [webhooks.md](webhooks.md)
 
-
-
 [attach-volume.md](attach-volume.md)
-
-
 
 [logs.md](logs.md)
 
-
-
 [ownership.md](ownership.md)
-
-
 
 [stats.md](stats.md)
 
-
-
 [console.md](console.md)
 
-
-If you no longer need a container, you can remove it.
-
+如果不再需要容器，可以移除它。
 
 [remove.md](remove.md)
-
-
-
-

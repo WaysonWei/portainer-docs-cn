@@ -1,7 +1,5 @@
 # Helm
 
-In version 2.20 and above we moved Helm support into the [Applications](applications/) section alongside the other application creation and management methods for a more streamlined and user-friendly approach.
-
+在2.20及以上版本中，我们将Helm支持移到了[应用](applications/)部分，与其他应用创建和管理方法一起，提供了更简化且用户友好的方式。
 
 [applications](applications/)
-

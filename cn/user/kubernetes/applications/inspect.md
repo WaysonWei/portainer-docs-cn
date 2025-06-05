@@ -1,82 +1,76 @@
-# Inspect an application
+# 检查应用
 
-To view information about applications running in a cluster, from the menu select **Applications** then select the application you want to inspect.
+要查看集群中运行的应用信息，从菜单选择**应用**然后选择要检查的应用。
 
 <figure><img src="../..//assets/2.20-kubernetes-applications-inspect.gif" alt=""><figcaption></figcaption></figure>
 
-The **Application details** screen is organized into four sections. The following tables explain all of the information to be found in each.
+**应用详情**屏幕分为四个部分。以下表格解释了每个部分中的所有信息。
 
-## Application tab
+## 应用标签页
 
-| Attribute        | Overview                                                                                                                             |
+| 属性        | 概述                                                                                                                             |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| Name             | The name of the application.                                                                                                         |
-| Stack            | The stack that the application belongs to (if any).                                                                                  |
-| Namespace        | The namespace that the application is running in.                                                                                    |
-| Application Type | The type of application (Pod, Deployment, StatefulSet, DaemonSet, etc).                                                              |
-| Status           | Indicates whether or not the application is running. Where applicable, this also shows the replication state and number of replicas. |
-| Creation         | Shows when the application was created and by whom, as well as how the application was deployed.                                     |
-| Note             | Add a note about the application or edit an existing note.                                                                           |
+| 名称             | 应用的名称。                                                                                                         |
+| 堆栈            | 应用所属的堆栈(如果有)。                                                                                  |
+| 命名空间        | 应用运行的命名空间。                                                                                    |
+| 应用类型 | 应用类型(Pod、Deployment、StatefulSet、DaemonSet等)。                                                              |
+| 状态           | 指示应用是否正在运行。在适用的情况下，还显示复制状态和副本数。 |
+| 创建时间         | 显示应用创建时间、创建者以及应用部署方式。                                     |
+| 备注             | 添加或编辑关于应用的备注。                                                                           |
 
 <figure><img src="../..//assets/2.20-kubernetes-applications-inspect-application.png" alt=""><figcaption></figcaption></figure>
 
-## Placement tab
+## 放置标签页
 
-Here you'll find information about any placement constraints or preferences that have been defined for the application and how they're being applied.
+在此可以找到为应用定义的任何放置约束或偏好信息，以及它们如何被应用。
 
 <figure><img src="../..//assets/2.20-kubernetes-applications-inspect-placement.png" alt=""><figcaption></figcaption></figure>
 
-## Events tab
+## 事件标签页
 
-Shows information about application-related events.
+显示与应用相关的事件信息。
 
 <figure><img src="../..//assets/2.20-kubernetes-applications-inspect-events.png" alt=""><figcaption></figcaption></figure>
 
-## YAML tab
+## YAML标签页
 
-This displays the YAML generated from the application deployment, and lets you edit the YAML for an application directly. Updates to your manifest made here are applied using the Kubernetes `patch` mechanism.&#x20;
+显示从应用部署生成的YAML，并允许直接编辑应用的YAML。此处对manifest的更新使用Kubernetes`patch`机制应用。
 
-
-Editing your YAML through this section is only available in Portainer Business Edition.
-
+通过此部分编辑YAML仅在Portainer商业版中可用。
 
 <figure><img src="../..//assets/2.20-kubernetes-applications-inspect-yaml.png" alt=""><figcaption></figcaption></figure>
 
-Make your edits then click **Apply changes** to update the deployment.
+进行编辑后点击**应用更改**更新部署。
 
+对于标记为系统的命名空间中的资源，无法编辑YAML。
 
-Editing the YAML is not available for resources in namespaces marked as system.
+## 操作
 
+根据应用部署方式，可以执行多种操作，包括：
 
-## Actions
+* [编辑应用](edit.md)
+* 执行应用的滚动重启(仅限商业版)
+* 重新部署应用(终止所有服务并重新创建)
+* 将应用回滚到先前的配置
+* 从应用创建[模板](../templates/)
 
-Depending on how the application was deployed, a number of actions can be performed, including:
+使用Git仓库时，滚动重启和重新部署选项不会从上游仓库重新拉取manifest。要执行此操作，在[编辑应用](edit.md#method-1-redeploy-from-git)时使用**拉取并更新应用**按钮。
 
-* [Editing the application](edit.md).
-* Perform a rolling restart of the application (Business Edition only).
-* Redeploying the application (terminating all the services and recreating them).
-* Rolling the application back to a previous configuration.
-* Creating a [template](../templates/) from the application.
+<figure><img src="../..//assets/2.17-k8s-applications-inspect-actions.png" alt=""><figcaption><p>可能为您的应用显示的部分操作</p></figcaption></figure>
 
+### 配置详情
 
-When using a Git repository, the rolling restart and redeploy options do not re-pull the manifest from the upstream repository. To do this, use the **Pull and update application** button when [editing an application](edit.md#method-1-redeploy-from-git).
-
-
-<figure><img src="../..//assets/2.17-k8s-applications-inspect-actions.png" alt=""><figcaption><p>Some of the potential actions that may appear for your application</p></figcaption></figure>
-
-### Configuration details
-
-| Configuration                                | Overview                                                                                                |
+| 配置                                | 概述                                                                                                |
 | -------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| Accessing the application                    | Shows which ports (if any) are published from the container.                                            |
-| Auto-scaling                                 | Indicates the application's auto-scaling policy.                                                        |
-| Environment variables, ConfigMaps or Secrets | A list of any environment variables, ConfigMaps and secrets that have been defined for the application. |
-| Data persistence                             | A list of the persistent folders and their details.                                                     |
+| 访问应用                    | 显示从容器发布的端口(如果有)。                                            |
+| 自动扩展                                 | 指示应用的自动扩展策略。                                                        |
+| 环境变量、ConfigMaps或Secrets | 为应用定义的任何环境变量、ConfigMaps和secrets的列表。 |
+| 数据持久性                             | 持久化文件夹及其详情的列表。                                                     |
 
 <figure><img src="../..//assets/2.20-kubernetes-applications-inspect-configdetails.png" alt=""><figcaption></figcaption></figure>
 
-## Application containers
+## 应用容器
 
-See which pods run your application, which image is being used, the status, node, and IP address of the pod, and when each pod was created. You can also access the pod stats, console and logs from here.
+查看哪些pod运行您的应用、使用的镜像、状态、节点和pod的IP地址，以及每个pod的创建时间。还可以从此处访问pod统计信息、控制台和日志。
 
 <figure><img src="../..//assets/2.20-kubernetes-applications-inspect-appcontainers.png" alt=""><figcaption></figcaption></figure>

@@ -1,73 +1,67 @@
-# Setup
+# 设置
 
+**主机设置**部分仅适用于Docker独立环境。
 
-The **Host Setup** section is only available to Docker Standalone environments.
+在**设置**下，您可以对环境进行更改，启用和禁用功能及安全设置。
 
+## 主机和文件系统
 
-Under **Setup**, you can make changes to your environment, enabling and disabling features and security settings.
+对于运行Portainer Agent的环境，此部分配置Portainer如何与主机元素交互。
 
-## Host and Filesystem
-
-For environments running the Portainer Agent, this section is where you configure how Portainer interacts with elements of the host.
-
-
-For security, these features are disabled by default. Be sure that you understand their impact before enabling them.
-
+出于安全考虑，这些功能默认禁用。启用前请确保了解其影响。
 
 <figure><img src="../..//assets/2.22.0-host-setup-filesystem.png" alt=""><figcaption></figcaption></figure>
 
-### Enable host management features
+### 启用主机管理功能
 
-Enabling host management features allows you to see the available devices and storage on the physical node as well as browse the node's filesystem. The environment must be [running the Portainer Agent](../../../start/agent.md) to use this functionality, and the root of the host must be bind-mounted to`/host` in the agent deployment:
+启用主机管理功能允许您查看物理节点上的可用设备和存储，以及浏览节点的文件系统。环境必须[运行Portainer Agent](../../../start/agent.md)才能使用此功能，并且主机的根目录必须绑定挂载到agent部署中的`/host`：
 
 ```
 -v /:/host
 ```
 
-For example, starting the Portainer Agent on Docker on Linux with the host filesystem mounted at `/host`:
+例如，在Linux上的Docker中启动Portainer Agent，并将主机文件系统挂载在`/host`：
 
 ```
 docker run -d -p 9001:9001 --name portainer_agent --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker/volumes:/var/lib/docker/volumes -v /:/host portainer/agent:2.22.0
 ```
 
-### Enable volume management for non-administrators
+### 为非管理员启用卷管理
 
-Enabling this feature allows non-administrator users to manage volumes on an environment. If this is disabled, users below administrator level have read-only access to volumes.
+启用此功能允许非管理员用户管理环境上的卷。如果禁用，管理员级别以下的用户对卷只有只读访问权限。
 
-## Change Window Settings
+## 变更窗口设置
 
-This setting allows you to specify a window within which [GitOps updates](../stacks/add.md#gitops-updates) to your applications can be applied.
+此设置允许您指定一个时间窗口，在此窗口内可以应用对应用程序的[GitOps更新](../stacks/add.md#gitops-updates)。
 
-
-If this setting is enabled and an update is made to an application outside of this window, it will not be applied.
-
+如果启用此设置并在窗口外对应用程序进行更新，则不会应用该更新。
 
 <figure><img src="../..//assets/2.19-kubernetes-cluster-setup-changewindow.png" alt=""><figcaption></figcaption></figure>
 
-## Docker Security Settings
+## Docker安全设置
 
-This section allows you to toggle assorted Docker-related security settings for the environment.
+此部分允许您切换环境的各类Docker相关安全设置。
 
 <figure><img src="../..//assets/2.15-docker_hosts_security_settings.png" alt=""><figcaption></figcaption></figure>
 
-| Option                                                | Overview                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| 选项                                                | 概述                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | ----------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Disable bind mounts for non-administrators            | Prevents non-admin users within Portainer from using bind mounts when creating containers and/or services/stacks. When toggled on, the option to attach to a host file system path is removed.                                                                                                                                                                                                                                                                                                                                                              |
-| Disable privileged mode for non-administrators        | Prevents non-admin users from elevating the privilege of a container to bypass SELinux/AppArmor. When toggled on, the option to select **Privileged** mode when [adding a container](../containers/add.md) is removed.                                                                                                                                                                                                                                                                                                                                      |
-| Disable the use of host PID 1 for non-administrators  | Prevents non-admin users from requesting that a deployed container operates as the host PID. This is a security risk if used by a non-trustworthy authorized user because when they operate as PID1, they are in effect able to run any command in the container console as root on the host.                                                                                                                                                                                                                                                               |
-| Disable the use of Stacks for non-administrators      | This is a 'sledgehammer' approach to removing any possibility for non-admin users within Portainer to find and use weaknesses in the Docker architecture. Whilst Portainer has the ability to disable some of the more common exploits, we cannot possibly block them all because there are any number of capabilities that could be added to a container to attempt to gain access to the host. This feature simply allows an admin to disable all possible entry points.                                                                                  |
-| Disable device mappings for non-administrators        | Blocks users from mapping host devices into containers. Whilst the ability to map devices is generally used for good (e.g. mapping a GPU into a container), it can equally be used by non-trustworthy authorized users to map a physical storage device into a container. It is possible to mount `/dev/sda1` into a container, and then from a console of that container, the user would have complete access to the sda1 device without restriction. By toggling this on, Portainer blocks the ability for non-admins to map ANY devices into containers. |
-| Disable container capabilities for non-administrators | Toggle on to hide the **Container capabilities** tab for non-administrators when they are [adding a container](../containers/add.md).                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| Disable sysctl settings for non-administrators        | Toggle on to stop non-admin users from using sysctl options, preventing them from recreating, duplicating or editing containers.                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| 为非管理员禁用绑定挂载            | 防止Portainer中的非管理员用户在创建容器和/或服务/堆栈时使用绑定挂载。切换开启时，附加到主机文件系统路径的选项将被移除。                                                                                                                                                                                                                                                                                                                                                              |
+| 为非管理员禁用特权模式        | 防止非管理员用户提升容器的权限以绕过SELinux/AppArmor。切换开启时，[添加容器](../containers/add.md)时选择**特权**模式的选项将被移除。                                                                                                                                                                                                                                                                                                                                      |
+| 为非管理员禁用使用主机PID 1  | 防止非管理员用户请求部署的容器作为主机PID运行。如果被不可信授权用户使用，这是一个安全风险，因为当他们作为PID1运行时，实际上能够在容器控制台中以root身份在主机上运行任何命令。                                                                                                                                                                                                                                                               |
+| 为非管理员禁用使用堆栈      | 这是一种"大锤"方法，用于消除Portainer中非管理员用户发现和利用Docker架构弱点的任何可能性。虽然Portainer有能力禁用一些更常见的漏洞利用，但我们不可能全部阻止，因为可以向容器添加任意数量的功能以尝试获取主机访问权限。此功能只是允许管理员禁用所有可能的入口点。                                                                                                                                                  |
+| 为非管理员禁用设备映射        | 阻止用户将主机设备映射到容器中。虽然映射设备的能力通常用于好的目的（例如将GPU映射到容器中），但它同样可以被不可信的授权用户用来将物理存储设备映射到容器中。可以将`/dev/sda1`挂载到容器中，然后从该容器的控制台，用户将不受限制地完全访问sda1设备。通过切换此选项，Portainer阻止非管理员将任何设备映射到容器中。 |
+| 为非管理员禁用容器能力 | 切换开启以在非管理员[添加容器](../containers/add.md)时隐藏**容器能力**选项卡。                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| 为非管理员禁用sysctl设置        | 切换开启以阻止非管理员用户使用sysctl选项，防止他们重新创建、复制或编辑容器。                                                                                                                                                                                                                                                                                                                                                                                                                            |
 
-## Other
+## 其他
 
-This section contains other assorted environment-specific settings.
+此部分包含其他各类环境特定设置。
 
 <figure><img src="../..//assets/2.18-host-setup-other.png" alt=""><figcaption></figcaption></figure>
 
-| Option                                                                    | Overview                                                                                                                                                                                                                        |
+| 选项                                                                    | 概述                                                                                                                                                                                                                        |
 | ------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Show GPU in the UI                                                        | Toggle on to enable GPU assignments in the Portainer UI. This adds additional processing to the container and stack listing pages, so if you are not using GPUs on your environment we recommend toggling this off.             |
-| Add GPU                                                                   | <p>When <strong>Show GPU in the UI</strong> is toggled on, click Add GPU to add GPUs to your environment for use by your containers.<br>To add a GPU, provide a name for the GPU and an index or UUID to reference the GPU.</p> |
-| Show an image(s) up to date indicator for Stacks, Services and Containers | <p>Toggle on to enable the <a href="../containers/">new image indicator</a> feature for this environment. Toggle off to disable the feature.<br><br>This feature is only available in Portainer Business Edition.</p>           |
+| 在UI中显示GPU                                                        | 切换开启以在Portainer UI中启用GPU分配。这会为容器和堆栈列表页面增加额外处理，因此如果您不在环境中使用GPU，我们建议切换此选项关闭。             |
+| 添加GPU                                                                   | <p>当<strong>在UI中显示GPU</strong>切换开启时，点击添加GPU将GPU添加到您的环境供容器使用。<br>要添加GPU，请提供GPU的名称和引用GPU的索引或UUID。</p> |
+| 为堆栈、服务和容器显示镜像最新指示器 | <p>切换开启为此环境启用<a href="../containers/">新镜像指示器</a>功能。切换关闭禁用该功能。<br><br>此功能仅在Portainer商业版中可用。</p>           |

@@ -1,58 +1,55 @@
-# Add a new container
+# 添加新容器
 
-Select **Containers** from the menu then click **Add container**.
+从菜单中选择**容器**，然后点击**添加容器**。
 
 <figure><img src="../..//assets/2.15-docker_containers_add_container.gif" alt=""><figcaption></figcaption></figure>
 
-Configure the container settings as required.
+根据需要配置容器设置。
 
-## Image configuration section
+## 镜像配置部分
 
-| Field/Option          | Overview                                                                                                                                   |
+| 字段/选项          | 概述                                                                                                                                   |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| Name                  | Give the container a descriptive name.                                                                                                     |
-| Registry              | Select the registry that contains the image that you want to use for your container.                                                       |
-| Image                 | Enter the name of the image you want to use.                                                                                               |
-| Always pull the image | Toggle on to enforce pulling the image from the registry instead of using the locally cached copy (if you have used the image previously). |
+| 名称                  | 为容器指定一个描述性名称。                                                                                                     |
+| 镜像仓库              | 选择包含您要用于容器的镜像的仓库。                                                       |
+| 镜像                 | 输入您要使用的镜像名称。                                                                                               |
+| 始终拉取镜像 | 切换开启以强制从仓库拉取镜像而不是使用本地缓存的副本（如果您之前使用过该镜像）。 |
 
 <figure><img src="../..//assets/2.15-docker_containers_image_config.png" alt=""><figcaption></figcaption></figure>
 
+使用Docker Hub时，您可以使用**搜索**按钮搜索您输入的镜像，并确保您有正确的名称和标签。使用匿名账户时，Portainer还会显示您的Docker Hub账户剩余的拉取次数。
 
-When using Docker Hub you can use the **Search** button to search for the image you have entered, and ensure that you have the correct name and tag. Portainer also displays the number of pulls remaining for your Docker Hub account when using an anonymous account.
-
-
-Alternatively you can switch to advanced mode to manually enter registry and image details. This is useful if you want to do a one-off container deployment from a registry that isn't configured within Portainer.
+或者，您可以切换到高级模式手动输入仓库和镜像详细信息。如果您想从Portainer中未配置的仓库进行一次性容器部署，这很有用。
 
 <figure><img src="../..//assets/2.15-docker_containers_image_config_simple.png" alt=""><figcaption></figcaption></figure>
 
 ## Webhooks
 
-Toggle **Create a container webhook** on to create a [webhook](webhooks.md) for the container. You can send a POST request to this endpoint to automate pulling the most up-to-date image and re-deploy your container.
+切换**创建容器webhook**开启以为容器创建[webhook](webhooks.md)。您可以向此端点发送POST请求以自动拉取最新镜像并重新部署容器。
 
 <figure><img src="../..//assets/2.15-docker_container_webhook.png" alt=""><figcaption></figcaption></figure>
 
-## Network ports configuration section
+## 网络端口配置部分
 
-| Field/Option                                           | Overview                                                                                                 |
+| 字段/选项                                           | 概述                                                                                                 |
 | ------------------------------------------------------ | -------------------------------------------------------------------------------------------------------- |
-| Publish all exposed network ports to random host ports | Toggle on to allow Portainer to randomly assign ports on the host to the exposed ports in the container. |
-| Manual network port publishing                         | Click **publish a new network port** to create manual port mappings for the container.                   |
+| 将所有暴露的网络端口发布到随机主机端口 | 切换开启以允许Portainer将主机上的端口随机分配给容器中暴露的端口。 |
+| 手动网络端口发布                         | 点击**发布新网络端口**为容器创建手动端口映射。                   |
 
 <figure><img src="../..//assets/2.15-docker_container_network_port_config.png" alt=""><figcaption></figcaption></figure>
 
-## Actions section
+## 操作部分
 
-| Field/Option | Overview                                                                                                                            |
+| 字段/选项 | 概述                                                                                                                            |
 | ------------ | ----------------------------------------------------------------------------------------------------------------------------------- |
-| Auto remove  | Toggle this option on to automatically remove the container once it exits. This is useful if you want to run a container only once. |
+| 自动移除  | 切换此选项开启以在容器退出后自动移除它。如果您只想运行容器一次，这很有用。 |
 
 <figure><img src="../..//assets/2.15-docker_container_actions.png" alt=""><figcaption></figcaption></figure>
 
-Once complete, set any advanced options (see below) then click **Deploy the container.** If successful your container will be shown in the container list.
+完成后，设置任何高级选项（见下文），然后点击**部署容器**。如果成功，您的容器将显示在容器列表中。
 
-## Advanced container settings
+## 高级容器设置
 
-Choose from a [range of options](advanced.md) to customize the deployment.
+从[一系列选项](advanced.md)中选择以自定义部署。
 
 <figure><img src="../..//assets/2.15-containers-advanced.png" alt=""><figcaption></figcaption></figure>
-

@@ -1,21 +1,17 @@
-# Snapshot browsing
+# 快照浏览
 
-Snapshot browsing allows the ability to run remote commands on your Edge devices that are in Async mode. You can browse your device as well as run commands like start, stop, restart, and delete on your containers, stacks and volumes.
+快照浏览功能允许您在异步模式下的Edge设备上运行远程命令。您可以浏览设备，以及在容器、堆栈和卷上运行启动、停止、重启和删除等命令。
 
-To browse your Edge device, on the [home page](./) locate your Edge device and click the **Browse snapshot** button.
+要浏览Edge设备，在[首页](./)找到您的Edge设备并点击**浏览快照**按钮。
 
 <figure><img src="..//assets/2.17-settings-edge-devices-browse.png" alt=""><figcaption></figcaption></figure>
 
-You will be directed to the dashboard for the Edge device, with a **Browsing snapshot** drop down that details the last updated and next updated date, how often the snapshots are taken and the environment status.  You can refer to the [deployment sync options ](../../admin/settings/edge.md#deployment-sync-options)for more details.&#x20;
+您将被定向到Edge设备的仪表盘，其中**浏览快照**下拉菜单会显示最后更新和下次更新日期、快照采集频率以及环境状态。更多详情请参考[部署同步选项](../../admin/settings/edge.md#deployment-sync-options)。
 
-
-The information displayed in Portainer for your Edge device is up to date as of the time the latest snapshot (as indicated in the dropdown) was taken. Depending on the [age of the snapshot](../../admin/settings/edge.md#deployment-sync-options) and the environment, this may not be an up to date representation of the current state of the device, so bear this in mind when taking actions on the device.
-
+Portainer中显示的Edge设备信息是最新快照（如下拉菜单所示）采集时的状态。根据[快照的时效](../../admin/settings/edge.md#deployment-sync-options)和环境情况，这可能不是设备当前状态的最新表示，因此在设备上执行操作时请记住这一点。
 
 <figure><img src="..//assets/2.16-edge_devices_browse_snaps_dashboard.png" alt=""><figcaption></figcaption></figure>
 
-From here, you can browse the device as you would a regular environment.
+从这里，您可以像浏览常规环境一样浏览设备。
 
 <figure><img src="..//assets/2.16-edge_devices_browse_snaps.gif" alt=""><figcaption></figcaption></figure>
-
-a

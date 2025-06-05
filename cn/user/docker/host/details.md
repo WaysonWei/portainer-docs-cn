@@ -1,30 +1,25 @@
-# Details
+# 详情
 
-This page provides information about the Docker host for the selected environment. The page is split into the following sections: Host Details, Engine Details, and (if enabled) PCI Devices and Physical Disks.
+此页面提供所选环境的Docker主机信息。页面分为以下部分：主机详情、引擎详情以及（如果启用）PCI设备和物理磁盘。
 
+此页面仅适用于Docker独立环境。
 
-This page is only available on Docker Standalone environments.
+## 主机详情
 
-
-## Host Details
-
-This section describes the host's basic configuration, including the hostname, OS information, kernel version, total CPU and memory. If the environment has the Portainer Agent installed, [host management features](setup.md#enable-host-management-features) are enabled, and a `/host` mount has been configured, you can also browse the host file system from here.&#x20;
+此部分描述主机的基本配置，包括主机名、操作系统信息、内核版本、总CPU和内存。如果环境安装了Portainer Agent，[主机管理功能](setup.md#enable-host-management-features)已启用，并且配置了`/host`挂载，您还可以从此处浏览主机文件系统。
 
 <figure><img src="../..//assets/2.15-docker-host-details.png" alt=""><figcaption></figcaption></figure>
 
-## Engine Details
+## 引擎详情
 
-Learn more about the Docker or Podman engine running on your environment, including the Docker/Podman version, the root directory, storage and logging drivers and available volume and network plugins.
+了解有关在您的环境上运行的Docker或Podman引擎的更多信息，包括Docker/Podman版本、根目录、存储和日志驱动程序以及可用的卷和网络插件。
 
 <figure><img src="../..//assets/2.15-docker-host-engine.png" alt=""><figcaption></figcaption></figure>
 
-## PCI Devices and Physical Disks
+## PCI设备和物理磁盘
 
-These sections list the available PCI devices and physical disks on the host.
+这些部分列出了主机上可用的PCI设备和物理磁盘。
 
-
-These sections are only visible when [host management features](setup.md#enable-host-management-features) are enabled for the environment.
-
+这些部分仅在为环境启用[主机管理功能](setup.md#enable-host-management-features)时可见。
 
 <figure><img src="../..//assets/2.15-docker-host-pci.png" alt=""><figcaption></figcaption></figure>
-

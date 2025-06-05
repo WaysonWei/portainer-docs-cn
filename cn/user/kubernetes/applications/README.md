@@ -1,47 +1,31 @@
-# Applications
+# 应用
 
-In Kubernetes, an application is a collection of configuration settings and variables required to run your app. This may consist of a single container or multiple containers with complex interoperability.
+在Kubernetes中，应用是运行您的应用程序所需的配置设置和变量的集合。这可能包括单个容器或多个具有复杂互操作性的容器。
 
 <figure><img src="../..//assets/2.27-kubernetes-applications-list.png" alt=""><figcaption></figcaption></figure>
 
-You can filter the list of applications by namespace using the **Namespace** dropdown.
+您可以使用**命名空间**下拉菜单按命名空间筛选应用列表。
 
-Portainer lets you add applications either using a form or through code (for example a manifest or a Helm chart):
-
+Portainer允许您通过表单或代码（例如清单或Helm chart）添加应用：
 
 [add.md](add.md)
 
-
-
 [manifest.md](manifest.md)
 
-
-You can also inspect a running application:
-
+您还可以检查正在运行的应用：
 
 [inspect.md](inspect.md)
 
-
-
 [inspect-helm.md](inspect-helm.md)
 
-
-Applications can be edited, webhooks can be configured and volumes can be detached:
-
+应用可以编辑、配置webhook和分离卷：
 
 [edit.md](edit.md)
 
-
-
 [webhooks.md](webhooks.md)
-
-
 
 [detach-volume.md](detach-volume.md)
 
-
-If you no longer require an application, it can be removed:
-
+如果不再需要某个应用，可以将其移除：
 
 [remove.md](remove.md)
-

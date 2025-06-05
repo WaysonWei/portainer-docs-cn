@@ -1,7 +1,7 @@
-# Waiting Room
+# 等待室
 
-The Edge Devices Waiting room lists any Edge Devices that have connected using the pre-deploy script and are pending association with the Portainer instance. The list can be filtered by Edge Group, group, and tag.
+Edge设备等待室列出了所有使用预部署脚本连接并等待与Portainer实例关联的Edge设备。列表可按Edge组、组和标签进行筛选。
 
 <figure><img src="..//assets/2.18-edge-waitingroom.png" alt=""><figcaption></figcaption></figure>
 
-To associate a device with your Portainer instance, tick the box next to the device and click **Associate Device**.
+要将设备与您的Portainer实例关联，勾选设备旁边的复选框并点击**关联设备**。

@@ -1,146 +1,142 @@
-# Advanced container settings
+# 高级容器设置
 
-When creating or editing a container you can configure a number of additional settings in the **Advanced container settings** section.
+创建或编辑容器时，您可以在**高级容器设置**部分配置多个附加设置。
 
 <figure><img src="../..//assets/2.15-containers-advanced.png" alt=""><figcaption></figcaption></figure>
 
-## Command & logging
+## 命令与日志
 
-In this section you can configure the command that runs when the container starts as well as configure logging for the container.
+在此部分可以配置容器启动时运行的命令以及容器的日志设置。
 
-| Field/Option | Overview                                                                                                                                                                                                        |
+| 字段/选项 | 概述                                                                                                                                                                                                        |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Command      | Set the command that is run when the container starts. Select `Default` to use the default command provided by the container's image, or select `Override` and provide a command to override the default value. |
-| Entrypoint   | Set the entrypoint for the container. Select `Default` to use the default entrypoint provided by the container's image, or select `Override` and provide an entrypoint to override the default value.           |
-| Working Dir  | Set the working directory your container should start in (within the container's filesystem).                                                                                                                   |
-| User         | Specify the user that the container's command should run as.                                                                                                                                                    |
-| Console      | Set the console configuration for your container.                                                                                                                                                               |
-| Driver       | Select the logging driver to use for your container. Available options will depend on the logging drivers configured on your Docker host.                                                                       |
-| Options      | Set additional options for your logging driver. To add a new option click **add logging driver option** and configure accordingly.                                                                              |
+| 命令      | 设置容器启动时运行的命令。选择`默认`使用容器镜像提供的默认命令，或选择`覆盖`并提供命令以覆盖默认值。 |
+| 入口点   | 设置容器的入口点。选择`默认`使用容器镜像提供的默认入口点，或选择`覆盖`并提供入口点以覆盖默认值。           |
+| 工作目录  | 设置容器应启动的工作目录（在容器的文件系统内）。                                                                                                                   |
+| 用户         | 指定容器命令应作为哪个用户运行。                                                                                                                                                    |
+| 控制台      | 设置容器的控制台配置。                                                                                                                                                               |
+| 驱动       | 选择用于容器的日志驱动程序。可用选项取决于Docker主机上配置的日志驱动程序。                                                                       |
+| 选项      | 为日志驱动程序设置附加选项。要添加新选项，点击**添加日志驱动选项**并进行相应配置。                                                                              |
 
 <figure><img src="../..//assets/2.15-containers-advanced-command.png" alt=""><figcaption></figcaption></figure>
 
-## Volumes
+## 卷
 
-Here you can configure volume mappings for your container. You can map to [existing named volumes](../volumes/) or bind mount to locations on your Docker host.
+在此可以配置容器的卷映射。您可以映射到[现有的命名卷](../volumes/)或绑定挂载到Docker主机上的位置。
 
-| Field/Option         | Overview                                                                                                                                                            |
+| 字段/选项         | 概述                                                                                                                                                            |
 | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Container path       | Specify where you want to make the volume or bind mount available within the container's filesystem.                                                                |
-| Mapping type         | Select `Volume` to map a named volume, or select `Bind` to map a bind mount.                                                                                        |
-| Volume               | If using the `Volume` mapping type, select the named volume to mount from the dropdown.                                                                             |
-| Host path            | If using the `Bind` mapping type, specify the path on the Docker host you want to bind mount in the container.                                                      |
-| Writable / Read-only | Select `Writable` if you want the container to be able to write to the mapping. Select `Read-only` if the container should **not** be able to write to the mapping. |
+| 容器路径       | 指定您希望在容器文件系统中使卷或绑定挂载可用的位置。                                                                |
+| 映射类型         | 选择`卷`映射命名卷，或选择`绑定`映射绑定挂载。                                                                                        |
+| 卷               | 如果使用`卷`映射类型，从下拉菜单中选择要挂载的命名卷。                                                                             |
+| 主机路径            | 如果使用`绑定`映射类型，指定Docker主机上要绑定挂载到容器中的路径。                                                      |
+| 可写/只读 | 选择`可写`如果希望容器能够写入映射。选择`只读`如果容器不应能够写入映射。 |
 
 <figure><img src="../..//assets/2.15-containers-advanced-volumes.png" alt=""><figcaption></figcaption></figure>
 
-## Network
+## 网络
 
-In this section you can configure the network settings for the container.&#x20;
+在此部分可以配置容器的网络设置。
 
+注意：您不能为Docker默认`bridge`网络中的容器分配静态IP地址。这是Docker的限制而非Portainer。如果需要为容器指定IP，则需要[创建自定义网络](../networks/add.md)并将容器分配给它。
 
-Note that you cannot assign a static IP address to a container that is in Docker's default `bridge` network. This is a Docker limitation rather than Portainer. If you need to specify the IP for your container then you will need to [create a custom network](../networks/add.md) and assign the container to it.
-
-
-| Field/Option         | Overview                                                                                                                                                                        |
+| 字段/选项         | 概述                                                                                                                                                                        |
 | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Network              | Select the [network](../networks/) to attach the container to from the dropdown.                                                                                                |
-| Hostname             | Specify the hostname for the container.                                                                                                                                         |
-| Domain Name          | Specify the domain name for the container.                                                                                                                                      |
-| Mac Address          | Specify the MAC address to set on the container.                                                                                                                                |
-| IPv4 Address         | Specify the IPv4 address to use for the container. This must be within the range for the chosen network and should not be already assigned to a container.                      |
-| IPv6 Address         | Specify the IPv6 address to use for the container. This must be within the range for the chosen network and should not be already assigned to a container.                      |
-| Primary DNS Server   | Specify the primary DNS server to use within the container.                                                                                                                     |
-| Secondary DNS Server | Specify the secondary DNS server to use within the container.                                                                                                                   |
-| Hosts file entries   | Click **add additional entry** to add a new host file entry for the container. Host file values should be formatted as `hostname:address` (for example `database:192.168.1.1`). |
+| 网络              | 从下拉菜单中选择要附加容器的[网络](../networks/)。                                                                                                |
+| 主机名             | 指定容器的主机名。                                                                                                                                         |
+| 域名          | 指定容器的域名。                                                                                                                                      |
+| MAC地址          | 指定要在容器上设置的MAC地址。                                                                                                                                |
+| IPv4地址         | 指定容器使用的IPv4地址。必须在所选网络的范围内且不应已分配给其他容器。                      |
+| IPv6地址         | 指定容器使用的IPv6地址。必须在所选网络的范围内且不应已分配给其他容器。                      |
+| 主DNS服务器   | 指定容器内使用的主DNS服务器。                                                                                                                     |
+| 辅DNS服务器 | 指定容器内使用的辅DNS服务器。                                                                                                                   |
+| 主机文件条目   | 点击**添加附加条目**为容器添加新的主机文件条目。主机文件值应格式化为`主机名:地址`（例如`database:192.168.1.1`）。 |
 
 <figure><img src="../..//assets/2.15-containers-advanced-network.png" alt=""><figcaption></figcaption></figure>
 
-## Env
+## 环境变量
 
-Use this section to add or edit environment variables made available in the container. Click **Add an environment variable** to create a new variable, or edit an existing variable with the fields provided. You can also click **Load variables from .env file** to import an existing .env file with your variables. To remove a variable, click the trash can icon to the right of the variable to remove.
+使用此部分添加或编辑容器中可用的环境变量。点击**添加环境变量**创建新变量，或使用提供的字段编辑现有变量。您也可以点击**从.env文件加载变量**导入包含变量的现有.env文件。要删除变量，点击变量右侧的垃圾桶图标。
 
-| Field/Option | Overview                                    |
+| 字段/选项 | 概述                                    |
 | ------------ | ------------------------------------------- |
-| Name         | Set the name for the environment variable.  |
-| Value        | Set the value for the environment variable. |
+| 名称         | 设置环境变量的名称。  |
+| 值        | 设置环境变量的值。 |
 
 <figure><img src="../..//assets/2.15-containers-advanced-env.png" alt=""><figcaption></figcaption></figure>
 
-If you want to add multiple variables at once, click on **Advanced mode** to switch to an editor view where you can paste a block of variables and values.
+如果要一次添加多个变量，点击**高级模式**切换到编辑器视图，可以粘贴变量和值的块。
 
-## Labels
+## 标签
 
-You can set labels on your container using this section. Click add label to add a new label, or edit an existing label using the fields provided. To remove a label, click the trash can icon to the right of the label to remove.
+您可以使用此部分在容器上设置标签。点击添加标签添加新标签，或使用提供的字段编辑现有标签。要删除标签，点击标签右侧的垃圾桶图标。
 
-| Field/Option | Overview                     |
+| 字段/选项 | 概述                     |
 | ------------ | ---------------------------- |
-| Name         | Set the name for the label.  |
-| Value        | Set the value for the label. |
+| 名称         | 设置标签的名称。  |
+| 值        | 设置标签的值。 |
 
 <figure><img src="../..//assets/2.15-containers-advanced-labels.png" alt=""><figcaption></figcaption></figure>
 
-## Restart policy
+## 重启策略
 
-Use this section to configure the restart policy for your container. Possible options are:
+使用此部分配置容器的重启策略。可能的选项有：
 
-* **Never**: Do not automatically restart the container when it exits. This is the default.
-* **Always**: Always restart the container regardless of the exit status. When you specify always, Docker will try to restart the container indefinitely. The container will also always start on Docker startup, regardless of the current state of the container.
-* **On failure**: Restart only if the container exits with a non-zero exit status.
-* **Unless stopped**: Always restart the container regardless of the exit status, including on Docker startup, except if the container was put into a stopped state before Docker was stopped.
+* **从不**：容器退出时不自动重启。这是默认值。
+* **总是**：无论退出状态如何总是重启容器。指定always时，Docker将无限期尝试重启容器。无论容器的当前状态如何，容器也将在Docker启动时始终启动。
+* **失败时**：仅当容器以非零退出状态退出时重启。
+* **除非停止**：无论退出状态如何总是重启容器，包括在Docker启动时，除非在Docker停止前容器已处于停止状态。
 
 <figure><img src="../..//assets/2.15-containers-advanced-restart.png" alt=""><figcaption></figcaption></figure>
 
-## Runtime & Resources
+## 运行时与资源
 
-This section lets you configure runtime options for your container, add or configure GPUs for use within the container, and specify resource limitations on the container.
+此部分可配置容器的运行时选项，添加或配置容器内使用的GPU，并指定容器的资源限制。
 
-### Runtime
+### 运行时
 
-Here you can configure runtime options for the container.
+在此可以配置容器的运行时选项。
 
-| Field/Option       | Overview                                                                                                                                                                                                                                                           |
+| 字段/选项       | 概述                                                                                                                                                                                                                                                           |
 | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Privileged mode    | Enable this option to run the container in [privileged mode](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities).                                                                                                              |
-| Init               | Enable this option to tell Docker that an init process should be used as PID 1 in the container.                                                                                                                                                                   |
-| Type               | Select the runtime type to use to start the container. Options will depend on available runtimes on your Docker host.                                                                                                                                              |
-| Devices            | Use this option to make devices on your Docker host available within the container. Click **add device** to add a new device, and define the **host** path for the device and the **container** path for where you want the device to appear within the container. |
-| Sysctls            | Use this option to specify sysctls to make available within the container. Click **add sysctl** to add a new sysctl, and set the **name** and **value** for your sysctl as required.                                                                               |
-| Shared memory size | Specify the size (in MB) of the shared memory device (`/dev/shm`) for the container.                                                                                                                                                                               |
+| 特权模式    | 启用此选项以在[特权模式](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities)下运行容器。                                                                                                              |
+| Init               | 启用此选项告诉Docker应在容器中使用init进程作为PID 1。                                                                                                                                                                   |
+| 类型               | 选择用于启动容器的运行时类型。选项取决于Docker主机上可用的运行时。                                                                                                                                              |
+| 设备            | 使用此选项使Docker主机上的设备在容器内可用。点击**添加设备**添加新设备，并定义设备的**主机**路径和您希望设备在容器内出现的**容器**路径。 |
+| Sysctls            | 使用此选项指定容器内可用的sysctls。点击**添加sysctl**添加新sysctl，并根据需要设置sysctl的**名称**和**值**。                                                                               |
+| 共享内存大小 | 指定容器的共享内存设备(`/dev/shm`)的大小（以MB为单位）。                                                                                                                                                                               |
 
 <figure><img src="../..//assets/2.20-containers-advanced-runtime.png" alt=""><figcaption></figcaption></figure>
 
 ### GPU
 
-Here you can enable GPU access for the container and configure the GPU settings as required.
+在此可以启用容器的GPU访问并根据需要配置GPU设置。
 
+GPU支持目前仅在Docker独立环境中可用，并且仅支持NVIDIA GPU。
 
-GPU support is currently only available on Docker Standalone environments, and only supports NVIDIA GPUs.
-
-
-| Field/Option | Overview                                                                                                                                                            |
+| 字段/选项 | 概述                                                                                                                                                            |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Enable GPU   | Toggle this option on to enable GPU access for the container.                                                                                                       |
-| GPU selector | Select the GPU(s) to make available to the container, or choose `Use All GPUs` to provide access to all the GPUs on the Docker host.                                |
-| Capabilities | Select the capabilities you want to use with the container. Portainer preselects `compute` and `utility` as they are the defaults when not specifying capabilities. |
-| Control      | View a generated equivalent of the Docker CLI's `--gpus` option based on your selections above.                                                                     |
+| 启用GPU   | 切换此选项开启以为容器启用GPU访问。                                                                                                       |
+| GPU选择器 | 选择要提供给容器使用的GPU，或选择`使用所有GPU`提供对Docker主机上所有GPU的访问。                                |
+| 能力 | 选择您希望与容器一起使用的能力。Portainer预选了`compute`和`utility`，因为它们是未指定能力时的默认值。 |
+| 控制      | 查看基于您上述选择生成的Docker CLI `--gpus`选项的等效内容。                                                                     |
 
 <figure><img src="../..//assets/2.20-containers-advanced-gpu.png" alt=""><figcaption></figcaption></figure>
 
-### Resources
+### 资源
 
-Here you can configure resource limits for your container. You can use the sliders to set the value or enter a value in the fields.
+在此可以配置容器的资源限制。您可以使用滑块设置值或在字段中输入值。
 
-| Field/Option            | Overview                                                                                                                                                      |
+| 字段/选项            | 概述                                                                                                                                                      |
 | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Memory reservation (MB) | Specify the amount of memory (in MB) to reserve for the container.                                                                                            |
-| Memory limit (MB)       | Specify the maximum amount of memory (in MB) the container is allowed to use.                                                                                 |
-| Maximum CPU usage       | Specify the maximum amount of CPU the container is allowed to use. This is specified based on the number of processing threads available on your Docker host. |
+| 内存保留(MB) | 指定为容器保留的内存量（以MB为单位）。                                                                                            |
+| 内存限制(MB)       | 指定容器允许使用的最大内存量（以MB为单位）。                                                                                 |
+| 最大CPU使用量       | 指定容器允许使用的最大CPU量。这是基于Docker主机上可用的处理线程数指定的。 |
 
 <figure><img src="../..//assets/2.15-containers-advanced-resources.png" alt=""><figcaption></figcaption></figure>
 
-## Capabilities
+## 能力
 
-In this section you can configure the individual capabilities for your container. For more information refer to the [Docker documentation](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities).
+在此部分可以配置容器的各个能力。更多信息请参考[Docker文档](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities)。
 
 <figure><img src="../..//assets/2.15-containers-advanced-capabilities.png" alt=""><figcaption></figcaption></figure>

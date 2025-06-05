@@ -1,19 +1,11 @@
-# Host
+# 主机
 
+**主机**菜单仅适用于Docker独立和Podman环境。
 
-The **Host** menu is only available to Docker Standalone and Podman environments.
-
-
-The **Host** section provides an overview of your environment. You can view information about your environment as well as configure environment-specific settings.
-
+**主机**部分提供环境的概览。您可以查看环境信息以及配置特定于环境的设置。
 
 [details.md](details.md)
 
-
-
 [setup.md](setup.md)
 
-
-
 [registries.md](registries.md)
-

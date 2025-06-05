@@ -1,28 +1,15 @@
-# Edge Compute
+# 边缘计算
 
-The following sections describe how to manage Edge Compute environments using menu options available in the Portainer Server.
+以下部分描述了如何使用Portainer Server中的菜单选项管理边缘计算环境。
 
-
-This functionality requires you to [enable Edge Compute](../../admin/settings/edge.md) features.
-
-
+此功能需要您[启用边缘计算](../../admin/settings/edge.md)功能。
 
 [groups.md](groups.md)
 
-
-
 [stacks](stacks/)
-
-
 
 [jobs.md](jobs.md)
 
-
-
 [configurations.md](configurations.md)
 
-
-
 [waiting-room.md](waiting-room.md)
-
-

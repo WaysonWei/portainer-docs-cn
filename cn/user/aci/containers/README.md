@@ -1,25 +1,15 @@
-# Container instances
+# 容器实例
 
-The **Container Instances** page allows you to interact with containers in your Azure application, letting you add and remove containers as needed.
+**容器实例**页面允许您与Azure应用程序中的容器进行交互，根据需要添加和移除容器。
 
 <figure><img src="../..//assets/2.22.0-aci-containers-list.png" alt=""><figcaption></figcaption></figure>
 
-You can click on a container name to view details about that container.
-
+您可以点击容器名称查看该容器的详细信息。
 
 [details.md](details.md)
 
-
-From this page you can add a new container or remove existing containers:
-
+在此页面您可以添加新容器或移除现有容器：
 
 [add.md](add.md)
 
-
-
 [remove.md](remove.md)
-
-
-
-
-\

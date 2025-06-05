@@ -1,22 +1,22 @@
 # Kubeconfig
 
-Portainer can act as a proxy for other Kubernetes management tools, providing access to the Kubernetes cluster while still retaining the security and governance that Portainer provides. A user can download their own `kubeconfig` file and use it with their favorite tool to access the Kubernetes cluster with only the permissions afforded to that user.\
-\
-To generate and download your `kubeconfig` file, from the Home page click the **kubeconfig** button.
+Portainer可以作为其他Kubernetes管理工具的代理，提供对Kubernetes集群的访问，同时保留Portainer提供的安全性和治理功能。用户可以下载自己的`kubeconfig`文件，并使用他们喜欢的工具来访问Kubernetes集群，仅具有该用户被授予的权限。
 
-You must be accessing Portainer via HTTPS for the kubeconfig button to appear. If you are logged in with HTTP, you will not see the option.
+要生成并下载您的`kubeconfig`文件，从首页点击**kubeconfig**按钮。
+
+您必须通过HTTPS访问Portainer才能看到kubeconfig按钮。如果您使用HTTP登录，将看不到此选项。
 
 <figure><img src="..//assets/2.15-k8s-kubeconfig.gif" alt=""><figcaption></figcaption></figure>
 
-You will be asked to select the Kubernetes environments that you would like in your `kubeconfig` file. If you have configured a [kubeconfig expiry](../../admin/settings/#kubeconfig-expiry) value, this will also be shown.&#x20;
+系统会要求您选择要包含在`kubeconfig`文件中的Kubernetes环境。如果您配置了[kubeconfig过期时间](../../admin/settings/#kubeconfig-expiry)值，也会显示在此处。
 
 <figure><img src="..//assets/2.15-k8s-kubeconfig-confirm.png" alt=""><figcaption></figcaption></figure>
 
-Tick the boxes for the environments you need and click **Download File**.&#x20;
+勾选所需环境的复选框，然后点击**下载文件**。
 
-A downloaded `kubeconfig` file will look something like the example below.
+下载的`kubeconfig`文件将类似于以下示例。
 
-Note that the server URL is set to the Portainer Server instance, not the Kubernetes cluster.
+请注意，服务器URL设置为Portainer Server实例，而不是Kubernetes集群。
 
 ```yaml
 apiVersion: v1
@@ -39,8 +39,8 @@ users:
     token: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
-Each environment in the `kubeconfig` will be accessible via contexts. Access is set based on the specific user that created the `kubeconfig` file.
+`kubeconfig`中的每个环境都可以通过上下文访问。访问权限基于创建`kubeconfig`文件的特定用户设置。
 
-Unless set to never expire, tokens will expire after the defined period, at which point a new `kubeconfig` file will need to be generated. An administrator can [adjust the token expiry behavior](../../admin/settings/#kubeconfig-expiry) on the **Settings** page.
+除非设置为永不过期，否则令牌将在定义的时间段后过期，此时需要生成新的`kubeconfig`文件。管理员可以在**设置**页面[调整令牌过期行为](../../admin/settings/#kubeconfig-expiry)。
 
-Adjusting the token expiry will not affect previously generated `kubeconfig` files.&#x20;
+调整令牌过期时间不会影响先前生成的`kubeconfig`文件。

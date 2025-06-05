@@ -1,16 +1,9 @@
 # Azure ACI
 
+目前对Azure ACI的支持处于实验阶段。
 
-Support for Azure ACI is currently experimental.
-
-
-The following sections describe how to manage an Azure ACI environment using menu options available in the Portainer Server. To learn how to add an Azure ACI environment, see our [environment guide](../../admin/environments/add/aci.md).
-
+以下部分描述了如何使用Portainer Server中的菜单选项管理Azure ACI环境。要了解如何添加Azure ACI环境，请参阅我们的[环境指南](../../admin/environments/add/aci.md)。
 
 [dashboard.md](dashboard.md)
 
-
-
 [containers](containers/)
-
-

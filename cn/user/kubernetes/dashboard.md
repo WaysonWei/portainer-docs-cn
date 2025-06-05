@@ -1,15 +1,15 @@
-# Dashboard
+# 仪表盘
 
-The Kubernetes dashboard summarizes your Kubernetes environment and shows the components that make up the environment.&#x20;
+Kubernetes仪表盘总结了您的Kubernetes环境，并显示组成该环境的各个组件。
 
-## Environment info
+## 环境信息
 
-This section shows the environment name, its URL and port, along with any [tags](../../admin/environments/tags.md#tagging-an-environment).
+此部分显示环境名称、其URL和端口以及任何[标签](../../admin/environments/tags.md#tagging-an-environment)。
 
 <figure><img src="..//assets/2.15-kubernetes_env_info.png" alt=""><figcaption></figcaption></figure>
 
-## Summary tiles
+## 摘要磁贴
 
-The remaining dashboard is made up of tiles showing the number of [namespaces](namespaces/), [applications](applications/), [services](networking/services.md), [ingresses](networking/ingresses/), ConfigMaps, secrets, and [volumes](volumes/) that make up the environment.
+仪表盘的其余部分由显示[命名空间](namespaces/)、[应用](applications/)、[服务](networking/services.md)、[入口](networking/ingresses/)、ConfigMaps、密钥和[卷](volumes/)数量的磁贴组成，这些组件构成了环境。
 
 <figure><img src="..//assets/2.19-kubernetes-dashboard-tiles.png" alt=""><figcaption></figcaption></figure>

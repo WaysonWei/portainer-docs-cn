@@ -1,7 +1,7 @@
 # kubectl shell
 
-Although the Portainer UI provides access to a lot of Kubernetes functionality, sometimes you need to drop into the console. We have provided a shell within the UI that includes `kubectl` and `helm` binaries. The shell is preloaded with a `kubeconfig` for the user's context, restricting access to the permissions defined in Portainer for that user.
+虽然Portainer UI提供了许多Kubernetes功能，但有时您需要进入控制台。我们在UI中提供了一个包含`kubectl`和`helm`二进制文件的shell。该shell预加载了用户上下文的`kubeconfig`，限制访问Portainer中为该用户定义的权限。
 
-To access the shell, select **kubectl shell** from the menu. Once the shell loads, you can run `kubectl` and `helm` commands as needed.
+要访问shell，从菜单中选择**kubectl shell**。shell加载后，您可以按需运行`kubectl`和`helm`命令。
 
 <figure><img src="..//assets/2.20-kubernetes-kubectl.gif" alt=""><figcaption></figcaption></figure>

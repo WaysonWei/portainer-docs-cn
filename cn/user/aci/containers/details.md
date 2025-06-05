@@ -1,31 +1,31 @@
-# View container details
+# 查看容器详情
 
-To view the details of an existing container, from the **Container instances** list click the container's name.
+要查看现有容器的详细信息，从**容器实例**列表中点击容器名称。
 
 <figure><img src="../..//assets/2.22.0-aci-container-details.gif" alt=""><figcaption></figcaption></figure>
 
-### Container
+### 容器
 
-The Container Instance details page displays information about the selected container under the **Container** tab.&#x20;
+容器实例详情页面在**容器**标签下显示所选容器的信息。
 
 <figure><img src="../..//assets/2.22.0-aci-container-details.png" alt=""><figcaption></figcaption></figure>
 
-### Events
+### 事件
 
-You can view past events in the container's lifecycle in the **Events** tab.
+您可以在**事件**标签中查看容器生命周期中的过去事件。
 
 <figure><img src="../..//assets/2.22.0-aci-container-details-events.png" alt=""><figcaption></figcaption></figure>
 
-Events can be sorted by date, type, message and count (the number of times the event has fired) and can be filtered from the search box.
+事件可按日期、类型、消息和计数（事件触发的次数）排序，并可通过搜索框进行筛选。
 
-### Actions
+### 操作
 
-From this section you can start, stop, restart or remove your container.
+在此部分可以启动、停止、重启或移除您的容器。
 
 <figure><img src="../..//assets/2.22.0-aci-container-details-actions.png" alt=""><figcaption></figcaption></figure>
 
-### Access control
+### 访问控制
 
-This section shows the current ownership and access for the container and allows you to change it.
+此部分显示容器当前的所属权和访问权限，并允许您进行更改。
 
 <figure><img src="../..//assets/2.22.0-aci-container-details-accesscontrol.png" alt=""><figcaption></figcaption></figure>
