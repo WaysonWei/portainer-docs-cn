@@ -1,21 +1,17 @@
 # Docker Swarm
 
+本文假设您使用了我们推荐的部署脚本。
 
-This article assumes that you used our recommended deployment scripts.
+在开始之前，请从我们发送的电子邮件中复制许可证密钥。
 
-
-
-Before you begin, copy the license key from the email we sent you.
-
-
-To upgrade to Portainer Business Edition for Docker Swarm, use the following commands to deploy the newest version of Portainer Business on your Swarm Cluster:
+要将 Docker Swarm 升级到 Portainer 商业版，使用以下命令在您的 Swarm 集群上部署最新版本的 Portainer 商业版：
 
 ```
 docker service update --image portainer/portainer-ee:lts --force portainer_portainer
 ```
 
-Log out of Portainer (if currently logged in) then log back in. When you log in for the first time, you'll be asked to enter your license key. Paste this in from the email we sent you.
+退出 Portainer（如果当前已登录）然后重新登录。当您首次登录时，系统会要求您输入许可证密钥。从我们发送的电子邮件中粘贴此密钥。
 
 <figure><img src="../..//assets/2.20-initial-setup-license.png" alt=""><figcaption></figcaption></figure>
 
-'Business Edition' now appears in the bottom-left corner.
+左下角现在会显示"Business Edition"。

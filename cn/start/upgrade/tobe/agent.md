@@ -1,3 +1,3 @@
-# Upgrading Agent-only deployments
+# 升级仅 Agent 的部署
 
-Both Portainer Community Edition and Portainer Business Edition use the same Portainer Agent container image to run, so if you are upgrading from CE to BE and have Agent-only environments, you don't need to upgrade them as well - just ensure they are on the same version (for example, if the Portainer Server is version 2.27.6 then the Portainer Agent should be 2.27.6 as well).
+Portainer 社区版和商业版使用相同的 Portainer Agent 容器镜像运行，因此如果您从社区版升级到商业版并且有仅 Agent 的环境，您不需要升级它们 - 只需确保它们使用相同的版本（例如，如果 Portainer Server 是 2.27.6 版本，那么 Portainer Agent 也应该是 2.27.6 版本）。

@@ -1,19 +1,11 @@
-# Install Portainer CE
+# 安装 Portainer CE
 
+这些安装说明适用于 Portainer Community Edition (CE)。如需安装 Portainer Business Edition (BE)，请参阅 [BE 安装文档](../install/)。
 
-These installation instructions are for Portainer Community Edition (CE). For Portainer Business Edition (BE) refer to the [BE install documentation](../install/).
+Portainer Community Edition 安装过程简单直接。您有两种选择：全新安装或在现有安装中添加环境。
 
-
-Portainer Community Edition is straightforward to install. There are two options: installing new or adding an environment to an existing installation.
-
-
-If you haven't already, please check that your environments meet [our requirements](../requirements-and-prerequisites.md) before proceeding.
-
-
+如果尚未确认，请在继续之前检查您的环境是否符合 [我们的要求](../requirements-and-prerequisites.md)。
 
 [server](server/)
 
-
-
 [agent.md](../agent.md)
-

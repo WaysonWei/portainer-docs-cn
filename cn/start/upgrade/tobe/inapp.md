@@ -1,22 +1,19 @@
-# Upgrade to Business Edition from within Portainer Community Edition
+# 在 Portainer 社区版内升级到商业版
 
-To upgrade from Portainer Community Edition to Portainer Business Edition from within Portainer, log in as an administrator and click the **Upgrade to Business Edition** message in the top left.
+要从 Portainer 社区版内升级到商业版，请以管理员身份登录并点击左上角的 **Upgrade to Business Edition** 消息。
 
 <figure><img src="../..//assets/2.17-upgrade-tobe-inapp.gif" alt=""><figcaption></figcaption></figure>
 
-If you already have a license for Portainer Business Edition, paste it in the box and click **Start upgrade** to begin the upgrade process.
+如果您已有 Portainer 商业版许可证，请将其粘贴到框中并点击 **Start upgrade** 开始升级过程。
 
-If you do not currently have a license, click **Get a license** and fill out the form to receive a trial key.
+如果您目前没有许可证，请点击 **Get a license** 并填写表单以获取试用密钥。
 
 <figure><img src="../..//assets/2.17-upgrade-tobe-inapp-licenseform.png" alt=""><figcaption></figcaption></figure>
 
-Your trial key will be sent to the email address you provided and you will be returned to the license entry form.
+您的试用密钥将发送到您提供的电子邮件地址，您将被返回到许可证输入表单。
 
-
-Your license should be sent automatically within a few minutes. If you have not received it please check your spam folders, or [get in touch with our team](mailto:success@portainer.io) if you have not received it in 24 hours.
-
+您的许可证应在几分钟内自动发送。如果未收到，请检查垃圾邮件文件夹，如果24小时内仍未收到，请[联系我们的团队](mailto:success@portainer.io)。
 
 <figure><img src="../..//assets/2.17-upgrade-tobe-inapp-licensesent.png" alt=""><figcaption></figcaption></figure>
 
-When you receive your license, paste the key into the box and click **Start upgrade** to begin the upgrade process.
-
+当您收到许可证后，将密钥粘贴到框中并点击 **Start upgrade** 开始升级过程。

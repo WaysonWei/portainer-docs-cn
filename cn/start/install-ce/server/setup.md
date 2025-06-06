@@ -1,25 +1,25 @@
-# Initial setup
+# 初始设置
 
-Once the Portainer Server has been deployed, and you have navigated to the instance's URL, you are ready for the initial setup.
+当 Portainer Server 部署完成并访问实例的 URL 后，您就可以进行初始设置了。
 
-## Creating the first user
+## 创建第一个用户
 
-Your first user will be an administrator. The username defaults to `admin` but you can change it if you prefer. The password must be at least 12 characters long and meet the listed password requirements.
+您的第一个用户将是管理员。用户名默认为 `admin`，但您可以根据需要更改。密码必须至少 12 个字符长并满足列出的密码要求。
 
 <figure><img src="../..//assets/2.15-install-server-setup-user.png" alt=""><figcaption></figcaption></figure>
 
-## Enabling or disabling the collection of statistics
+## 启用或禁用统计信息收集
 
-We use a tool called [Matomo](https://matomo.org/) to collect anonymous information about how Portainer is used. We recommend enabling this option so we can make improvements based on usage. For more about what we do with the information we collect, read our [privacy policy](https://www.portainer.io/privacy-policy).
+我们使用名为 [Matomo](https://matomo.org/) 的工具收集有关 Portainer 使用情况的匿名信息。我们建议启用此选项，以便我们可以根据使用情况做出改进。有关我们如何处理收集的信息的更多详情，请阅读我们的 [隐私政策](https://www.portainer.io/privacy-policy)。
 
-During installation, you can enable or disable connection statistics using the checkbox. If you change your mind later, you can easily update this option under [Settings](../../../admin/settings/general.md#allow-the-collection-of-anonymous-statistics) in the Portainer UI.
+在安装过程中，您可以使用复选框启用或禁用连接统计信息。如果您以后改变主意，可以在 Portainer UI 的 [设置](../../../admin/settings/general.md#allow-the-collection-of-anonymous-statistics) 下轻松更新此选项。
 
 <figure><img src="../..//assets/2.15-install-server-setup-matomo.png" alt=""><figcaption></figcaption></figure>
 
-## Connecting Portainer to your environments
+## 将 Portainer 连接到您的环境
 
-Once the admin user has been created, the **Environment Wizard** will automatically launch. The wizard will help get you started with Portainer.
+创建管理员用户后，**环境向导** 将自动启动。该向导将帮助您开始使用 Portainer。
 
 <figure><img src="../..//assets/2.15-install-server-setup-wizard.png" alt=""><figcaption></figcaption></figure>
 
-The installation process automatically detects your local environment and sets it up for you. If you want to add additional environments to manage with this Portainer instance, click **Add Environments**. Otherwise, click **Get Started** to start using Portainer!
+安装过程会自动检测您的本地环境并为您设置。如果您想添加更多环境来通过此 Portainer 实例进行管理，请点击 **添加环境**。否则，点击 **开始使用** 即可开始使用 Portainer！

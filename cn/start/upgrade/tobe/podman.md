@@ -1,28 +1,24 @@
 # Podman
 
+本文假设您使用了我们推荐的部署脚本。
 
-This article assumes that you used our recommended deployment scripts.
+在开始之前，请从我们发送的电子邮件中复制许可证密钥。
 
-
-
-Before you begin, copy the license key from the email we sent you.
-
-
-To upgrade to Portainer Business Edition for Podman, use the following commands to stop then remove the old version. Your other applications/containers will not be removed.
+要将 Podman 升级到 Portainer 商业版，使用以下命令停止然后移除旧版本。您的其他应用程序/容器不会被移除。
 
 ```
 podman stop portainer
 podman rm portainer
 ```
 
-Now that you have stopped and removed the old version of Portainer, run this command to deploy the most up to date version of Portainer Business:
+现在您已经停止并移除了旧版本的 Portainer，运行此命令部署最新版本的 Portainer 商业版：
 
 ```
 podman run -d -p 8000:8000 -p 9000:9000 -p 9443:9443 --name=portainer --restart=always --pull=always --privileged -v /run/podman/podman.sock:/run/podman/podman.sock -v portainer_data:/data portainer/portainer-ee:lts
 ```
 
-Log out of Portainer (if currently logged in) then log back in. When you log in for the first time, you'll be asked to enter your license key. Paste this in from the email we sent you.
+退出 Portainer（如果当前已登录）然后重新登录。当您首次登录时，系统会要求您输入许可证密钥。从我们发送的电子邮件中粘贴此密钥。
 
 <figure><img src="../..//assets/2.20-initial-setup-license.png" alt=""><figcaption></figcaption></figure>
 
-'Business Edition' now appears in the bottom-left corner.
+左下角现在会显示"Business Edition"。

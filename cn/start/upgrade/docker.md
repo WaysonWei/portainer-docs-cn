@@ -1,34 +1,22 @@
-# Updating on Docker Standalone
+# 在 Docker 单机版上更新
 
+始终确保 Agent 版本与 Portainer Server 版本匹配。换句话说，当您安装或更新到 Portainer 2.27.6 时，请确保所有 Agent 也都在 2.27.6 版本。
 
-Always match the agent version to the Portainer Server version. In other words, when you're installing or updating to Portainer 2.27.6 make sure all of the agents are also on version 2.27.6.
+如果您是从 Portainer 1.x 版本更新，**必须**先[更新到 2.0.0](from-1.x.md)，**然后**再更新到最新版本，否则会遇到问题。
 
+在开始任何更新之前，我们强烈建议[备份](../../admin/settings/general.md#back-up-portainer)当前的 Portainer 配置。
 
+## 更新 Portainer Server
 
-If you are updating from the 1.x version of Portainer, you **must** first [update to 2.0.0](from-1.x.md) **before** updating to the newest version or you will run into issues.
-
-
-
-Before beginning any update, we highly recommend [taking a backup](../../admin/settings/general.md#back-up-portainer) of your current Portainer configuration.
-
-
-## Updating your Portainer Server
-
-
-Starting from Portainer CE 2.9 and BE 2.10, HTTPS is enabled by default on port `9443.` These instructions will configure Portainer to use 9443 for HTTPS and do not expose 9000 for HTTP. If you need to retain HTTP access, you can add:
+从 Portainer CE 2.9 和 BE 2.10 开始，默认在端口 `9443` 上启用 HTTPS。这些说明将配置 Portainer 使用 9443 进行 HTTPS 通信，并且不暴露 9000 用于 HTTP。如果需要保留 HTTP 访问，可以在命令中添加：
 
 `-p 9000:9000`
 
-to your command.
+您也可以选择在更新后[完全禁用 HTTP](https://github.com/portainer/portainer-docs/blob/2.21/admin/settings/general/README.md#force-https-only)。在使 Portainer 仅使用 HTTPS 之前，请确保所有 Agent 和 Edge Agent 都已经使用 HTTPS 与 Portainer 通信。
 
-You can also choose to [completely disable HTTP](https://github.com/portainer/portainer-docs/blob/2.21/admin/settings/general/README.md#force-https-only) after the update. Before you make Portainer HTTPS only, make sure you have all your Agents and Edge Agents already communicating with Portainer using HTTPS.
+本文假设您使用了我们推荐的部署脚本。
 
-
-
-This article assumes that you used our recommended deployment scripts.
-
-
-To update to the latest version of Portainer Server, use the following commands to stop then remove the old version. Your other applications/containers will not be removed.
+要更新到最新版本的 Portainer Server，请使用以下命令停止然后移除旧版本。您的其他应用程序/容器不会被移除。
 
 ```
 docker stop portainer
@@ -38,57 +26,41 @@ docker stop portainer
 docker rm portainer
 ```
 
-Now that you have stopped and removed the old version of Portainer, you must ensure that you have the most up to date version of the image locally. You can do this with a `docker pull` command:
-
-
+现在您已经停止并移除了旧版本的 Portainer，必须确保本地有最新版本的镜像。您可以使用 `docker pull` 命令：
 
 ```
 docker pull portainer/portainer-ee:lts
 ```
 
-
-
 ```
 docker pull portainer/portainer-ce:lts
 ```
 
-
-
-Finally, deploy the updated version of Portainer:
-
-
+最后，部署更新后的 Portainer 版本：
 
 ```
 docker run -d -p 8000:8000 -p 9443:9443 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ee:lts
 ```
 
-
-
 ```
 docker run -d -p 8000:8000 -p 9443:9443 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:lts
 ```
 
+这些 `docker run` 命令包括打开端口 `8000`，用于 Edge Agent 通信，如我们的[安装说明](../install/server/docker/linux.md)中所包含。如果不需要此端口开放，可以从命令中移除。
 
-
-
-These `docker run` commands include opening port `8000` which is used for Edge Agent communication as included in our [installation instructions](../install/server/docker/linux.md). If you do not need this port open, you can remove it from the command.
-
-
-
-To provide your own SSL certs you may use `--sslcert` and `--sslkey` flags as below to provide the certificate and key files. The certificate file needs to be the full chain and in PEM format. For example, for Business Edition:
+要提供自己的 SSL 证书，可以使用 `--sslcert` 和 `--sslkey` 标志来提供证书和密钥文件。证书文件需要是完整的链并且是 PEM 格式。例如，对于商业版：
 
 ```
 docker run -d -p 8000:8000 -p 9443:9443 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ee:lts --sslcert /path/to/cert/portainer.crt --sslkey /path/to/cert/portainer.key
 ```
 
+最新版本的 Portainer 现在将部署在您的系统上，使用先前版本的持久数据，并将 Portainer 数据库升级到新版本。
 
-The newest version of Portainer will now be deployed on your system, using the persistent data from the previous version, and will also upgrade the Portainer database to the new version.
+部署完成后，转到 `https://your-server-address:9443` 或 `http://your-server-address:9000` 并登录。您应该注意到更新通知已消失，版本号已更新。
 
-When the deployment is finished, go to `https://your-server-address:9443` or `http://your-server-address:9000` and log in. You should notice that the update notification has disappeared and the version number has been updated.
+## 仅更新 Agent
 
-## Agent-only update
-
-To update to the latest version of Portainer Agent, use the following commands to stop then remove the old version. Your other applications/containers will not be removed.
+要更新到最新版本的 Portainer Agent，请使用以下命令停止然后移除旧版本。您的其他应用程序/容器不会被移除。
 
 ```
 docker stop portainer_agent
@@ -98,20 +70,18 @@ docker stop portainer_agent
 docker rm portainer_agent
 ```
 
-Next, pull the updated version of the image:
+接下来，拉取更新后的镜像：
 
 ```
 docker pull portainer/agent:lts
 ```
 
-Finally, start the agent with the updated image:
+最后，使用更新后的镜像启动 Agent：
 
 ```
 docker run -d -p 9001:9001 --name portainer_agent --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker/volumes:/var/lib/docker/volumes portainer/agent:lts
 ```
 
-
-If you have set a custom `AGENT_SECRET` on your Portainer Server instance (by specifying an `AGENT_SECRET` environment variable when starting the Portainer Server container) you must remember to explicitly provide the same secret to your Agent in the same way (as an environment variable) when updating your Agent:
+如果您在 Portainer Server 实例上设置了自定义 `AGENT_SECRET`（通过在启动 Portainer Server 容器时指定 `AGENT_SECRET` 环境变量），在更新 Agent 时必须记住以相同方式（作为环境变量）显式提供相同的密钥给您的 Agent：
 
 `-e AGENT_SECRET=yoursecret`
-
