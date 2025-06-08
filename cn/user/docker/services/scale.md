@@ -1,11 +1,9 @@
-# Scale a service
+# 扩展服务
 
-From the menu select **Services** then select **scale** next to the service you want to scale (in the **Scheduling Mode** column).
+从菜单选择**服务**，然后在要扩展的服务旁边(在**调度模式**列中)选择**扩展**。
 
 <figure><img src="../..//assets/2.15-docker_services_scale.gif" alt=""><figcaption></figcaption></figure>
 
-Select the number of replicas you want to create for the service then click the tick icon to apply. If scaling is successful, a success message will appear at the top-right of the screen. Refresh the page until the running replicas appear.
+选择要为服务创建的副本数量，然后点击勾选图标应用。如果扩展成功，屏幕右上角会出现成功消息。刷新页面直到运行中的副本出现。
 
-
-Depending on container size, there might be a slight delay before the replicas appear on screen.
-
+根据容器大小，副本在屏幕上显示可能会有轻微延迟。

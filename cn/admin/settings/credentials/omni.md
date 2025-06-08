@@ -1,49 +1,47 @@
-# Add Sidero Omni credentials
+# 添加Sidero Omni凭据
 
-Before you can add your Sidero Omni credentials to Portainer, you will need to create a service account within Omni for Portainer to use. You can either do this via the Omni web UI, or via `omnictl`.
+在将Sidero Omni凭据添加到Portainer之前，您需要在Omni中创建一个服务账户供Portainer使用。您可以通过Omni网页界面或使用`omnictl`命令行工具来完成此操作。
 
-## Create a service account with the Omni web UI
+## 通过Omni网页界面创建服务账户
 
-To create a service account for Portainer through the Omni web UI, first log into the web UI with an administrator user. Once logged in, click on **Settings** then select the **Service Accounts** tab.
+要通过Omni网页界面为Portainer创建服务账户，首先使用管理员用户登录网页界面。登录后，点击**设置**，然后选择**服务账户**选项卡。
 
 <figure><img src="../..//assets/2.26-settings-credentials-omni-service-webui-1.png" alt=""><figcaption></figcaption></figure>
 
-Next click the **Create Service Account** button and complete the fields as per the table below:
+接下来点击**创建服务账户**按钮，并按照下表填写字段：
 
-| Field/Option    | Overview                                                                                                            |
+| 字段/选项       | 概述                                                                                                            |
 | --------------- | ------------------------------------------------------------------------------------------------------------------- |
-| ID              | Enter an ID for the service account. We suggest something like `portainer`.                                         |
-| Expiration Days | Set the number of days you want the service account to be valid for.                                                |
-| Role            | Select the `Admin` role from the dropdown. Portainer needs Admin privileges in order to create and manage clusters. |
-
-
+| ID              | 输入服务账户的ID。建议使用类似`portainer`的名称。                                         |
+| 过期天数        | 设置服务账户的有效天数。                                                |
+| 角色            | 从下拉菜单中选择`Admin`角色。Portainer需要管理员权限来创建和管理集群。 |
 
 <figure><img src="../..//assets/2.26-settings-credentials-omni-service-webui-2.png" alt=""><figcaption></figcaption></figure>
 
-Once you have entered all the details click the **Create Service Account** button. The service account will be crated and you'll be shown the **Service account key**. Make a note of this key as it will not be shown again.
+填写完所有详细信息后，点击**创建服务账户**按钮。服务账户将被创建，并显示**服务账户密钥**。请记下此密钥，因为它不会再次显示。
 
 <figure><img src="../..//assets/2.26-settings-credentials-omni-service-webui-3.png" alt=""><figcaption></figcaption></figure>
 
-You can now proceed to [add your credentials](omni.md#adding-your-credentials).
+现在您可以继续[添加您的凭据](omni.md#添加您的凭据)。
 
-## Create a service account with omnictl
+## 使用omnictl创建服务账户
 
-To create a service account for Portainer using `omnictl`, you will first need an environment where `omnictl` is installed and configured to connect to your Omni installation with an Admin user. You can learn more on how to do this from [Sidero Omni's documentation](https://omni.siderolabs.com/how-to-guides/install-and-configure-omnictl).
+要使用`omnictl`为Portainer创建服务账户，您首先需要一个安装了`omnictl`并配置为使用管理员用户连接到Omni安装的环境。您可以从[Sidero Omni文档](https://omni.siderolabs.com/how-to-guides/install-and-configure-omnictl)了解更多信息。
 
-Once you have `omnictl` installed and configured, you can run the following command to create a service account:
+安装并配置好`omnictl`后，可以运行以下命令创建服务账户：
 
 ```
 onictl serviceaccount create portainer
 ```
 
-This will create a service account named `portainer` with a lifetime of 1 year and with the same role as the user that created it. The command will output the `OMNI_ENDPOINT` and `OMNI_SERVICE_ACCOUNT_KEY` values - note both of these as you will need them in the next step.
+这将创建一个名为`portainer`的服务账户，有效期为1年，并具有与创建它的用户相同的角色。该命令将输出`OMNI_ENDPOINT`和`OMNI_SERVICE_ACCOUNT_KEY`值 - 请记下这两个值，因为在下一步中您将需要它们。
 
-You can now proceed to [add your credentials](omni.md#adding-your-credentials).
+现在您可以继续[添加您的凭据](omni.md#添加您的凭据)。
 
-## Adding your credentials
+## 添加您的凭据
 
-To add credentials for an Omni account, from the [Shared credentials](./) page click **Add credentials**, then select the **Sidero Omni** option. Give your credential set a **name** and paste your **Endpoint URL** and **Service account key** into the respective boxes.
+要为Omni账户添加凭据，从[共享凭据](./)页面点击**添加凭据**，然后选择**Sidero Omni**选项。为您的凭据集指定一个**名称**，并将**端点URL**和**服务账户密钥**粘贴到相应的框中。
 
 <figure><img src="../..//assets/2.26-settings-credentials-omni-add.png" alt=""><figcaption></figcaption></figure>
 
-When you're ready, click **Add credentials**. Your credentials will now be available to you when [creating an Omni Talos cluster](../../environments/add/kube-create/omni.md).
+准备就绪后，点击**添加凭据**。您的凭据现在可以在[创建Omni Talos集群](../../environments/add/kube-create/omni.md)时使用。

@@ -1,88 +1,82 @@
-# Custom templates
+# 自定义模板
 
-A custom template can be used to help streamline the deployment of a container or stack.
+自定义模板可用于简化容器或堆栈的部署流程。
 
+您也可以[从现有部署的堆栈创建模板](../stacks/template.md)。
 
-You can also [create a template from an existing deployed stack](../stacks/template.md).
+## 查看自定义模板列表
 
-
-## Viewing the list of custom templates
-
-To view a list of custom templates, from the menu expand **Templates** then select **Custom**.
+要查看自定义模板列表，从菜单展开**模板**然后选择**自定义**。
 
 <figure><img src="../..//assets/2.20-templates-custom.gif" alt=""><figcaption></figcaption></figure>
 
-## Creating a new custom template
+## 创建新的自定义模板
 
-### Entering the basic information
+### 输入基本信息
 
-Click **Add Custom Template** then complete the details, using the table below as a guide.
+点击**添加自定义模板**然后填写详细信息，参考下方表格作为指南：
 
-| Field/Option | Overview                                                                                    |
-| ------------ | ------------------------------------------------------------------------------------------- |
-| Title        | Give the template a descriptive name.                                                       |
-| Description  | Enter a brief description of what your template includes.                                   |
-| Note         | Note any extra information about the template (optional).                                   |
-| Logo         | Enter the URL to a logo to be used for the template when it appears in the list (optional). |
-| Platform     | Select the compatible platform for the template. Options are **Linux** or **Windows**.      |
-| Type         | Select the type of template. Options are **Standalone / Podman** or **Swarm**.              |
+| 字段/选项       | 说明                                                                                    |
+| --------------- | --------------------------------------------------------------------------------------- |
+| 标题            | 为模板指定一个描述性名称。                                                              |
+| 描述            | 输入模板包含内容的简要说明。                                                            |
+| 备注            | 记录模板的任何额外信息(可选)。                                                          |
+| 图标            | 输入模板在列表中显示时使用的图标URL(可选)。                                             |
+| 平台            | 选择模板兼容的平台。选项为**Linux**或**Windows**。                                      |
+| 类型            | 选择模板类型。选项为**独立/Podman**或**Swarm**。                                        |
 
 <figure><img src="../..//assets/2.22.0-templates-custom-new.png" alt=""><figcaption></figcaption></figure>
 
-### Selecting the build method
+### 选择构建方法
 
-Next, choose the build method that suits your needs. You can use the web editor to manually enter your docker-compose file, upload a `docker-compose.yml` file from your local computer, or pull the compose file from a Git repository.
+接下来，选择适合您需求的构建方法。您可以使用网页编辑器手动输入docker-compose文件，从本地计算机上传`docker-compose.yml`文件，或从Git仓库拉取compose文件。
 
-#### Web editor
+#### 网页编辑器
 
-Paste the contents of your docker-compose file into the box provided. Once all the details have been completed, click **Create custom template**.
+将docker-compose文件内容粘贴到提供的框中。完成所有详细信息后，点击**创建自定义模板**。
 
-
-You can search within the web editor at any time by pressing `Ctrl-F` (or `Cmd-F` on Mac).
-
+您可以随时按`Ctrl-F`(Mac上为`Cmd-F`)在网页编辑器中搜索。
 
 <figure><img src="../..//assets/2.20-templates-custom-add-webeditor.png" alt=""><figcaption></figcaption></figure>
 
-#### Upload
+#### 上传
 
-Click **Select file** to browse for a docker-compose file to upload. Once all the details have been completed, click **Create custom template**.
+点击**选择文件**浏览要上传的docker-compose文件。完成所有详细信息后，点击**创建自定义模板**。
 
 <figure><img src="../..//assets/2.20-templates-custom-add-upload.png" alt=""><figcaption></figcaption></figure>
 
-#### Git repository
+#### Git仓库
 
-Fill in the details for your Git repository.
+填写Git仓库的详细信息。
 
-| Field/Option          | Overview                                                                                                                                               |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Authentication        | Enable this if your Git repository requires authentication.                                                                                            |
-| Git Credentials       | When Authentication is enabled, either select a pre-saved Git credential set or leave unset to provide new credentials.                                |
-| Username              | When Authentication is enabled, enter your Git username.                                                                                               |
-| Personal Access Token | When Authentication is enabled, enter your personal access token or password.                                                                          |
-| Save credential       | When Authentication is enabled and you have provided new credentials, you can tick this box and enter a name to save those credentials for future use. |
-| Repository URL        | Enter the URL to your Git repository.                                                                                                                  |
-| Repository reference  | Select the repository reference to define the branch or tag to pull from.                                                                              |
-| Compose path          | Enter the path within the repository to your docker-compose file.                                                                                      |
-| Skip TLS Verification | Enable this option to skip verification of your Git repository's TLS certificate.                                                                      |
+| 字段/选项          | 说明                                                                                     |
+| ------------------ | ---------------------------------------------------------------------------------------- |
+| 认证              | 如果您的Git仓库需要认证，请启用此选项。                                                  |
+| Git凭据           | 启用认证后，选择预设的Git凭据集或留空以提供新凭据。                                      |
+| 用户名            | 启用认证后，输入您的Git用户名。                                                          |
+| 个人访问令牌      | 启用认证后，输入您的个人访问令牌或密码。                                                 |
+| 保存凭据          | 启用认证并提供新凭据后，可以勾选此框并输入名称以保存这些凭据供将来使用。                 |
+| 仓库URL           | 输入您的Git仓库URL。                                                                     |
+| 仓库引用          | 选择仓库引用以定义要拉取的分支或标签。                                                   |
+| Compose路径        | 输入仓库内docker-compose文件的路径。                                                     |
+| 跳过TLS验证       | 启用此选项可跳过Git仓库TLS证书的验证。                                                   |
 
 <figure><img src="../..//assets/2.20-templates-custom-add-git.png" alt=""><figcaption></figcaption></figure>
 
-When all the details have been entered, click **Create custom template**.
+输入所有详细信息后，点击**创建自定义模板**。
 
-## Variables in templates
+## 模板中的变量
 
-Custom templates support the use of variables to provide further customization of the deployed stack. A stack can define a variable that can then be adjusted by the user at deployment.
+自定义模板支持使用变量来进一步自定义部署的堆栈。堆栈可以定义一个变量，用户可以在部署时调整该变量。
 
+此功能仅在Portainer商业版中可用。
 
-This feature is only available in Portainer Business Edition.
-
-
-Variables are identified in stacks with `{{ }}`. For example, the following stack provides a `MYSQL_PASSWORD` variable:
+变量在堆栈中用`{{ }}`标识。例如，以下堆栈提供了一个`MYSQL_PASSWORD`变量：
 
 <figure><img src="../..//assets/2.15-docker-templates-custom-variables-set.png" alt=""><figcaption></figcaption></figure>
 
-When a variable is defined, options appear to customize how the variable appears when deploying the stack. You can set the **label**, **description** and **default value**.
+定义变量后，会出现选项来自定义变量在部署堆栈时的显示方式。您可以设置**标签**、**描述**和**默认值**。
 
-When a template is deployed, any variables that have been configured are editable:
+部署模板时，任何已配置的变量都是可编辑的：
 
 <figure><img src="../..//assets/2.15-docker-templates-custom-variables-create.png" alt=""><figcaption></figcaption></figure>

@@ -1,23 +1,13 @@
 # Swarm
 
+**Swarm**菜单仅对Docker Swarm环境可用。
 
-The **Swarm** menu is only available to Docker Swarm environments.
-
-
-This section provides an overview of your Swarm environment. You can view information about environments and nodes, view cluster information, and configure environment-specific settings.
-
+本节提供Swarm环境的概览。您可以查看环境和节点信息、集群信息，以及配置特定环境的设置。
 
 [details.md](details.md)
 
-
-
 [cluster-visualizer.md](cluster-visualizer.md)
-
-
 
 [setup.md](setup.md)
 
-
-
 [registries.md](registries.md)
-

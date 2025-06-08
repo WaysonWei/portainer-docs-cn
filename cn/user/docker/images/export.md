@@ -1,17 +1,15 @@
-# Export an image
+# 导出镜像
 
-You can export any Docker image stored on any node. This is useful when you need to move a container from one host to another, or simply make a backup of the images.
+您可以导出存储在任何节点上的任何Docker镜像。这在需要将容器从一台主机迁移到另一台主机，或简单地对镜像进行备份时非常有用。
 
+如果导出容器到tar文件，卷不会随其一起导出。您需要使用其他方法保存这些卷中的数据。
 
-If you export a container to a tar file, the volumes won't get exported with it. You will need to save the data from those volumes using a different method.
-
-
-From the menu select **Images**, select the image you want to export then click **Export this image**.
+从菜单中选择**镜像**，选择要导出的镜像然后点击**导出此镜像**。
 
 <figure><img src="../..//assets/2.15-docker_images_build_image_export.gif" alt=""><figcaption></figcaption></figure>
 
-When the warning message appears, click **Continue**.
+当警告消息出现时，点击**继续**。
 
 <figure><img src="../..//assets/2.15-images-export-confirm.png" alt=""><figcaption></figcaption></figure>
 
-When the image has downloaded, a success message will appear, and your browser should automatically download the resulting tar file.\
+镜像下载完成后，将出现成功消息，您的浏览器应自动下载生成的tar文件。

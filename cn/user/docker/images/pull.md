@@ -1,27 +1,25 @@
-# Pull an image
+# 拉取镜像
 
-You can pull images from any registry that has been [added to Portainer](../../../admin/registries/), or using advanced mode, from a custom external registry.
+您可以从任何[已添加到Portainer](../../../admin/registries/)的注册表拉取镜像，或者使用高级模式从自定义外部注册表拉取。
 
+在多节点环境中，拉取的镜像仅会出现在您在**部署**部分选择的节点上。要使镜像对所有节点可用，请考虑[添加注册表](../../../admin/registries/add/)到Portainer。
 
-On a multi-node environment, the pulled image will only be available on the node you select in the **Deployment** section. To make the image available to all nodes, consider [adding a registry](../../../admin/registries/add/) to Portainer.
+## 方法1：简单模式拉取镜像
 
+此方法允许您从Docker Hub或之前连接过的其他注册表拉取镜像。
 
-## Method 1: Pulling images in simple mode
-
-This method lets you pull images from Docker Hub or from another registry that you have connected with before.
-
-From the menu select **Images**. Select the registry to use then enter the name of the image. On a multi-node environment, select the node to deploy to.
+从菜单中选择**镜像**。选择要使用的注册表然后输入镜像名称。在多节点环境中，选择要部署到的节点。
 
 <figure><img src="../..//assets/2.15-docker_images_pull_images (1).png" alt=""><figcaption></figcaption></figure>
 
-When you're ready, click **Pull the image**.
+准备就绪后，点击**拉取镜像**。
 
-## Method 2: Pulling images in advanced mode
+## 方法2：高级模式拉取镜像
 
-Using advanced mode, you can define a custom registry URL, port and image. This is ideal if you run your own private registry but don't want to add it to the [registries](../../../admin/registries/) list in Portainer.
+使用高级模式，您可以定义自定义注册表URL、端口和镜像。如果您运行自己的私有注册表但不想将其添加到Portainer的[注册表](../../../admin/registries/)列表中，这非常理想。
 
-From the menu select **Images** then select **Advanced mode**. Next, enter the registry, port and image in the **Image** box. On a multi-node environment, select the node to deploy to.
+从菜单中选择**镜像**然后选择**高级模式**。接下来，在**镜像**框中输入注册表、端口和镜像。在多节点环境中，选择要部署到的节点。
 
 <figure><img src="../..//assets/2.15-docker_images_pull_image_simple.png" alt=""><figcaption></figcaption></figure>
 
-When you're ready, click **Pull the image**.
+准备就绪后，点击**拉取镜像**。

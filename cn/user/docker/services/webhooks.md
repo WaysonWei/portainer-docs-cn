@@ -1,52 +1,48 @@
 # Webhooks
 
-A webhook is a POST request sent to a URL that you define in Docker Hub or another registry. Use webhooks to trigger an action or a service in response to a repository push event.
+Webhook是发送到您在Docker Hub或其他注册表中定义的URL的POST请求。使用webhook可以在响应仓库推送事件时触发操作或服务。
 
+Webhook仅在非Edge环境(运行Portainer Server或Portainer Agent的环境，而非Portainer Edge Agent)上可用。这是因为到Portainer Edge Agent的隧道是按需打开的，因此无法永久暴露webhook。
 
-Webhooks are only available on non-Edge environments (environments running Portainer Server or Portainer Agent, not the Portainer Edge Agent). This is because the tunnel to the Portainer Edge Agent is only opened on-demand, and therefore would mean there is no way to expose a webhook permanently.
+## 启用服务webhook
 
-
-## Enabling a service webhook
-
-From the menu select **Services** then select the service that you want to configure the webhook for.
+从菜单选择**服务**，然后选择要配置webhook的服务。
 
 <figure><img src="../..//assets/2.15-docker_services.gif" alt=""><figcaption></figcaption></figure>
 
-In the **Service details** screen toggle the **Service webhook** option on. When the URL appears, click **Copy link**. This URL will be used to configure the webhook in your chosen registry.
+在**服务详情**屏幕中，切换**服务webhook**选项为开启。当URL出现时，点击**复制链接**。此URL将用于在您选择的注册表中配置webhook。
 
 <figure><img src="../..//assets/2.15-docker_services_service_webhook.png" alt=""><figcaption></figcaption></figure>
 
-This example shows how to trigger the webhook using `redeploy`:
+此示例展示如何使用`redeploy`触发webhook:
 
 ```
 <form action="https://portainer:9443/api/webhooks/638e6967-ef77-4906-8af8-236800621360" method="post">
-  Redeploy with latest image of same tag <input type="submit" />
+  使用相同标签的最新镜像重新部署 <input type="submit" />
 </form>
 ```
 
-This example shows how to trigger the webhook using `update service image with a different tag`:
+此示例展示如何使用`update service image with a different tag`触发webhook:
 
 ```
 <form action="https://portainer:9443/api/webhooks/638e6967-ef77-4906-8af8-236800621360?tag=latest" method="post">
-  Update Service image with different tag <input type="submit" />
+  使用不同标签更新服务镜像 <input type="submit" />
 </form>
 ```
 
-## Using environment variables with webhooks
+## 在webhook中使用环境变量
 
-When triggering a webhook, environment variables can be passed through the endpoint and referenced within services' compose files.
+触发webhook时，可以通过端点传递环境变量并在服务的compose文件中引用。
 
+此功能仅在Portainer商业版中可用。
 
-This functionality is only available in Portainer Business Edition.
-
-
-To specify an environment variable on a webhook, add it as a variable to the URL. For example, to pass a `SERVICE_TAG` variable with the value `development`:
+要在webhook上指定环境变量，将其作为变量添加到URL中。例如，传递值为`development`的`SERVICE_TAG`变量:
 
 ```
 https://portainer:9443/api/webhooks/1d251d96-fb34-4172-a0a1-d0655467b897?SERVICE_TAG=development
 ```
 
-To reference the `SERVICE_TAG` variable in your compose file with a fallback to the value `stable`:
+要在compose文件中引用`SERVICE_TAG`变量并回退到值`stable`:
 
 ```
 services:
@@ -54,6 +50,6 @@ services:
     image: repository/image:${SERVICE_TAG:-stable}
 ```
 
-## Configuring the webhook in Docker Hub
+## 在Docker Hub中配置webhook
 
-To finish the configuration, refer to [Docker's own documentation](https://docs.docker.com/docker-hub/webhooks/).
+要完成配置，请参考[Docker官方文档](https://docs.docker.com/docker-hub/webhooks/)。

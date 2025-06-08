@@ -1,30 +1,25 @@
-# Import an image
+# 导入镜像
 
-You can import images from other Portainer instances, the Docker CLI or the Docker Swarm CLI.
+您可以从其他Portainer实例、Docker CLI或Docker Swarm CLI导入镜像。
 
-From the menu select **Images** then click **Import**.
+从菜单中选择**镜像**，然后点击**导入**。
 
 <figure><img src="../..//assets/2.15-docker_images_build_image_import.gif" alt=""><figcaption></figcaption></figure>
 
-Click **Select file** to browse for the image file to upload. Portainer supports `.tar`, `.tar.gz`, `.tar.bz2` and `.tar.xz` files. If you are on a multi-node environment, select the node where you wish to save the image.
+点击**选择文件**浏览要上传的镜像文件。Portainer支持`.tar`、`.tar.gz`、`.tar.bz2`和`.tar.xz`文件。如果在多节点环境中，选择要保存镜像的节点。
 
-
-On a multi-node environment, the image you import will only be available on the node selected under **Deployment**. If you want to make the image available to all nodes, consider [adding a registry](../../../admin/registries/add/) to Portainer.
-
+在多节点环境中，导入的镜像仅会出现在**部署**下选择的节点上。如果希望镜像对所有节点可用，请考虑[添加注册表](../../../admin/registries/add/)到Portainer。
 
 <figure><img src="../..//assets/2.15-docker_images_upload_file.png" alt=""><figcaption></figcaption></figure>
 
-When importing an image you can also select to tag the image using a registry you have preconfigured in Portainer. Select the **Registry** from the dropdown and enter the image name and tag.&#x20;
+导入镜像时，您还可以选择使用Portainer中预配置的注册表标记镜像。从下拉菜单中选择**注册表**并输入镜像名称和标签。
 
 <figure><img src="../..//assets/2.15-docker_images_upload_file_tag_image.png" alt=""><figcaption></figcaption></figure>
 
-If you wish to tag the image with a registry that is not configured within Portainer, click **Advanced mode** and enter the registry, port, image and tag as required.
+如果希望使用Portainer中未配置的注册表标记镜像，点击**高级模式**并根据需要输入注册表、端口、镜像和标签。
 
-
-If you want to tag the image locally rather than in a registry, use **Advanced mode** and simply specify the image name and tag, without a registry.
-
+如果希望在本地而非注册表中标记镜像，使用**高级模式**并仅指定镜像名称和标签，无需注册表。
 
 <figure><img src="../..//assets/2.15-docker_images_import_simple.png" alt=""><figcaption></figcaption></figure>
 
-When you're ready, click **Upload** to import your image.
-
+准备就绪后，点击**上传**导入您的镜像。

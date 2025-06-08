@@ -1,106 +1,97 @@
-# Edge Stacks
+# Edge堆栈
 
-Edge Stacks is a feature that lets you deploy applications to multiple environments from a single page, regardless of their current state.&#x20;
+Edge堆栈功能允许您从单个页面将应用程序部署到多个环境，无论其当前状态如何。
 
+此功能需要您[启用边缘计算](../../../admin/settings/edge.md)功能。
 
-This functionality requires you to [enable Edge Compute](../../../admin/settings/edge.md) features.
-
-
-The Edge Stacks page displays a list of Edge Stacks deployed across your environments and devices and includes their name, the status of the deployment across the relevant environments (acknowledged, images pre-pulled, deployments received and failed, as well as a generic status) and the creation date. You can hover over each of the bars for more detail.
+Edge堆栈页面显示部署在您环境和设备上的Edge堆栈列表，包括它们的名称、在相关环境中的部署状态(已确认、镜像预拉取、部署接收和失败，以及通用状态)和创建日期。您可以将鼠标悬停在每个状态条上查看更多详情。
 
 <figure><img src="../..//assets/2.19-edge-stacks-list.png" alt=""><figcaption></figcaption></figure>
 
-You can click on an individual stack's name to view the stack's details or edit the stack:
+您可以点击单个堆栈的名称查看堆栈详情或编辑堆栈：
 
 <figure><img src="../..//assets/2.19-edge-stacks-edit-stack.png" alt=""><figcaption></figcaption></figure>
 
-You can also view details about the stack's deployment across environments on the **Environments** tab.
+您还可以在**环境**标签页查看堆栈在环境中的部署详情。
 
 <figure><img src="../..//assets/2.19-edge-stacks-edit-environment.png" alt=""><figcaption></figcaption></figure>
 
-## Add a new stack
+## 添加新堆栈
 
-From the menu select **Edge Stacks** then click **Add stack**.
+从菜单中选择**Edge堆栈**然后点击**添加堆栈**。
 
 <figure><img src="../..//assets/2.19-edge-stacks-add.gif" alt=""><figcaption></figcaption></figure>
 
-Give the stack a descriptive name then select one or more [Edge Groups](../groups.md).
+为堆栈指定一个描述性名称，然后选择一个或多个[Edge组](../groups.md)。
 
 <figure><img src="../..//assets/2.19-edge-stacks-add-name.png" alt=""><figcaption></figcaption></figure>
 
-In **Deployment type**, select the type of deployment you are performing.
+在**部署类型**中，选择您要执行的部署类型。
 
-
-This may be auto-selected by your choice of [Edge Groups](../groups.md).
-
+此选项可能会根据您选择的[Edge组](../groups.md)自动确定。
 
 <figure><img src="../..//assets/2.15-edge-stacks-add-deptype.png" alt=""><figcaption></figcaption></figure>
 
-In the **Build Method**, define how to deploy your app from one of the following options:
+在**构建方法**中，从以下选项定义如何部署您的应用：
 
-| Option     | Overview                                                                        |
+| 选项       | 概述                                                                        |
 | ---------- | ------------------------------------------------------------------------------- |
-| Web editor | Use the Portainer web editor to write or paste in your build file.              |
-| Upload     | Upload a build file from your computer.                                         |
-| Repository | Use a GitHub repo where the build file is stored.                               |
-| Template   | Use an Edge stack template. Only available for the **Compose** deployment type. |
+| 网页编辑器 | 使用Portainer网页编辑器编写或粘贴您的构建文件。              |
+| 上传       | 从您的计算机上传构建文件。                                         |
+| 仓库       | 使用存储构建文件的GitHub仓库。                               |
+| 模板       | 使用Edge堆栈模板。仅适用于**Compose**部署类型。 |
 
-
-You can search within the web editor at any time by pressing `Ctrl-F` (or `Cmd-F` on Mac).
-
+您可以通过按`Ctrl-F`(Mac上为`Cmd-F`)随时在网页编辑器中搜索。
 
 <figure><img src="../..//assets/2.15-edge-stacks-add-buildmethod.png" alt=""><figcaption></figcaption></figure>
 
-### Registry
+### 注册表
 
-If your stack requires access to images in private registries, you can specify which registry to use as part of the deployment.
+如果您的堆栈需要访问私有注册表中的镜像，您可以指定在部署中使用哪个注册表。
 
 <figure><img src="../..//assets/2.15-edge-stacks-add-registry.png" alt=""><figcaption></figcaption></figure>
 
-### Pre-pull images
+### 预拉取镜像
 
-By default, Docker will start containers within the stack that it already has images for, while at the same time pulling any other images it needs from the upstream registries. In some cases you may want to wait until all of the needed images are pulled to the device before starting the stack. To do this, enable the **Pre-pull images** toggle. This can also help to avoid issues when some images in a stack are unable to be pulled, leading to an incomplete or partial deployment.
+默认情况下，Docker将启动堆栈中已有镜像的容器，同时从上游注册表拉取任何其他需要的镜像。在某些情况下，您可能希望在启动堆栈之前等待所有需要的镜像都被拉取到设备上。为此，启用**预拉取镜像**开关。这也有助于避免堆栈中某些镜像无法拉取导致部署不完整或部分部署的问题。
 
 <figure><img src="../..//assets/2.18-edge-stacks-prepull.png" alt=""><figcaption></figcaption></figure>
 
-### Retry deployment
+### 重试部署
 
-If a deployment of an Edge Stack fails (for example if the remote Edge environment is unavailable), by default Portainer will not try and redeploy the stack. If you wish to enable retrying of failed deployments, you can toggle **Retry deployment** to on.
+如果Edge堆栈部署失败(例如远程Edge环境不可用)，默认情况下Portainer不会尝试重新部署堆栈。如果您希望启用失败部署的重试，可以将**重试部署**开关打开。
 
 <figure><img src="../..//assets/2.18-edge-stacks-retry.png" alt=""><figcaption></figcaption></figure>
 
-When Retry deployment is enabled for an Edge Stack and the deployment of the Edge Stack fails, Portainer will:
+当为Edge堆栈启用重试部署且部署失败时，Portainer将：
 
-1. Retry the deployment every 10 seconds for the first hour.
-2. After the first hour, retry once an hour for 7 days.
-3. After 7 days, Portainer will stop retrying and the Edge Stack will be given a "failed" status.
+1. 第一小时内每10秒重试一次部署。
+2. 第一小时后，每小时重试一次，持续7天。
+3. 7天后，Portainer将停止重试，Edge堆栈将被标记为"失败"状态。
 
-### Update configurations
+### 更新配置
 
-This section lets you define the method in which your stack updates are deployed across your Edge devices. You can choose to deploy to **All edge devices at once**, or select **Parallel edge device(s)** to specify how many devices to update concurrently.
+此部分允许您定义堆栈更新在Edge设备上的部署方式。您可以选择**一次性部署到所有Edge设备**，或选择**并行Edge设备**指定同时更新的设备数量。
 
-
-These settings do **not** apply to the _initial_ provision of your Edge Stack. These only apply to the process that will occur when your stack is updated _after_ deployment.
-
+这些设置**不**适用于Edge堆栈的_初始_部署。这些仅适用于堆栈部署_后_更新时的过程。
 
 <figure><img src="../..//assets/2.19-edge-stacks-updateconfigs.png" alt=""><figcaption></figcaption></figure>
 
-If **Parallel edge device(s)** is selected, you can choose to either deploy in static group sizes or in an exponential rollout strategy. For static group sizes, choose the **Number of device(s)** option and specify your group size.
+如果选择**并行Edge设备**，您可以选择静态组大小或指数级推出策略。对于静态组大小，选择**设备数量**选项并指定您的组大小。
 
 <figure><img src="../..//assets/2.19-edge-stacks-parallel-staticgroups.png" alt=""><figcaption></figcaption></figure>
 
-For an exponential rollout, choose the **Exponential rollout** option and specify how many devices to start with, then select the multiplier to apply to the initial size. For example, selecting a start size of 5 and a multiplier of 2, stack updates would be rolled out to 5 devices, then 10 (5 x 2), then 20 (10 x 2), and so forth.
+对于指数级推出，选择**指数级推出**选项并指定起始设备数量，然后选择应用于初始大小的乘数。例如，选择起始大小为5和乘数为2，堆栈更新将先部署到5台设备，然后是10台(5 x 2)，然后是20台(10 x 2)，依此类推。
 
 <figure><img src="../..//assets/2.19-edge-stacks-parallel-exponential.png" alt=""><figcaption></figcaption></figure>
 
-When using parallel rollouts, you can also specify the **Timeout** (in minutes) before Portainer considers the update to have failed, as well as the **Update delay** (in minutes) between each group of updates are applied.&#x20;
+使用并行推出时，您还可以指定**超时**(分钟)，在此之后Portainer认为更新失败，以及**更新延迟**(分钟)，即每组更新之间的间隔时间。
 
-In addition, you can define the **Update failure action** that will be taken if the update fails:&#x20;
-
-* **Continue** will move on to the next group of devices to update.&#x20;
-* **Pause** will halt the update process but will keep the update applied to any devices that have already been deployed to.&#x20;
-* **Rollback** will halt the update process and roll back the update on devices already updated.
+此外，您可以定义更新失败时将采取的**更新失败操作**：
+* **继续**将转到下一组设备进行更新。
+* **暂停**将停止更新过程，但已部署更新的设备将保持更新状态。
+* **回滚**将停止更新过程并回滚已更新设备上的更新。
 
 <figure><img src="../..//assets/2.19-edge-stacks-parallel-failureaction.png" alt=""><figcaption></figcaption></figure>
 
-Once the configuration is completed, click **Deploy the stack**.
+配置完成后，点击**部署堆栈**。

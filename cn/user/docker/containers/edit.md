@@ -1,26 +1,23 @@
-# Edit or duplicate a container
+# 编辑或复制容器
 
+编辑容器实际上是创建一个具有更新设置的新容器并替换旧容器。
 
-Editing a container effectively creates a new container with the updated settings and replaces the old container.
+## 编辑运行中的容器
 
-
-## Editing a running container
-
-From the menu select **Containers**, select the container you want to edit then click **Duplicate/Edit**.
+从菜单中选择**容器**，选择要编辑的容器然后点击**复制/编辑**。
 
 <figure><img src="../..//assets/2.15-docker_containers_container_edit.gif" alt=""><figcaption></figcaption></figure>
 
-Make the required changes to the container configuration. When you're finished, click **Deploy the container**. When the confirmation message appears, click **Replace**.
+对容器配置进行必要的更改。完成后，点击**部署容器**。当确认消息出现时，点击**替换**。
 
 <figure><img src="../..//assets/2.15-container-edit-confirm.png" alt=""><figcaption></figcaption></figure>
 
-If successful, a message will appear confirming that a new container has been created with the new settings, replacing the old container.
+如果成功，将显示一条消息确认已创建具有新设置的新容器并替换了旧容器。
 
-## Duplicating a running container
+## 复制运行中的容器
 
-From the menu select **Containers**, select the container you want to duplicate then click **Duplicate/Edit**.
+从菜单中选择**容器**，选择要复制的容器然后点击**复制/编辑**。
 
 <figure><img src="../..//assets/2.15-docker_containers_container_edit.gif" alt=""><figcaption></figcaption></figure>
 
-Make the required changes to the container configuration, making sure you enter a new container name in order to create a duplicate. When you're finished, click **Deploy the container**.
-
+对容器配置进行必要的更改，确保输入新的容器名称以创建副本。完成后，点击**部署容器**。

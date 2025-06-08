@@ -1,19 +1,17 @@
-# Access a container's console
+# 访问容器控制台
 
-From the menu select **Containers**, select the container then select **Console**.
+从菜单中选择**容器**，选择目标容器然后选择**控制台**。
 
 <figure><img src="../..//assets/2.15-docker_containers_container_console.gif" alt=""><figcaption></figcaption></figure>
 
-Select the command and the user you want to give access to, then click **Connect**.
+选择要使用的命令和用户，然后点击**连接**。
 
-
-For Alpine Linux containers, you must select the`/bin/ash` command.
-
+对于Alpine Linux容器，您必须选择`/bin/ash`命令。
 
 <figure><img src="../..//assets/2.15-docker_containers_container_console_execute.png" alt=""><figcaption></figcaption></figure>
 
-If you need to define a command other than those provided, toggle the **Use custom command** option on. Once connected, you can run commands in the console the same as any other Linux system.
+如果需要使用提供的选项以外的命令，请切换**使用自定义命令**选项。连接后，您可以像在任何其他Linux系统中一样在控制台中运行命令。
 
 <figure><img src="../..//assets/2.20-containers-console-connected.png" alt=""><figcaption></figcaption></figure>
 
-To disconnect from the console session, click the **Disconnect** button.
+要断开控制台会话，点击**断开连接**按钮。

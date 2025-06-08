@@ -1,30 +1,27 @@
-# Cluster visualizer
+# 集群可视化
 
+此功能仅对Docker Swarm环境可用。
 
-This feature is only available to Docker Swarm environments.
+**集群可视化**部分提供集群及其任务的概览视图。
 
+## 集群信息
 
-The **Cluster visualizer** section gives you an overview of your cluster and the tasks on it.
-
-## Cluster information
-
-View the details about the cluster including the number of nodes, services and tasks. You can also adjust the visualizer display.
+查看集群详细信息，包括节点数量、服务和任务数量。您还可以调整可视化显示设置。
 
 <figure><img src="../..//assets/2.15-docker_swarm_cluster_visualizer.png" alt=""><figcaption></figcaption></figure>
 
-### Options
+### 选项
 
-**Only display running tasks** filters the task list in the visualizer to only include running tasks.&#x20;
+**仅显示运行中的任务** - 过滤可视化中的任务列表，仅显示运行中的任务。
 
-**Display node labels** toggles the display of labels on the nodes in the visualizer.
+**显示节点标签** - 切换可视化中节点标签的显示。
 
-### Refresh
+### 刷新
 
-Use this option to define the refresh rate of the visualizer (the default is every 5 seconds).
+使用此选项定义可视化刷新频率(默认为每5秒)。
 
-## Cluster visualizer
+## 集群可视化
 
-The **Cluster visualizer** section gives you a visual representation of the nodes in your cluster and the tasks on each node.&#x20;
+**集群可视化**部分以图形方式展示集群中的节点及各节点上的任务。
 
 <figure><img src="../..//assets/2.15-docker_swarm_cluster_info.png" alt=""><figcaption></figcaption></figure>
-

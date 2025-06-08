@@ -1,12 +1,10 @@
-# Authentication
+# 认证
 
-Portainer provides its own internal authentication mechanism, encrypting user passwords and storing them in the local Portainer database. Alternatively, external authentication providers are available. In this section, we explain how to authenticate via LDAP, Active Directory and OAuth.
+Portainer提供内置的认证机制，对用户密码进行加密并存储在本地Portainer数据库中。此外，也支持外部认证提供商。本节将介绍如何通过LDAP、Active Directory和OAuth进行认证。
 
+对于所有认证类型，您可以调整会话有效期（用户需要重新认证前的时长）。默认值为8小时。
 
-For all authentication types you can adjust the session lifetime (the time before users are forced to reauthenticate). The default is 8 hours.
-
-
-When using internal authentication, an administrator can set the minimum length for users' passwords. The default is 12 characters, but this can be adjusted using the slider. Any users with passwords that don't meet the requirements will be asked to update their passwords when they next log in.
+使用内部认证时，管理员可以设置用户密码的最小长度。默认值为12个字符，但可以通过滑块进行调整。密码不符合要求的用户将在下次登录时被要求更新密码。
 
 <figure><img src="../..//assets/2.15-settings-authentication.png" alt=""><figcaption></figcaption></figure>
 
@@ -20,7 +18,3 @@ When using internal authentication, an administrator can set the minimum length 
 
 
 [oauth.md](oauth.md)
-
-
-
-

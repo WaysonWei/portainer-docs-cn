@@ -1,11 +1,11 @@
-# View the status of a service task
+# 查看服务任务状态
 
-Services in a Docker Swarm environment are a collection of tasks (or individual containers). This article explains how to quickly see the status of the containers that make up each service.
+Docker Swarm环境中的服务是任务(或单个容器)的集合。本文介绍如何快速查看组成每个服务的容器状态。
 
-From the menu select **Services** then click the down-arrow to the left of the service you want to inspect. The tasks that make up the service will be shown.
+从菜单选择**服务**，然后点击要检查的服务左侧的下拉箭头。将显示组成该服务的任务。
 
 <figure><img src="../..//assets/2.15-docker_services_service_tasks.gif" alt=""><figcaption></figcaption></figure>
 
-Select any individual task to go to the container details page for that task. You can also perform various actions on individual tasks by using the icons in the **Actions** column.
+选择任何单个任务可转到该任务的容器详情页面。您还可以使用**操作**列中的图标对单个任务执行各种操作。
 
 <figure><img src="../..//assets/2.15-docker_services_service_actions.png" alt=""><figcaption></figcaption></figure>

@@ -1,6 +1,6 @@
-# Settings
+# 设置
 
-This section provides access to Portainer settings that apply to Portainer in general. For environment-specific settings, check the [Host](../../user/docker/host/), [Swarm](../../user/docker/swarm/) or [Cluster](../../user/kubernetes/cluster/) sections in each environment depending on the environment type.
+此部分提供对Portainer通用设置的访问。对于特定环境的设置，请根据环境类型检查每个环境中的[主机](../../user/docker/host/)、[Swarm](../../user/docker/swarm/)或[集群](../../user/kubernetes/cluster/)部分。
 
 
 [general.md](general.md)
@@ -16,4 +16,3 @@ This section provides access to Portainer settings that apply to Portainer in ge
 
 
 [edge.md](edge.md)
-

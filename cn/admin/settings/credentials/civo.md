@@ -1,17 +1,17 @@
-# Add Civo credentials
+# 添加Civo凭据
 
-Before you can add your Civo credentials to Portainer, you will need to retrieve your API token from Civo.
+在将Civo凭据添加到Portainer之前，您需要从Civo获取API令牌。
 
-## Retrieving your API token
+## 获取API令牌
 
-Log into the Civo dashboard and expand the **Settings** menu. Select **Profile**, then the **Security** tab.
+登录Civo控制面板，展开**设置**菜单。选择**个人资料**，然后选择**安全**选项卡。
 
-At the top of the page you should see your API key listed.
+在页面顶部，您应该能看到列出的API密钥。
 
-## Adding your credentials
+## 添加您的凭据
 
-To add credentials for a Civo account, from the [Shared credentials](./) page click **Add credentials**, then select the **Civo** option. Give your credential set a **name** and paste your **API key** into the box.
+要为Civo账户添加凭据，从[共享凭据](./)页面点击**添加凭据**，然后选择**Civo**选项。为您的凭据集指定一个**名称**，并将**API密钥**粘贴到框中。
 
 <figure><img src="../..//assets/2.21.2-settings-cloud-credentials-civo.png" alt=""><figcaption></figcaption></figure>
 
-When you're ready, click **Add credentials**. Your credentials will now be available to you when [provisioning a Kubernetes cluster on Civo](../../environments/add/kaas/civo.md).
+准备就绪后，点击**添加凭据**。您的凭据现在可以在[在Civo上配置Kubernetes集群](../../environments/add/kaas/civo.md)时使用。

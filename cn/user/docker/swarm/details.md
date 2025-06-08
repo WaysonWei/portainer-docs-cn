@@ -1,58 +1,53 @@
-# Details
+# 详细信息
 
-This page provides information about the Docker Swarm cluster for the selected environment. The page is split into the following sections: Cluster status and Nodes, with clicking a node name taking you to the Node overview for that node.
+此页面提供所选环境的Docker Swarm集群信息。页面分为以下部分：集群状态和节点，点击节点名称可跳转到该节点的概览页面。
 
+此页面仅对Docker Swarm环境可用。
 
-This page is only available on Docker Swarm environments.
+## 集群状态
 
-
-## Cluster status
-
-This section describes the cluster's basic configuration, including the number of nodes, the Docker API version, and the total CPU and memory available. A link to the [cluster visualizer](cluster-visualizer.md) is also included.
+此部分描述集群的基本配置，包括节点数量、Docker API版本以及可用的总CPU和内存。还包含指向[集群可视化](cluster-visualizer.md)的链接。
 
 <figure><img src="../..//assets/2.15-swarm-clusterstatus.png" alt=""><figcaption></figcaption></figure>
 
-## Nodes
+## 节点
 
-Lists all of the nodes in the cluster along with a summary of each node, including:
+列出集群中的所有节点以及每个节点的摘要信息，包括：
 
-* The role of the node.
-* The number of CPUs and memory available on the node.
-* The Docker Engine version running on the node.
-* The node's IP address.
-* The status and availability of the node.
+* 节点角色
+* 节点可用的CPU数量和内存
+* 节点上运行的Docker Engine版本
+* 节点的IP地址
+* 节点的状态和可用性
 
 <figure><img src="../..//assets/2.15-swarm-nodes.png" alt=""><figcaption></figcaption></figure>
 
-Clicking on an individual node's name will take you to an overview page for that node.
+点击单个节点名称可跳转到该节点的概览页面。
 
-## Node overview
+## 节点概览
 
-### Host Details
+### 主机详情
 
-This section describes the node's basic configuration, including the hostname, OS information, and total CPU and memory.
+此部分描述节点的基本配置，包括主机名、操作系统信息以及总CPU和内存。
 
 <figure><img src="../..//assets/2.15-swarm-nodedetail.png" alt=""><figcaption></figcaption></figure>
 
-### Engine Details
+### 引擎详情
 
-Information such as the Docker version and the available volume and network plugins helps you to understand more about the Docker engine running on your node.
+Docker版本和可用的卷及网络插件等信息，帮助您了解节点上运行的Docker引擎。
 
 <figure><img src="../..//assets/2.15-swarm-nodedetail-engine.png" alt=""><figcaption></figcaption></figure>
 
-### PCI Devices and Physical Disks
+### PCI设备和物理磁盘
 
-These sections list the available PCI devices and physical disks on the node.&#x20;
+这些部分列出节点上可用的PCI设备和物理磁盘。
 
-
-These sections are only visible when [host management features](setup.md#host-and-filesystem) are enabled for the cluster.
-
+这些部分仅在集群启用了[主机管理功能](setup.md#host-and-filesystem)时可见。
 
 <figure><img src="../..//assets/2.15-docker-host-pci.png" alt=""><figcaption></figcaption></figure>
 
-### Node Details
+### 节点详情
 
-Here you'll find details about the node's configuration as part of the cluster. You can view the role, set the availability status of the node, view the current status and apply labels to the node.
+此处可找到节点作为集群一部分的配置详情。您可以查看角色、设置节点的可用状态、查看当前状态并为节点应用标签。
 
 <figure><img src="../..//assets/2.15-swarm-nodedetail-detail.png" alt=""><figcaption></figcaption></figure>
-

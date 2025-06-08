@@ -1,30 +1,30 @@
 # OpenAMT
 
-OpenAMT allows you to remotely manage your compatible Edge devices from Portainer, letting you start, stop, restart and access the device console directly from within the Portainer UI.
+OpenAMT允许您从Portainer远程管理兼容的Edge设备，包括启动、停止、重启设备以及直接从Portainer UI访问设备控制台。
 
-## Preparation
+## 准备工作
 
-To associate an Edge device with OpenAMT you must first add a compatible device. To do this, first [deploy the Edge Agent](../../admin/environments/add/) to your device based on the appropriate method for your environment type.
+要将Edge设备与OpenAMT关联，首先需要添加兼容设备。为此，请先根据您的环境类型[部署Edge Agent](../../admin/environments/add/)到目标设备。
 
-Once the Edge Agent has been set up and deployed on the remote device, the device is ready to be associated with OpenAMT.
+Edge Agent在远程设备上设置并部署完成后，设备即可与OpenAMT关联。
 
-## Associate your device
+## 关联设备
 
-To associate an existing Edge Agent deployment with OpenAMT, from the Home page click the **Associate with OpenAMT** button.&#x20;
+要将现有的Edge Agent部署与OpenAMT关联，从首页点击**与OpenAMT关联**按钮。
 
 <figure><img src="..//assets/2.18-home-openamt-associate-button.png" alt=""><figcaption></figcaption></figure>
 
-Check the box next to the device(s) you want to associate, then click the **Associate Devices** button. The activation process will now begin.
+勾选要关联的设备，然后点击**关联设备**按钮。激活过程将开始。
 
 <figure><img src="..//assets/2.18-home-openamt-associate-dialog.png" alt=""><figcaption></figcaption></figure>
 
-Once activation completes you will be returned to the Home page.&#x20;
+激活完成后，您将返回首页。
 
-## Interact with your device
+## 与设备交互
 
-Once an OpenAMT device has been associated with an Edge Device in Portainer, you are able to interact directly with that device. To do so, go to the Home page and use the options on the right hand side of the tile to interact as required.
+当OpenAMT设备与Portainer中的Edge设备关联后，您可以直接与该设备交互。为此，转到首页并使用磁贴右侧的选项进行所需操作：
 
-* **Power ON**: Will power on the device if it is currently switched off.
-* **Power OFF**: Will power off the device if it is currently switched on.
-* **Restart**: Will initiate a restart of the device.
-* **KVM**: Will open a remote KVM (keyboard, video, mouse) session with the device.
+* **开机**：如果设备当前关闭，将启动设备。
+* **关机**：如果设备当前运行，将关闭设备。
+* **重启**：将重新启动设备。
+* **KVM**：将与设备建立远程KVM(键盘、视频、鼠标)会话。

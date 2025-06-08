@@ -1,53 +1,53 @@
-# Add a new namespace
+# 添加新命名空间
 
-From the menu select **Namespaces** then click **Add with form**.
+从菜单中选择**命名空间**，然后点击**使用表单添加**。
 
-Namespaces can also be added [using a manifest](../applications/manifest.md) by clicking **Create from manifest**.
+也可以通过点击**从manifest创建**来[使用manifest](../applications/manifest.md)添加命名空间。
 
 <figure><img src="../..//assets/2.20-namespaces-add.gif" alt=""><figcaption></figcaption></figure>
 
-Give the namespace a descriptive **name**. As an optional step you can add annotations to your namespace as required by clicking **Add annotation** and filling in the **Key** and **Value** fields.&#x20;
+为命名空间提供一个描述性的**名称**。作为可选步骤，您可以通过点击**添加注解**并填写**键**和**值**字段来根据需要添加注解。
 
 <figure><img src="../..//assets/2.18-k8s-namespaces-add-name.png" alt=""><figcaption></figcaption></figure>
 
-### Resource quota
+### 资源配额
 
-You can assign a quota by toggling **Resource assignment** on, then setting resource limits like how much memory and CPU will be assigned.
+您可以通过切换**资源分配**来分配配额，然后设置资源限制，如分配多少内存和CPU。
 
 <figure><img src="../..//assets/2.20-kubernetes-namespaces-add-resourcequota.png" alt=""><figcaption></figcaption></figure>
 
-### Load balancers
+### 负载均衡器
 
-To set a maximum number of external load balancers that can be created inside the namespace, toggle on **Load Balancer quota** and set the **Max Load Balancers** number. If Load Balancer quota is enabled and the Max Load Balancers value is set to `0`, the use of external load balancers is effectively disabled in the namespace.
+要设置可以在命名空间内创建的外部负载均衡器的最大数量，请切换**负载均衡器配额**并设置**最大负载均衡器**数量。如果启用了负载均衡器配额并将最大负载均衡器值设置为`0`，则命名空间中实际上禁用了外部负载均衡器的使用。
 
-This section is only visible when **Allow users to use external load balancers** is enabled in the [Cluster Setup](../cluster/setup.md#allow-users-to-use-external-load-balancer).
+只有在[集群设置](../cluster/setup.md#allow-users-to-use-external-load-balancer)中启用了**允许用户使用外部负载均衡器**时，才会显示此部分。
 
 <figure><img src="../..//assets/2.18-k8s-namespaces-add-lbquota.png" alt=""><figcaption></figcaption></figure>
 
-### Networking - Ingresses
+### 网络 - Ingress
 
-This section lets you define which ingress controllers are allowed to be used to publish applications within this namespace. Check the boxes next to the ingresses you want to allow and click **Allow selected**, or click **Disallow selected** to disallow their use in this namespace.
+此部分允许您定义允许在此命名空间内用于发布应用程序的ingress控制器。勾选要允许的ingress旁边的复选框，然后点击**允许选中**，或点击**禁止选中**以禁止它们在此命名空间中的使用。
 
-This section is only visible when **Configure ingress controller availability per namespace** is enabled in the [Cluster Setup](../cluster/setup.md#networking-ingresses).
+只有在[集群设置](../cluster/setup.md#networking-ingresses)中启用了**按命名空间配置Ingress控制器可用性**时，才会显示此部分。
 
 <figure><img src="../..//assets/2.20-namespaces-add-ingress.png" alt=""><figcaption></figcaption></figure>
 
-### Registries
+### 镜像仓库
 
-You can define the registries that are available within this namespace in this section. Select the registries from the **Select registries** dropdown to allow access.
+您可以在此部分定义此命名空间内可用的镜像仓库。从**选择镜像仓库**下拉菜单中选择要允许访问的镜像仓库。
 
 <figure><img src="../..//assets/2.18-k8s-namespaces-add-registries.png" alt=""><figcaption></figcaption></figure>
 
-### Storage
+### 存储
 
-Use this section to enable quotas on your storage options for this namespace. To enable the use of quotas on a storage option, toggle **Enable quota** to on and set the **Maximum usage**. A Maximum usage value of `0` effectively prevents the usage of that storage option within the namespace.&#x20;
+使用此部分为命名空间启用存储选项的配额。要启用存储选项的配额使用，请切换**启用配额**并设置**最大使用量**。最大使用量值为`0`实际上会阻止该存储选项在命名空间中的使用。
 
 <figure><img src="../..//assets/2.18-k8s-namespaces-add-storage.png" alt=""><figcaption></figcaption></figure>
 
-### Summary
+### 摘要
 
-This section displays a summary of the actions that will be taken when clicking the Add namespace button.&#x20;
+此部分显示点击添加命名空间按钮时将采取的操作摘要。
 
 <figure><img src="../..//assets/2.18-k8s-namespaces-add-summary.png" alt=""><figcaption></figcaption></figure>
 
-When you're finished, click **Create namespace**.
+完成后，点击**创建命名空间**。

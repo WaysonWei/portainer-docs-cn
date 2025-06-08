@@ -1,12 +1,12 @@
-# Namespaces
+# 命名空间
 
-Namespaces used to be called 'resource pools' prior to Portainer CE 2.6.0.
+在Portainer CE 2.6.0之前，命名空间被称为"资源池"。
 
-In Kubernetes, a single physical cluster can support multiple virtual clusters. These are known as namespaces.&#x20;
+在Kubernetes中，单个物理集群可以支持多个虚拟集群，这些被称为命名空间。
 
 <figure><img src="../..//assets/2.24.0-kubernetes-namespaces-list.png" alt=""><figcaption></figcaption></figure>
 
-You can add, remove or manage namespaces in Portainer.
+您可以在Portainer中添加、移除或管理命名空间。
 
 [add.md](add.md)
 

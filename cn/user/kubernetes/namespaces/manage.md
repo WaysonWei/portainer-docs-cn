@@ -1,57 +1,53 @@
-# Manage a namespace
+# 管理命名空间
 
-From the menu select **Namespaces** then select the namespace you want to manage.
+从菜单中选择**命名空间**，然后选择要管理的命名空间。
 
 <figure><img src="../..//assets/2.20-namespaces-manage.gif" alt=""><figcaption></figcaption></figure>
 
-Here you can view details about the namespace and configure options specific to the namespace.
+在这里您可以查看命名空间的详细信息并配置特定于该命名空间的选项。
 
-## Resource Quota
+## 资源配额
 
-Toggle on **Resource assignment** to enable quotas for this namespace, then define the memory and CPU limits. The current resource reservation and usage for the namespace will be displayed when a limit is set.
+切换**资源分配**为此命名空间启用配额，然后定义内存和CPU限制。设置限制后，将显示命名空间的当前资源预留和使用情况。
 
 <figure><img src="../..//assets/2.25-kubernetes-namespaces-manage-resourcequota.png" alt=""><figcaption></figcaption></figure>
 
-## Load balancers
+## 负载均衡器
 
-With this setting you can configure the amount of external load balancers that can be created in this namespace.&#x20;
+通过此设置，您可以配置在此命名空间中可以创建的外部负载均衡器数量。
 
-
-This option only appears when **Allow users to use external load balancer** is enabled in the [cluster setup](../cluster/setup.md#allow-users-to-use-external-load-balancer).
-
+只有在[集群设置](../cluster/setup.md#allow-users-to-use-external-load-balancer)中启用了**允许用户使用外部负载均衡器**时，才会显示此选项。
 
 <figure><img src="../..//assets/2.17-k8s-namespaces-manage-loadbalancer.png" alt=""><figcaption></figcaption></figure>
 
-## Networking
+## 网络
 
-This section lets you define which ingress controllers are allowed to be used to publish applications within this namespace. Check the boxes next to the ingresses you want to allow and click **Allow selected**, or click **Disallow selected** to disallow their use in this namespace.
+此部分允许您定义哪些ingress控制器可以用于在此命名空间内发布应用程序。勾选要允许的ingress旁边的复选框，然后点击**允许选中**，或点击**禁止选中**以禁止它们在此命名空间中的使用。
 
-
-This section is only visible when **Configure ingress controller availability per namespace** is enabled in the [Cluster Setup](../cluster/setup.md#networking-ingresses).
-
+只有在[集群设置](../cluster/setup.md#networking-ingresses)中启用了**按命名空间配置Ingress控制器可用性**时，才会显示此部分。
 
 <figure><img src="../..//assets/2.20-namespaces-add-ingress.png" alt=""><figcaption></figcaption></figure>
 
-## Registries
+## 镜像仓库
 
-You can define the registries that are available within this namespace in this section. Select the registries from the **Select registries** dropdown to allow access.
+在此部分，您可以定义此命名空间内可用的镜像仓库。从**选择镜像仓库**下拉菜单中选择要允许访问的镜像仓库。
 
 <figure><img src="../..//assets/2.18-k8s-namespaces-add-registries.png" alt=""><figcaption></figcaption></figure>
 
-## Storage
+## 存储
 
-For each storage option available in the cluster, you can configure quotas for this namespace to limit usage.
+对于集群中可用的每个存储选项，您可以为此命名空间配置配额以限制使用。
 
 <figure><img src="../..//assets/2.15-kubernetes_namespaces_manage_namespace_storage.png" alt=""><figcaption></figcaption></figure>
 
-## Summary
+## 摘要
 
-If you have made changes to the configuration, this section will list those changes.
+如果您对配置进行了更改，此部分将列出这些更改。
 
 <figure><img src="../..//assets/2.15-kubernetes_namespaces_manage_namespaces_summary.png" alt=""><figcaption></figcaption></figure>
 
-## Actions
+## 操作
 
-Once you have made the necessary changes, click **Update namespace**. Here you can also flag the namespace as a system namespace by clicking **Mark as system**.
+完成必要的更改后，点击**更新命名空间**。您还可以通过点击**标记为系统**将命名空间标记为系统命名空间。
 
 <figure><img src="../..//assets/2.15-kubernetes_namespaces_manage_namespaces_actions.png" alt=""><figcaption></figcaption></figure>

@@ -1,15 +1,15 @@
-# Inspect a container
+# 检查容器
 
-View information about any container, such as network settings, volumes and images.
+查看有关容器的所有信息，如网络设置、卷和镜像。
 
-From the menu select **Containers**, select the container then select **Inspect**.
+从菜单中选择**容器**，选择目标容器然后选择**检查**。
 
 <figure><img src="../..//assets/2.15-docker_containers_container_inspect.gif" alt=""><figcaption></figcaption></figure>
 
-All of the information about the container will display in a tree view. Select any parameter to show more details (if available).
+容器的所有信息将以树状视图显示。选择任何参数可显示更多详细信息（如果有）。
 
 <figure><img src="../..//assets/2.15-docker_containers_container_inspect.png" alt=""><figcaption></figcaption></figure>
 
-You can also inspect the container in a raw JSON format by clicking **Text**.
+您也可以通过点击**文本**以原始JSON格式检查容器。
 
 <figure><img src="../..//assets/2.15-docker_containers_container_inspect_text.png" alt=""><figcaption></figcaption></figure>

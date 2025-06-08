@@ -1,21 +1,19 @@
-# View container statistics
+# 查看容器统计信息
 
-From the menu select **Containers**, select the container then select **Stats**.
+从菜单中选择**容器**，选择目标容器然后选择**统计**。
 
 <figure><img src="../..//assets/2.15-docker_containers_container_stats.gif" alt=""><figcaption></figcaption></figure>
 
-The information available includes:
+可用的信息包括：
 
-* Memory usage.
-* CPU usage.
-* Network usage (RX and TX).
-* I/O usage.
-* Processes running in the container
+* 内存使用情况
+* CPU使用情况
+* 网络使用情况(RX和TX)
+* I/O使用情况
+* 容器中运行的进程
 
 <figure><img src="../..//assets/2.15-docker_containers_container_stats_usage.png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../..//assets/2.15-docker_containers_container-stats-proc.png" alt=""><figcaption></figcaption></figure>
 
-
-You can change the refresh rate at any time.
-
+您可以随时更改刷新率。

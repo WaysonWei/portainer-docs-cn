@@ -1,85 +1,70 @@
-# Details
+# 集群详情
 
-A cluster is a collection of nodes that runs containerized workloads. Portainer lets you keep track of your cluster and its individual nodes, including resource usage and configuration.
+集群是运行容器化工作负载的节点集合。Portainer让您可以跟踪集群及其各个节点，包括资源使用情况和配置。
 
-From the menu expand the **Cluster** section and select **Details**.&#x20;
+从菜单展开**集群**部分并选择**详情**。
 
 <figure><img src="../..//assets/2.20-kubernetes-cluster-details.gif" alt=""><figcaption></figcaption></figure>
 
-The following information is provided:
+提供以下信息：
 
-| Attribute          | Overview                                                                                                                                                    |
-| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Memory reservation | The amount of memory available to the cluster.                                                                                                              |
-| Memory used        | The amount of memory used by the cluster. This is only visible if you have [enabled using the metrics API](setup.md#enable-features-using-the-metrics-api). |
-| CPU reservation    | The amount of CPU that has been reserved in the cluster.                                                                                                    |
-| CPU used           | The amount of CPU used by the cluster. This is only visible if you have [enabled using the metrics API](setup.md#enable-features-using-the-metrics-api).    |
+| 属性          | 概述                                                                                                                                                    |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 内存预留      | 集群可用的内存量。                                                                                                                                    |
+| 内存使用      | 集群使用的内存量。仅在[启用了指标API](setup.md#enable-features-using-the-metrics-api)时可见。                                                         |
+| CPU预留       | 集群中已预留的CPU量。                                                                                                                                 |
+| CPU使用       | 集群使用的CPU量。仅在[启用了指标API](setup.md#enable-features-using-the-metrics-api)时可见。                                                          |
 
 <figure><img src="../..//assets/2.27-kubernetes-cluster-details-resource-reservation.png" alt=""><figcaption></figcaption></figure>
 
-## Omni cluster management
+## Omni集群管理
 
+此部分仅当环境是通过Omni[由Portainer配置的Talos Kubernetes集群](../../../admin/environments/add/kube-create/omni.md)时出现。
 
-This section only appears when the environment is a [Talos Kubernetes cluster provisioned by Portainer through Omni](../../../admin/environments/add/kube-create/omni.md).
+在此部分，您可以查看和更新由Portainer通过Omni配置的Talos Kubernetes集群上的Kubernetes和Talos版本。
 
-
-In this section you can see and update the versions of Kubernetes and Talos on your Talos Kubernetes cluster provisioned by Portainer.
-
-
-This functionality is in beta and only tested with some configurations.
-
+此功能处于测试阶段，仅测试了部分配置。
 
 <figure><img src="../..//assets/2.26-kubernetes-cluster-details-omni.png" alt=""><figcaption></figcaption></figure>
 
-## MicroK8s cluster management
+## MicroK8s集群管理
 
+此部分仅当环境是通过[创建Kubernetes集群](../../../admin/environments/add/kube-create/microk8s/)功能配置的MicroK8s集群时出现。
 
-This section only appears when the environment is a MicroK8s cluster provisioned via the [Create a Kubernetes cluster](../../../admin/environments/add/kube-create/microk8s/) functionality.
+在此部分，您可以查看和更改由Portainer配置的MicroK8s集群的配置。
 
+此功能处于测试阶段，仅测试了部分配置。有关使用此功能的注意事项，请参阅我们的[已知问题知识库文章](https://portal.portainer.io/knowledge/microk8s-known-issues)。
 
-In this section you can see and make changes to the configuration of your MicroK8s cluster provisioned by Portainer.
-
-
-This functionality is in beta and only tested with some configurations. Refer to our [known issues knowledge base article](https://portal.portainer.io/knowledge/microk8s-known-issues) for caveats when using this feature.
-
-
-| Field/Option                        | Overview                                                                                                                                                                                                                                                                                                                    |
-| ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Kubernetes version                  | <p>Displays the version of Kubernetes that is running on your cluster.<br>If a newer version of Kubernetes is available, you can click the <strong>Upgrade</strong> button to upgrade your cluster to the version specified. Note that upgrading may cause your cluster to be unavailable while the upgrade processes. </p> |
-| Required addons (already installed) | Displays a list of the already installed required addons for your cluster.                                                                                                                                                                                                                                                  |
-| Optional addons                     | Displays the optional addons (if any) that are installed on your cluster, as well as any arguments that were used in their configuration. You can adjust the arguments for the addons here, click the **Add addon** button to add additional addons, or click the trash can icon next to an addon to remove it.             |
+| 字段/选项                        | 概述                                                                                                                                                                                                                                                                                                                    |
+| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Kubernetes版本                  | <p>显示集群上运行的Kubernetes版本。<br>如果有新版本的Kubernetes可用，您可以点击<strong>升级</strong>按钮将集群升级到指定版本。注意升级过程中可能会导致集群暂时不可用。</p> |
+| 必需插件(已安装) | 显示集群上已安装的必需插件列表。                                                                                                                                                                                                                                                  |
+| 可选插件                     | 显示集群上安装的可选插件(如果有)以及配置中使用的任何参数。您可以在此调整插件的参数，点击**添加插件**按钮添加其他插件，或点击插件旁边的垃圾桶图标移除插件。             |
 
 <figure><img src="../..//assets/2.19-kubernetes-cluster-microk8s.png" alt=""><figcaption></figcaption></figure>
 
-Click the **Apply Changes** button to apply any adjustments you have made to addon configurations, or **Cancel** to revert your changes.
+点击**应用更改**按钮应用对插件配置的任何调整，或点击**取消**恢复更改。
 
-## Nodes
+## 节点
 
-This section lists the nodes in your cluster with information about each node. To view [details of a specific node](node.md), click the name of the node in the list.&#x20;
+此部分列出集群中的节点及其相关信息。要查看[特定节点的详情](node.md)，点击列表中节点的名称。
 
 <figure><img src="../..//assets/2.27-kubernetes-details-nodes-list.png" alt=""><figcaption></figcaption></figure>
 
-The **Conditions** column shows any conditions that are currently active on the node. If no conditions are displayed, this indicates the node is healthy. Any active conditions (DiskPressure, MemoryPressure, PIDPressure, NetworkUnavailable) will be displayed for the particular node.
+**状态**列显示节点上当前活动的任何状态。如果没有显示状态，则表示节点健康。任何活动状态(DiskPressure、MemoryPressure、PIDPressure、NetworkUnavailable)都会显示在相应节点上。
 
-To view usage stats for a node, click the stats icon to the right of the node.
+要查看节点的使用统计信息，点击节点右侧的统计图标。
 
-
-Node stats are only available when you have [enabled using the metrics API](setup.md#enable-features-using-the-metrics-api).
-
+节点统计信息仅在[启用了指标API](setup.md#enable-features-using-the-metrics-api)时可用。
 
 <figure><img src="../..//assets/2.17-k8s-cluster-nodestats.png" alt=""><figcaption></figcaption></figure>
 
-On Talos Kubernetes or MicroK8s environments provisioned with the [Create a Kubernetes cluster](../../../admin/environments/add/kube-create/) feature, you will also see buttons to add and remove nodes as well as additional action icons on MicroK8s environments to view the MicroK8s status (for control plane nodes) and to connect to the environment via SSH console.
+在使用[创建Kubernetes集群](../../../admin/environments/add/kube-create/)功能配置的Talos Kubernetes或MicroK8s环境中，您还将看到添加和移除节点的按钮，以及在MicroK8s环境上查看MicroK8s状态(控制平面节点)和通过SSH控制台连接到环境的额外操作图标。
 
-If you need to adjust elements of your Kubernetes configuration you can do so by selecting **Setup** in the left menu.
-
+如果需要调整Kubernetes配置的元素，可以通过在左侧菜单中选择**设置**来完成。
 
 [setup.md](setup.md)
 
-
-If you would like to define security constraints on the pods in your environment, select **Security constraints**.
-
+如果想在环境中定义Pod的安全约束，选择**安全约束**。
 
 [security.md](security.md)
-
-

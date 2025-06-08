@@ -1,11 +1,11 @@
-# Roll back a service
+# 回滚服务
 
-If you make a change to a service in Docker Swarm and your applications are no longer working as you expect, you can roll back to the previous state.
+如果您对Docker Swarm中的服务进行了更改，但应用程序不再按预期工作，您可以回滚到之前的状态。
 
-From the menu select **Services**, select the service to roll back then click **Rollback the service**.
+从菜单选择**服务**，选择要回滚的服务，然后点击**回滚服务**。
 
 <figure><img src="../..//assets/2.15-docker_services_service_rollback.gif" alt=""><figcaption></figcaption></figure>
 
-When the confirmation message appears, click **Yes**.
+当确认消息出现时，点击**是**。
 
 <figure><img src="../..//assets/2.15-service-rollback-confirm.png" alt=""><figcaption></figcaption></figure>

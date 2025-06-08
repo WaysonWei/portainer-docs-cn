@@ -1,23 +1,23 @@
-# Add a new network
+# 添加新网络
 
-From the menu select **Networks** then click **Add network**.
+从菜单中选择**网络**，然后点击**添加网络**。
 
 <figure><img src="../..//assets/2.20-networks-add.gif" alt=""><figcaption></figcaption></figure>
 
-Define the new network, using the table below as a guide.
+定义新网络，参考下表作为指南：
 
-| Field/Option                       | Overview                                                                                                                                                                                                                                                  |
-| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Name                               | Give the network a descriptive name.                                                                                                                                                                                                                      |
-| Driver                             | Define the [type of network](./#supported-network-types) you will use.                                                                                                                                                                                    |
-| Driver options                     | Set in place any options related to your network driver, if required.                                                                                                                                                                                     |
-| IPv4 Network configuration         | <p>Define IPv4 range, subnet, gateway and exclude IP. If no information is entered here, Docker will automatically assign an IPv4 range.<br>If you need to exclude IPs from the range, click <strong>Add excluded IP</strong> and complete the field.</p> |
-| IPv6 Network configuration         | <p>Define IPv6 range, subnet, gateway and exclude IP. If no information is entered here, Docker will automatically assign an IPv6 range.<br>If you need to exclude IPs from the range, click <strong>Add excluded IP</strong> and complete the field.</p> |
-| Labels                             | Click **Add label** and complete the name and value fields to specify a label for the network.                                                                                                                                                            |
-| Isolated network                   | Toggle this option on to isolate any containers created in this network to this network only, with no inbound or outbound connectivity.                                                                                                                   |
-| Enable manual container attachment | Toggle this option on to allow users to attach the network to running containers.                                                                                                                                                                         |
-| Deployment                         | On multi-node clusters, select the node where the network will be created.                                                                                                                                                                                |
+| 字段/选项                       | 概述                                                                                                                                                                                                                                                  |
+| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 名称                           | 为网络输入描述性名称。                                                                                                                                                                                                                      |
+| 驱动                           | 定义您将使用的[网络类型](./#supported-network-types)。                                                                                                                                                                                    |
+| 驱动选项                     | 根据需要设置与网络驱动相关的任何选项。                                                                                                                                                                                     |
+| IPv4网络配置         | <p>定义IPv4范围、子网、网关和排除IP。如果此处未输入信息，Docker将自动分配IPv4范围。<br>如果需要从范围中排除IP，点击<strong>添加排除IP</strong>并填写字段。</p> |
+| IPv6网络配置         | <p>定义IPv6范围、子网、网关和排除IP。如果此处未输入信息，Docker将自动分配IPv6范围。<br>如果需要从范围中排除IP，点击<strong>添加排除IP</strong>并填写字段。</p> |
+| 标签                             | 点击**添加标签**并填写名称和值字段为网络指定标签。                                                                                                                                                            |
+| 隔离网络                   | 切换此选项开启以隔离在此网络中创建的任何容器，使其仅限此网络，没有入站或出站连接。                                                                                                                   |
+| 启用手动容器连接 | 切换此选项开启以允许用户将网络连接到运行中的容器。                                                                                                                                                                         |
+| 部署                         | 在多节点集群上，选择将创建网络的节点。                                                                                                                                                                                |
 
 <figure><img src="../..//assets/2.20-networks-add-details.png" alt=""><figcaption></figcaption></figure>
 
-When you're finished, click **Create the network**.
+完成后，点击**创建网络**。

@@ -1,137 +1,136 @@
-# Configure service options
+# 配置服务选项
 
-From the menu select **Services** then select the service you want to configure.&#x20;
+从菜单中选择**服务**，然后选择要配置的服务。
 
 <figure><img src="../..//assets/2.15-docker_services_configure.gif" alt=""><figcaption></figcaption></figure>
 
-## Service details
+## 服务详情
 
-In this section you can:
-
-* View a summary of the details about the service.
-* Configure the number of replicas.
-* Toggle the [service webhook](webhooks.md) on or off.
-* View the [service logs](logs.md).
-* Update, [roll back](rollback.md) or delete the service.
+在此部分您可以：
+* 查看服务详情摘要
+* 配置副本数量
+* 开启/关闭[服务webhook](webhooks.md)
+* 查看[服务日志](logs.md)
+* 更新、[回滚](rollback.md)或删除服务
 
 <figure><img src="../..//assets/2.15-docker_services_service_details (1).png" alt=""><figcaption></figcaption></figure>
 
-## Container specification configuration options
+## 容器规格配置选项
 
-### Change container image
+### 更改容器镜像
 
-Here you can replace the container image with a different image. Select the registry, enter the image name, then click **Apply changes**.
+在此可以替换容器镜像。选择注册表，输入镜像名称，然后点击**应用更改**。
 
 <figure><img src="../..//assets/2.15-docker_services_change_container_image.png" alt=""><figcaption></figcaption></figure>
 
-### Environment variables
+### 环境变量
 
-It's best to set environment variables when you [create a container](../containers/add.md) and before deployment. You can still set or edit these variables after deployment if you wish.
+最好在[创建容器](../containers/add.md)和部署前设置环境变量。如果需要，您仍可以在部署后设置或编辑这些变量。
 
 <figure><img src="../..//assets/2.15-docker_services_service_env_var.png" alt=""><figcaption></figcaption></figure>
 
-### Container labels
+### 容器标签
 
-Labels give you a way to record information about a container, such as the way it's configured. Labels can also be used by Portainer to [hide containers from the interface](../../../admin/settings/#hidden-containers).
+标签让您可以记录有关容器的信息，例如其配置方式。标签也可用于[从界面隐藏容器](../../../admin/settings/#hidden-containers)。
 
 <figure><img src="../..//assets/2.15-docker_services_service_container_labels.png" alt=""><figcaption></figcaption></figure>
 
-### Mounts
+### 挂载
 
-You have the option to either mount or bind volumes in Portainer, and you can also make them read only. To add a mount, first select either **Volume** or **Bind** from the **Type** dropdown.
+您可以选择在Portainer中挂载或绑定卷，也可以将它们设为只读。要添加挂载，首先从**类型**下拉列表中选择**卷**或**绑定**。
 
-#### For volume mounts:
+#### 对于卷挂载：
 
-Select the volume from the **Source** dropdown, enter the container path in the **Target** field tick **Read only** if required then click **Apply changes**.
+从**源**下拉列表中选择卷，在**目标**字段中输入容器路径，如果需要则勾选**只读**，然后点击**应用更改**。
 
 <figure><img src="../..//assets/2.15-docker_services_service_mounts_volume.png" alt=""><figcaption></figcaption></figure>
 
-#### For bind mounts:
+#### 对于绑定挂载：
 
-Enter the source path in the **Source** field, enter the container path in the **Target** field, tick **Read only** if required then click **Apply changes**.
+在**源**字段中输入源路径，在**目标**字段中输入容器路径，如果需要则勾选**只读**，然后点击**应用更改**。
 
 <figure><img src="../..//assets/2.15-docker_services_service_mounts_bind.png" alt=""><figcaption></figcaption></figure>
 
-## Networks & ports configuration options
+## 网络和端口配置选项
 
-### Networks
+### 网络
 
-You can define one or more networks for a service either before or after deployment. Simply select the network from the dropdown then click **Apply changes**.
+您可以在部署前后为服务定义一个或多个网络。只需从下拉列表中选择网络，然后点击**应用更改**。
 
 <figure><img src="../..//assets/2.15-docker_services_service_networks.png" alt=""><figcaption></figcaption></figure>
 
-### Published ports
+### 发布端口
 
-Use this setting to publish ports so they can access a container from outside of the host. You can either add new ports or update existing ports.
+使用此设置发布端口，以便可以从主机外部访问容器。您可以添加新端口或更新现有端口。
 
 <figure><img src="../..//assets/2.15-docker_services_service_published_ports.png" alt=""><figcaption></figcaption></figure>
 
-### Hosts file entries
+### 主机文件条目
 
-Lets you manually specify a hostname or URL and associate the URL to an internal or external IP address.
+让您可以手动指定主机名或URL，并将URL与内部或外部IP地址关联。
 
 <figure><img src="../..//assets/2.15-docker_services_service_host_entries.png" alt=""><figcaption></figcaption></figure>
 
-## Service specification settings
+## 服务规格设置
 
-### Resource limits and reservations
+### 资源限制和保留
 
-Sets limits on resource utilization, such as memory, CPU reservation and CPU limit.
+设置资源利用限制，如内存、CPU保留和CPU限制。
 
 <figure><img src="../..//assets/2.15-docker_services_service_resource_limits.png" alt=""><figcaption></figcaption></figure>
 
-### Placement constraints
+### 放置约束
 
-Use placement constraints to control which nodes a service can be assigned to.
+使用放置约束控制服务可以分配到哪些节点。
 
 <figure><img src="../..//assets/2.15-docker_services_service_placement_constraint.png" alt=""><figcaption></figcaption></figure>
 
-### Placement preferences
+### 放置偏好
 
-While placement constraints limit the nodes a service can run on, placement preferences attempt to place tasks on appropriate nodes in an algorithmic way (by default they are spread evenly).
+放置约束限制服务可以运行的节点，而放置偏好尝试以算法方式(默认均匀分布)将任务放置在适当的节点上。
 
 <figure><img src="../..//assets/2.15-docker_services_service_placement_pref.png" alt=""><figcaption></figcaption></figure>
 
-### Restart policy
+### 重启策略
 
-Docker's restart policies ensure that linked containers are restarted in the correct order, and control the conditions under which they are restarted:
+Docker的重启策略确保链接的容器以正确的顺序重启，并控制它们重启的条件：
 
-* **Any**: Restart the container under any conditions (restarted host or Docker daemon).
-* **On Failure**: Restart the container if it exits due to an error which manifests as a non-zero exit code.
-* **None**: Do not automatically restart the container.
+* **任何情况**：在任何条件下重启容器(重启主机或Docker守护进程)
+* **失败时**：如果容器因错误退出(表现为非零退出代码)则重启
+* **不重启**：不自动重启容器
 
-You can also adjust the restart delay, maximum attempts and restart window.
+您还可以调整重启延迟、最大尝试次数和重启窗口。
 
 <figure><img src="../..//assets/2.15-docker_services_service_restart_policy.png" alt=""><figcaption></figcaption></figure>
 
-### Update configuration
+### 更新配置
 
-Updates a service according to the parameters you specify. The parameters specified here are the same as `docker service create` (see [Docker's own documentation](https://docs.docker.com/engine/reference/commandline/service_create/) for more information).
+根据您指定的参数更新服务。此处指定的参数与`docker service create`相同(更多信息请参阅[Docker官方文档](https://docs.docker.com/engine/reference/commandline/service_create/))。
 
-Normally, updating a service will only cause the service’s tasks to be replaced with new ones if a change to the service requires recreating the tasks for it to take effect.
+通常，更新服务仅会在服务更改需要重新创建任务以使其生效时，才会用新任务替换服务的任务。
 
 <figure><img src="../..//assets/2.15-docker_services_service_update_config.png" alt=""><figcaption></figcaption></figure>
 
-### Logging driver
+### 日志驱动
 
-Docker includes logging mechanisms called _logging drivers_ that get information from the containers and services you're running. Each Docker daemon has a default logging driver which each container will use, unless you configure them to use a different logging driver.
+Docker包含称为_日志驱动_的日志机制，从您运行的容器和服务中获取信息。每个Docker守护进程都有一个默认的日志驱动，除非您配置它们使用不同的日志驱动，否则每个容器都将使用该驱动。
 
 <figure><img src="../..//assets/2.15-docker_services_service_logging_driver.png" alt=""><figcaption></figcaption></figure>
 
-### Service labels
+### 服务标签
 
-Lets you add metadata to containers using Docker labels either via an array or a dictionary. We recommend that you use reverse-DNS notation to stop labels from conflicting with those used by other software.
+让您可以使用Docker标签通过数组或字典向容器添加元数据。我们建议使用反向DNS表示法，以防止标签与其他软件使用的标签冲突。
 
 <figure><img src="../..//assets/2.15-docker_services_service_labels.png" alt=""><figcaption></figcaption></figure>
 
-### Configs
+### 配置
 
-Docker 17.06 introduced Swarm service configs. These allow you to store non-sensitive information such as configuration files outside a service’s image or running containers. This keeps images as generic as possible and removes the need to bind-mount configuration files into containers or use environment variables.
+Docker 17.06引入了Swarm服务配置。这些允许您在服务镜像或运行容器之外存储非敏感信息，如配置文件。这使镜像尽可能通用，并消除了将配置文件绑定挂载到容器中或使用环境变量的需要。
 
 <figure><img src="../..//assets/2.15-docker_services_service_configs.png" alt=""><figcaption></figcaption></figure>
 
-### Secrets
+### 密钥
 
-In the context of Docker Swarm services, a secret is a blob of data such as a password, SSH private key, SSL certificate, or another piece of data that should not be transmitted over a network or stored unencrypted in a Dockerfile or in your application’s source code.
+在Docker Swarm服务的上下文中，密钥是一段数据，如密码、SSH私钥、SSL证书或其他不应通过网络传输或以未加密形式存储在Dockerfile或应用程序源代码中的数据。
 
 <figure><img src="../..//assets/2.15-docker_services_service_secrets.png" alt=""><figcaption></figcaption></figure>

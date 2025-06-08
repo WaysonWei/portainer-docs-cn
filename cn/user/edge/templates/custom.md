@@ -1,27 +1,25 @@
-# Custom
+# 自定义模板
 
-This section lists the custom templates that have been created for deploying to your Edge devices.
+本部分列出了为部署到Edge设备而创建的自定义模板。
 
 <figure><img src="../..//assets/2.20-edge-templates-custom-list.png" alt=""><figcaption></figcaption></figure>
 
-To deploy a custom template as an Edge stack, click the template in the list.
+要将自定义模板部署为Edge堆栈，请点击列表中的模板。
 
-## Add a new custom template
+## 添加新的自定义模板
 
-To create a new custom template, click the **Add Custom Template** button and fill out the resulting form and stack details.
+要创建新的自定义模板，点击**添加自定义模板**按钮并填写表单和堆栈详情。
 
-
-For more detail on custom template creation, refer to the [custom template](../../docker/templates/custom.md#creating-a-new-custom-template) documentation.
-
+有关创建自定义模板的更多详细信息，请参阅[自定义模板](../../docker/templates/custom.md#creating-a-new-custom-template)文档。
 
 <figure><img src="../..//assets/2.20-edge-templates-custom-add.png" alt=""><figcaption></figcaption></figure>
 
-## Edit an existing template
+## 编辑现有模板
 
-To edit an existing custom template, click the **Edit** button for the template you want to change.&#x20;
+要编辑现有的自定义模板，点击您想要修改的模板的**编辑**按钮。
 
 <figure><img src="../..//assets/2.20-edge-templates-custom-edit.png" alt=""><figcaption></figcaption></figure>
 
-## Remove a custom template
+## 删除自定义模板
 
-To remove a custom template, click the **Delete** button for the template you want to remove. This will not remove any Edge stacks that had been previously created with this template.&#x20;
+要删除自定义模板，点击您想要移除的模板的**删除**按钮。这将不会删除之前使用此模板创建的任何Edge堆栈。

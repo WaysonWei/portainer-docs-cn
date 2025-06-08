@@ -1,11 +1,6 @@
-# Edge Templates
+# Edge模板
 
-This section lets you configure and deploy workloads from templates to your Edge devices.
+本部分允许您从模板配置和部署工作负载到Edge设备。
 
 
 [application.md](application.md)
-
-
-
-[custom.md](custom.md)
-

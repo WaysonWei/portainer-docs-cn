@@ -1,57 +1,55 @@
-# Inspect a node
+# 检查节点
 
-To view details of an individual node in your cluster, from the menu expand **Cluster** and select **Details**, then scroll down and click on the name of the node you want to inspect.
+要查看集群中单个节点的详细信息，从菜单展开**集群**并选择**详情**，然后向下滚动并点击要检查的节点名称。
 
 <figure><img src="../..//assets/2.20-kubernetes-cluster-node-inspect.gif" alt=""><figcaption></figcaption></figure>
 
-Information about the cluster is separated into two screen tabs.
+关于集群的信息分为两个屏幕标签页。
 
-## Node
+## 节点
 
-The **Node** tab summarizes the following information about the selected node:
+**节点**标签页总结了所选节点的以下信息：
 
-| Field/Option    | Overview                                                                               |
-| --------------- | -------------------------------------------------------------------------------------- |
-| Hostname        | The hostname of the node.                                                              |
-| Kubernetes API  | The address and port of the Kubernetes API for this node.                              |
-| Role            | The role of the node.                                                                  |
-| Kubelet version | The version of kubelet on the node.                                                    |
-| Creation date   | The date when this node was created.                                                   |
-| Status          | The status of the node.                                                                |
-| Availability    | Defines the availability of the node. Options are **Active**, **Pause** and **Drain**. |
+| 字段/选项    | 概述                                                                               |
+| ------------ | ---------------------------------------------------------------------------------- |
+| 主机名       | 节点的主机名。                                                                     |
+| Kubernetes API | 该节点的Kubernetes API地址和端口。                                                 |
+| 角色         | 节点的角色。                                                                       |
+| Kubelet版本  | 节点上的kubelet版本。                                                              |
+| 创建日期     | 该节点的创建日期。                                                                 |
+| 状态         | 节点的状态。                                                                       |
+| 可用性       | 定义节点的可用性。选项为**活动**、**暂停**和**排空**。                             |
 
 <figure><img src="../..//assets/2.15-k8s-cluster-node-details.png" alt=""><figcaption></figcaption></figure>
 
-### Resource reservation
+### 资源预留
 
-This section provides details about resource reservations assigned on the node as well as the node's resource usage.&#x20;
+此部分提供有关节点上分配的资源预留以及节点资源使用情况的详细信息。
 
-
-**Memory used** and **CPU used** are only displayed if you have [enabled using the metrics API](setup.md#enable-features-using-metrics-server).
-
+**内存使用**和**CPU使用**仅在[启用了指标API](setup.md#enable-features-using-metrics-server)时显示。
 
 <figure><img src="../..//assets/2.15-k8s-cluster-node-resource.png" alt=""><figcaption></figcaption></figure>
 
-### Labels
+### 标签
 
-This section lists the labels that apply to the node. You can add additional labels if required, as well as edit non-system labels.
+此部分列出应用于节点的标签。如果需要，可以添加其他标签，以及编辑非系统标签。
 
 <figure><img src="../..//assets/2.15-k8s-cluster-node-labels.png" alt=""><figcaption></figcaption></figure>
 
-### Taints
+### 污点
 
-In this section you can add taints to prevent certain pods being deployed on the node.
+在此部分可以添加污点以防止某些Pod部署在节点上。
 
 <figure><img src="../..//assets/2.15-k8s-cluster-node-taints.png" alt=""><figcaption></figcaption></figure>
 
-## Events
+## 事件
 
-Shows information about node-related events.
+显示与节点相关的事件信息。
 
 <figure><img src="../..//assets/2.15-k8s-cluster-node-events.png" alt=""><figcaption></figcaption></figure>
 
-## Applications running on this node
+## 在此节点上运行的应用程序
 
-This section provides information about the applications running on the selected node. Clicking the application name will take you to the application details page for that application.
+此部分提供有关所选节点上运行的应用程序的信息。点击应用程序名称将转到该应用程序的详细信息页面。
 
 <figure><img src="../..//assets/2.15-k8s-cluster-node-apps.png" alt=""><figcaption></figcaption></figure>

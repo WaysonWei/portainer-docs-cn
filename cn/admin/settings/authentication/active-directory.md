@@ -1,86 +1,86 @@
-# Authenticate via Active Directory
+# 通过Active Directory认证
 
-Portainer Business Edition lets you connect to an existing Microsoft Active Directory service to manage your authentication settings in Portainer.
+Portainer商业版允许您连接到现有的Microsoft Active Directory服务来管理Portainer中的认证设置。
 
-To set up Active Directory authentication, from the menu select **Settings** then select **Authentication**. Under the **Authentication method** section select **Microsoft Active Directory**.
+要设置Active Directory认证，从菜单中选择**设置**，然后选择**认证**。在**认证方法**部分选择**Microsoft Active Directory**。
 
 <figure><img src="../..//assets/2.15-settings-authentication-ad.gif" alt=""><figcaption></figcaption></figure>
 
-A guide to all of the Active Directory configuration settings follows.
+以下是所有Active Directory配置设置的指南。
 
-## Automatic user provisioning
+## 自动用户配置
 
-Enabling this setting automatically creates users within Portainer once they are successfully authenticated by Active Directory (AD). If you do not enable this, you must [manually create users](ldap.md#manually-creating-ldap-users) with the same username as the corresponding AD user.
+启用此设置后，一旦用户通过Active Directory(AD)成功认证，Portainer将自动创建用户。如果不启用此功能，您必须[手动创建用户](ldap.md#manually-creating-ldap-users)，用户名需与对应的AD用户相同。
 
 <figure><img src="../..//assets/2.15-settings-authentication-ldap-auto.png" alt=""><figcaption></figcaption></figure>
 
-## AD configuration
+## AD配置
 
-Configure your Active Directory details using the table below as a guide.
+使用下表作为指南配置您的Active Directory详情。
 
-| Field/Option             | Overview                                                                                                                                                                                                                 |
+| 字段/选项             | 概述                                                                                                                                                                                                                 |
 | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| AD Controller            | Enter the FQDN or IP address of your domain controller. If you need to add more than one server, click **Add additional server**.                                                                                        |
-| Service Account          | Enter the account name that is used to connect to Active Directory and search users.                                                                                                                                     |
-| Service Account Password | Enter the password for the above service account.                                                                                                                                                                        |
-| Connectivity check       | Perform a check to ensure there is connectivity and SSL handshaking between Portainer and your Active Directory server (if **Use StartTLS** or **Use TLS** are selected under the **AD Connectivity Security** section). |
+| AD控制器            | 输入域控制器的FQDN或IP地址。如果需要添加多个服务器，点击**添加额外服务器**。                                                                                        |
+| 服务账户          | 输入用于连接Active Directory并搜索用户的账户名称。                                                                                                                                     |
+| 服务账户密码 | 输入上述服务账户的密码。                                                                                                                                                                        |
+| 连接性检查       | 执行检查以确保Portainer与您的Active Directory服务器之间存在连接性和SSL握手（如果在**AD连接安全性**部分选择了**使用StartTLS**或**使用TLS**）。 |
 
 <figure><img src="../..//assets/2.15-settings-authentication-ad-config.png" alt=""><figcaption></figcaption></figure>
 
-## AD Connectivity Security
+## AD连接安全性
 
-Configure the security settings using the table below as a guide.
+使用下表作为指南配置安全设置。
 
-| Field/Option                            | Overview                                                                                                                                                  |
+| 字段/选项                            | 概述                                                                                                                                                  |
 | --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Use StartTLS                            | Enable this option if want to use StartTLS to secure the connection to the server. Enabling this will hide and ignore the **Use TLS** option.             |
-| Use TLS                                 | Enable this option if you need to specify TLS certificates to connect to the LDAP server. Enabling this will hide and ignore the **Use StartTLS** option. |
-| Skip verification of server certificate | Toggle this option on if you want to skip the verification of the server TLS certificate. Not recommended on unsecured networks.                          |
-| TLS CA certificate                      | Lets you upload the CA certificate for your TLS certificate.                                                                                              |
+| 使用StartTLS                            | 启用此选项以使用StartTLS保护与服务器的连接。启用后将隐藏并忽略**使用TLS**选项。             |
+| 使用TLS                                 | 如果需要指定TLS证书连接LDAP服务器，请启用此选项。启用后将隐藏并忽略**使用StartTLS**选项。 |
+| 跳过服务器证书验证 | 切换此选项以跳过服务器TLS证书验证。不建议在不安全的网络上使用。                          |
+| TLS CA证书                      | 允许您上传TLS证书的CA证书。                                                                                              |
 
 <figure><img src="../..//assets/2.15-settings-authentication-ad-security.png" alt=""><figcaption></figcaption></figure>
 
-## User search configurations
+## 用户搜索配置
 
-Configure the user search configurations using the table below as a guide. Click **add user search configuration** to set up multiple configurations.
+使用下表作为指南配置用户搜索设置。点击**添加用户搜索配置**可设置多个配置。
 
-| Field/Option                | Overview                                                                                                                          |
+| 字段/选项                | 概述                                                                                                                          |
 | --------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| Username Format             | Select the username format you want to use when logging into Portainer. Options are `username` and `username@domainname`.         |
-| Root Domain                 | This will be filled with the domain of the domain controller.                                                                     |
-| User Search Path (optional) | Click **add another entry** to define specific OUs or folders to search for users.                                                |
-| Allowed Groups (optional)   | Click **add another group** to define specific groups to be allowed access to Portainer.                                          |
-| User Filter                 | This will be filled based on the options you selected previously.                                                                 |
-| Display Users               | Click this to use the settings provided to query the Active Directory server for a list of users matching the specified criteria. |
+| 用户名格式             | 选择登录Portainer时使用的用户名格式。选项为`username`和`username@domainname`。         |
+| 根域                 | 将自动填充域控制器的域。                                                                     |
+| 用户搜索路径(可选) | 点击**添加其他条目**定义搜索用户的特定OU或文件夹。                                                |
+| 允许的组(可选)   | 点击**添加其他组**定义允许访问Portainer的特定组。                                          |
+| 用户过滤器                 | 将根据您之前选择的选项自动填充。                                                                 |
+| 显示用户               | 点击此按钮使用提供的设置查询Active Directory服务器，获取匹配指定条件的用户列表。 |
 
 <figure><img src="../..//assets/2.15-settings-authentication-ad-usersearch.png" alt=""><figcaption></figcaption></figure>
 
-## Group search configurations
+## 组搜索配置
 
-Configure the group search configurations using the table below as a guide. Click **add group search configuration** to set up multiple configurations.
+使用下表作为指南配置组搜索设置。点击**添加组搜索配置**可设置多个配置。
 
-| Field/Option                 | Overview                                                                                                                                                                     |
+| 字段/选项                 | 概述                                                                                                                                                                     |
 | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Group Search Path (optional) | Click **add another entry** to define specific OUs or folders to search for groups.                                                                                          |
-| Group Base DN                | Automatically updated based on previous selections.                                                                                                                          |
-| Groups                       | Click **add another group** to define specific groups by OU or folder name.                                                                                                  |
-| Group Filter                 | This will be filled based on options previously selected.                                                                                                                    |
-| Display User/Group matching  | Click this to use the settings provided in Portainer to query the Active Directory server for a list of users matching the criteria specified, and how they match to groups. |
+| 组搜索路径(可选) | 点击**添加其他条目**定义搜索组的特定OU或文件夹。                                                                                          |
+| 组Base DN                | 根据之前的选择自动更新。                                                                                                                          |
+| 组                       | 点击**添加其他组**通过OU或文件夹名称定义特定组。                                                                                                  |
+| 组过滤器                 | 将根据之前选择的选项自动填充。                                                                                                                    |
+| 显示用户/组匹配  | 点击此按钮使用Portainer中提供的设置查询Active Directory服务器，获取匹配指定条件的用户列表及其与组的匹配情况。 |
 
 <figure><img src="../..//assets/2.15-settings-authentication-ad-groupsearch.png" alt=""><figcaption></figcaption></figure>
 
-## Auto-populate team admins
+## 自动填充团队管理员
 
-If desired, Portainer can configure specified AD groups of users to become Portainer administrators automatically.&#x20;
+如果需要，Portainer可以配置指定的AD用户组自动成为Portainer管理员。
 
-To configure this, first click **add group search configuration** and define the **Group Base DN**, **Groups** and **Group Filter** as required. Once done, click the **Fetch Admin Group(s)** button to retrieve the list of groups matching your search configuration.
+要配置此功能，首先点击**添加组搜索配置**并根据需要定义**组Base DN**、**组**和**组过滤器**。完成后，点击**获取管理员组**按钮检索匹配搜索配置的组列表。
 
 <figure><img src="../..//assets/2.15-settings-authentication-ad-autopop.png" alt=""><figcaption></figcaption></figure>
 
-When you're happy with the group selection, enable this feature by toggling **Assign admin rights to group(s)** on.
+当您对组选择满意后，通过切换**为组分配管理员权限**来启用此功能。
 
-## Test login
+## 测试登录
 
-To test your settings are correct and that the right users and groups are configured for access, scroll down to **Test login**, enter a valid user and password then click **Test**. If everything is working as expected, a green tick will appear next to the button.
+要测试您的设置是否正确以及是否配置了正确的用户和组进行访问，滚动到**测试登录**，输入有效的用户和密码，然后点击**测试**。如果一切正常，按钮旁边会出现一个绿色勾号。
 
 <figure><img src="../..//assets/2.15-settings-authentication-ad-testlogin.png" alt=""><figcaption></figcaption></figure>

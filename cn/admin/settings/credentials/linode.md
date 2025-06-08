@@ -1,15 +1,15 @@
-# Add Akamai Connected Cloud credentials
+# 添加Akamai Connected Cloud凭据
 
-Before you can add your Akamai Connected Cloud credentials to Portainer, you will need to create an API token in your Akamai account.
+在将Akamai Connected Cloud凭据添加到Portainer之前，您需要在Akamai账户中创建一个API令牌。
 
-## Creating your API token
+## 创建API令牌
 
-Log into the Akamai dashboard and click your account name in the top right. Select **API Tokens**. Click **Create a Personal Access Token**, give it a label and set an expiry. The Portainer provisioning functionality only requires **Read/Write** for the **Kubernetes** option, so disable the rest.
+登录Akamai控制面板，点击右上角的账户名称。选择**API令牌**。点击**创建个人访问令牌**，为其指定标签并设置有效期。Portainer配置功能仅需要**Kubernetes**选项的**读/写**权限，因此可以禁用其他权限。
 
-## Adding your credentials
+## 添加您的凭据
 
-To add credentials for an Akamai account, from the [Shared credentials](./) page click **Add credentials**, then select the **Akamai Connected Cloud** option. Give your credential set a **name** and paste your **API key** into the box.
+要为Akamai账户添加凭据，从[共享凭据](./)页面点击**添加凭据**，然后选择**Akamai Connected Cloud**选项。为您的凭据集指定一个**名称**，并将**API密钥**粘贴到框中。
 
 <figure><img src="../..//assets/2.21.2-settings-cloud-credentials-akamai.png" alt=""><figcaption></figcaption></figure>
 
-When you're ready, click **Add credentials**. Your credentials will now be available to you when [provisioning a Kubernetes cluster on Akamai Connected Cloud](../../environments/add/kaas/linode.md).
+准备就绪后，点击**添加凭据**。您的凭据现在可以在[在Akamai Connected Cloud上配置Kubernetes集群](../../environments/add/kaas/linode.md)时使用。

@@ -1,66 +1,60 @@
 # Webhooks
 
-A webhook is a POST request sent to a URL that you define in Docker Hub or another registry. Use webhooks to trigger an action in response to an event such as a repository push.
+Webhook是发送到您在Docker Hub或其他注册表中定义的URL的POST请求。使用webhook可以在响应仓库推送等事件时触发操作。
 
+此功能仅在[Portainer商业版](https://www.portainer.io/business-upsell?from=stack-webhook)中可用。
 
-This functionality is only available in [Portainer Business Edition](https://www.portainer.io/business-upsell?from=stack-webhook).
+Webhook仅在非Edge环境(运行Portainer Server或Portainer Agent的环境，而非Portainer Edge Agent)上可用。这是因为到Portainer Edge Agent的隧道是按需打开的，因此无法永久暴露webhook。
 
+## 启用堆栈webhook
 
-
-Webhooks are only available on non-Edge environments (environments running Portainer Server or Portainer Agent, not the Portainer Edge Agent). This is because the tunnel to the Portainer Edge Agent is only opened on-demand, and therefore would mean there is no way to expose a webhook permanently.
-
-
-## Enabling a stack webhook
-
-From the menu select **Stacks** then select the container that you want to configure the webhook for. Then select the **Edit** tab.
+从菜单选择**堆栈**，然后选择要配置webhook的容器。接着选择**编辑**选项卡。
 
 <figure><img src="../..//assets/2.20-stacks-webhooks.gif" alt=""><figcaption></figcaption></figure>
 
-Scroll down to the **Webhooks** section and toggle the **Create a stack webhook** option on. When the URL appears, click **Copy link**. This URL will be used to configure the webhook in your chosen registry.
+滚动到**Webhooks**部分，切换**创建堆栈webhook**选项为开启。当URL出现时，点击**复制链接**。此URL将用于在您选择的注册表中配置webhook。
 
 <figure><img src="../..//assets/2.15-docker_stack_create_webhook.png" alt=""><figcaption></figcaption></figure>
 
-This example shows how to trigger the webhook using `redeploy`:
+此示例展示如何使用`redeploy`触发webhook:
 
 ```
 <form action="https://portainer:9443/api/stacks/webhooks/638e6967-ef77-4906-8af8-236800621360" method="post">
-  Redeploy stack containers with latest image of same tag <input type="submit" />
+  使用相同标签的最新镜像重新部署堆栈容器 <input type="submit" />
 </form>
 ```
 
-This example shows how to trigger the webhook to update the stack to use a different image tag:
+此示例展示如何使用webhook更新堆栈以使用不同的镜像标签:
 
 ```
 <form action="https://portainer:9443/api/stacks/webhooks/638e6967-ef77-4906-8af8-236800621360?tag=latest" method="post">
-  Update stack container images with different tag <input type="submit" />
+  使用不同标签更新堆栈容器镜像 <input type="submit" />
 </form>
 ```
 
-## Preventing a pull
+## 阻止拉取镜像
 
-In some cases you may want to override the pulling of images when using the webhook to do a redeploy. In that scenario, you can specify `pullimage=false` as a parameter on your webhook to disable pulling of images.&#x20;
+在某些情况下，您可能希望在webhook重新部署时覆盖镜像拉取。在这种情况下，可以在webhook上指定`pullimage=false`参数来禁用镜像拉取。
 
-
-This option is only available in Portainer Business Edition.
-
+此选项仅在Portainer商业版中可用。
 
 ```
 <form action="https://portainer:9443/api/stacks/webhooks/638e6967-ef77-4906-8af8-236800621360?pullimage=false" method="post">
-  Update stack without pulling images <input type="submit" />
+  更新堆栈而不拉取镜像 <input type="submit" />
 </form>
 ```
 
-## Using environment variables with webhooks
+## 在webhook中使用环境变量
 
-When triggering a webhook, environment variables can be passed through the endpoint and referenced within stacks' compose files.
+触发webhook时，可以通过端点传递环境变量并在堆栈的compose文件中引用。
 
-To specify an environment variable on a webhook, add it as a variable to the URL. For example, to pass a `SERVICE_TAG` variable with the value `development`:
+要在webhook上指定环境变量，将其作为变量添加到URL中。例如，传递值为`development`的`SERVICE_TAG`变量:
 
 ```
 https://portainer:9443/api/stacks/webhooks/1d251d96-fb34-4172-a0a1-d0655467b897?SERVICE_TAG=development
 ```
 
-To reference the `SERVICE_TAG` variable in your compose file with a fallback to the value `stable`:
+要在compose文件中引用`SERVICE_TAG`变量并回退到值`stable`:
 
 ```
 services:
@@ -68,6 +62,6 @@ services:
     image: repository/image:${SERVICE_TAG:-stable}
 ```
 
-## Configuring the webhook in Docker Hub
+## 在Docker Hub中配置webhook
 
-To finish the configuration, refer to [Docker's own documentation](https://docs.docker.com/docker-hub/webhooks/).
+要完成配置，请参考[Docker官方文档](https://docs.docker.com/docker-hub/webhooks/)。

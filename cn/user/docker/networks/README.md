@@ -1,33 +1,29 @@
-# Networks
+# 网络
 
-Portainer lets you add, remove and manage networks in your environment.
+Portainer允许您添加、删除和管理环境中的网络。
 
 <figure><img src="../..//assets/2.20-networks-list.png" alt=""><figcaption></figcaption></figure>
 
-
 [add.md](add.md)
-
-
 
 [remove.md](remove.md)
 
+## 支持的网络类型
 
-## Supported network types
-
-Portainer supports these types of networks:
+Portainer支持以下类型的网络：
 
 ### bridge
 
-If you don’t specify a driver, this type of network will be created by default. Bridge networks are normally used when your applications run in standalone containers that need to communicate with each other.
+如果不指定驱动，默认会创建此类型网络。桥接网络通常用于需要相互通信的独立容器应用。
 
 ### macvlan
 
-macvlan networks allow you to assign a MAC address to a container, making it appear as a physical device on your network. The Docker daemon routes traffic to containers based on their MAC addresses. Using the macvlan driver is sometimes the best choice when dealing with legacy applications that expect to be directly connected to the physical network, rather than routed through the Docker host’s network stack.
+macvlan网络允许您为容器分配MAC地址，使其在网络上显示为物理设备。Docker守护进程根据MAC地址将流量路由到容器。当处理期望直接连接到物理网络而非通过Docker主机网络栈路由的传统应用时，使用macvlan驱动有时是最佳选择。
 
 ### ipvlan
 
-Similar to macvlan, the key difference being that the endpoints have the same MAC address. ipvlan supports L2 and L3 modes. In ipvlan L2 mode, each endpoint gets the same MAC address but different IP addresses. In ipvlan L3 mode, packets are routed between endpoints, giving better scalability.
+与macvlan类似，关键区别在于端点具有相同的MAC地址。ipvlan支持L2和L3模式。在ipvlan L2模式下，每个端点获得相同的MAC地址但不同的IP地址。在ipvlan L3模式下，数据包在端点之间路由，提供更好的可扩展性。
 
 ### overlay
 
-overlay networks connect multiple Docker daemons together and enable swarm services to communicate with each other. You can also use overlay networks to facilitate communication between a swarm service and a standalone container, or between two standalone containers on different Docker daemons.
+overlay网络连接多个Docker守护进程，使swarm服务能够相互通信。您还可以使用overlay网络促进swarm服务与独立容器之间，或不同Docker守护进程上的两个独立容器之间的通信。

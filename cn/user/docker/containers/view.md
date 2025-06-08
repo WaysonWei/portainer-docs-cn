@@ -1,17 +1,17 @@
-# View a container's details
+# 查看容器详情
 
-From the menu select **Containers**, then select the container you want to view.
+从菜单中选择**容器**，然后选择要查看的容器。
 
 <figure><img src="../..//assets/2.15-docker_containers_container_details.gif" alt=""><figcaption></figcaption></figure>
 
-Here you can view the container's status and details, including port configurations, environment variables, labels, attached volumes and networks, and more. You also have a number of actions available, including starting, stopping and removing the container.
+在这里您可以查看容器的状态和详细信息，包括端口配置、环境变量、标签、附加的卷和网络等。您还可以执行多种操作，包括启动、停止和移除容器。
 
 <figure><img src="../..//assets/2.15-docker_containers_details_actions.png" alt=""><figcaption></figcaption></figure>
 
-You can also toggle the container [webhook](webhooks.md), view the [container logs](logs.md), [inspect](inspect.md) the container's configuration, view container [stats](stats.md), access the [console](console.md), and (if the container is running in interactive mode) attach to the running container.
+您还可以切换容器[webhook](webhooks.md)、查看[容器日志](logs.md)、[检查](inspect.md)容器配置、查看容器[统计信息](stats.md)、访问[控制台](console.md)，以及(如果容器以交互模式运行)附加到运行中的容器。
 
 <figure><img src="../..//assets/2.15-docker_containers_container_status.png" alt=""><figcaption></figcaption></figure>
 
-You can create an image from a deployed container to use when creating other containers.
+您可以从已部署的容器创建镜像，用于创建其他容器。
 
 <figure><img src="../..//assets/2.15-docker_containers_container_create_image.png" alt=""><figcaption></figcaption></figure>

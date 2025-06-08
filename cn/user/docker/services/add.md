@@ -1,23 +1,23 @@
-# Add a new service
+# 添加新服务
 
-From the menu click **Services** then click **Add service**.
+从菜单点击**服务**，然后点击**添加服务**。
 
 <figure><img src="../..//assets/2.15-docker_services_add_service.gif" alt=""><figcaption></figcaption></figure>
 
-Complete the fields, using the table below as a guide.
+填写字段，参考下表作为指南：
 
-| Field/Option             | Overview                                                                                                                                                                             |
+| 字段/选项             | 概述                                                                                                                                                                             |
 | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Name                     | Give the service a descriptive name.                                                                                                                                                 |
-| Registry                 | Select the registry that contains the image you wish to use for the service.                                                                                                         |
-| Image                    | Enter the name of the image. If you're using Docker Hub you can also search for images from here.                                                                                    |
-| Scheduling mode          | Select either to replicate the service on the same host or deploy it globally with one container on each host.                                                                       |
-| Replicas                 | Set the number of replicas (only if the scheduling mode is set to **Replicated**).                                                                                                   |
-| Port mapping             | Define the ports to expose on the new service.                                                                                                                                       |
-| Create a service webhook | Toggle on to create a [webhook](webhooks.md) for the service. You can send a POST request to this endpoint to automate pulling the most up-to-date image and re-deploy your service. |
+| 名称                     | 为服务输入描述性名称。                                                                                                                                                 |
+| 注册表                 | 选择包含您希望用于服务的镜像的注册表。                                                                                                         |
+| 镜像                    | 输入镜像名称。如果使用Docker Hub，您也可以从这里搜索镜像。                                                                                    |
+| 调度模式          | 选择是在同一主机上复制服务还是全局部署，每个主机上部署一个容器。                                                                       |
+| 副本数                 | 设置副本数量(仅在调度模式设置为**复制**时可用)。                                                                                                   |
+| 端口映射             | 定义要在新服务上暴露的端口。                                                                                                                                       |
+| 创建服务webhook | 切换开启以为服务创建[webhook](webhooks.md)。您可以向此端点发送POST请求来自动拉取最新镜像并重新部署服务。 |
 
 <figure><img src="../..//assets/2.15-docker_service_create_service.png" alt=""><figcaption></figcaption></figure>
 
-You can also configure any advanced options for the service in the bottom section.
+您还可以在底部部分配置服务的任何高级选项。
 
-When you're finished click **Create the service**.
+完成后点击**创建服务**。

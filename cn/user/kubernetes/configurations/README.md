@@ -1,45 +1,39 @@
 # ConfigMaps & Secrets
 
-In Portainer you can create configurations outside of a service's image or running containers. This allows you to keep your images as generic as possible, without the need to bind-mount configuration files into the containers, or to use environment variables.
+在Portainer中，您可以在服务镜像或运行容器之外创建配置。这使您能够保持镜像尽可能通用，无需将配置文件绑定挂载到容器中或使用环境变量。
 
+此部分以前称为**配置**。
 
-This section was previously known as **Configurations**.
-
-
-This page is split into two tabs - [ConfigMaps](./#configmaps) and [Secrets](./#secrets).
+本页面分为两个标签页 - [ConfigMaps](./#configmaps) 和 [Secrets](./#secrets)。
 
 ## ConfigMaps
 
-This tab displays the ConfigMaps that exist within your Kubernetes cluster. By default, system resources are hidden. To view them, click the three dot menu on the right hand side and check **Show system resources**.
+此标签页显示Kubernetes集群中存在的ConfigMaps。默认情况下，系统资源是隐藏的。要查看它们，点击右侧的三点菜单并勾选**显示系统资源**。
 
 <figure><img src="../..//assets/2.19-kubernetes-configurations-configmaps-list.png" alt=""><figcaption></figcaption></figure>
 
-You can filter the display of ConfigMaps by namespace by clicking **Filter** and checking the namespaces you want to see.
+您可以通过点击**筛选**并勾选要查看的命名空间来按命名空间筛选ConfigMaps的显示。
 
-A ConfigMap with the **external** flag was created outside of Portainer, which means Portainer has limited knowledge on it compared to one created within Portainer. A label of **unused** means that Portainer cannot see any applications that are using this ConfigMap. This label may also appear on **external** resources because of the limited information available.
+带有**external**标志的ConfigMap是在Portainer外部创建的，这意味着Portainer对其了解有限，与在Portainer内创建的ConfigMap相比。**unused**标签表示Portainer看不到任何使用此ConfigMap的应用程序。由于可用信息有限，此标签也可能出现在**external**资源上。
 
-To add a new ConfigMap via a form, click the **Add with form** button. To add via a manifest, click **Create from manifest**.
-
+要通过表单添加新的ConfigMap，点击**使用表单添加**按钮。要通过manifest添加，点击**从manifest创建**。
 
 [add.md](add.md)
 
-
-To remove a ConfigMap, check the box next to the ConfigMap you want to remove and click the **Remove** button.
+要移除ConfigMap，勾选要移除的ConfigMap旁边的复选框，然后点击**移除**按钮。
 
 ## Secrets
 
-This tab displays the secrets that exist within your Kubernetes cluster. By default, system resources are hidden. To view them, click the three dot menu on the right hand side and check **Show system resources**.
+此标签页显示Kubernetes集群中存在的secrets。默认情况下，系统资源是隐藏的。要查看它们，点击右侧的三点菜单并勾选**显示系统资源**。
 
 <figure><img src="../..//assets/2.19-kubernetes-configurations-secrets-list.png" alt=""><figcaption></figcaption></figure>
 
-You can filter the display of secrets by namespace by clicking **Filter** and checking the namespaces you want to see.
+您可以通过点击**筛选**并勾选要查看的命名空间来按命名空间筛选secrets的显示。
 
-A secret with the **external** flag was created outside of Portainer, which means Portainer has limited knowledge on it compared to one created within Portainer. A label of **unused** means that Portainer cannot see any applications that are using this secret. This label may also appear on **external** resources because of the limited information available.
+带有**external**标志的secret是在Portainer外部创建的，这意味着Portainer对其了解有限，与在Portainer内创建的secret相比。**unused**标签表示Portainer看不到任何使用此secret的应用程序。由于可用信息有限，此标签也可能出现在**external**资源上。
 
-To add a new secret via a form, click the **Add with form** button. To add via a manifest, click **Create from manifest**.
-
+要通过表单添加新的secret，点击**使用表单添加**按钮。要通过manifest添加，点击**从manifest创建**。
 
 [add-1.md](add-1.md)
 
-
-To remove a secret, check the box next to the secret you want to remove and click the **Remove** button.
+要移除secret，勾选要移除的secret旁边的复选框，然后点击**移除**按钮。

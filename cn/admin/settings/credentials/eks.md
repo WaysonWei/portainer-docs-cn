@@ -1,15 +1,15 @@
-# Add AWS credentials
+# 添加AWS凭据
 
-Before you can add your AWS credentials to Portainer, you will need to configure your IAM account with the necessary access policies and create and retrieve an access key.
+在将AWS凭据添加到Portainer之前，您需要配置IAM账户并创建访问密钥。
 
-## Configuring access to AWS
+## 配置AWS访问权限
 
-While you can use an existing IAM user to communicate with Portainer, you may want to create a new user for just this purpose. The minimum IAM policies required for Portainer to provision are as follows:
+虽然可以使用现有IAM用户，但建议为Portainer创建专用用户。Portainer所需的最小IAM策略如下：
 
 * `AmazonEC2FullAccess`
 * `AWSCloudFormationFullAccess`
 
-In addition, we require two custom policies, which you should create and assign to your IAM user:
+此外还需要两个自定义策略：
 
 ### EKSFullAccess
 
@@ -126,14 +126,12 @@ In addition, we require two custom policies, which you should create and assign 
 }
 ```
 
-Once you have your IAM user set up, log in to the AWS portal with the IAM user and in the top right menu - the user's name - select **Security Credentials**. Expand the **Access keys** section and click **Create New Access Key**.&#x20;
+配置完成后，使用IAM用户登录AWS控制台，在右上角菜单中选择**安全凭证**，展开**访问密钥**部分并点击**创建新访问密钥**。复制生成的**访问密钥ID**和**秘密访问密钥**。
 
-Copy the **Access key ID** and the **Secret access key** that are generated.
+## 添加您的凭据
 
-## Adding your credentials
-
-To add credentials for an AWS account, from the [Shared credentials](./) page click **Add credentials**, then select the **Amazon Web Services (AWS)** option. Enter a **name** for your credentials, then paste your **access key ID** and and **secret access key** from AWS into the fields.
+要为AWS账户添加凭据，从[共享凭据](./)页面点击**添加凭据**，然后选择**Amazon Web Services (AWS)**选项。输入凭据**名称**，并粘贴**访问密钥ID**和**秘密访问密钥**。
 
 <figure><img src="../..//assets/2.21.2-settings-cloud-credentials-aws.png" alt=""><figcaption></figcaption></figure>
 
-When you're ready, click **Add credentials**. Your credentials will now be available to you when [provisioning a Kubernetes cluster on AWS](../../environments/add/kaas/eks.md).
+准备就绪后，点击**添加凭据**。您的凭据现在可以在[在AWS上配置Kubernetes集群](../../environments/add/kaas/eks.md)时使用。

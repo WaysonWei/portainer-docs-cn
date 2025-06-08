@@ -1,15 +1,15 @@
-# Add DigitalOcean credentials
+# 添加DigitalOcean凭据
 
-Before you can add your DigitalOcean credentials to Portainer, you will need to create an API token in your DigitalOcean account.
+在将DigitalOcean凭据添加到Portainer之前，您需要在DigitalOcean账户中创建一个API令牌。
 
-## Creating your API token
+## 创建API令牌
 
-Log into the DigitalOcean dashboard and select **API** at the bottom left. Click **Generate New Token**, enter a token name and an expiration time, and ensure that both **Read** and **Write** scopes are ticked.
+登录DigitalOcean控制面板，在左下角选择**API**。点击**生成新令牌**，输入令牌名称和过期时间，并确保同时勾选了**读取**和**写入**权限范围。
 
-## Adding your credentials
+## 添加您的凭据
 
-To add credentials for a DigitalOcean account, from the [Shared credentials](./) page click **Add credentials**, then select the **DigitalOcean** option. Give your credential set a **name** and paste your **API key** into the box.
+要为DigitalOcean账户添加凭据，从[共享凭据](./)页面点击**添加凭据**，然后选择**DigitalOcean**选项。为您的凭据集指定一个**名称**，并将**API密钥**粘贴到框中。
 
 <figure><img src="../..//assets/2.21.2-settings-cloud-credentials-digitalocean.png" alt=""><figcaption></figcaption></figure>
 
-When you're ready, click **Add credentials**. Your credentials will now be available to you when [provisioning a Kubernetes cluster on DigitalOcean](../../environments/add/kaas/digitalocean.md).
+准备就绪后，点击**添加凭据**。您的凭据现在可以在[在DigitalOcean上配置Kubernetes集群](../../environments/add/kaas/digitalocean.md)时使用。

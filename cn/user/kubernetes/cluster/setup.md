@@ -1,98 +1,88 @@
-# Setup
+# 设置
 
-You can make changes to your environment's Kubernetes configuration by expanding **Cluster** from the menu then selecting **Setup**.
+您可以通过从菜单展开**集群**然后选择**设置**来更改环境的Kubernetes配置。
 
 <figure><img src="../..//assets/2.20-kubernetes-cluster-setup.gif" alt=""><figcaption></figcaption></figure>
 
-## Networking - Services
+## 网络 - 服务
 
-### Allow users to use external load balancer
+### 允许用户使用外部负载均衡器
 
+要使用此功能，您需要确保您的云提供商允许您创建负载均衡器。使用此功能可能会产生云提供商的费用。
 
-To use this feature, you need to ensure that your cloud provider allows you to create load balancers. Using this feature may incur costs from your cloud provider.
-
-
-Enabling the load balancer feature will allow users to expose applications they deploy over an external IP address assigned by their cloud provider.
+启用负载均衡器功能将允许用户通过其云提供商分配的外部IP地址公开他们部署的应用程序。
 
 <figure><img src="../..//assets/2.20-kubernetes-cluster-setup-networking-services.png" alt=""><figcaption></figcaption></figure>
 
-## Networking - Ingresses
+## 网络 - Ingress
 
-Configuring ingress controllers will allow users to expose applications they deploy over a HTTP route.
+配置Ingress控制器将允许用户通过HTTP路由公开他们部署的应用程序。
 
-Portainer auto detects and lists any ingress controllers defined in the cluster and sets them to allowed by default. As an admin you may choose to disable ingress controllers as needed.
+Portainer自动检测并列出集群中定义的任何Ingress控制器，并默认设置为允许。作为管理员，您可以根据需要禁用Ingress控制器。
 
 <figure><img src="../..//assets/2.19-kubernetes-cluster-setup-ingresses.png" alt=""><figcaption></figcaption></figure>
 
-Enabling **Allow Ingress class to be set to "none"** will let users create ingress objects without specifying any Ingress Class. This is useful for Kubernetes implementations where there is no `IngressClass` defined in the cluster.
+启用**允许将Ingress类设置为"none"**将允许用户创建不指定任何Ingress类的Ingress对象。这对于集群中没有定义`IngressClass`的Kubernetes实现很有用。
 
-Enable the **Configure ingress controller availability per namespace** toggle to be able to control Ingress Class availability further at the namespace level.
+启用**按命名空间配置Ingress控制器可用性**切换，可以进一步在命名空间级别控制Ingress类的可用性。
 
-Enabling **Only allow admins to deploy ingresses** restricts the deployment of ingresses to cluster administrators only, preventing standard users from creating new ingresses.
+启用**仅允许管理员部署Ingress**将限制只有集群管理员才能部署Ingress，防止标准用户创建新的Ingress。
 
-## Change Window Settings
+## 变更窗口设置
 
-This setting allows you to specify a window within which [GitOps updates](../applications/manifest.md#gitops-updates) to your applications can be applied.
+此设置允许您指定一个窗口，在此窗口内可以应用对应用程序的[GitOps更新](../applications/manifest.md#gitops-updates)。
 
-
-If this setting is enabled and an update is made to an application outside of this window, it will not be applied.
-
+如果启用此设置并在窗口之外对应用程序进行更新，则不会应用该更新。
 
 <figure><img src="../..//assets/2.20-kubernetes-cluster-setup-changewindow.png" alt=""><figcaption></figcaption></figure>
 
-## Deployment Options
+## 部署选项
 
-This section allows you to override any global deployment options set for Kubernetes environments.
+此部分允许您覆盖为Kubernetes环境设置的任何全局部署选项。
 
+此部分仅在[设置](../../../admin/settings/#deployment-options)中启用了**允许按环境覆盖**选项时出现。
 
-This section only appears if the **Allow per environment override** option is enabled in [Settings](../../../admin/settings/#deployment-options).
-
-
-| Field/Option                             | Overview                                                                                                                                                                       |
+| 字段/选项                             | 概述                                                                                                                                                                       |
 | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Override global deployment options       | Enable this option to override the global deployment options for this environment.                                                                                             |
-| Enforce code-based deployment            | When override is enabled, enable this option to hide the Add with form button when deploying applications and prevent the adding or editing of Kubernetes resources via forms. |
-| Allow web editor and custom template use | When code-based deployment is enforced, enable this to allow the use of the web editor and custom templates when deploying an application.                                     |
-| Allow specifying of a manifest via a URL | When code-based deployment is enforced, enable this allow the use of the URL option when deploying an application.                                                             |
+| 覆盖全局部署选项       | 启用此选项以覆盖此环境的全局部署选项。                                                                                             |
+| 强制基于代码的部署            | 当覆盖启用时，启用此选项将在部署应用程序时隐藏"使用表单添加"按钮，并防止通过表单添加或编辑Kubernetes资源。 |
+| 允许使用Web编辑器和自定义模板 | 当强制基于代码的部署时，启用此选项以允许在部署应用程序时使用Web编辑器和自定义模板。                                     |
+| 允许通过URL指定清单 | 当强制基于代码的部署时，启用此选项以允许在部署应用程序时使用URL选项。                                                             |
 
 <figure><img src="../..//assets/2.20-kubernetes-cluster-setup-deployment.png" alt=""><figcaption></figcaption></figure>
 
-## Security
+## 安全
 
-### Restrict access to the default namespace
+### 限制对默认命名空间的访问
 
-By default, a Kubernetes cluster will instantiate a default namespace when provisioning the cluster to hold the default set of pods, services, and deployments used by the cluster. If this option is enabled, the only users with the power to run applications in the default namespace are Portainer administrators.
+默认情况下，Kubernetes集群在配置集群时会实例化一个默认命名空间，以保存集群使用的默认Pod、服务和部署集。如果启用此选项，唯一有权在默认命名空间中运行应用程序的用户是Portainer管理员。
 
-### Restrict secret contents access for non-admins (UI only)
+### 限制非管理员用户访问secret内容(仅限UI)
 
-By default, users are able to view and edit Kubernetes secrets within the Portainer UI. Enabling this option disallows all non-admin users from doing so. Note that due to limitations within Kubernetes itself this only applies to the Portainer UI and does not prevent users from doing so through the command line or API.
+默认情况下，用户能够在Portainer UI中查看和编辑Kubernetes secret。启用此选项将禁止所有非管理员用户这样做。请注意，由于Kubernetes本身的限制，这仅适用于Portainer UI，并不阻止用户通过命令行或API这样做。
 
 <figure><img src="../..//assets/2.20-kubernetes-cluster-setup-security.png" alt=""><figcaption></figcaption></figure>
 
-## Resources and Metrics
+## 资源和指标
 
-### Allow resource over-commit
+### 允许资源超额分配
 
-Enabling this feature lets you allocate more resources to namespaces than are physically available in the cluster.
+启用此功能可让您为命名空间分配比集群中物理可用资源更多的资源。
 
+**启用**资源超额分配，如果您需要为命名空间分配比集群中物理可用资源更多的资源。如果资源不足以满足需求，这可能会导致意外的部署失败。
 
-**Enable** resource over-commit if you need to assign more resources to namespaces than are physically available in the cluster. This may lead to unexpected deployment failures if there are insufficient resources to meet the demand.
+**禁用**资源超额分配(强烈推荐)，如果您只能为命名空间分配的资源总量小于集群总量减去任何系统资源预留。
 
-**Disable** resource over-commit (highly recommended) if you are only able to assign resources to namespaces that are less (in aggregate) than the cluster total, minus any system-resource reservation.
+### 使用指标API启用功能
 
+确保Kubernetes[指标服务器](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/#metrics-server)或[Prometheus](https://github.com/kubernetes-sigs/prometheus-adapter)在您的集群中运行。
 
-### Enable features using the metrics API
-
-
-&#x20;Ensure that the Kubernetes [metrics server](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/#metrics-server) or [Prometheus](https://github.com/kubernetes-sigs/prometheus-adapter) is running inside your cluster.
-
-
-Enabling this feature will allow users to use specific features that leverage the metrics API component, such as the memory and CPU usage graphs at the cluster and node level. If Portainer detects you are using a metrics server and is able to connect, this will default to on.
+启用此功能将允许用户使用利用指标API组件的特定功能，例如集群和节点级别的内存和CPU使用情况图表。如果Portainer检测到您正在使用指标服务器并且能够连接，则此选项将默认为开启。
 
 <figure><img src="../..//assets/2.15-k8s-cluster-setup-resources.png" alt=""><figcaption></figcaption></figure>
 
-## Available storage options
+## 可用存储选项
 
-Select which storage options will be available for use when deploying applications. Take a look at your storage driver documentation to figure out which access policy to configure, and whether or not the volume-expansion capability is supported. Any storage classes marked as default will be automatically set to on.
+选择部署应用程序时可用的存储选项。查看您的存储驱动程序文档以确定要配置的访问策略，以及是否支持卷扩展功能。标记为默认的任何存储类将自动设置为开启。
 
 <figure><img src="../..//assets/2.15-k8s-cluster-setup-storage.png" alt=""><figcaption></figcaption></figure>

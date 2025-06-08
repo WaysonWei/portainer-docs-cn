@@ -1,158 +1,134 @@
-# Add a new Edge Stack
+# 添加新的Edge堆栈
 
-From the menu select **Edge Stacks** then click **Add stack**.
+从菜单中选择**Edge堆栈**然后点击**添加堆栈**。
 
 <figure><img src="../..//assets/2.20-edge-stacks-add.gif" alt=""><figcaption></figcaption></figure>
 
-Give the stack a descriptive name then select one or more [Edge Groups](../groups.md).
+为堆栈指定一个描述性名称，然后选择一个或多个[Edge组](../groups.md)。
 
 <figure><img src="../..//assets/2.19-edge-stacks-add-name.png" alt=""><figcaption></figcaption></figure>
 
-In **Deployment type**, select the type of deployment you are performing.
+在**部署类型**中，选择您要执行的部署类型。
 
-
-This may be auto-selected based on the environments in your choice of [Edge Groups](../groups.md).
-
+此选项可能会根据您选择的[Edge组](../groups.md)中的环境自动确定。
 
 <figure><img src="../..//assets/2.20-edge-stacks-add-deploymenttype.png" alt=""><figcaption></figcaption></figure>
 
-In the **Build Method**, define how to deploy your app from one of the following options:
+在**构建方法**中，从以下选项定义如何部署您的应用：
 
-| Option     | Overview                                                                        |
+| 选项       | 概述                                                                        |
 | ---------- | ------------------------------------------------------------------------------- |
-| Web editor | Use the Portainer web editor to write or paste in your build file.              |
-| Upload     | Upload a build file from your computer.                                         |
-| Repository | Use a GitHub repo where the build file is stored.                               |
-| Template   | Use an Edge stack template. Only available for the **Compose** deployment type. |
+| 网页编辑器 | 使用Portainer网页编辑器编写或粘贴您的构建文件。              |
+| 上传       | 从您的计算机上传构建文件。                                         |
+| 仓库       | 使用存储构建文件的GitHub仓库。                               |
+| 模板       | 使用Edge堆栈模板。仅适用于**Compose**部署类型。 |
 
 <figure><img src="../..//assets/2.20-edge-stacks-add-buildmethod.png" alt=""><figcaption></figcaption></figure>
 
-## Web editor
+## 网页编辑器
 
-Use the web editor to define the services for your deployment.
+使用网页编辑器定义您的部署服务。
 
-
-You can search within the web editor at any time by pressing `Ctrl-F` (or `Cmd-F` on Mac).
-
+您可以通过按`Ctrl-F`(Mac上为`Cmd-F`)随时在网页编辑器中搜索。
 
 <figure><img src="../..//assets/2.19-edge-stacks-edit-webeditor.png" alt=""><figcaption></figcaption></figure>
 
-## Upload
+## 上传
 
-Click **Select a file** to upload a file from your computer containing your stack definition.
+点击**选择文件**从您的计算机上传包含堆栈定义的文件。
 
 <figure><img src="../..//assets/2.19-edge-stacks-add-upload.png" alt=""><figcaption></figcaption></figure>
 
-## Repository
+## 仓库
 
-Enter the information about your Git repository to deploy your Edge Stack from Git.
+输入有关您的Git仓库的信息，以便从Git部署Edge堆栈。
 
+Portainer的Git部署功能目前不支持Git子模块。如果您的仓库包含子模块，它们将不会作为部署的一部分被拉取。我们[希望在未来的版本中](https://github.com/orgs/portainer/discussions/9767)添加对子模块的支持。
 
-Portainer's Git deployment functionality does not currently support the use of Git submodules. If your repository includes submodules, they will not be pulled as part of the deployment. We [hope to add support](https://github.com/orgs/portainer/discussions/9767) for submodules in a future release.
-
-
-| Field/Option          | Overview                                                                                                                         |
+| 字段/选项          | 概述                                                                                                                         |
 | --------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| Authentication        | Toggle this on if your Git repository requires authentication.                                                                   |
-| Git Credentials       | If the **Authentication** toggle is enabled and you have configured Git credentials, you can select them from this dropdown.     |
-| Username              | Enter your Git username.                                                                                                         |
-| Personal Access Token | Enter your personal access token or password.                                                                                    |
-| Save credential       | Check this option to save the credentials entered above for future use under the name provided in the **credential name** field. |
+| 认证        | 如果您的Git仓库需要认证，请启用此选项。                                                                   |
+| Git凭据       | 如果启用了**认证**选项并且您已配置了Git凭据，可以从此下拉菜单中选择它们。     |
+| 用户名              | 输入您的Git用户名。                                                                                                         |
+| 个人访问令牌 | 输入您的个人访问令牌或密码。                                                                                    |
+| 保存凭据       | 勾选此选项以保存上面输入的凭据供将来使用，名称在**凭据名称**字段中提供。 |
 
-
-If you have 2FA configured in GitHub, your passcode is your password.
-
+如果您在GitHub中配置了2FA，您的密码就是您的密码。
 
 <figure><img src="../..//assets/2.19-edge-stacks-add-git-auth.png" alt=""><figcaption></figcaption></figure>
 
-| Field/Option                 | Overview                                                                                                                                                                                          |
+| 字段/选项                 | 概述                                                                                                                                                                                          |
 | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Repository URL               | Enter the repository URL. If you have enabled Authentication above the credentials will be used to access the repository. The below options will be populated by what is found in the repository. |
-| Repository reference         | Select the reference to use when deploying the stack (for example, the branch).                                                                                                                   |
-| Compose path / manifest path | Enter the path to the Compose or manifest file from the root of the repository.                                                                                                                   |
-| Additional paths             | Click **Add file** to add additional files to be parsed by the build (for example, an environment-specific compose or manifest file).                                                             |
-| GitOps updates               | Toggle this on to enable GitOps updates (see below).                                                                                                                                              |
-| Skip TLS verification        | Toggle this on to skip the verification of TLS certificates used by your repository. This is useful if your repo uses a self-signed certificate.                                                  |
+| 仓库URL               | 输入仓库URL。如果上面启用了认证，将使用凭据访问仓库。下面的选项将由仓库中找到的内容填充。 |
+| 仓库引用         | 选择部署堆栈时使用的引用(例如分支)。                                                                                                                   |
+| Compose路径 / manifest路径 | 输入从仓库根目录到Compose或manifest文件的路径。                                                                                                                   |
+| 附加路径             | 点击**添加文件**添加要由构建解析的其他文件(例如环境特定的compose或manifest文件)。                                                             |
+| GitOps更新               | 启用此选项以启用GitOps更新(见下文)。                                                                                                                                              |
+| 跳过TLS验证        | 启用此选项以跳过对仓库使用的TLS证书的验证。如果您的仓库使用自签名证书，这很有用。                                                  |
 
 <figure><img src="../..//assets/2.19-stacks-add-git.png" alt=""><figcaption></figcaption></figure>
 
-### GitOps updates
+### GitOps更新
 
-Portainer supports automatically updating your Edge Stacks deployed from Git repositories. To enable this, toggle on **GitOps updates** and configure your settings.
+Portainer支持自动更新从Git仓库部署的Edge堆栈。要启用此功能，请打开**GitOps更新**并配置您的设置。
 
+有关自动更新在后台如何工作的更多详细信息，请查看[此知识库文章](https://portal.portainer.io/knowledge/how-do-automatic-updates-for-stacks-applications-work)。
 
-For more detail on how automatic updates function under the hood, have a look at [this knowledge base article](https://portal.portainer.io/knowledge/how-do-automatic-updates-for-stacks-applications-work).
-
-
-| Field/Option   | Overview                                                                                                                                                                                                                                                                            |
+| 字段/选项   | 概述                                                                                                                                                                                                                                                                            |
 | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Mechanism      | Select the method to use when checking for updates:                                                                                                                                                                                                                                 |
-|                | <p><strong>Polling:</strong> Periodically poll the Git repository from Portainer to check for updates to the repository.</p><p><strong>Webhook:</strong> Generate a webhook URL to add to your Git repository to trigger the update on demand (for example via GitHub actions).</p> |
-| Fetch interval | If **Polling** is selected, how often Portainer will check the Git repository for updates.                                                                                                                                                                                          |
-| Webhook        | When **Webhook** is selected, displays the webhook URL to use in your integration. Click **Copy link** to copy the webhook URL to the clipboard.                                                                                                                                    |
+| 机制      | 选择检查更新时使用的方法:                                                                                                                                                                                                                                 |
+|                | <p><strong>轮询:</strong> 定期从Portainer轮询Git仓库以检查仓库更新。</p><p><strong>Webhook:</strong> 生成一个webhook URL添加到您的Git仓库以按需触发更新(例如通过GitHub actions)。</p> |
+| 获取间隔 | 如果选择**轮询**，Portainer将检查Git仓库更新的频率。                                                                                                                                                                                          |
+| Webhook        | 当选择**Webhook**时，显示要在集成中使用的webhook URL。点击**复制链接**将webhook URL复制到剪贴板。                                                                                                                                    |
 
-<figure><img src="../..//assets/2.19-stacks-add-git-polling.png" alt=""><figcaption><p>GitOps updates when using polling</p></figcaption></figure>
+<figure><img src="../..//assets/2.19-stacks-add-git-polling.png" alt=""><figcaption><p>使用轮询时的GitOps更新</p></figcaption></figure>
 
-<figure><img src="../..//assets/2.19-stacks-add-git-webhook.png" alt=""><figcaption><p>GitOps updates when using webhooks</p></figcaption></figure>
+<figure><img src="../..//assets/2.19-stacks-add-git-webhook.png" alt=""><figcaption><p>使用webhooks时的GitOps更新</p></figcaption></figure>
 
 |                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Re-pull image      | When **Webhook** is selected, displays the webhook URL to use in your integration. Click **Copy link** to copy the webhook URL to the clipboard.                                                                                                                                                                                                                                                                                                                                                                                                            |
-| Force redeployment | <p>Enable this setting to force the redeployment of your stack at the specified interval (or when the webhook is triggered), overwriting any changes that have been made in the local environment, even if there has been no update to the stack in Git. This is useful if you want to ensure that your Git repository is the source of truth for your stacks and are happy with the local stack being replaced.</p><p>If this option is left disabled, automatic updates will only trigger if Portainer detects a change in the remote Git repository.</p> |
+| 重新拉取镜像      | 当选择**Webhook**时，显示要在集成中使用的webhook URL。点击**复制链接**将webhook URL复制到剪贴板。                                                                                                                                                                                                                                                                                                                                                                                                            |
+| 强制重新部署 | <p>启用此设置以强制在指定间隔(或触发webhook时)重新部署堆栈，覆盖本地环境中已做的任何更改，即使Git中的堆栈没有更新。如果您希望确保Git仓库是堆栈的真实来源并且对替换本地堆栈感到满意，这很有用。</p><p>如果禁用此选项，仅当Portainer检测到远程Git仓库中的更改时才会触发自动更新。</p> |
 
 <figure><img src="../..//assets/2.19-stacks-add-git-repull-force.png" alt=""><figcaption></figcaption></figure>
 
-### Relative path volumes
+### 相对路径卷
 
-When you toggle **Enable relative path volumes** to on, you are able to specify relative path references in your compose files. Portainer will create the required directory structure and populate the directories with the relevant files from your Git repository. This feature is only available for Docker Standalone and Docker Swarm environments.
+当您将**启用相对路径卷**切换为开时，您可以在compose文件中指定相对路径引用。Portainer将创建所需的目录结构并用Git仓库中的相关文件填充目录。此功能仅适用于Docker独立和Docker Swarm环境。
 
+如果您之前启用了[GitOps Edge配置](add.md#gitops-edge-configurations)，那里设置的文件系统路径也将用于相对路径卷功能。
 
-If you have previously enabled [GitOps Edge configurations](add.md#gitops-edge-configurations), the filesystem path set there will be used for the relative path volumes feature as well.
+在Docker独立环境中，在**本地文件系统路径**字段中指定您希望在主机文件系统上创建文件的路径。
 
-
-On Docker Standalone environments, specify the path at which you want your files to be created on your host filesystem in the **Local filesystem path** field.
-
-
-Ensure this directory exists on your local filesystem and is writable.
-
+确保此目录存在于本地文件系统上并且可写。
 
 <figure><img src="../..//assets/2.17-stacks-add-relativepath.png" alt=""><figcaption></figcaption></figure>
 
-On Docker Swarm environments, specify the path at which you want your files to be created in the **Network filesystem path** field.
+在Docker Swarm环境中，在**网络文件系统路径**字段中指定您希望创建文件的路径。
 
-
-Ensure that this path is available on all of your Docker Swarm nodes and is writable.
-
+确保此路径在您的所有Docker Swarm节点上都可用并且可写。
 
 <figure><img src="../..//assets/2.17-stacks-add-relativepath-swarm.png" alt=""><figcaption></figcaption></figure>
 
+有关此功能如何工作的更多详细信息，请查看[此文章](../../../advanced/relative-paths.md)。
 
-For more detail on how this feature works, have a look at [this article](../../../advanced/relative-paths.md).
+### GitOps Edge配置
 
+您还可以选择从Git仓库部署设备特定的配置到将部署Edge堆栈的设备。要使用此功能，启用**GitOps Edge配置**开关，输入**本地**或**远程文件系统路径**，**目录**(相对于Git仓库的根目录)并选择与您的配置对应的**设备**或**组匹配规则**。
 
-### GitOps Edge configurations
-
-You can also choose to deploy device-specific configurations from your Git repository to the devices your Edge stack will be deployed to. To use this, enable the **GitOps Edge configurations** toggle, enter the **Local** or **Remote filesystem path**, **Directory** (relative to the root of your Git repository) and select the **Device** or **Group matching rule** that corresponds to your configuration.
-
-
-If you have previously enabled [Relative path volumes](add.md#relative-path-volumes), the filesystem path set there will be used for the GitOps Edge configurations feature as well.
-
+如果您之前启用了[相对路径卷](add.md#relative-path-volumes)，那里设置的文件系统路径也将用于GitOps Edge配置功能。
 
 <figure><img src="../..//assets/2.20-edge-stacks-add-git-edgeconfigs.png" alt=""><figcaption></figcaption></figure>
 
+如果您同时设置了**设备匹配规则**和**组匹配规则**，设备匹配规则将优先。如果无法匹配设备匹配规则(换句话说，如果无法找到与设备名称匹配的文件或文件夹名)，Portainer将回退到组匹配规则。
 
-If you set both a **Device matching rule** and a **Group matching rule**, the Device matching rule will take precedence. If the Device matching rule cannot be matched (in other words, if a file or folder name matching the device name is then unable to be located), Portainer will fall back to the Group matching rule instead.
+在您定义的**目录**下的Git仓库中，您应该具有与将部署堆栈的设备的Portainer Edge ID或Edge组对应的文件名或文件夹名(取决于您的**匹配规则**选择)。您可以在堆栈文件中使用`PORTAINER_EDGE_ID`和`PORTAINER_EDGE_GROUP`环境变量引用此ID。
 
-
-Within your Git repository at the **Directory** you define, you should have file names or folder names (depending on your **Matching rule** selection) that correspond to the Portainer Edge IDs or Edge Group for the devices you will be deploying the stack to. You can reference this ID in your stack files with the `PORTAINER_EDGE_ID` and `PORTAINER_EDGE_GROUP` environment variables.&#x20;
-
-
-You can find the Edge IDs for your Edge environments under **Environments**, select the environment, and note the **Edge identifier** value in the **Edge information** box. It will look like the following:
+您可以在**环境**下找到Edge环境的Edge ID，选择环境，并注意**Edge信息**框中的**Edge标识符**值。它将如下所示：
 
 `73149964-56f4-473b-81b3-5ecdc397e490`
 
-
-For example, when using folder name matching and a directory of `config` , you can use the following syntax:
+例如，当使用文件夹名匹配和`config`目录时，您可以使用以下语法：
 
 ```
 version: '3'
@@ -164,102 +140,93 @@ services:
       - ./config/${PORTAINER_EDGE_ID}:/my-device-config
 ```
 
-In this example, each Edge device the stack was deployed to would mount their specific device (based on the Portainer Edge ID) folder from within the `config` directory of the Git repository to the `/my-device-config` folder in the container.
+在此示例中，部署堆栈的每个Edge设备将从Git仓库的`config`目录中挂载其特定设备(基于Portainer Edge ID)文件夹到容器中的`/my-device-config`文件夹。
 
-If you deploy your stack to a device that does not have a file or folder with the corresponding Portainer Edge ID in the GitOps Edge configuration directory, the stack will deploy as normal but with no device specific configuration deployed.
+如果您将堆栈部署到GitOps Edge配置目录中没有与Portainer Edge ID对应的文件或文件夹的设备，堆栈将正常部署但没有部署设备特定的配置。
 
-## Template
+## 模板
 
-Select an Edge Stack template to deploy from the **Template** dropdown, and make any configuration adjustments as required.
+从**模板**下拉菜单中选择一个Edge堆栈模板进行部署，并根据需要进行任何配置调整。
 
 <figure><img src="../..//assets/2.19-edge-stacks-add-template.png" alt=""><figcaption></figcaption></figure>
 
-## Additional settings
+## 附加设置
 
 ### Webhooks
 
-For the Web editor, Upload and Template build methods you can choose to enable an Edge Stack webhook. This webhook will allow you to trigger updates to the stack by sending a POST request to a specific URL, instructing Portainer to pull the most up to date version of the associated image and re-deploy the stack.
+对于网页编辑器、上传和模板构建方法，您可以选择启用Edge堆栈webhook。此webhook将允许您通过向特定URL发送POST请求来触发堆栈更新，指示Portainer拉取关联镜像的最新版本并重新部署堆栈。
 
-
-For Git deployed stacks, this functionality is available via [GitOps updates](add.md#gitops-updates).
-
+对于Git部署的堆栈，此功能可通过[GitOps更新](add.md#gitops-updates)获得。
 
 <figure><img src="../..//assets/2.19-edge-stacks-add-webhook.png" alt=""><figcaption></figcaption></figure>
 
-### Environment variables
+### 环境变量
 
-As an optional step, you can also set environment variables. You can use these to define values in your compose file that would vary between deployments (for example, hostnames, database names, etc).
+作为可选步骤，您还可以设置环境变量。您可以使用这些变量来定义在部署之间会变化的compose文件中的值(例如主机名、数据库名称等)。
 
+此功能仅适用于Docker独立和Docker Swarm环境。
 
-This feature is only available on Docker Standalone and Docker Swarm environments.
-
-
-Environment variables can be set individually within Portainer or you can use **Load variables from .env file** to upload a file containing your environment variables. Environment variables you define (either individually or via a .env file) will be available to use in your compose file using an `environment` definition:
+环境变量可以在Portainer中单独设置，也可以使用**从.env文件加载变量**上传包含环境变量的文件。您定义的环境变量(单独或通过.env文件)将可用于在compose文件中使用`environment`定义：
 
 ```
 environment:
   MY_ENVIRONMENT_VARIABLE: ${MY_ENVIRONMENT_VARIABLE}
 ```
 
-Alternatively, you can add `stack.env` as an `env_file` definition to add all the environment variables that you have defined individually as well as those included in an uploaded .env file:
+或者，您可以添加`stack.env`作为`env_file`定义，以添加您单独定义的所有环境变量以及上传的.env文件中包含的环境变量：
 
 ```
 env_file:
   - stack.env
 ```
 
-
-Note the compose file is not changed when environment variables are used - this allows variables to be updated within Portainer without editing the compose file itself which would take it out of sync with the Git repository. You will still see the `${MY_ENVIRONMENT_VARIABLE}` style entry in the compose file.
-
+请注意，使用环境变量时不会更改compose文件 - 这允许在Portainer中更新变量而无需编辑compose文件本身，这将使其与Git仓库不同步。您仍将在compose文件中看到`${MY_ENVIRONMENT_VARIABLE}`样式的条目。
 
 <figure><img src="../..//assets/2.15-docker_stack_wed_editor_env_var.png" alt=""><figcaption></figcaption></figure>
 
-### Registry
+### 注册表
 
-If your stack requires access to images in private registries, you can specify which registry to use as part of the deployment.
+如果您的堆栈需要访问私有注册表中的镜像，您可以指定在部署中使用哪个注册表。
 
 <figure><img src="../..//assets/2.15-edge-stacks-add-registry.png" alt=""><figcaption></figcaption></figure>
 
-### Pre-pull images
+### 预拉取镜像
 
-By default, Docker will start containers within the stack that it already has images for, while at the same time pulling any other images it needs from the upstream registries. In some cases you may want to wait until all of the needed images are pulled to the device before starting the stack. To do this, enable the **Pre-pull images** toggle. This can also help to avoid issues when some images in a stack are unable to be pulled, leading to an incomplete or partial deployment.
+默认情况下，Docker将启动堆栈中已有镜像的容器，同时从上游注册表拉取任何其他需要的镜像。在某些情况下，您可能希望在启动堆栈之前等待所有需要的镜像都被拉取到设备上。为此，启用**预拉取镜像**开关。这也有助于避免堆栈中某些镜像无法拉取导致部署不完整或部分部署的问题。
 
 <figure><img src="../..//assets/2.18-edge-stacks-prepull.png" alt=""><figcaption></figcaption></figure>
 
-### Retry deployment
+### 重试部署
 
-If a deployment of an Edge Stack fails (for example if the remote Edge environment is unavailable), by default Portainer will not try and redeploy the stack. If you wish to enable retrying of failed deployments, you can toggle **Retry deployment** to on and set **Retry for** to the length of time you want Portainer to retry deploying the stack.
+如果Edge堆栈部署失败(例如远程Edge环境不可用)，默认情况下Portainer不会尝试重新部署堆栈。如果您希望启用失败部署的重试，可以将**重试部署**开关打开，并将**重试时间**设置为希望Portainer尝试部署堆栈的时间长度。
 
 <figure><img src="../..//assets/2.25.0-edge-stacks-retry-deployment.png" alt=""><figcaption></figcaption></figure>
 
-When the time selected in **Retry for** is reached, Portainer will stop retrying and the Edge Stack will be given a "failed" status.
+当达到**重试时间**中选择的时间时，Portainer将停止重试，Edge堆栈将被标记为"失败"状态。
 
-### Update configurations
+### 更新配置
 
-This section lets you define the method in which your stack updates are deployed across your Edge devices. You can choose to deploy to **All edge devices at once**, or select **Parallel edge device(s)** to specify how many devices to update concurrently.
+此部分允许您定义堆栈更新在Edge设备上的部署方式。您可以选择**一次性部署到所有Edge设备**，或选择**并行Edge设备**指定同时更新的设备数量。
 
-
-These settings do **not** apply to the _initial_ provision of your Edge Stack. These only apply to the process that will occur when your stack is updated _after_ deployment.
-
+这些设置**不**适用于Edge堆栈的_初始_部署。这些仅适用于堆栈部署_后_更新时的过程。
 
 <figure><img src="../..//assets/2.19-edge-stacks-updateconfigs.png" alt=""><figcaption></figcaption></figure>
 
-If **Parallel edge device(s)** is selected, you can choose to either deploy in static group sizes or in an exponential rollout strategy. For static group sizes, choose the **Number of device(s)** option and specify your group size.
+如果选择**并行Edge设备**，您可以选择静态组大小或指数级推出策略。对于静态组大小，选择**设备数量**选项并指定您的组大小。
 
 <figure><img src="../..//assets/2.19-edge-stacks-parallel-staticgroups.png" alt=""><figcaption></figcaption></figure>
 
-For an exponential rollout, choose the **Exponential rollout** option and specify how many devices to start with, then select the multiplier to apply to the initial size. For example, selecting a start size of 5 and a multiplier of 2, stack updates would be rolled out to 5 devices, then 10 (5 x 2), then 20 (10 x 2), and so forth.
+对于指数级推出，选择**指数级推出**选项并指定起始设备数量，然后选择应用于初始大小的乘数。例如，选择起始大小为5和乘数为2，堆栈更新将先部署到5台设备，然后是10台(5 x 2)，然后是20台(10 x 2)，依此类推。
 
 <figure><img src="../..//assets/2.19-edge-stacks-parallel-exponential.png" alt=""><figcaption></figcaption></figure>
 
-When using parallel rollouts, you can also specify the **Timeout** (in minutes) before Portainer considers the update to have failed, as well as the **Update delay** (in minutes) between each group of updates are applied.&#x20;
+使用并行推出时，您还可以指定**超时**(分钟)，在此之后Portainer认为更新失败，以及**更新延迟**(分钟)，即每组更新之间的间隔时间。
 
-In addition, you can define the **Update failure action** that will be taken if the update fails:&#x20;
-
-* **Continue** will move on to the next group of devices to update.&#x20;
-* **Pause** will halt the update process but will keep the update applied to any devices that have already been deployed to.&#x20;
-* **Rollback** will halt the update process and roll back the update on devices already updated.
+此外，您可以定义更新失败时将采取的**更新失败操作**：
+* **继续**将转到下一组设备进行更新。
+* **暂停**将停止更新过程，但已部署更新的设备将保持更新状态。
+* **回滚**将停止更新过程并回滚已更新设备上的更新。
 
 <figure><img src="../..//assets/2.19-edge-stacks-parallel-failureaction.png" alt=""><figcaption></figcaption></figure>
 
-Once the configuration is completed, click **Deploy the stack**.
+配置完成后，点击**部署堆栈**。

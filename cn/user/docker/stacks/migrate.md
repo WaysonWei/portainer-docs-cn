@@ -1,28 +1,27 @@
-# Migrate or duplicate a stack
+# 迁移或复制堆栈
 
-## Migrating a stack
+## 迁移堆栈
 
-From the menu select **Stacks** then select the stack you want to migrate.
+从菜单选择**堆栈**，然后选择要迁移的堆栈。
 
 <figure><img src="../..//assets/2.20-stacks-edit.gif" alt=""><figcaption></figcaption></figure>
 
-In the **Stack duplication / migration** section, select the destination environment for the stack, and optionally define a new name for the stack. Click **Migrate**.
+在**堆栈复制/迁移**部分，选择堆栈的目标环境，并可选地为堆栈定义新名称。点击**迁移**。
 
 <figure><img src="../..//assets/2.20-stacks-migrate-migrate.png" alt=""><figcaption></figcaption></figure>
 
-When the confirmation message appears, click **Migrate**.
+当确认消息出现时，点击**迁移**。
 
 <figure><img src="../..//assets/2.15-stack-migrate-confirm.png" alt=""><figcaption></figcaption></figure>
 
-## Duplicating a stack
+## 复制堆栈
 
-From the menu select **Stacks** then select the stack you want to duplicate.
+从菜单选择**堆栈**，然后选择要复制的堆栈。
 
 <figure><img src="../..//assets/2.20-stacks-edit.gif" alt=""><figcaption></figcaption></figure>
 
-In the **Stack duplication / migration** section, give the new stack a descriptive name then select the environment that the stack is currently on.
+在**堆栈复制/迁移**部分，为新堆栈提供一个描述性名称，然后选择堆栈当前所在的环境。
 
 <figure><img src="../..//assets/2.20-stacks-migrate-duplicate.png" alt=""><figcaption></figcaption></figure>
 
-When you're ready, click **Duplicate**.
-
+准备就绪后，点击**复制**。
