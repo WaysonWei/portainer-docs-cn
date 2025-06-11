@@ -1,30 +1,28 @@
-# Install Portainer CE with Docker Swarm on Windows Container Service
+# 在Windows容器服务上使用Docker Swarm安装Portainer CE
 
+这些安装说明适用于Portainer社区版(CE)。对于Portainer商业版(BE)，请参考[BE安装文档](../../../install/server/swarm/wcs.md)。
 
-These installation instructions are for Portainer Community Edition (CE). For Portainer Business Edition (BE) refer to the [BE install documentation](../../../install/server/swarm/wcs.md).
+## 简介
 
+Portainer由两个组件组成：_Portainer Server_和_Portainer Agent_。这两个组件都作为轻量级Docker容器运行在Docker引擎上。本文档将帮助您在Windows容器服务上安装Portainer Server容器。要将新的WCS环境添加到现有的Portainer Server安装中，请参考[Portainer Agent安装说明](../../../../admin/environments/add/swarm/agent.md)。
 
-## Introduction
+开始前，您需要：
 
-Portainer consists of two elements, the _Portainer Server_, and the _Portainer Agent_. Both elements run as lightweight Docker containers on a Docker engine. This document will help you install the Portainer Server container on your Windows server with Windows Containers. To add a new WCS environment to an existing Portainer Server installation, please refer to the [Portainer Agent installation instructions](../../../../admin/environments/add/swarm/agent.md).
+* 已安装并运行最新版本的Docker
+* 已[启用](https://docs.docker.com/engine/swarm/swarm-mode/)并运行Swarm模式，包括用于Swarm服务通信的overlay网络
+* 对Swarm集群管理节点具有管理员访问权限
+* 默认情况下，Portainer将通过端口`9443`暴露UI，并通过端口`8000`暴露TCP隧道服务器。后者是可选的，仅在您计划使用Edge计算功能与Edge代理时才需要
+* 管理节点和工作节点必须能够通过端口`9001`相互通信
 
-To get started, you will need:
+安装说明还假设您的环境满足以下条件：
 
-* The latest version of Docker installed and working.
-* Swarm mode [enabled](https://docs.docker.com/engine/swarm/swarm-mode/) and working, including the overlay network for the swarm service communication.
-* Administrator access on the manager node of your Swarm cluster.
-* By default, Portainer will expose the UI over port `9443` and expose a TCP tunnel server over port `8000`. The latter is optional and is only required if you plan to use the Edge compute features with Edge agents.
-* The manager and worker nodes must be able to communicate with each other over port `9001`.
+* 您的环境满足[我们的要求](../../../requirements-and-prerequisites.md)。虽然Portainer可能在其他配置下工作，但可能需要更改配置或功能受限
+* 您在Swarm中运行单个管理节点。如果有多个，请继续之前[阅读此知识库文章](https://portal.portainer.io/knowledge/how-can-i-ensure-portainers-configuration-is-retained)
+* 如果您的节点使用DNS记录进行通信，请确保所有记录在整个集群中可解析
 
-The installation instructions also make the following assumptions about your environment:
+## 准备工作
 
-* Your environment meets [our requirements](../../../requirements-and-prerequisites.md). While Portainer may work with other configurations, it may require configuration changes or have limited functionality.
-* You are running a single manager node in your swarm. If you have more than one, please [read this knowledge base article](https://portal.portainer.io/knowledge/how-can-i-ensure-portainers-configuration-is-retained) before proceeding.
-* If your nodes are using DNS records to communicate, that all records are resolvable across the cluster.
-
-## Preparation
-
-To run Portainer Server in a Windows Server/Desktop Environment you need to create exceptions in the firewall. These can easily be added through PowerShell by running the following commands:
+要在Windows Server/Desktop环境中运行Portainer Server，您需要在防火墙中添加例外。可以通过PowerShell运行以下命令轻松添加：
 
 ```
 netsh advfirewall firewall add rule name="cluster_management" dir=in action=allow protocol=TCP localport=2377

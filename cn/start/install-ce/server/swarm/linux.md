@@ -1,41 +1,35 @@
-# Install Portainer CE with Docker Swarm on Linux
+# 在Linux上使用Docker Swarm安装Portainer CE
 
+这些安装说明适用于Portainer社区版(CE)。如需Portainer商业版(BE)，请参考[BE安装文档](../../../install/server/swarm/linux.md)。
 
-These installation instructions are for Portainer Community Edition (CE). For Portainer Business Edition (BE) refer to the [BE install documentation](../../../install/server/swarm/linux.md).
+## 简介 <a href="#introduction" id="introduction"></a>
 
+Portainer由两个组件组成：_Portainer Server_和_Portainer Agent_。这两个组件都作为轻量级Docker容器运行在Docker引擎上。本文档将帮助您在Linux环境中部署Portainer Server和Agent容器。如需将新的Linux Swarm环境添加到现有的Portainer Server安装中，请参考[Portainer Agent安装说明](../../../../admin/environments/add/swarm/agent.md)。
 
-## Introduction <a href="#introduction" id="introduction"></a>
+开始之前，您需要：
 
-Portainer consists of two elements, the _Portainer Server_ and the _Portainer Agent_. Both elements run as lightweight Docker containers on a Docker engine. This document will help you deploy the Portainer Server and Agent containers on your Linux environment. To add a new Linux Swarm environment to an existing Portainer Server installation, please refer to the [Portainer Agent installation instructions](../../../../admin/environments/add/swarm/agent.md).
+* 已安装并运行最新版本的Docker。我们建议遵循Docker的[官方安装说明](https://docs.docker.com/engine/install/) - 特别建议不要在Ubuntu发行版上通过snap安装Docker，因为这可能会导致兼容性问题。
+* 已[启用](https://docs.docker.com/engine/swarm/swarm-mode/)并运行Swarm模式，包括用于swarm服务通信的overlay网络
+* 在swarm集群的管理节点上拥有`sudo`权限
+* 默认情况下，Portainer将通过端口`9443`暴露UI界面，并通过端口`8000`暴露TCP隧道服务器。后者是可选的，仅当您计划使用Edge计算功能与Edge代理时才需要。
+* 管理节点和工作节点必须能够通过端口`9001`相互通信。
 
-To get started, you will need:
+安装说明还对您的环境做出以下假设：
 
-* The latest version of Docker installed and working. We recommend following the [official installation instructions](https://docs.docker.com/engine/install/) for Docker - in particular, we advise _against_ installing Docker via snap on Ubuntu distributions as you may run into compatibility issues.
-* Swarm mode [enabled](https://docs.docker.com/engine/swarm/swarm-mode/) and working, including the overlay network for the swarm service communication
-* `sudo` access on the manager node of your swarm cluster
-* By default, Portainer will expose the UI over port `9443` and expose a TCP tunnel server over port `8000`. The latter is optional and is only required if you plan to use the Edge compute features with Edge agents.
-* The manager and worker nodes must be able to communicate with each other over port `9001`.
+* 您的环境满足[我们的要求](../../../requirements-and-prerequisites.md)。虽然Portainer可能在其他配置下工作，但可能需要配置更改或功能受限。
+* 您通过Unix套接字访问Docker。Docker Swarm不支持通过TCP连接。
+* 运行Docker的机器上已禁用SELinux。
+* Docker以root身份运行。无root权限的Docker运行Portainer有一些限制，并且需要额外配置。
+* 您在swarm中运行单个管理节点。如果有多个，请在进行之前[阅读此知识库文章](https://portal.portainer.io/knowledge/how-can-i-ensure-portainers-configuration-is-retained)。
+* 如果您的节点使用DNS记录进行通信，请确保集群中的所有记录都可解析。
 
-The installation instructions also make the following assumptions about your environment:
+## 部署 <a href="#deployment" id="deployment"></a>
 
-* Your environment meets [our requirements](../../../requirements-and-prerequisites.md). While Portainer may work with other configurations, it may require configuration changes or have limited functionality.
-* You are accessing Docker via Unix sockets. Connecting via TCP is not supported in Docker Swarm.
-* SELinux is disabled on the machine running Docker.
-* Docker is running as root. Portainer with rootless Docker has some limitations, and requires additional configuration.
-* You are running a single manager node in your swarm. If you have more than one, please [read this knowledge base article](https://portal.portainer.io/knowledge/how-can-i-ensure-portainers-configuration-is-retained) before proceeding.
-* If your nodes are using DNS records to communicate, that all records are resolvable across the cluster.
+Portainer可以直接作为服务部署在您的Docker集群中。请注意，此方法将自动部署单个Portainer Server实例，并在集群中的每个节点上全局部署Portainer Agent服务。
 
-## Deployment <a href="#deployment" id="deployment"></a>
+无论集群中有多少节点，只需为您的环境执行此操作**一次**。您**不需要**将集群中的每个节点作为单独的环境添加到Portainer中。将清单部署到您的swarm将自动包含集群中的每个节点。将每个节点作为单独的环境添加也会消耗比您预期更多的许可节点数。
 
-
-
-Portainer can be directly deployed as a service in your Docker cluster. Note that this method will automatically deploy a single instance of the Portainer Server, and deploy the Portainer Agent as a global service on every node in your cluster.
-
-
-Only do this **once** for your environment, regardless of how many nodes are in the cluster. You **do not** need to add each node in your cluster as a separate environment in Portainer. Deploying the manifest to your swarm will include every node in the cluster automatically. Adding each node as a separate environment will also consume more of your licensed node count than you may expect.
-
-
-First, retrieve the stack YML manifest:
+首先，获取stack YML清单：
 
 ```
 curl -L https://downloads.portainer.io/ce-lts/portainer-agent-stack.yml -o portainer-agent-stack.yml
