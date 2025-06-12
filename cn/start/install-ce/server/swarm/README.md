@@ -1,4 +1,4 @@
-# Docker Swarm
+# Docker Swarm 部署
 
 这些安装说明适用于 Portainer 社区版 (CE)。如需 Portainer 商业版 (BE) 的安装说明，请参考 [BE 安装文档](../../../install/server/swarm/)。
 
@@ -9,4 +9,3 @@
 [wsl.md](wsl.md)
 
 [wcs.md](wcs.md)
-

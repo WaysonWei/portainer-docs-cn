@@ -1,83 +1,80 @@
-# Add a new custom template
+# 添加新的自定义模板
 
-## Creating the template
+## 创建模板
 
-From the menu select **Custom Templates** then click **Add Custom Template**.
+从菜单中选择 **Custom Templates** 然后点击 **Add Custom Template**。
 
 <figure><img src="../..//assets/2.19-kubernetes-templates-add.gif" alt=""><figcaption></figcaption></figure>
 
-Complete the form, using the table below as a guide.
+填写表单，参考下表：
 
 | Field/Option | Overview                                                                                         |
 | ------------ | ------------------------------------------------------------------------------------------------ |
-| Title        | Enter a title for your custom template. This is how the template will appear when it's deployed. |
-| Description  | Enter a description of the template.                                                             |
-| Note         | As an optional step, record some extra information about the template.                           |
-| Icon URL     | Optionally, enter the URL to an image to use as an icon for the template.                        |
+| Title        | 输入自定义模板的标题。这将作为模板部署时的显示名称。 |
+| Description  | 输入模板的描述。                                                             |
+| Note         | 可选步骤，记录模板的额外信息。                           |
+| Icon URL     | 可选，输入用作模板图标的图片URL。                        |
 
 <figure><img src="../..//assets/2.15-kubernetes_create_custom_template.png" alt=""><figcaption></figcaption></figure>
 
-Next, select the **Build method**.
+接下来，选择 **Build method**。
 
-## Selecting the build method
+## 选择构建方法
 
-### Method 1: Web editor
+### 方法 1: Web 编辑器
 
-Define or paste the contents of your manifest file into the web editor. When deploying an application using a custom template you will be given an opportunity to edit the manifest before deployment.
+在 web 编辑器中定义或粘贴您的清单文件内容。当使用自定义模板部署应用程序时，您将有机会在部署前编辑清单。
 
-
-You can search within the web editor at any time by pressing `Ctrl-F` (or `Cmd-F` on Mac).
+您可以通过按 `Ctrl-F`（Mac 上是 `Cmd-F`）随时在 web 编辑器中搜索。
 
 
 
 
 <figure><img src="../..//assets/2.19-kubernetes-templates-add-web.png" alt=""><figcaption></figcaption></figure>
 
-When you're ready, click **Create custom template**.
+准备就绪后，点击 **Create custom template**。
 
-### Method 2: Upload
+### 方法 2: 上传
 
-If you have a manifest file locally, you can upload it directly to Portainer. Click **Select file** to browse to the file.
+如果您本地有清单文件，可以直接上传到 Portainer。点击 **Select file** 浏览选择文件。
 
 
 
 <figure><img src="../..//assets/2.19-kubernetes-templates-add-upload.png" alt=""><figcaption></figcaption></figure>
 
-When you're ready, click **Create custom template**.
+准备就绪后，点击 **Create custom template**。
 
-### Method 3: Repository
+### 方法 3: 仓库
 
-If you have a template in a Git repository, you can add it to your custom templates. Enter the required details for access to your Git repository.
+如果您的模板在 Git 仓库中，可以将其添加到自定义模板。输入访问 Git 仓库所需的详细信息。
 
 | Field/Option          | Overview                                                                                                                                  |
 | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| Authentication        | Toggle this option on if your repository requires authentication.                                                                         |
-| Git credentials       | If you have credentials configured you can select the set to use from this dropdown.                                                      |
-| Username              | Enter your Git username.                                                                                                                  |
-| Personal access token | Enter your personal access token or password.                                                                                             |
-| Repository URL        | Enter the URL to your Git repository.                                                                                                     |
-| Repository reference  | Select the reference to use from your repository. This will be auto populated with available references from your repository.             |
-| Manifest path         | Enter the path and filename of the manifest within your repository.                                                                       |
-| Skip TLS Verification | Toggle this option on to skip TLS verification for the repository. This is useful if you are using self-signed certificates on your repo. |
+| Authentication        | 如果您的仓库需要认证，请开启此选项。                                                                         |
+| Git credentials       | 如果已配置凭据，可以从下拉菜单中选择要使用的凭据集。                                                      |
+| Username              | 输入您的 Git 用户名。                                                                                                                  |
+| Personal access token | 输入您的个人访问令牌或密码。                                                                                             |
+| Repository URL        | 输入您的 Git 仓库 URL。                                                                                                     |
+| Repository reference  | 选择要使用的仓库引用。这将自动填充您仓库中可用的引用。             |
+| Manifest path         | 输入仓库中清单文件的路径和文件名。                                                                       |
+| Skip TLS Verification | 开启此选项可跳过仓库的 TLS 验证。这在您使用自签名证书时很有用。 |
 
 <figure><img src="../..//assets/2.19-kubernetes-templates-add-git.png" alt=""><figcaption></figcaption></figure>
 
-When you're ready, click **Create custom template**.
+准备就绪后，点击 **Create custom template**。
 
-## Variables in templates
+## 模板中的变量
 
-Custom templates support the use of variables to provide further customization of the deployed stack. A stack can define a variable that can then be adjusted by the user at deployment.
+自定义模板支持使用变量来进一步定制部署的堆栈。堆栈可以定义一个变量，用户可以在部署时调整该变量。
 
+此功能仅在 Portainer Business Edition 中可用。
 
-This feature is only available in Portainer Business Edition.
-
-
-Variables are identified in stacks with `{{ }}`. For example, the following stack provides a `REPLICA_COUNT` variable:
+变量在堆栈中用 `{{ }}` 标识。例如，以下堆栈提供了一个 `REPLICA_COUNT` 变量：
 
 <figure><img src="../..//assets/2.19-kubernetes-templates-add-variables.png" alt=""><figcaption></figcaption></figure>
 
-When a variable is defined, options appear to customize how the variable appears when deploying the stack. You can set the **label**, **description** and **default value**.
+当定义变量时，会出现选项来自定义变量在部署堆栈时的显示方式。您可以设置 **label**、**description** 和 **default value**。
 
-When a template is deployed, any variables that have been configured are editable:
+当模板部署时，任何已配置的变量都是可编辑的：
 
 <figure><img src="../..//assets/2.19-kubernetes-templates-add-variables-deploy.png" alt=""><figcaption></figcaption></figure>

@@ -1,18 +1,17 @@
 # Cron Jobs & Jobs
 
-This section lists the Cron Jobs and Kubernetes Jobs on your Kubernetes cluster. New cron jobs and Kubernetes Jobs can be created via the **Create from file** button.
+本部分列出了Kubernetes集群中的Cron Jobs和Kubernetes Jobs。可以通过**Create from file**按钮创建新的cron jobs和Kubernetes Jobs。
 
-Select the relevant tab to switch between Cron Jobs and Jobs.
+选择相关选项卡可在Cron Jobs和Jobs之间切换。
 
 ## Cron Jobs
 
-The list of cron jobs can be sorted by any of the columns and filtered by Namespace, and can be expanded to view the executions for each cron job where you can see the status, start and finish times, duration, and view the logs for the execution by clicking **Logs**. To remove a cron job, check the box next to the cron job you want to remove then click the **Remove** button.
+cron jobs列表可按任何列排序并按命名空间过滤，可以展开查看每个cron job的执行情况，包括状态、开始和结束时间、持续时间，并通过点击**Logs**查看执行日志。要删除cron job，请选中要删除的cron job旁边的复选框，然后单击**Remove**按钮。
 
 <figure><img src="../..//assets/2.26-kubernetes-more-resources-jobs-cronjobs.png" alt=""><figcaption></figcaption></figure>
 
 ## Jobs
 
-The list of Kubernetes Jobs can be sorted by any of the columns and filtered by namespace, and the logs for Jobs can be listed by clicking **Logs**. To remove a Job, check the box next to the Job you want to remove then click the **Remove** button.
+Kubernetes Jobs列表可按任何列排序并按命名空间过滤，可以通过点击**Logs**查看Jobs的日志。要删除Job，请选中要删除的Job旁边的复选框，然后单击**Remove**按钮。
 
 <figure><img src="../..//assets/2.26-kubernetes-more-resources-jobs-jobs.png" alt=""><figcaption></figcaption></figure>
-

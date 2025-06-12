@@ -1,12 +1,10 @@
 # Podman
 
 
-These installation instructions are for Portainer Community Edition (CE). For Portainer Business Edition (BE) refer to the [BE install documentation](../../../install/server/podman/).
+这些安装说明适用于 Portainer Community Edition (CE)。对于 Portainer Business Edition (BE)，请参考 [BE 安装文档](../../../install/server/podman/)。
 
 
-Installation instructions can differ between platforms. Please choose your platform below:
+安装说明可能因平台而异。请选择您的平台：
 
 
 [linux.md](linux.md)
-
-

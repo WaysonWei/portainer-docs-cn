@@ -24,6 +24,7 @@ Portainer由两个组件组成：_Portainer Server_和_Portainer Agent_。这两
 * 如果您的节点使用DNS记录进行通信，请确保集群中的所有记录都可解析。
 
 ## 部署 <a href="#deployment" id="deployment"></a>
+部署
 
 Portainer可以直接作为服务部署在您的Docker集群中。请注意，此方法将自动部署单个Portainer Server实例，并在集群中的每个节点上全局部署Portainer Agent服务。
 
@@ -35,17 +36,17 @@ Portainer可以直接作为服务部署在您的Docker集群中。请注意，�
 curl -L https://downloads.portainer.io/ce-lts/portainer-agent-stack.yml -o portainer-agent-stack.yml
 ```
 
-Then use the downloaded YML manifest to deploy your stack:
+然后使用下载的YML清单部署您的堆栈：
 
 ```
 docker stack deploy -c portainer-agent-stack.yml portainer
 ```
 
 
-By default, Portainer generates and uses a self-signed SSL certificate to secure port `9443`. Alternatively you can provide your own SSL certificate [during installation](../../../../advanced/ssl.md#using-your-own-ssl-certificate-on-docker-swarm) or [via the Portainer UI](../../../../admin/settings/#ssl-certificate) after installation is complete.
+默认情况下，Portainer会生成并使用自签名SSL证书来保护端口`9443`。或者，您可以在[安装期间](../../../../advanced/ssl.md#using-your-own-ssl-certificate-on-docker-swarm)或安装完成后[通过Portainer UI](../../../../admin/settings/#ssl-certificate)提供自己的SSL证书。
 
 
-Portainer Server and the Agents have now been installed. You can check to see whether the Portainer Server and Agent containers have started by running `docker ps`:
+Portainer Server和Agent现已安装完成。您可以通过运行`docker ps`来检查Portainer Server和Agent容器是否已启动：
 
 ```
 root@manager01:~# docker ps
@@ -54,18 +55,17 @@ CONTAINER ID   IMAGE                           COMMAND                  CREATED 
 2db7dd4bfba0   portainer/portainer-ce:lts      "/portainer -H tcp:/…"   About a minute ago   Up About a minute   8000/tcp, 9443/tcp   portainer_portainer.1.gpuvu3pqmt1m19zxfo44v7izx
 ```
 
-## Logging In <a href="#logging-in" id="logging-in"></a>
+## 登录 <a href="#logging-in" id="logging-in"></a>
 
-Now that the installation is complete, you can log into your Portainer Server instance by opening a web browser and going to:
+安装完成后，您可以通过打开网页浏览器并访问以下地址登录Portainer Server实例：
 
 ```
 https://localhost:9443
 ```
 
-Replace `localhost` with the relevant IP address or FQDN if needed, and adjust the port if you changed it earlier.
+如果需要，请将`localhost`替换为相关IP地址或FQDN，如果之前更改过端口号也请相应调整。
 
-You will be presented with the initial setup page for Portainer Server.
+您将看到Portainer Server的初始设置页面。
 
 
 [setup.md](../setup.md)
-

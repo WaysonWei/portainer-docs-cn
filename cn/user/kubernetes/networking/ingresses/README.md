@@ -1,27 +1,21 @@
 # Ingresses
 
-An **Ingress** in Kubernetes is an API object that provides routing rules to manage external users' access to the services in a Kubernetes cluster, typically via HTTPS/HTTP. With Ingress, you can easily set up rules for routing traffic without creating a bunch of Load Balancers or exposing each service on the node.
+在 Kubernetes 中，**Ingress** 是一种 API 对象，提供路由规则来管理外部用户对 Kubernetes 集群中服务的访问，通常通过 HTTPS/HTTP。使用 Ingress，您可以轻松设置流量路由规则，而无需创建大量负载均衡器或在节点上暴露每个服务。
 
-To view, edit or create ingresses in your environment, expand **Networking** and select **Ingresses** from the left hand menu.
+要查看、编辑或创建 Ingress，请展开左侧菜单中的 **Networking** 并选择 **Ingresses**。
 
 <figure><img src="../../..//assets/2.20-kubernetes-networking-ingresses.gif" alt=""><figcaption></figcaption></figure>
 
-All the Ingresses that a user has access to are listed on this page.&#x20;
+用户有权访问的所有 Ingress 都列在此页面上。
 
 <figure><img src="../../..//assets/2.20-kubernetes-networking-ingresses-list.png" alt=""><figcaption></figcaption></figure>
 
-New Ingress objects can be created either manually or through a manifest:
-
+新的 Ingress 对象可以通过手动方式或通过 manifest 创建：
 
 [add.md](add.md)
 
-
-
 [manifest.md](manifest.md)
 
-
-If you no longer require an Ingress, it can be removed:
-
+如果不再需要某个 Ingress，可以将其删除：
 
 [remove-an-ingress.md](remove-an-ingress.md)
-

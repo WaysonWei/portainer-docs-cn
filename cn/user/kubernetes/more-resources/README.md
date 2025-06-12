@@ -1,19 +1,6 @@
-# More Resources
+# 更多资源
 
-This section provides access to Kubernetes resources and objects that are not covered by the other menu options.
+本部分提供对其他菜单选项未涵盖的Kubernetes资源和对象的访问。
 
 
 [jobs.md](jobs.md)
-
-
-
-[service-accounts.md](service-accounts.md)
-
-
-
-[cluster-roles.md](cluster-roles.md)
-
-
-
-[namespace-roles.md](namespace-roles.md)
-

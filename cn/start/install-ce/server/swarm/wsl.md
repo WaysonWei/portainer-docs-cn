@@ -36,28 +36,27 @@ Portainer可以直接作为服务部署在您的Docker Swarm集群中。请注�
 curl -L https://downloads.portainer.io/ce-lts/portainer-agent-stack.yml -o portainer-agent-stack.yml
 ```
 
-Then use the downloaded YML manifest to deploy your stack:
+然后使用下载的YML清单部署您的堆栈：
 
 ```bash
 docker stack deploy -c portainer-agent-stack.yml portainer
 ```
 
 
-By default, Portainer generates and uses a self-signed SSL certificate to secure port `9443`. Alternatively you can provide your own SSL certificate [during installation](../../../../advanced/ssl.md#using-your-own-ssl-certificate-on-docker-swarm) or [via the Portainer UI](../../../../admin/settings/#ssl-certificate) after installation is complete.
+默认情况下，Portainer会生成并使用自签名SSL证书来保护端口`9443`。或者，您可以在[安装期间](../../../../advanced/ssl.md#using-your-own-ssl-certificate-on-docker-swarm)或安装完成后[通过Portainer UI](../../../../admin/settings/#ssl-certificate)提供自己的SSL证书。
 
 
-## Logging In
+## 登录
 
-Now that the installation is complete, you can log into your Portainer Server instance by opening a web browser and going to:
+安装完成后，您可以通过打开网页浏览器并访问以下地址登录Portainer Server实例：
 
 ```bash
 https://localhost:9443
 ```
 
-Replace `localhost` with the relevant IP address or FQDN if needed, and adjust the port if you changed it earlier.
+如果需要，请将`localhost`替换为相关IP地址或FQDN，如果之前更改过端口号也请相应调整。
 
-You will be presented with the initial setup page for Portainer Server.
+您将看到Portainer Server的初始设置页面。
 
 
 [setup.md](../setup.md)
-

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c1d38b74-687d-4dc8-918e-dcf1b3bb27b0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/cn/start/install-ce/server/podman/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/cn/start/install-ce/server/podman/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/start/install-ce/server/podman/linux.md" beforeDir="false" afterPath="$PROJECT_DIR$/cn/start/install-ce/server/podman/linux.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/start/install-ce/server/swarm/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/cn/start/install-ce/server/swarm/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/start/install-ce/server/swarm/linux.md" beforeDir="false" afterPath="$PROJECT_DIR$/cn/start/install-ce/server/swarm/linux.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/start/install-ce/server/swarm/wcs.md" beforeDir="false" afterPath="$PROJECT_DIR$/cn/start/install-ce/server/swarm/wcs.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/start/install-ce/server/swarm/wsl.md" beforeDir="false" afterPath="$PROJECT_DIR$/cn/start/install-ce/server/swarm/wsl.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/user/docker/volumes/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/cn/user/docker/volumes/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/user/docker/volumes/add.md" beforeDir="false" afterPath="$PROJECT_DIR$/cn/user/docker/volumes/add.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/user/docker/volumes/browse.md" beforeDir="false" afterPath="$PROJECT_DIR$/cn/user/docker/volumes/browse.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/user/docker/volumes/remove.md" beforeDir="false" afterPath="$PROJECT_DIR$/cn/user/docker/volumes/remove.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/user/kubernetes/more-resources/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/cn/user/kubernetes/more-resources/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/user/kubernetes/more-resources/cluster-roles.md" beforeDir="false" afterPath="$PROJECT_DIR$/cn/user/kubernetes/more-resources/cluster-roles.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/user/kubernetes/more-resources/jobs.md" beforeDir="false" afterPath="$PROJECT_DIR$/cn/user/kubernetes/more-resources/jobs.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/user/kubernetes/more-resources/namespace-roles.md" beforeDir="false" afterPath="$PROJECT_DIR$/cn/user/kubernetes/more-resources/namespace-roles.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/user/kubernetes/more-resources/service-accounts.md" beforeDir="false" afterPath="$PROJECT_DIR$/cn/user/kubernetes/more-resources/service-accounts.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/user/kubernetes/networking/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/cn/user/kubernetes/networking/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/user/kubernetes/networking/ingresses/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/cn/user/kubernetes/networking/ingresses/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/user/kubernetes/networking/ingresses/add.md" beforeDir="false" afterPath="$PROJECT_DIR$/cn/user/kubernetes/networking/ingresses/add.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/user/kubernetes/networking/ingresses/manifest.md" beforeDir="false" afterPath="$PROJECT_DIR$/cn/user/kubernetes/networking/ingresses/manifest.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/user/kubernetes/networking/ingresses/remove-an-ingress.md" beforeDir="false" afterPath="$PROJECT_DIR$/cn/user/kubernetes/networking/ingresses/remove-an-ingress.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/user/kubernetes/networking/services.md" beforeDir="false" afterPath="$PROJECT_DIR$/cn/user/kubernetes/networking/services.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/user/kubernetes/templates/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/cn/user/kubernetes/templates/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/user/kubernetes/templates/add.md" beforeDir="false" afterPath="$PROJECT_DIR$/cn/user/kubernetes/templates/add.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/user/kubernetes/templates/edit.md" beforeDir="false" afterPath="$PROJECT_DIR$/cn/user/kubernetes/templates/edit.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/user/kubernetes/templates/remove.md" beforeDir="false" afterPath="$PROJECT_DIR$/cn/user/kubernetes/templates/remove.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/user/kubernetes/volumes/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/cn/user/kubernetes/volumes/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/user/kubernetes/volumes/inspect.md" beforeDir="false" afterPath="$PROJECT_DIR$/cn/user/kubernetes/volumes/inspect.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/user/kubernetes/volumes/remove.md" beforeDir="false" afterPath="$PROJECT_DIR$/cn/user/kubernetes/volumes/remove.md" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 1
+}]]></component>
+  <component name="ProjectId" id="2yQL3DdiJ9CEHiHi14RaCuPgb5n" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/richard/Downloads/honkit"
+  }
+}]]></component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c1d38b74-687d-4dc8-918e-dcf1b3bb27b0" name="Changes" comment="" />
+      <created>1749761648412</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1749761648412</updated>
+    </task>
+    <servers />
+  </component>
+</project>

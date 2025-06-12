@@ -1,35 +1,35 @@
-# Inspect a volume
+# 检查卷
 
-From the menu select **Volumes** then select the volume you want to inspect.
+从菜单中选择**Volumes**，然后选择要检查的卷。
 
 <figure><img src="../..//assets/2.15-k8s_kubernetes_volume_inspect.gif" alt=""><figcaption></figcaption></figure>
 
-When you select a volume, the screen will divide into three sections, each described below.
+选择卷后，屏幕将分为三个部分，每个部分描述如下。
 
-## Volume section
+## 卷部分
 
-Summarizes key information about the volume.
+总结有关卷的关键信息。
 
-| Attribute            | Overview                                                                                                                                             |
-| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Name                 | The name of the volume.                                                                                                                              |
-| Namespace            | The namespace that the volume belongs to.                                                                                                            |
-| Storage              | The storage object that the volume uses.                                                                                                             |
-| Shared Access Policy | The access policy configured for the volume.                                                                                                         |
-| Provisioner          | The storage provisioner that provisions the volume.                                                                                                  |
-| Creation date        | When the volume was created.                                                                                                                         |
-| Size                 | The size of the volume. You can grow a volume by clicking the **Increase size** button and adjusting the value. Shrinking a volume is not supported. |
+| 属性               | 概述                                                                                                                                             |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Name               | 卷的名称。                                                                                                                                      |
+| Namespace          | 卷所属的命名空间。                                                                                                                              |
+| Storage            | 卷使用的存储对象。                                                                                                                              |
+| Shared Access Policy | 为卷配置的访问策略。                                                                                                                            |
+| Provisioner        | 提供卷的存储供应器。                                                                                                                            |
+| Creation date      | 卷的创建时间。                                                                                                                                  |
+| Size               | 卷的大小。可以通过点击**Increase size**按钮并调整值来增加卷的大小。不支持缩小卷。                                                                |
 
 <figure><img src="../..//assets/2.15-kubernetes_volumes_volume_section.png" alt=""><figcaption></figcaption></figure>
 
-## Events section
+## 事件部分
 
-Shows information about volume-related events.
+显示与卷相关的事件信息。
 
 <figure><img src="../..//assets/2.15-k8s-volumes-inspect-events.png" alt=""><figcaption></figcaption></figure>
 
-## YAML section
+## YAML部分
 
-This displays the YAML generated from the volume deployment. Use it to create backups of the configuration.
+显示从卷部署生成的YAML。可用于创建配置备份。
 
 <figure><img src="../..//assets/2.15-kubernetes_volume_volume_yaml.png" alt=""><figcaption></figcaption></figure>

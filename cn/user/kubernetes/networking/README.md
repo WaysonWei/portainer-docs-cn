@@ -1,11 +1,7 @@
-# Networking
+# 网络
 
-This section allows you to create, configure and manage networking-related objects within your Kubernetes environment.
-
+本节允许您在 Kubernetes 环境中创建、配置和管理与网络相关的对象。
 
 [services.md](services.md)
 
-
-
 [ingresses](ingresses/)
-
