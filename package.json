@@ -12,7 +12,7 @@
   "author": "",
   "license": "ISC",
   "description": "HonKit documentation project",
-  "devDependencies": {
+  "dependencies": {
     "honkit": "^6.0.3"
   }
 }
