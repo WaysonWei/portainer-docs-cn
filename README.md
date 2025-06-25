@@ -27,32 +27,39 @@ The development server will be available at `http://localhost:4000`.
 
 ## Docker
 
-### Building the Docker Image
+### Using Docker Compose (Recommended)
+```bash
+# Build and start the container
+docker-compose up -d
+
+# View logs
+docker-compose logs -f
+
+# Stop the container
+docker-compose down
+
+# Rebuild and restart
+docker-compose up -d --build
+```
+
+The documentation will be available at `http://localhost:8080`.
+
+### Alternative: Manual Docker Commands
 ```bash
 # Build the image
 docker build -t honkit-docs .
 
 # Run the container
-docker run -p 8080:80 honkit-docs
+docker run -p 8080:80 --name portainer-docs-cn honkit-docs
 ```
 
-The documentation will be available at `http://localhost:8080`.
-
-### Docker Compose (Optional)
-Create a `docker-compose.yml` file:
-```yaml
-version: '3.8'
-services:
-  docs:
-    build: .
-    ports:
-      - "8080:80"
-    restart: unless-stopped
-```
-
-Then run:
+### Using Pre-built Image from Docker Hub
 ```bash
-docker-compose up -d
+# Pull and run the published image
+docker run -p 8080:80 --name portainer-docs-cn waysonwei/portainer-docs-cn:latest
+
+# Or modify docker-compose.yml to use the published image
+# (see comments in docker-compose.yml file)
 ```
 
 ## GitHub Actions CI/CD
@@ -103,6 +110,7 @@ The workflow creates the following tags:
 │   └── workflows/
 │       └── docker-build-push.yml  # CI/CD workflow
 ├── Dockerfile          # Docker build configuration
+├── docker-compose.yml  # Docker Compose configuration
 ├── .dockerignore       # Docker ignore file
 ├── package.json        # Node.js dependencies and scripts
 └── README.md          # This file
@@ -137,7 +145,9 @@ Create a `book.json` file in the root directory to configure HonKit plugins and 
 ### Docker Issues
 - Check Docker is running: `docker --version`
 - Verify build context: ensure you're in the project root
-- Check logs: `docker logs <container-id>`
+- Check logs: `docker-compose logs` or `docker logs <container-id>`
+- Rebuild containers: `docker-compose up -d --build`
+- Reset everything: `docker-compose down && docker-compose up -d --build`
 
 ## Contributing
 

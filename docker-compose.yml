@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  honkit-docs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+    container_name: portainer-docs-cn
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Alternative service using pre-built image from Docker Hub
+  # Uncomment this and comment out the above service to use the published image
+  # honkit-docs-published:
+  #   image: waysonwei/portainer-docs-cn:latest
+  #   ports:
+  #     - "8080:80"
+  #   restart: unless-stopped
+  #   container_name: portainer-docs-cn-published
+  #   healthcheck:
+  #     test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost/"]
+  #     interval: 30s
+  #     timeout: 10s
+  #     retries: 3
+  #     start_period: 40s
