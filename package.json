@@ -3,12 +3,15 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "build": "honkit build",
+    "serve": "honkit serve",
+    "dev": "honkit serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": ["documentation", "honkit", "gitbook"],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "HonKit documentation project",
   "devDependencies": {
     "honkit": "^6.0.3"
   }
