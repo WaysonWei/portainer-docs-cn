@@ -58,6 +58,5 @@ node_modules/
 # Build output (will be generated during build)
 _book
 
-# Documentation
-README.md
-*.md
+# Only exclude the root README.md, not the content README files
+/README.md
