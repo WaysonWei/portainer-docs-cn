@@ -19,7 +19,7 @@ services:
   # Alternative service using pre-built image from Docker Hub
   # Uncomment this and comment out the above service to use the published image
   # honkit-docs-published:
-  #   image: waysonwei/portainer-docs-cn:latest
+  #   image: beos2020/portainer-docs-cn:latest
   #   ports:
   #     - "8080:80"
   #   restart: unless-stopped

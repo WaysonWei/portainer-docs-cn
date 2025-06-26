@@ -33,13 +33,13 @@ The development server will be available at `http://localhost:4000`.
 docker-compose up -d
 
 # View logs
-docker-compose logs -f
+docker compose logs -f
 
 # Stop the container
-docker-compose down
+docker compose down
 
 # Rebuild and restart
-docker-compose up -d --build
+docker compose up -d --build
 ```
 
 The documentation will be available at `http://localhost:8080`.
@@ -56,7 +56,7 @@ docker run -p 8080:80 --name portainer-docs-cn honkit-docs
 ### Using Pre-built Image from Docker Hub
 ```bash
 # Pull and run the published image
-docker run -p 8080:80 --name portainer-docs-cn waysonwei/portainer-docs-cn:latest
+docker run -p 8080:80 --name portainer-docs-cn beos2020/portainer-docs-cn:latest
 
 # Or modify docker-compose.yml to use the published image
 # (see comments in docker-compose.yml file)
